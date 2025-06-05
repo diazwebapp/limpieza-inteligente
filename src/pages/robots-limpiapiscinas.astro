@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+
+---
+<Layout title="Robots Limpiapiscinas: Mantenimiento Inteligente para tu Piscina" description="Descubre los mejores robots limpiapiscinas para un mantenimiento eficiente y sin esfuerzo. Guía completa, comparativas y modelos para fondos, paredes y línea de flotación. ¡Disfruta de una piscina siempre impecable!" >
+  <main>
+    <section class="container category-header">
+        
+        <h1 class="category-title" >Robots Limpiapiscinas: Disfruta de una Piscina Siempre Impecable</h1>
+        
+        <p class="category-p">Estos dispositivos inteligentes se encargan de fregar el fondo, las paredes e incluso la línea de flotación, liberándote para disfrutar más de tu tiempo libre.</p>
+    </section>
+       
+</main>
+</Layout>
+
+<style is:inline>
+    .category-header {
+    background-image: url("https://s10.s3c.es/imag/_v0/1920x1080/2/e/4/aiper1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative; /* Necesario para posicionar el overlay */
+    width: unset;
+    padding: 2rem 1rem ;
+}
+
+.category-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9); /* Color negro con 50% de opacidad */
+    z-index: 1; /* Coloca el overlay encima de la imagen */
+}
+
+.category-header > * {
+    position: relative;
+    z-index: 2; /* Coloca el contenido encima del overlay */
+}
+.category-title, .category-p{
+    color: var(--light);
+}
+.category-p{
+    opacity: .6;
+    margin-top: -20px;
+    text-align: center;
+}
+@media (min-width:768px){
+    .category-header {
+        width: inherit;
+        padding: 7rem 1rem;
+    }
+}
+</style>

@@ -1,0 +1,282 @@
+---
+import { ClientRouter } from "astro:transitions";
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+    <!-- <link rel="canonical" href="https://www.tudominio.com/">-->
+     <ClientRouter />
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="/"><strong class="app-title">Limpiador Robot</strong></a>
+            <nav class="app-nav-header" >
+                <a href="/robot-aspirador-fregasuelos">Robot limpia pisos</a>
+                <a href="/robots-limpiacristales">Robot limpia ventanas</a>
+                <a href="/robots-limpiapiscinas">Robot para Piscinas</a>
+            </nav>
+        </div>
+    </header>
+    <nav class="app-nav" >
+        <strong class="app-nav-title">Categorías</strong>
+        <a href="/robot-aspirador-fregasuelos">Robot limpia pisos</a>
+        <a href="/robots-limpiacristales">Robot limpia ventanas</a>
+        <a href="/robots-limpiapiscinas">Robot para Piscinas</a>
+    </nav>
+    <slot />
+
+    <footer>
+        <div class="container">
+            <a href="/"><strong class="app-title">Limpiador Robot</strong></a>
+            <div class="btn-menu"> </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<style is:global>
+    :root {
+  /* Color palette */
+  --primary: #003366;
+  --secondary: #04a3d3;
+  --success: #00CC66;
+  --warning: #F59E0B;
+  --error: #EF4444;
+  --light: #f5f3f3;
+  
+  /* Typography */
+  font-family: "Zed Display", "Helvetica Neue", Roboto, sans-serif;
+  line-height: 1.3;
+  
+  background-color: var(--light);
+  /* Text rendering */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;  
+  /* Colors */
+  color: var(--primary);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-weight: 500;
+  scroll-behavior: smooth;
+  padding-bottom: 60px; /* Espacio para el footer */
+}
+
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+main section:first-child {
+  padding-top: unset;
+}
+main section {
+  padding-top: 40px;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  padding: 10px 0;
+  color: var(--primary);
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+strong {
+  color:var(--secondary)
+}
+
+
+.btn-menu {
+    width: 50px;
+    height: 40px;
+    position: relative;
+    border-top: 6px solid var(--primary);
+}
+.btn-menu::after,.btn-menu::before{
+    content: "";
+    width: 50px;
+    height: 6px;
+    background-color: var(--primary);
+    position: absolute;
+    top:10px;
+}
+.btn-menu::before{
+    top:25px;
+}
+.app-title,.app-nav-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary);
+    text-align: center;
+    margin: 0 auto;
+    
+}
+.app-nav-title,.app-nav a {
+    text-align: center;
+    display: block;
+    border-bottom: 2px solid var(--light);
+    width: 200px;
+    background-color: white;
+    border-radius: 1rem 1rem 0 0;
+    margin: 0 !important;
+    padding: 10px;
+}
+.app-nav a{
+    border-radius:unset;
+}
+.app-nav a:last-child{
+    border-radius: 0 0 1rem 1rem;
+}
+.app-nav{
+    width: 100vw;
+    height: calc(100% - 60px);
+    top:0;
+    right:-100vw;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .8);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    z-index: 1000;
+    padding: 10px;
+    transition: all ease-in-out .3s;
+}
+.app-nav a{
+    margin-bottom: 10px;
+    text-align: left;
+}
+.app-nav a.active{
+    border-bottom: 3px solid var(--success);
+}
+body > footer, body > header {
+    width: 100%;
+    height: 60px;
+    padding: 10px 0;
+    position: fixed;
+    backdrop-filter: blur(2px);
+    box-shadow: 0px .5px 2px rgba(0, 0, 0, .1);
+    background-color: rgba(255, 255, 255, .8);
+    z-index: 1000;
+}
+body > footer .container, body > header .container{
+    
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+body > header, .app-nav-header{
+    top:0;
+    display: none;
+}
+body > footer{
+    bottom: 0;
+}
+
+/* Responsive Media Queries */
+@media (min-width: 920px) {
+    body{
+        padding-top: 60px;
+    }
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+  }
+  
+  body > header,.app-nav-header{
+    display: inline-flex;
+}
+.app-nav-header a{
+    margin: 0 5px;
+    padding: 10px;
+}
+body > footer{
+    position:relative;
+    z-index: unset;
+}
+  body > footer .app-title, body > footer .btn-menu{
+    display: none;
+  }
+  
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  .container {
+    max-width: 1270px;
+  }
+}
+</style>
+
+<script is:inline >
+    document.addEventListener("astro:page-load", () => {
+        const btnMenu = document.querySelector(".btn-menu");
+        const appNav = document.querySelector(".app-nav");
+        if(btnMenu && appNav) {
+            btnMenu.addEventListener("click", () => {
+            console.log("Menu button clicked");
+            appNav.style.right = appNav.style.right === "0px" ? "-100vw" : "0px";
+        });
+        }
+    });
+</script>

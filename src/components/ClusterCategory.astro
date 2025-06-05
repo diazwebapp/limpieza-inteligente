@@ -1,0 +1,125 @@
+---
+const cats = [
+    {
+        title: "Robots Aspirador Friegasuelos Cecotec | Conga: Limpieza Inteligente",
+        image: "/robot-cecotec.webp",
+        thubnail: "/robot-cecotec.webp",
+        link: "/cecotec",
+        description: "Descubre el robot aspirador y friegasuelos Cecotec Conga perfecto para tu hogar. Aspira y friega a la vez con tecnología inteligente. ¡Adiós a la suciedad, hola a la comodidad!."
+    },
+    {
+        title: "Roomba Aspirador Friegasuelos | iRobot Roomba Combo: Limpieza Definitiva",
+        image: "/robot-roomba.webp",
+        thubnail: "/robot-roomba.webp",
+        link: "/roomba",
+        description: "Descubre el Roomba aspirador fregasuelos ideal para tu hogar. La tecnología iRobot Roomba Combo aspira y friega a la vez. ¡Máxima eficiencia y limpieza sin esfuerzo!"
+    },
+    {
+        title: "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente",
+        image: "/robot-xiaomi.webp",
+        thubnail: "/robot-xiaomi.webp",
+        link: "/xiaomi",
+        description: "Descubre el robot aspirador y fregasuelos Xiaomi ideal para tu hogar. La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!"
+    }
+    // Puedes añadir más categorías aquí
+]
+---
+
+<div class="cluster-nav">
+    {cats.map(cat => (
+        <a href={cat.link} class="cluster-item">
+            <article>
+                <figure>
+                    <img src={cat.image} alt={cat.title} loading="lazy" width="200" height="200"/>
+                </figure>
+                <div class="content">
+                    <h2>{cat.title}</h2>
+                    <p>{cat.description}</p>
+                </div>
+            </article>
+        </a>
+    ))}
+</div>
+<style>
+/*Cluster de navegacion*/
+.cluster-nav article{
+    display: flex;
+    flex-direction: column; /* Cambia a columna en mobile */
+    border-radius: 8px;
+    transition: all ease-in-out .3s;
+}
+.cluster-nav article:hover{
+    transform: scale(1.02);
+}
+.cluster-nav article .content {
+  width: 100%; /* Ocupa todo el ancho en mobile */
+  display: block;
+  padding: 16px;
+  order: 2;
+}
+.cluster-nav article figure {
+  width: 100%; /* Ocupa todo el ancho en mobile */
+  height: 220px; /* Altura automática para mantener la proporción */
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 0; /* Elimina el margen superior en mobile */
+  order: 1;
+  padding:10px;
+}
+.cluster-nav article figure img {
+    width: 200px; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto;
+}
+.cluster-nav a:nth-child(2n) article .content {
+  order: 2; /* Mantiene el orden en mobile */
+}
+.cluster-nav a:nth-child(2n) article figure {
+  order: 1; /* Mantiene el orden en mobile */
+}
+
+/* Estilos para mobile */
+.cluster-nav article figure {
+    background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 512px) {
+ .cluster-nav article{
+    display: flex;
+    flex-flow: row nowrap; /* Vuelve a la fila en desktop */
+    border-radius: 8px;
+    transition: all ease-in-out .3s;
+}
+.cluster-nav article:hover{
+    transform: scale(1.02);
+}
+.cluster-nav article .content {
+  width: calc(100% - 300px);
+  display: block;
+  padding: 16px;
+  order: 2;
+}
+.cluster-nav article figure {
+    width:200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 15px;
+  order: 1;
+}
+.cluster-nav article figure img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: auto;
+    object-fit: cover; /* Mantiene la proporción de la imagen */
+}
+.cluster-nav a:nth-child(2n) article .content {
+  order: 1;
+}
+.cluster-nav a:nth-child(2n) article figure {
+  order: 2;
+}
+
+}
+</style>

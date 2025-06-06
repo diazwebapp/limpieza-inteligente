@@ -1,5 +1,6 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import Nav from "../components/Nav.astro";
 
 const { title, description } = Astro.props;
 ---
@@ -17,42 +18,39 @@ const { title, description } = Astro.props;
 <body>
 
     <header>
-        <div class="container">
+        <div class="container header-container">
             <a href="/"><strong class="app-title">Limpiador Robot</strong></a>
-            <nav class="app-nav-header" >
-                <a href="/robot-aspirador-fregasuelos">Robot limpia pisos</a>
-                <a href="/robots-limpiacristales">Robot limpia ventanas</a>
-                <a href="/robots-limpiapiscinas">Robot para Piscinas</a>
-            </nav>
+            <Nav />
         </div>
     </header>
-    <nav class="app-nav" >
-        <strong class="app-nav-title">Categorías</strong>
-        <a href="/robot-aspirador-fregasuelos">Robot limpia pisos</a>
-        <a href="/robots-limpiacristales">Robot limpia ventanas</a>
-        <a href="/robots-limpiapiscinas">Robot para Piscinas</a>
-    </nav>
+
     <slot />
 
     <footer>
-        <div class="container">
+        <div class="container footer-container">
             <a href="/"><strong class="app-title">Limpiador Robot</strong></a>
-            <div class="btn-menu"> </div>
+            <button class="hamburger" aria-label="Abrir menú" aria-controls="mobile-nav" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+        <nav id="mobile-nav" class="mobile-nav">
+            <Nav />
+        </nav>
     </footer>
 
 </body>
 </html>
 
 <style is:global>
-    :root {
+:root {
   /* Color palette */
   --primary: #003366;
-  --secondary: #04a3d3;
+  --secondary: #99068C;
   --success: #00CC66;
   --warning: #F59E0B;
   --error: #EF4444;
   --light: #f5f3f3;
+  --rounded: .6rem;
   
   /* Typography */
   font-family: "Zed Display", "Helvetica Neue", Roboto, sans-serif;
@@ -83,10 +81,12 @@ body {
   font-weight: 500;
   scroll-behavior: smooth;
   padding-bottom: 60px; /* Espacio para el footer */
+  font-size:large;
 }
 
 .container {
   width: 95%;
+  max-width:1080px;
   margin: 0 auto;
 }
 main section:first-child {
@@ -129,38 +129,101 @@ strong {
 }
 
 
-.btn-menu {
-    width: 50px;
-    height: 40px;
-    position: relative;
-    border-top: 6px solid var(--primary);
+/* Header solo visible en desktop */
+body > header {
+  top: 0;
+  bottom: unset;
+  display: none;
 }
-.btn-menu::after,.btn-menu::before{
-    content: "";
-    width: 50px;
-    height: 6px;
-    background-color: var(--primary);
-    position: absolute;
-    top:10px;
+
+
+/* Footer fijo en mobile con menú hamburguesa */
+body > footer {
+    width: 100%;
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    backdrop-filter: blur(2px);
+    box-shadow: 0px .5px 2px rgba(0, 0, 0, .1);
+    background-color: rgba(255, 255, 255, .95);
+    z-index: 1000;
 }
-.btn-menu::before{
-    top:25px;
+.footer-container,.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.app-title,.app-nav-title {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--primary);
-    text-align: center;
-    margin: 0 auto;
-    
+.hamburger {
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1100;
 }
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+.mobile-nav {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    background: #fff;
+    box-shadow: 0 -2px 16px 0 rgba(0,0,0,0.08);
+    z-index: 1050;
+    padding: 20px 0 10px 0;
+    border-radius: 1rem 1rem 0 0;
+    animation: fadeInUp 0.2s;
+}
+.mobile-nav.open {
+    display: block;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@media (min-width: 920px) {
+    body{
+        padding-top: 60px;
+        padding-bottom: 0;
+    }
+    body > header {
+      display: flex;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+    }
+     
+    body > footer {
+        display: none !important;
+    }
+}
+@media (min-width: 1281px) {
+  .container{
+      max-width:1280px;
+     }
+    }
+
 .app-nav-title,.app-nav a {
     text-align: center;
     display: block;
     border-bottom: 2px solid var(--light);
     width: 200px;
     background-color: white;
-    border-radius: 1rem 1rem 0 0;
+    border-radius: var(--rounded) var(--rounded) 0 0;
     margin: 0 !important;
     padding: 10px;
 }
@@ -168,115 +231,34 @@ strong {
     border-radius:unset;
 }
 .app-nav a:last-child{
-    border-radius: 0 0 1rem 1rem;
+    border-radius: 0 0 var(--rounded) var(--rounded);
 }
-.app-nav{
-    width: 100vw;
-    height: calc(100% - 60px);
-    top:0;
-    right:-100vw;
-    position: fixed;
-    background-color: rgba(0, 0, 0, .8);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    z-index: 1000;
-    padding: 10px;
-    transition: all ease-in-out .3s;
-}
-.app-nav a{
-    margin-bottom: 10px;
-    text-align: left;
-}
-.app-nav a.active{
-    border-bottom: 3px solid var(--success);
-}
-body > footer, body > header {
-    width: 100%;
-    height: 60px;
-    padding: 10px 0;
-    position: fixed;
-    backdrop-filter: blur(2px);
-    box-shadow: 0px .5px 2px rgba(0, 0, 0, .1);
-    background-color: rgba(255, 255, 255, .8);
-    z-index: 1000;
-}
-body > footer .container, body > header .container{
-    
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-}
-body > header, .app-nav-header{
-    top:0;
-    display: none;
-}
-body > footer{
-    bottom: 0;
-}
-
-/* Responsive Media Queries */
-@media (min-width: 920px) {
-    body{
-        padding-top: 60px;
-    }
-  h1 {
-    font-size: 2rem;
-  }
-  
-  h2 {
-    font-size: 1.5rem;
-  }
-  
-  h3 {
-    font-size: 1.3rem;
-  }
-  
-  body > header,.app-nav-header{
-    display: inline-flex;
-}
-.app-nav-header a{
-    margin: 0 5px;
-    padding: 10px;
-}
-body > footer{
-    position:relative;
-    z-index: unset;
-}
-  body > footer .app-title, body > footer .btn-menu{
-    display: none;
-  }
-  
-}
-
-@media (min-width: 1280px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  h2 {
-    font-size: 1.8rem;
-  }
-  
-  h3 {
-    font-size: 1.5rem;
-  }
-  .container {
-    max-width: 1270px;
-  }
+.footer-nav a {
+    font-size: 1rem;
+    color: var(--primary);
+    padding: 10px 12px;
+    border-radius: var(--rounded);
+    background: none;
+    transition: background 0.2s;
 }
 </style>
 
-<script is:inline >
-    document.addEventListener("astro:page-load", () => {
-        const btnMenu = document.querySelector(".btn-menu");
-        const appNav = document.querySelector(".app-nav");
-        if(btnMenu && appNav) {
-            btnMenu.addEventListener("click", () => {
-            console.log("Menu button clicked");
-            appNav.style.right = appNav.style.right === "0px" ? "-100vw" : "0px";
+<script is:inline>
+document.addEventListener("astro:page-load", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const mobileNav = document.getElementById("mobile-nav");
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener("click", () => {
+            const isOpen = mobileNav.classList.toggle("open");
+            hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
         });
-        }
-    });
+        // Cierra el menú al navegar
+        mobileNav.addEventListener("click", (e) => {
+            if (e.target.tagName === "A") {
+                mobileNav.classList.remove("open");
+                hamburger.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
+});
 </script>

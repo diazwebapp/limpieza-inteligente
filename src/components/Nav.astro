@@ -1,0 +1,202 @@
+---
+const marcas = [
+  { name: "Cecotec", link: "/cecotec" },
+  { name: "Roomba", link: "/roomba" },
+  { name: "Xiaomi", link: "/xiaomi" }
+];
+const caracteristicas = [
+  // Puedes agregar características aquí más adelante
+];
+---
+
+<nav class="nav-dropdown">
+  <ul>
+    <li class="dropdown">
+      <button type="button" class="dropdown-toggle" aria-expanded="false">Marcas</button>
+      <ul class="dropdown-menu">
+        {marcas.map(marca => (
+          <li><a href={marca.link}>{marca.name}</a></li>
+        ))}
+      </ul>
+    </li>
+    <li class="dropdown">
+      <button type="button" class="dropdown-toggle" aria-expanded="false">Características</button>
+      <ul class="dropdown-menu">
+        {caracteristicas.length === 0 ? (
+          <li class="empty">Próximamente...</li>
+        ) : (
+          caracteristicas.map(carac => (
+            <li><a href={carac.link}>{carac.name}</a></li>
+          ))
+        )}
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<style>
+:root {
+  --rounded: .6rem;
+}
+.nav-dropdown {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.nav-dropdown ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+}
+.nav-dropdown .dropdown {
+  position: relative;
+}
+.nav-dropdown button {
+  color: var(--primary);
+  font-weight: 700;
+  border: none;
+  padding: 10px 18px;
+  border-radius: var(--rounded) var(--rounded) 0 0;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+  transition: background 0.2s;
+  min-width: 120px;
+}
+.nav-dropdown button:hover,
+.nav-dropdown button:focus {
+  background: var(--secondary);
+  color: #fff;
+}
+.nav-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 120px;
+  width: max-content;
+  max-width: 90vw;
+  background: #fff;
+  border-radius: 0 0 var(--rounded) var(--rounded);
+  box-shadow: 0 4px 16px 0 rgba(0,0,0,0.08);
+  z-index: 10;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+.nav-dropdown .dropdown-menu li {
+  border-bottom: 1px solid #f0f0f0;
+  white-space: nowrap;
+}
+.nav-dropdown .dropdown-menu li:last-child {
+  border-bottom: none;
+}
+.nav-dropdown .dropdown-menu a {
+  display: block;
+  padding: 12px 18px;
+  color: var(--primary);
+  text-decoration: none;
+  transition: background 0.2s;
+  border-radius: 0 0 var(--rounded) var(--rounded);
+}
+.nav-dropdown .dropdown-menu a:hover {
+  background: var(--secondary);
+  color: #fff;
+}
+.nav-dropdown .dropdown-menu .empty {
+  padding: 12px 18px;
+  color: #888;
+  font-style: italic;
+}
+
+/* Desktop: mostrar con hover */
+@media (min-width: 920px) {
+  .nav-dropdown .dropdown:hover .dropdown-menu,
+  .nav-dropdown .dropdown:focus-within .dropdown-menu {
+    display: block;
+  }
+}
+
+/* MOBILE: menú vertical y expandible */
+@media (max-width: 919px) {
+  .nav-dropdown ul {
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    align-items: stretch;
+  }
+  .nav-dropdown .dropdown {
+    width: 100%;
+  }
+  .nav-dropdown button {
+    width: 100%;
+    border-radius: var(--rounded) var(--rounded) 0 0;
+    text-align: left;
+  }
+  .nav-dropdown .dropdown-menu {
+    position: static;
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    border-radius: 0 0 var(--rounded) var(--rounded);
+    box-shadow: none;
+    max-height: 80vh;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    display: block;
+  }
+}
+</style>
+
+<script is:inline>
+document.addEventListener("astro:page-load", () => {
+  function closeAllDropdowns(currentDropdown = null) {
+    const dropdowns = document.querySelectorAll('.dropdown');
+    for (let i = 0; i < dropdowns.length; i++) {
+      const dropdown = dropdowns[i];
+      if (dropdown !== currentDropdown) {
+        dropdown.classList.remove('open');
+        const btn = dropdown.querySelector('.dropdown-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      }
+    }
+  }
+
+  const allDropdowns = document.querySelectorAll('.nav-dropdown .dropdown');
+  for (let i = 0; i < allDropdowns.length; i++) {
+    const dropdown = allDropdowns[i];
+    const btn = dropdown.querySelector('.dropdown-toggle');
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = dropdown.classList.contains('open');
+        if (!isOpen) {
+          closeAllDropdowns(dropdown);
+          dropdown.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        } else {
+          dropdown.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+    const links = dropdown.querySelectorAll('.dropdown-menu a');
+    for (let j = 0; j < links.length; j++) {
+      links[j].addEventListener('click', () => {
+        dropdown.classList.remove('open');
+        if (window.innerWidth <= 919) {
+          setTimeout(() => {
+            closeAllDropdowns();
+          }, 200);
+        }
+      });
+    }
+  }
+
+  document.addEventListener('click', () => {
+    closeAllDropdowns();
+  });
+});
+</script>

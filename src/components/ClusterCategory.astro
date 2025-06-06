@@ -41,85 +41,84 @@ const cats = [
     ))}
 </div>
 <style>
-/*Cluster de navegacion*/
-.cluster-nav article{
-    display: flex;
-    flex-direction: column; /* Cambia a columna en mobile */
-    border-radius: 8px;
-    transition: all ease-in-out .3s;
+/* Cluster de navegacion */
+.cluster-nav article {
+  display: flex;
+  flex-direction: column; /* Default to column for mobile */
+  border-radius: var(--rounded);
+  transition: all ease-in-out 0.3s;
 }
-.cluster-nav article:hover{
-    transform: scale(1.02);
+
+.cluster-nav article:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 .cluster-nav article .content {
-  width: 100%; /* Ocupa todo el ancho en mobile */
+  width: 100%; /* Full width for mobile */
   display: block;
   padding: 16px;
-  order: 2;
+  order: 2; /* Content after figure for mobile */
 }
+
 .cluster-nav article figure {
-  width: 100%; /* Ocupa todo el ancho en mobile */
-  height: 220px; /* Altura automática para mantener la proporción */
+  width: 100%; /* Full width for mobile */
+  height: 220px; /* Specific height for mobile figure container */
   overflow: hidden;
-  border-radius: 8px;
-  margin-top: 0; /* Elimina el margen superior en mobile */
-  order: 1;
-  padding:10px;
+  border-radius: var(--rounded);
+  margin-top: 0;
+  order: 1; /* Figure before content for mobile */
+  padding: 10px;
+  background: linear-gradient(120deg, #b8057c 0%, var(--secondary) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .cluster-nav article figure img {
-    width: 200px; /* La imagen ocupa todo el ancho del contenedor */
-    height: auto;
-}
-.cluster-nav a:nth-child(2n) article .content {
-  order: 2; /* Mantiene el orden en mobile */
-}
-.cluster-nav a:nth-child(2n) article figure {
-  order: 1; /* Mantiene el orden en mobile */
-}
-
-/* Estilos para mobile */
-.cluster-nav article figure {
-    background: linear-gradient(120deg, #f093fb 0%, #CC0066 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@media (min-width: 512px) {
- .cluster-nav article{
-    display: flex;
-    flex-flow: row nowrap; /* Vuelve a la fila en desktop */
-    border-radius: 8px;
-    transition: all ease-in-out .3s;
-}
-.cluster-nav article:hover{
-    transform: scale(1.02);
-}
-.cluster-nav article .content {
-  width: calc(100% - 300px);
-  display: block;
-  padding: 16px;
-  order: 2;
-}
-.cluster-nav article figure {
-    width:200px;
+  width: 200px; /* Specific image size for mobile */
   height: 200px;
-  overflow: hidden;
-  border-radius: 8px;
-  margin-top: 15px;
-  order: 1;
+  object-fit: contain; /* Ensure the image fits within the container */
 }
-.cluster-nav article figure img {
-    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
-    height: auto;
-    object-fit: cover; /* Mantiene la proporción de la imagen */
-}
+
+/* Alternate order for every second item on mobile (figure then content) */
 .cluster-nav a:nth-child(2n) article .content {
-  order: 1;
-}
-.cluster-nav a:nth-child(2n) article figure {
   order: 2;
 }
 
+.cluster-nav a:nth-child(2n) article figure {
+  order: 1;
+}
+
+@media (min-width: 768px) {
+  .cluster-nav article {
+    flex-direction: row; /* Change to row for desktop */
+    flex-wrap: nowrap;
+  }
+
+  .cluster-nav article .content {
+    width: calc(100% - 200px); /* Adjust width for desktop */
+  }
+
+  .cluster-nav article figure {
+    width: 220px; /* Fixed width for desktop figure */
+    height: 220px; /* Fixed height for desktop figure */
+    margin-top: 15px;
+  }
+
+  .cluster-nav article figure img {
+    width: 100%; /* Image takes full width of desktop figure */
+    height: 100%; /* Image takes full height of desktop figure */
+    object-fit: contain; /* Cover the area, cropping if necessary */
+  }
+
+  /* Alternate order for every second item on desktop (content then figure) */
+  .cluster-nav a:nth-child(2n) article .content {
+    order: 1;
+  }
+
+  .cluster-nav a:nth-child(2n) article figure {
+    order: 2;
+  }
 }
 </style>

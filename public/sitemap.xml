@@ -1,31 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://limpieza-inteligente.com/</loc>
+    <loc>https://limpiezainteligente.store/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://limpieza-inteligente.com/robot-aspirador-fregasuelos</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://limpieza-inteligente.com/robots-limpiacristales</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://limpieza-inteligente.com/robots-limpiapiscinas</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://limpieza-inteligente.com/cecotec</loc>
+    <loc>https://limpiezainteligente.store/cecotec</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://limpieza-inteligente.com/roomba</loc>
+    <loc>https://limpiezainteligente.store/roomba</loc>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://limpieza-inteligente.com/xiaomi</loc>
+    <loc>https://limpiezainteligente.store/xiaomi</loc>
     <priority>0.7</priority>
   </url>
 </urlset>

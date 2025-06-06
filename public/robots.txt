@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://limpieza-inteligente.com/sitemap.xml
+Sitemap: https://limpiezainteligente.store/sitemap.xml

@@ -45,10 +45,9 @@ const { title, description } = Astro.props;
 :root {
   /* Color palette */
   --primary: #003366;
-  --secondary: #99068C;
-  --success: #00CC66;
-  --warning: #F59E0B;
-  --error: #EF4444;
+  --secondary: #0044CC;
+  --cta: #C2008E;
+  --cta-hover: #aa047e;
   --light: #f5f3f3;
   --rounded: .6rem;
   
@@ -117,10 +116,17 @@ h2 {
 h3 {
   font-size: 1.2rem;
 }
+.cta-box {
+    padding: 25px;
+    border-radius: var(--rounded);
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0px 0px 2px rgba(0,0,0, .2);
+}
 .cta{
-  background-color:var(--secondary);
+  background-color:var(--cta);
   color:var(--light);
-  padding:16px 30px;
+  padding:5px 10px;
   border:none;
   border-radius:var(--rounded);
   font-weight:700;
@@ -129,19 +135,33 @@ h3 {
   transition: all .3s ease;
   text-decoration:none;
    box-shadow: 0px 4px 8px rgba(0, 0, 0, .1);
-   margin:30px auto;
+   margin: auto;
   display: block;
   text-align: center;
   width: fit-content;
 }
 .cta:hover{
-  background-color: #b8057c;
+  background-color: var(--cta-hover);
   transform: translateY(-2px);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, .15);
 }
 .cta:active{
   transform: translateY(0);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, .1);
+}
+
+.cta.secondary {
+    background: white;
+    color: #2a5bd7;
+    border: 2px solid #2a5bd7;
+}
+.cta.small {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+.cta.large {
+    padding: 15px 30px;
+    font-size: 1.2em;
 }
 p {
   margin-bottom: 16px;
@@ -283,5 +303,15 @@ document.addEventListener("astro:page-load", () => {
             }
         });
     }
+
+    // Smooth scroll para anclas
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 });
 </script>

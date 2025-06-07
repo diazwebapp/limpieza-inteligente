@@ -2,24 +2,107 @@
 import AmazonCluster from "../components/AmazonCluster.astro";
 import ClusterCategory from "../components/ClusterCategory.astro";
 import Layout from "../layouts/Layout.astro";
+
+
+const marcas = [
+    {
+        title: "Robots Aspirador Friegasuelos Cecotec | Conga: Limpieza Inteligente",
+        image: "/robot-cecotec.webp",
+        thubnail: "/robot-cecotec.webp",
+        link: "/cecotec",
+        description: "Descubre el robot aspirador y friegasuelos Cecotec Conga perfecto para tu hogar. Aspira y friega a la vez con tecnología inteligente. ¡Adiós a la suciedad, hola a la comodidad!."
+    },
+    {
+        title: "Roomba Aspirador Friegasuelos | iRobot Roomba Combo: Limpieza Definitiva",
+        image: "/robot-roomba.webp",
+        thubnail: "/robot-roomba.webp",
+        link: "/roomba",
+        description: "Descubre el Roomba aspirador fregasuelos ideal para tu hogar. La tecnología iRobot Roomba Combo aspira y friega a la vez. ¡Máxima eficiencia y limpieza sin esfuerzo!"
+    },
+    {
+        title: "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente",
+        image: "/robot-xiaomi.webp",
+        thubnail: "/robot-xiaomi.webp",
+        link: "/xiaomi",
+        description: "Descubre el robot aspirador y fregasuelos Xiaomi ideal para tu hogar. La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!"
+    }
+    // Puedes añadir más categorías aquí
+]
+
+const tiposSuelo =[
+    {
+        title: "Para suelos laminado",
+        image: "/robot-parquet.webp",
+        thubnail: "/robot-parquet.webp",
+        link: "/guia-pisos#laminado",
+        description: ""
+    },
+    {
+        title: "Para pisos de madera",
+        image: "/robot-baldosas.webp",
+        thubnail: "/robot-baldosas.webp",
+        link: "/guia-pisos#madera",
+        description: ""
+    },
+    {
+        title: "Para marmol y piedra",
+        image: "/robot-alfombra.webp",
+        thubnail: "/robot-alfombra.webp",
+        link: "/guia-pisos#marmol",
+        description: ""
+    }
+]
+
+const amazonProduts = [
+    {
+       title:"iRobot Roomba Combo Essential, Robot Aspirador y friegasuelos",
+    urlAfiliado:"https://amzn.to/3FBUnWJ",
+    imageUrl:"https://m.media-amazon.com/images/I/81y+6dYOxTL._AC_SL1500_.jpg",
+    stars:3.5,
+    },
+    {
+       title:"AEG AR61UW1DG - Robot Aspirador, Giroscopio + Cámara, Función Mopa, 14,4V, Autonomía 120 min, Deposito Agua 0,25L, Potencia 2600 Pa, App iOS/Android, Cepillo Motorizado, Base de Carga, Color Gris",
+    urlAfiliado:"https://amzn.to/3HtU8h0",
+    imageUrl:"https://m.media-amazon.com/images/I/41965P-66XL._AC_SL1200_.jpg",
+    stars:4,
+    }
+
+]
 ---
 <Layout h1="Robots de Limpieza" title="Robots de Limpieza: Tu Solución para un Hogar Impecable" description="Descubre los mejores robots de limpieza, robot aspirador y fregasuelos, aspirador y friegasuelos, y más. Compara modelos, encuentra ofertas y simplifica tu vida con la última tecnología en limpieza automática." >
   <main>
 <section class="container" style="padding: 50px 0 0 0;">
     <h1 >El Robot Aspirador y Fregasuelos Definitivo para Tu Hogar</h1>
-    <p style="padding: 30px 0 0 0;">¿Cansado de dedicar horas a la limpieza? Imagina llegar a casa y encontrar tus suelos relucientes, sin esfuerzo. Con nuestros robots aspiradores y fregasuelos, esa visión se convierte en tu realidad diaria. Olvídate de la escoba y la fregona; es hora de optimizar tu tiempo y disfrutar de un hogar siempre limpio.</p>
+    <p style="padding: 30px 0 0 0;">Con los robots aspiradores y fregasuelos, olvidate de la limpieza manual, estos robots de limpieza automatica estas diseñados para optimizar tu tiempo, te permiten tener suelos siempre relucientes de forma inteligente y eficiente.</p>
     <a href="#marcas" class="cta">Explora nuestras categorías</a>
 </section>
 
-<section class="container" id="marcas">
-	<ClusterCategory />
+<section class="container cluster-nav" id="marcas">
+  <h2>Marcas principates en robots de limpieza</h2>
+	<ClusterCategory cats={marcas} />
 </section>
+   <section class="container cluster-nav" id="ofertas">
+  <h2>Ofertas Imperdibles en Robots Aspiradores y Fregasuelos</h2>
+  <p>¿Buscas la mejor oferta en robot aspirador para llevar la limpieza de tu hogar al siguiente nivel? invertir en tecnología para el hogar es una decisión importante, por eso hemos seleccionado las mejores ofertas en robots aspiradores para que encuentres el decuento más conveniente. </p>
+	<AmazonCluster
+    products={amazonProduts}
+  />
+</section>
+   
 <section class="container">
-    <h3>La Revolución en Limpieza: Robot Aspirador y Fregasuelos</h3>
-    <p>En la búsqueda constante de soluciones que simplifiquen tu vida, los robots friegasuelos y aspiradores y fregasuelos han emergido como los aliados perfectos. No se trata solo de comodidad; es una inversión en tu bienestar y tiempo libre. Nuestros robots aspiradores y fregasuelos están diseñados con la última tecnología para ofrecer una limpieza profunda y eficiente.</p>
+    <h2>Elige un Robot Aspirador y Fregasuelos por tipo de suelo</h2>
+    <p>Los robots aspiradores y fregasuelos son la solución definitiva para liberar tu tiempo y energía. No son solo un lujo, ¡son una inversión en tu bienestar y en la tranquilidad de tu hogar!.</p>
+    <p><strong>¡Descubre a continuación el robot aspirador y fregasuelos ideal para tu tipo de suelo!</h3> </p>
+    <ClusterCategory cats={tiposSuelo}/>
 </section>
 
 ---
+<section class="container">
+    <h2>Robots de Limpieza Inteligente</h2>
+
+<p>Estos robots aspirador inteligente, tienen la última tecnología en navegación, mapeo y reconocimiento de obstáculos. Olvídate de la suciedad y deja que la tecnología haga el trabajo por ti, adaptándose perfectamente a las necesidades de tu hogar.</p>
+
+</section>
 
 <section class="container">
     <h3>¿Por Qué Elegir un Robot Aspirador y Fregasuelos?</h3>

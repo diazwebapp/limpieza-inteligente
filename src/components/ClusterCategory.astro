@@ -1,47 +1,31 @@
 ---
-const cats = [
-    {
-        title: "Robots Aspirador Friegasuelos Cecotec | Conga: Limpieza Inteligente",
-        image: "/robot-cecotec.webp",
-        thubnail: "/robot-cecotec.webp",
-        link: "/cecotec",
-        description: "Descubre el robot aspirador y friegasuelos Cecotec Conga perfecto para tu hogar. Aspira y friega a la vez con tecnología inteligente. ¡Adiós a la suciedad, hola a la comodidad!."
-    },
-    {
-        title: "Roomba Aspirador Friegasuelos | iRobot Roomba Combo: Limpieza Definitiva",
-        image: "/robot-roomba.webp",
-        thubnail: "/robot-roomba.webp",
-        link: "/roomba",
-        description: "Descubre el Roomba aspirador fregasuelos ideal para tu hogar. La tecnología iRobot Roomba Combo aspira y friega a la vez. ¡Máxima eficiencia y limpieza sin esfuerzo!"
-    },
-    {
-        title: "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente",
-        image: "/robot-xiaomi.webp",
-        thubnail: "/robot-xiaomi.webp",
-        link: "/xiaomi",
-        description: "Descubre el robot aspirador y fregasuelos Xiaomi ideal para tu hogar. La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!"
-    }
-    // Puedes añadir más categorías aquí
-]
+const { cats } = Astro.props;
+
 ---
 
-<div class="cluster-nav">
+<ul class="cluster-nav">
+
     {cats.map(cat => (
-        <a href={cat.link} class="cluster-item">
+      <li class="cluster-item">
+        <a href={cat.link}>
             <article>
                 <figure>
                     <img src={cat.image} alt={cat.title} loading="lazy" width="200" height="200"/>
                 </figure>
                 <div class="content">
-                    <h2>{cat.title}</h2>
+                    <h3>{cat.title}</h3>
                     <p>{cat.description}</p>
                 </div>
             </article>
         </a>
+      </li>
     ))}
-</div>
+</ul>
 <style>
 /* Cluster de navegacion */
+.cluster-nav {
+  list-style: none;
+}
 .cluster-nav article {
   display: flex;
   flex-direction: column; /* Default to column for mobile */
@@ -113,12 +97,38 @@ const cats = [
   }
 
   /* Alternate order for every second item on desktop (content then figure) */
-  .cluster-nav a:nth-child(2n) article .content {
+  .cluster-nav li:nth-child(2n) article .content {
     order: 1;
   }
 
-  .cluster-nav a:nth-child(2n) article figure {
+  .cluster-nav li:nth-child(2n) article figure {
     order: 2;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cluster-nav {
+    display: flex;
+    flex-wrap: wrap
+  }
+.cluster-nav li:nth-child(2n) article .content {
+    order: unset;
+  }
+
+  .cluster-nav li:nth-child(2n) article figure {
+    order: unset;
+  }
+  .cluster-nav li{
+    width: 50%;
+  }
+.cluster-nav article .content {
+    width: 100% ; /* Adjust width for desktop */
+  }
+
+  .cluster-nav article figure {
+    width: 100%; /* Fixed width for desktop figure */
+    height: 220px; /* Fixed height for desktop figure */
+    margin-top: 15px;
   }
 }
 </style>

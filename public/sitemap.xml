@@ -3,21 +3,36 @@
   <url>
     <loc>https://limpiezainteligente.store/</loc>
     <priority>1.0</priority>
+    <lastmod>2024-06-11</lastmod>
   </url>
   <url>
     <loc>https://limpiezainteligente.store/cecotec</loc>
     <priority>0.7</priority>
+    <lastmod>2024-06-11</lastmod>
   </url>
   <url>
     <loc>https://limpiezainteligente.store/roomba</loc>
     <priority>0.7</priority>
+    <lastmod>2024-06-11</lastmod>
   </url>
   <url>
     <loc>https://limpiezainteligente.store/xiaomi</loc>
     <priority>0.7</priority>
+    <lastmod>2024-06-11</lastmod>
   </url>
   <url>
-    <loc>https://limpiezainteligente.store/guia-pisos</loc>
-    <priority>0.8</priority>
+    <loc>https://limpiezainteligente.store/suelo-laminado</loc>
+    <priority>0.7</priority>
+    <lastmod>2024-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://limpiezainteligente.store/suelo-madera</loc>
+    <priority>0.7</priority>
+    <lastmod>2024-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://limpiezainteligente.store/suelo-marmol</loc>
+    <priority>0.7</priority>
+    <lastmod>2024-06-11</lastmod>
   </url>
 </urlset>

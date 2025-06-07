@@ -28,21 +28,21 @@ export const tiposSuelo =[
         title: "Para suelos laminado",
         image: "/robot-parquet.webp",
         thubnail: "/robot-parquet.webp",
-        link: "/guia-pisos#laminado",
+        link: "/suelo-laminado",
         description: ""
     },
     {
         title: "Para pisos de madera",
         image: "/robot-baldosas.webp",
         thubnail: "/robot-baldosas.webp",
-        link: "/guia-pisos#madera",
+        link: "/suelo-madera",
         description: ""
     },
     {
         title: "Para marmol y piedra",
         image: "/robot-alfombra.webp",
         thubnail: "/robot-alfombra.webp",
-        link: "/guia-pisos#marmol",
+        link: "/suelo-marmol",
         description: ""
     }
 ]

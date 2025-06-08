@@ -4,21 +4,21 @@ export const marcas = [
         image: "/robot-cecotec.webp",
         thubnail: "/robot-cecotec.webp",
         link: "/cecotec",
-        description: "Descubre el robot aspirador y friegasuelos Cecotec Conga perfecto para tu hogar. Aspira y friega a la vez con tecnología inteligente. ¡Adiós a la suciedad, hola a la comodidad!."
+        description: "Conga de Cecotec: aspira y friega con tecnología avanzada. Limpieza fácil y eficiente para tu hogar."
     },
     {
         title: "Roomba Aspirador Friegasuelos | iRobot Roomba Combo: Limpieza Definitiva",
         image: "/robot-roomba.webp",
         thubnail: "/robot-roomba.webp",
         link: "/roomba",
-        description: "Descubre el Roomba aspirador fregasuelos ideal para tu hogar. La tecnología iRobot Roomba Combo aspira y friega a la vez. ¡Máxima eficiencia y limpieza sin esfuerzo!"
+        description: "Roomba Combo: aspira y friega en una sola pasada. Ideal para quienes buscan comodidad y resultados."
     },
     {
         title: "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente",
         image: "/robot-xiaomi.webp",
         thubnail: "/robot-xiaomi.webp",
         link: "/xiaomi",
-        description: "Descubre el robot aspirador y fregasuelos Xiaomi ideal para tu hogar. La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!"
+        description: "Xiaomi Mi Robot Vacuum: limpia y friega con precisión. Tecnología y buen precio para tu día a día."
     }
     // Puedes añadir más categorías aquí
 ]
@@ -43,6 +43,13 @@ export const tiposSuelo =[
         image: "/robot-alfombra.webp",
         thubnail: "/robot-alfombra.webp",
         link: "/suelo-marmol",
+        description: ""
+    },
+    {
+        title: "Para Alfombras",
+        image: "/robot-alfombra.webp",
+        thubnail: "/robot-alfombra.webp",
+        link: "/para-alfombras",
         description: ""
     }
 ]

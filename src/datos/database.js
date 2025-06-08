@@ -29,28 +29,28 @@ export const tiposSuelo =[
         image: "/robot-parquet.webp",
         thubnail: "/robot-parquet.webp",
         link: "/suelo-laminado",
-        description: ""
+        description: "El suelo laminado requiere limpieza delicada y control de humedad para evitar daños y mantener su brillo."
     },
     {
         title: "Para pisos de madera",
         image: "/robot-baldosas.webp",
         thubnail: "/robot-baldosas.webp",
         link: "/suelo-madera",
-        description: ""
+        description: "La madera necesita cuidado especial: limpieza suave, mínima humedad y protección contra arañazos."
     },
     {
         title: "Para marmol y piedra",
         image: "/robot-alfombra.webp",
         thubnail: "/robot-alfombra.webp",
         link: "/suelo-marmol",
-        description: ""
+        description: "El mármol y la piedra requieren limpieza frecuente, productos neutros y evitar exceso de agua para conservar su elegancia."
     },
     {
         title: "Para Alfombras",
         image: "/robot-alfombra.webp",
         thubnail: "/robot-alfombra.webp",
         link: "/para-alfombras",
-        description: ""
+        description: "Las alfombras necesitan aspirado profundo y regular para eliminar polvo, pelos y alérgenos incrustados."
     }
 ]
 

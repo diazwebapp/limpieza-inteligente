@@ -1,11 +1,19 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import CategoryHeader from "../../components/CategoryHeader.astro";
 ---
 <Layout 
   title="Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente"
-  description="Descubre el robot aspirador y fregasuelos Xiaomi ideal para tu hogar. La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!"
+  description="Descubre el robot aspirador y friegasuelos Xiaomi ideal para tu hogar. La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!"
 >
   <main>
+    <CategoryHeader
+      h1="Robot Aspirador Friegasuelos Xiaomi: Tecnología y Eficiencia"
+      p="Descubre el robot aspirador y friegasuelos Xiaomi ideal para tu hogar. La serie Mi Robot Vacuum aspira y friega a la vez. Tecnología y eficiencia al mejor precio."
+      ctaText="Ver Ofertas Xiaomi en Amazon"
+      ctaLink="https://amzn.to/3FBUnWJ"
+      ctaNoFollow={true}
+    />
     <section class="container">
       <h1>Robot Aspirador y Friegasuelos Xiaomi: La Limpieza Inteligente al Alcance de Tu Mano</h1>
       <p>
@@ -46,6 +54,10 @@ import Layout from "../../layouts/Layout.astro";
       <p>
         ¿Listo para transformar la limpieza de tu hogar? Explora nuestra selección de <strong>robots aspirador y fregasuelos Xiaomi</strong> y encuentra el modelo perfecto para ti.
       </p>
+    </section>
+    <section class="container">
+      <h2>¿Por qué elegir un Xiaomi Mi Robot Vacuum?</h2>
+      <p>La gama Xiaomi Mi Robot Vacuum destaca por su excelente relación calidad-precio y su tecnología avanzada. Estos robots limpian y friegan con precisión, adaptándose a diferentes tipos de suelos y necesidades del hogar moderno.</p>
     </section>
   </main>
 </Layout>

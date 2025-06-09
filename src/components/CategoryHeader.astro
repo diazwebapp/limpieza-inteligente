@@ -1,0 +1,53 @@
+---
+const { h1, p, ctaText, ctaLink, ctaNoFollow = false } = Astro.props;
+---
+<section class="cat-header">
+  <div class="container">
+    <h1>{h1}</h1>
+    <p>{p}</p>
+    {ctaText && ctaLink && (
+      
+        <a
+          href={ctaLink}
+          class="cta large"
+          target={ctaNoFollow ? "_blank" : undefined}
+          rel={ctaNoFollow ? "noopener nofollow" : undefined}
+        >
+          {ctaText}
+        </a>
+     
+    )}
+  </div>
+</section>
+
+<style>
+.cat-header {
+  width: 100vw;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #23272f 0%, #1a1d23 100%);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.container{
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 2;
+}
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  text-align: center;
+}
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #e5e5e5;
+}
+
+</style>

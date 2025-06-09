@@ -1,7 +1,14 @@
 ---
 const marcas = [
   { name: "Cecotec", link: "/cecotec" },
-  { name: "Roomba", link: "/roomba" },
+  {
+    name: "iRobot",
+    link: "/irobot",
+    subitems: [
+      { name: "Roomba", link: "/irobot/roomba" },
+      { name: "Braava", link: "/irobot/bravaa" }
+    ]
+  },
   { name: "Xiaomi", link: "/xiaomi" }
 ];
 const caracteristicas = [
@@ -15,7 +22,16 @@ const caracteristicas = [
       <button type="button" class="dropdown-toggle" aria-expanded="false">Marcas</button>
       <ul class="dropdown-menu">
         {marcas.map(marca => (
-          <li><a href={marca.link}>{marca.name}</a></li>
+          <li>
+            <a href={marca.link}>{marca.name}</a>
+            {marca.subitems && (
+              <ul class="dropdown-submenu">
+                {marca.subitems.map(sub => (
+                  <li><a href={sub.link}>{sub.name}</a></li>
+                ))}
+              </ul>
+            )}
+          </li>
         ))}
       </ul>
     </li>
@@ -62,10 +78,14 @@ const caracteristicas = [
 .dropdown:hover > .dropdown-menu{
   display: block;
 }
-.nav-dropdown .dropdown-menu {
-  border-radius: 0 0 var(--rounded) var(--rounded);
+.nav-dropdown{
   overflow-y: auto;
-  max-height: 60vh;
+  max-height: 70vh;
+
+}
+.nav-dropdown .dropdown-menu {
+  background: #fff;
+  border-radius: 0 0 var(--rounded) var (--rounded);
   font-weight: 400;
   padding: unset;
 }
@@ -74,28 +94,14 @@ const caracteristicas = [
   padding: 20px 5px;
 }
 .nav-dropdown .dropdown-menu li {
-  
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   width:100%;
-}
-.nav-dropdown .dropdown-menu li:last-child, .nav-dropdown button {
-  border-bottom: none;
-  background-color: var(--secondary);
-  color: var(--light);
-}
-.nav-dropdown .dropdown-menu li:last-child a {
-  color: var(--light);
-}
-.nav-dropdown .dropdown-menu .empty {
-  color: #888;
-  font-style: italic;
 }
 
 /* Desktop: show on hover/focus */
 @media (min-width: 920px) {
   .nav-dropdown ul {
   flex-flow: row wrap;
-  background-color: #fff;
   gap:10px;
 }
 .nav-dropdown .dropdown-menu{

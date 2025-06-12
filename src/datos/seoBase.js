@@ -19,16 +19,18 @@ export const seoBase = {
       "@type": "ImageObject",
       "url": "https://avatars.githubusercontent.com/u/90859089?v=4"
     }
-  }
+  },
+  socialImage: "https://limpiezainteligente.store/og-default.webp"
 };
 
 export function buildSeoArticle({
   title,
   description,
   canonicalURL,
-  socialImageURL,
   pubDatetime,
-  modDatetime
+  modDatetime,
+  author = seoBase.author,
+  socialImageURL = seoBase.socialImage
 }) {
   return {
     "@context": "https://schema.org",
@@ -43,7 +45,7 @@ export function buildSeoArticle({
         "headline": title,
         "description": description,
         "image": socialImageURL,
-        "author": seoBase.author,
+        "author": author,
         "publisher": seoBase.publisher,
         "datePublished": pubDatetime,
         "dateModified": modDatetime,

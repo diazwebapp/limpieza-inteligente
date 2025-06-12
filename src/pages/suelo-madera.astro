@@ -3,48 +3,44 @@ import Layout from "../layouts/Layout.astro";
 import AmazonCluster from "../components/AmazonCluster.astro";
 import { amazonProduts } from "../datos/database";
 
+const title = "Aspiradoras para Suelo de Madera (parquet o tarima) | Brillo y Protección Garantizados";
+const description = "Elige el mejor robot aspirador. Guía completa para limpiar y proteger tu suelo de madera con tecnología inteligente y eficiente.";
+const canonicalURL = "https://limpiezainteligente.store/suelo-madera";
+const socialImageURL = "https://limpiezainteligente.store/para-madera.webp";
+const author = "diaz web app";
+const pubDatetime = new Date("2025-06-07T00:00:00+00:00");
+const modDatetime = new Date("2025-06-12T00:00:00+00:00");
+
 const seoArticle = {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://limpiezainteligente.store/#website",
-      "url": "https://limpiezainteligente.store/",
-      "name": "Limpieza Inteligente",
-      "description": "Guía de robots aspiradores y limpieza inteligente para el hogar.",
-    
-    },
-    {
+  "@type": "BlogPosting",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonicalURL,
+  },
+  headline: title,
+  description: description,
+  image: socialImageURL,
+  author: {
+    "@type": "Person",
+    name: author,
+    url: "https://www.cemkiray.com",
+  },
+  publisher: {
+    "@type": "Person",
+    name: author,
+    logo: {
       "@type": "ImageObject",
-      "@id": "https://limpiezainteligente.store/para-madera.webp#primaryimage",
-      "inLanguage": "es",
-      "url": "https://limpiezainteligente.store/para-madera.webp",
-      "contentUrl": "https://limpiezainteligente.store/para-madera.webp",
-      "width": 200,
-      "height": 200,
-      "caption": "robot aspirador para suelo de madera"
+      url: "https://www.cemkiray.com/favicon.ico",
     },
-    {
-      "@type": "WebPage",
-      "@id": "https://limpiezainteligente.store/suelo-madera/#webpage",
-      "url": "https://limpiezainteligente.store/suelo-madera",
-      "name": "Aspiradoras para Suelo de Madera (parquet o tarima) | Brillo y Protección Garantizados",
-      "isPartOf": {"@id": "https://limpiezainteligente.store/#website"},
-      "primaryImageOfPage": {"@id": "https://limpiezainteligente.store/para-madera.webp#primaryimage"},
-      "datePublished": "2025-06-12T00:00:00+00:00",
-      "dateModified": "2025-06-12T00:00:00+00:00",
-      "description": "Elige el mejor robot aspirador. Guía completa para limpiar y proteger tu suelo de madera con tecnología inteligente y eficiente.",
-      "inLanguage": "es",
-      "potentialAction": [
-        {"@type": "ReadAction", "target": ["https://limpiezainteligente.store/suelo-madera"]}
-      ]
-    }
-  ]
+  },
+  datePublished: pubDatetime.toISOString(),
+  dateModified: modDatetime.toISOString(),
 };
 ---
 <Layout
-  title="Aspiradoras para Suelo de Madera (parquet o tarima) | Brillo y Protección Garantizados"
-  description="Elige el mejor robot aspirador. Guía completa para limpiar y proteger tu suelo de madera con tecnología inteligente y eficiente."
+  title={title}
+  description={description}
   seoArticle={seoArticle}
 >
 
@@ -54,7 +50,7 @@ const seoArticle = {
     <p>
       En Limpieza Inteligente, sabemos que proteger tu suelo de madera es una prioridad. Por ello, te guiamos en la elección del robot perfecto que no solo limpia, sino que también cuida cada centímetro de esta superficie tan apreciada.
     </p>
-    </section>
+  </section>
   <section class="container">
     <h2>¿Por Qué Invertir en un Robot Aspirador para Tarima?</h2>
     <ul class="features-list">
@@ -63,17 +59,17 @@ const seoArticle = {
       <li><strong>Prevención de Arañazos:</strong> La limpieza regular con un robot evita la acumulación de partículas abrasivas (arena, tierra) que actúan como lija bajo tus pies.</li>
       <li><strong>Mantenimiento Constante:</strong> Al programarlo para limpiar diariamente, aseguras que tu entarimado se mantenga siempre libre de polvo, conservando su brillo natural sin esfuerzo manual.</li>
     </ul>
-    </section>  
+  </section>
   <section class="container">
     <h2>Claves para Elegir el Mejor Robot Aspirador para Suelo de Madera</h2>
-    <ul class="feactures-list" >
+    <ul class="feactures-list">
       <li><strong>Cepillos Aptos para Madera:</strong> Prioriza los robots con cepillos de silicona o de goma, y rodillos suaves. Evita los cepillos de cerdas muy duras o que puedan engancharse y rayar la superficie.</li>
       <li><strong>Control de Flujo de Agua en el Fregado:</strong> Esta es la característica más crítica. Elige modelos que permitan ajustar la cantidad de agua liberada para el fregado, o que utilicen almohadillas que se humedecen de forma muy controlada. Algunos incluso levantan la mopa automáticamente al detectar alfombras, evitando mojar lo que no deben.</li>
       <li><strong>Navegación Inteligente y Mapeo Preciso:</strong> Un sistema de navegación avanzado (Lidar, vSLAM) asegura que el robot limpie de manera metódica, evite golpes fuertes a tus muebles y no deje zonas sin cubrir, minimizando el desgaste innecesario en la madera.</li>
       <li><strong>Sensores Anti-Caída y Anti-Golpes:</strong> Imprescindibles para proteger tanto al robot como a tus valiosos suelos y mobiliario de madera.</li>
       <li><strong>Facilidad de Mantenimiento:</strong> Un robot con depósitos de fácil acceso y cepillos sencillos de limpiar te ahorrará tiempo y te asegurará que el aparato siempre esté en óptimas condiciones para cuidar tu madera.</li>
     </ul>
-    </section>
+  </section>
   <section class="container">
     <h2>Descubre los Robots que Harán Brillar Tu Suelo de Madera</h2>
     <p>
@@ -83,7 +79,7 @@ const seoArticle = {
     <!-- Aquí insertar el cluster de productos de robots para suelo de madera -->
     <AmazonCluster products={amazonProduts} />
   </section>
-  
+
   <section class="container">
     <h2>Un Suelo de Madera Impoluto, Siempre</h2>
     <p>

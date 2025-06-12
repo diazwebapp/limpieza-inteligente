@@ -2,10 +2,29 @@
 import Layout from "../layouts/Layout.astro";
 import AmazonCluster from "../components/AmazonCluster.astro";
 import { amazonProduts } from "../datos/database";
+import { buildSeoArticle } from "../datos/seoBase.js";
+
+const title = "¿Cuál es el Mejor Robot Aspirador para Suelo Laminado en 2024?";
+const description = "Descubre cómo elegir el mejor robot aspirador para tarima laminada: evita rayaduras, conoce las mejores marcas y compra seguro en 2024.";
+const canonicalURL = "https://limpiezainteligente.store/suelo-laminado";
+const socialImageURL = "https://limpiezainteligente.store/para-laminado.webp";
+const author = "diaz web app";
+const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
+const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
+
+const seoArticle = buildSeoArticle({
+  title,
+  description,
+  canonicalURL,
+  socialImageURL,
+  pubDatetime,
+  modDatetime
+});
 ---
 <Layout
-  title="¿Cuál es el Mejor Robot Aspirador para Suelo Laminado en 2024?"
-  description="Descubre cómo elegir el mejor robot aspirador para tarima laminada: evita rayaduras, conoce las mejores marcas y compra seguro en 2024."
+  title={title}
+  description={description}
+  seoArticle={seoArticle}
 >
 <main>
   <section class="container">

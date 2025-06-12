@@ -2,53 +2,24 @@
 import Layout from "../layouts/Layout.astro";
 import AmazonCluster from "../components/AmazonCluster.astro";
 import { amazonProduts } from "../datos/database";
+import { buildSeoArticle } from "../datos/seoBase.js";
 
 const title = "Aspiradoras para Suelo de Madera (parquet o tarima) | Brillo y Protección Garantizados";
 const description = "Elige el mejor robot aspirador. Guía completa para limpiar y proteger tu suelo de madera con tecnología inteligente y eficiente.";
 const canonicalURL = "https://limpiezainteligente.store/suelo-madera";
 const socialImageURL = "https://limpiezainteligente.store/para-madera.webp";
 const author = "diaz web app";
-const pubDatetime = new Date("2025-06-07T00:00:00+00:00");
-const modDatetime = new Date("2025-06-12T00:00:00+00:00");
+const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
+const modDatetime = new Date("2025-06-12T00:00:00+00:00").toISOString();
 
-const seoArticle = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://limpiezainteligente.store/#website",
-      "url": "https://limpiezainteligente.store/",
-      "name": "Limpieza Inteligente",
-      "description": "Guía de robots aspiradores y limpieza inteligente para el hogar.",
-      "inLanguage": "es"
-    },
-    {
-      "@type": "BlogPosting",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": canonicalURL,
-      },
-      "headline": title,
-      "description": description,
-      "image": socialImageURL,
-      "author": {
-        "@type": "Person",
-        "name": author,
-        "url": "https://github.com/diazwebapp",
-      },
-      "publisher": {
-        "@type": "Person",
-        "name": author,
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://avatars.githubusercontent.com/u/90859089?v=4",
-        },
-      },
-      "datePublished": pubDatetime.toISOString(),
-      "dateModified": modDatetime.toISOString(),
-    }
-  ]
-};
+const seoArticle = buildSeoArticle({
+  title,
+  description,
+  canonicalURL,
+  socialImageURL,
+  pubDatetime,
+  modDatetime
+});
 ---
 <Layout
   title={title}

@@ -1,9 +1,27 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CategoryHeader from '../../components/CategoryHeader.astro';
+import { buildSeoArticle } from "../../datos/seoBase.js";
+
+const title = "iRobot - Limpieza Inteligente";
+const description = "Descubre la gama iRobot: aspiradores y fregasuelos robotizados para una limpieza autónoma, eficiente y profunda.";
+const canonicalURL = "https://limpiezainteligente.store/irobot";
+const socialImageURL = "https://limpiezainteligente.store/robot-roomba.webp";
+const author = "diaz web app";
+const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
+const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
+
+const seoArticle = buildSeoArticle({
+  title,
+  description,
+  canonicalURL,
+  socialImageURL,
+  pubDatetime,
+  modDatetime
+});
 ---
 
-<Layout title="iRobot - Limpieza Inteligente" description="Descubre la gama iRobot: aspiradores y fregasuelos robotizados para una limpieza autónoma, eficiente y profunda.">
+<Layout title={title} description={description} seoArticle={seoArticle}>
   <CategoryHeader
     h1="Dominando la Limpieza del Hogar: iRobot, la Solución Definitiva para Aspirar y Fregar"
     p="En la búsqueda incesante de un hogar impecable, la tecnología ha avanzado para ofrecernos soluciones que antes solo imaginábamos. Si su intención de búsqueda gira en torno a aspiradores y fregasuelos robotizados, ha llegado al lugar indicado."

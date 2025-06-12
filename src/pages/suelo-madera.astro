@@ -2,11 +2,52 @@
 import Layout from "../layouts/Layout.astro";
 import AmazonCluster from "../components/AmazonCluster.astro";
 import { amazonProduts } from "../datos/database";
+
+const seoArticle = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://limpiezainteligente.store/#website",
+      "url": "https://limpiezainteligente.store/",
+      "name": "Limpieza Inteligente",
+      "description": "Guía de robots aspiradores y limpieza inteligente para el hogar.",
+    
+    },
+    {
+      "@type": "ImageObject",
+      "@id": "https://limpiezainteligente.store/para-madera.webp#primaryimage",
+      "inLanguage": "es",
+      "url": "https://limpiezainteligente.store/para-madera.webp",
+      "contentUrl": "https://limpiezainteligente.store/para-madera.webp",
+      "width": 200,
+      "height": 200,
+      "caption": "robot aspirador para suelo de madera"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://limpiezainteligente.store/suelo-madera/#webpage",
+      "url": "https://limpiezainteligente.store/suelo-madera",
+      "name": "Aspiradoras para Suelo de Madera (parquet o tarima) | Brillo y Protección Garantizados",
+      "isPartOf": {"@id": "https://limpiezainteligente.store/#website"},
+      "primaryImageOfPage": {"@id": "https://limpiezainteligente.store/para-madera.webp#primaryimage"},
+      "datePublished": "2025-06-12T00:00:00+00:00",
+      "dateModified": "2025-06-12T00:00:00+00:00",
+      "description": "Elige el mejor robot aspirador. Guía completa para limpiar y proteger tu suelo de madera con tecnología inteligente y eficiente.",
+      "inLanguage": "es",
+      "potentialAction": [
+        {"@type": "ReadAction", "target": ["https://limpiezainteligente.store/suelo-madera"]}
+      ]
+    }
+  ]
+};
 ---
 <Layout
   title="Aspiradoras para Suelo de Madera (parquet o tarima) | Brillo y Protección Garantizados"
   description="Elige el mejor robot aspirador. Guía completa para limpiar y proteger tu suelo de madera con tecnología inteligente y eficiente."
+  seoArticle={seoArticle}
 >
+
 <main>
   <section class="container">
     <h1>robot aspirador para parquet: Brillo y Protección Garantizados</h1>

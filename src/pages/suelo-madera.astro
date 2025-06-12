@@ -13,29 +13,41 @@ const modDatetime = new Date("2025-06-12T00:00:00+00:00");
 
 const seoArticle = {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": canonicalURL,
-  },
-  headline: title,
-  description: description,
-  image: socialImageURL,
-  author: {
-    "@type": "Person",
-    name: author,
-    url: "https://www.cemkiray.com",
-  },
-  publisher: {
-    "@type": "Person",
-    name: author,
-    logo: {
-      "@type": "ImageObject",
-      url: "https://www.cemkiray.com/favicon.ico",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://limpiezainteligente.store/#website",
+      "url": "https://limpiezainteligente.store/",
+      "name": "Limpieza Inteligente",
+      "description": "Guía de robots aspiradores y limpieza inteligente para el hogar.",
+      "inLanguage": "es"
     },
-  },
-  datePublished: pubDatetime.toISOString(),
-  dateModified: modDatetime.toISOString(),
+    {
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": canonicalURL,
+      },
+      "headline": title,
+      "description": description,
+      "image": socialImageURL,
+      "author": {
+        "@type": "Person",
+        "name": author,
+        "url": "https://github.com/diazwebapp",
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": author,
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://avatars.githubusercontent.com/u/90859089?v=4",
+        },
+      },
+      "datePublished": pubDatetime.toISOString(),
+      "dateModified": modDatetime.toISOString(),
+    }
+  ]
 };
 ---
 <Layout

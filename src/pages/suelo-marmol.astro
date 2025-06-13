@@ -1,17 +1,38 @@
 ---
+// @ts-nocheck
 import Layout from "../layouts/Layout.astro";
 import AmazonCluster from "../components/AmazonCluster.astro";
 import { amazonProduts } from "../datos/database";
+import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
 
-const title = "Robots Aspiradores y Fregasuelos para Suelo de Mármol: Brillo Impecable con el Cuidado Preciso";
-const description = "Descubre cómo elegir el mejor robot aspirador y fregasuelos para suelo de mármol. Guía completa para limpiar y proteger tu suelo de mármol con tecnología inteligente y eficiente.";
+const title = "Robot Aspirador para Suelo de Mármol: Limpieza y Brillo sin Esfuerzo";
+const description = "Elige el mejor robot aspirador y friegasuelos para mármol. Mantén tus suelos brillantes y sin manchas con la tecnología más avanzada.";
 const canonicalURL = "https://limpiezainteligente.store/suelo-marmol";
-const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
-const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
+const datePublished = "2025-06-8T00:00:00+00:00";
+const dateModified = "2025-06-12T00:00:00+00:00";
+
+const schemas = [
+  schemaWebSite(),
+  schemaArticle({
+    headline: title,
+    image: [
+      "https://limpiezainteligente.store/para-marmol.png"
+    ],
+    datePublished,
+    dateModified,
+    description,
+    articleBody: "El robot aspirador para suelo de mármol es la solución perfecta para mantener tus superficies brillantes y libres de manchas. Descubre cómo estos dispositivos cuidan de tu mármol y facilitan la limpieza diaria.",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalURL
+    }
+  })
+];
 ---
 <Layout 
   title={title}
   description={description}
+  schemas={schemas}
 >
   <main>
     <section class="container">

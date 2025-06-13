@@ -1,17 +1,38 @@
 ---
+// @ts-nocheck
 import Layout from "../layouts/Layout.astro";
 import AmazonCluster from "../components/AmazonCluster.astro";
 import { amazonProduts } from "../datos/database";
+import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
 
-const title = "El Mejor Vacuum para Lavar Alfombras: Soluciones Definitivas para un Hogar Impecable";
-const description = "Descubre los mejores robots aspiradores para alfombras. Limpieza profunda, eliminación de pelo de mascotas y frescura constante para tus alfombras. ¡Transforma tu hogar con la mejor tecnología!";
+const title = "Robot Aspirador para Alfombras: Limpieza Profunda y Sin Esfuerzo";
+const description = "Descubre los mejores robots aspirador y friegasuelos para alfombras. Mantén tus alfombras limpias y libres de polvo con la tecnología más avanzada.";
 const canonicalURL = "https://limpiezainteligente.store/para-alfombras";
-const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
-const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
+const datePublished = "2025-06-8T00:00:00+00:00";
+const dateModified = "2025-06-12T00:00:00+00:00";
+
+const schemas = [
+  schemaWebSite(),
+  schemaArticle({
+    headline: title,
+    image: [
+      "https://limpiezainteligente.store/para-alfombras.webp"
+    ],
+    datePublished,
+    dateModified,
+    description,
+    articleBody: "El robot aspirador para alfombras es la solución perfecta para mantener tus alfombras limpias y libres de polvo. Descubre cómo estos dispositivos cuidan de tus alfombras y facilitan la limpieza diaria.",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalURL
+    }
+  })
+];
 ---
 <Layout 
   title={title}
   description={description}
+  schemas={schemas}
 >
   <main>
     <section class="container">

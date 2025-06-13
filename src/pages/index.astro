@@ -3,23 +3,17 @@ import AmazonCluster from "../components/AmazonCluster.astro";
 import ClusterCategory from "../components/ClusterCategory.astro";
 import Layout from "../layouts/Layout.astro";
 import { marcas, tiposSuelo, amazonProduts } from "../datos/database";
-import { buildSeoArticle } from "../datos/seoBase.js";
 
 const title = "Robots de Limpieza: Tu Solución para un Hogar Impecable";
 const description = "Descubre los mejores robots de limpieza, robot aspirador y fregasuelos, aspirador y friegasuelos, y más. Compara modelos, encuentra ofertas y simplifica tu vida con la última tecnología en limpieza automática.";
 const canonicalURL = "https://limpiezainteligente.store/";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
-
-const seoArticle = buildSeoArticle({
-  title,
-  description,
-  canonicalURL,
-  pubDatetime,
-  modDatetime
-});
 ---
-<Layout title={title} description={description} seoArticle={seoArticle} >
+<Layout 
+  title={title}
+  description={description}
+>
   <main>
 <section class="container" style="padding: 50px 0 0 0;">
     <h1 >Robots 2 en 1: Aspirador y Fregasuelos Definitivo para Tu Hogar</h1>

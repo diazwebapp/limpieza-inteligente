@@ -2,7 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import CategoryHeader from "../../components/CategoryHeader.astro";
 import AmazonCluster from "../../components/AmazonCluster.astro";
-import { buildSeoArticle } from "../../datos/seoBase.js";
 
 const productsCecotec =[
   {
@@ -34,19 +33,10 @@ const canonicalURL = "https://limpiezainteligente.store/cecotec";
 const author = "diaz web app";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
-
-const seoArticle = buildSeoArticle({
-  title,
-  description,
-  canonicalURL,
-  pubDatetime,
-  modDatetime
-});
 ---
 <Layout 
   title={title}
   description={description}
-  seoArticle={seoArticle}
 >
   <main>
     <CategoryHeader

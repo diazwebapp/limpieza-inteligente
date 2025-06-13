@@ -2,7 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import Nav from "../components/Nav.astro";
 
-const { title, description, seoArticle } = Astro.props;
+const { title, description, schemas = [] } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -13,12 +13,19 @@ const { title, description, seoArticle } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description}>
      <ClientRouter />
-     {seoArticle && (
+     {Array.isArray(schemas) && schemas.length > 0 && schemas.map((schema, i) => (
       <script
-          type="application/ld+json"
-          set:html={JSON.stringify(seoArticle)}
-        />
-    )}
+        type="application/ld+json"
+        set:html={JSON.stringify(schema)}
+        key={i}
+      />
+    ))}
+      <!-- Favicon SVG (recomendado para modernos) -->
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <!-- Fallback para navegadores antiguos (opcional) -->
+  <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 

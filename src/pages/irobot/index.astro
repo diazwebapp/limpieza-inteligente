@@ -1,46 +1,42 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CategoryHeader from '../../components/CategoryHeader.astro';
-import { buildSeoArticle } from "../../datos/seoBase.js";
 
 const title = "iRobot - Limpieza Inteligente";
 const description = "Descubre la gama iRobot: aspiradores y fregasuelos robotizados para una limpieza autónoma, eficiente y profunda.";
 const canonicalURL = "https://limpiezainteligente.store/irobot";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
-
-const seoArticle = buildSeoArticle({
-  title,
-  description,
-  canonicalURL,
-  pubDatetime,
-  modDatetime
-});
 ---
 
-<Layout title={title} description={description} seoArticle={seoArticle}>
-  <CategoryHeader
-    h1="Dominando la Limpieza del Hogar: iRobot, la Solución Definitiva para Aspirar y Fregar"
-    p="En la búsqueda incesante de un hogar impecable, la tecnología ha avanzado para ofrecernos soluciones que antes solo imaginábamos. Si su intención de búsqueda gira en torno a aspiradores y fregasuelos robotizados, ha llegado al lugar indicado."
-  />
-  <section class="container">
-    <p><strong>iRobot</strong> no es solo una marca; es la promesa de una limpieza autónoma, eficiente y profunda. Olvídese de la tediosa tarea de aspirar y luego fregar. Con los aspiradores y fregasuelos iRobot, su hogar se mantendrá radiante con el mínimo esfuerzo.</p>
-    <p>Nuestros equipos combinan la potencia de succión más avanzada con sistemas de fregado inteligentes, garantizando que cada rincón de su vivienda quede impecable. Desde la eliminación de polvo y alérgenos hasta la limpieza de manchas difíciles, los robot aspiradores y friegasuelos iRobot son la inversión inteligente para su bienestar.</p>
-  </section>
-  <section class="container">
-    <h2>¿Por qué elegir iRobot para la limpieza de su hogar?</h2>
-    <ul class="features-list">
-      <li><strong>Tecnología de Vanguardia:</strong> Nuestros modelos integran sensores avanzados, navegación inteligente y algoritmos de limpieza optimizados para adaptarse a cualquier tipo de suelo y suciedad.</li>
-      <li><strong>Eficiencia Inigualable:</strong> Ahorre tiempo y esfuerzo, permitiendo que su iRobot aspirador y fregasuelos se encargue de la rutina de limpieza diaria.</li>
-      <li><strong>Resultados Profesionales:</strong> Disfrute de suelos brillantes y libres de suciedad, como si un equipo de limpieza profesional visitara su hogar a diario.</li>
-      <li><strong>Opiniones Reales:</strong> Las opiniones de iRobot friegasuelos de miles de usuarios satisfechos confirman su rendimiento superior y su fiabilidad. La comunidad de iRobot es un testimonio del valor que estos dispositivos aportan a los hogares modernos.</li>
-    </ul>
-  </section>
-  <section class="container">
-    <h2>La Excelencia en Limpieza se Llama iRobot Roomba</h2>
-    <p>Cuando piense en la máxima expresión de la limpieza autónoma, piense en la gama iRobot Roomba. Estos prodigios de la ingeniería están diseñados para superar todas sus expectativas.</p>
-    <p><strong>¡Es hora de experimentar la revolución en la limpieza!</strong></p>
-    <p>Si busca un robot aspirador y fregasuelos que marque la diferencia, la línea iRobot Roomba aspirador y fregasuelos es su elección. Desde la potencia de aspiración inigualable hasta la capacidad de fregar suelos de manera impecable, los modelos iRobot Roomba fregasuelos están listos para transformar su rutina.</p>
-    <p>No espere más para disfrutar de un hogar más limpio y saludable. Explore nuestra gama de iRobot Roomba y descubra el modelo perfecto para usted.</p>
-  </section>
+<Layout 
+  title={title}
+  description={description}
+>
+  <main>
+    <CategoryHeader
+      h1="Dominando la Limpieza del Hogar: iRobot, la Solución Definitiva para Aspirar y Fregar"
+      p="En la búsqueda incesante de un hogar impecable, la tecnología ha avanzado para ofrecernos soluciones que antes solo imaginábamos. Si su intención de búsqueda gira en torno a aspiradores y fregasuelos robotizados, ha llegado al lugar indicado."
+    />
+    <section class="container">
+      <p><strong>iRobot</strong> no es solo una marca; es la promesa de una limpieza autónoma, eficiente y profunda. Olvídese de la tediosa tarea de aspirar y luego fregar. Con los aspiradores y fregasuelos iRobot, su hogar se mantendrá radiante con el mínimo esfuerzo.</p>
+      <p>Nuestros equipos combinan la potencia de succión más avanzada con sistemas de fregado inteligentes, garantizando que cada rincón de su vivienda quede impecable. Desde la eliminación de polvo y alérgenos hasta la limpieza de manchas difíciles, los robot aspiradores y friegasuelos iRobot son la inversión inteligente para su bienestar.</p>
+    </section>
+    <section class="container">
+      <h2>¿Por qué elegir iRobot para la limpieza de su hogar?</h2>
+      <ul class="features-list">
+        <li><strong>Tecnología de Vanguardia:</strong> Nuestros modelos integran sensores avanzados, navegación inteligente y algoritmos de limpieza optimizados para adaptarse a cualquier tipo de suelo y suciedad.</li>
+        <li><strong>Eficiencia Inigualable:</strong> Ahorre tiempo y esfuerzo, permitiendo que su iRobot aspirador y fregasuelos se encargue de la rutina de limpieza diaria.</li>
+        <li><strong>Resultados Profesionales:</strong> Disfrute de suelos brillantes y libres de suciedad, como si un equipo de limpieza profesional visitara su hogar a diario.</li>
+        <li><strong>Opiniones Reales:</strong> Las opiniones de iRobot friegasuelos de miles de usuarios satisfechos confirman su rendimiento superior y su fiabilidad. La comunidad de iRobot es un testimonio del valor que estos dispositivos aportan a los hogares modernos.</li>
+      </ul>
+    </section>
+    <section class="container">
+      <h2>La Excelencia en Limpieza se Llama iRobot Roomba</h2>
+      <p>Cuando piense en la máxima expresión de la limpieza autónoma, piense en la gama iRobot Roomba. Estos prodigios de la ingeniería están diseñados para superar todas sus expectativas.</p>
+      <p><strong>¡Es hora de experimentar la revolución en la limpieza!</strong></p>
+      <p>Si busca un robot aspirador y fregasuelos que marque la diferencia, la línea iRobot Roomba aspirador y fregasuelos es su elección. Desde la potencia de aspiración inigualable hasta la capacidad de fregar suelos de manera impecable, los modelos iRobot Roomba fregasuelos están listos para transformar su rutina.</p>
+      <p>No espere más para disfrutar de un hogar más limpio y saludable. Explore nuestra gama de iRobot Roomba y descubra el modelo perfecto para usted.</p>
+    </section>
+  </main>
 </Layout>

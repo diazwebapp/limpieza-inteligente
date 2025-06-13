@@ -2,8 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import CategoryHeader from "../../components/CategoryHeader.astro";
 import AmazonCluster from "../../components/AmazonCluster.astro";
-// @ts-ignore
-import { buildSeoArticle } from "../../datos/seoBase.js";
+import { schemaWebSite, schemaArticle, schemaFAQ } from "../../datos/seoBase.js";
 
 const xiaomiProducts = [
   {
@@ -57,21 +56,61 @@ const xiaomiProductsPopulares = [
 const title = "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente";
 const description = "Descubre el robot aspirador y friegasuelos Xiaomi ideal para tu hogar. La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!";
 const canonicalURL = "https://limpiezainteligente.store/xiaomi";
-const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
-const modDatetime = new Date("2025-06-11T00:00:00+00:00").toISOString();
 
-const seoArticle = buildSeoArticle({
-  title,
-  description,
-  canonicalURL,
-  pubDatetime,
-  modDatetime
-});
+const datePublished = "2025-06-6T00:00:00+00:00";
+const dateModified = "2025-06-12T00:00:00+00:00";
+
+const schemas = [
+  schemaWebSite(),
+  schemaArticle({
+    headline: title,
+    image: [
+      "https://www.powerplanetonline.com/cdnassets/xiaomi_robot_vacuum_e5_negro_05_ad_l.jpg",
+      "https://www.powerplanetonline.com/cdnassets/xiaomi_robot_vacuum_e10c_01_l.jpg"
+    ],
+    datePublished,
+    dateModified,
+    description,
+    articleBody: "Son eficientes limpian y mantienen tu casa reluciente. Además, su automatización es una maravilla. Y no hay que olvidar lo compactos que son, apenas ocupan espacio. los mas avanzados, incluso puedes controlarlos desde tu teléfono, lo cual es súper práctico...",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalURL
+    }
+  }),
+  schemaFAQ({
+    mainEntity: [
+      {
+        "@type": "Question",
+        "name": "¿Qué ventajas ofrecen los robots aspiradores y fregasuelos Xiaomi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Los robots Xiaomi ofrecen doble funcionalidad (aspiran y friegan simultáneamente), tecnología de vanguardia para mapeo y navegación precisa, conectividad inteligente vía smartphone y gran potencia de succión con alta autonomía."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se controlan los robots aspiradores Xiaomi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Se controlan directamente desde tu smartphone a través de la aplicación Xiaomi Home. Desde la app puedes programar horarios, seleccionar áreas específicas, y ajustar la potencia de succión o el nivel de agua del fregado."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué modelos destacados de Xiaomi son populares?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La serie Mi Robot Vacuum se destaca por su fiabilidad y rendimiento. Modelos como el Xiaomi Robot Vacuum S20, E5, E12 y el Mi Robot Aspiradora Mop Pro son muy populares por sus funciones integradas de aspirado y fregado."
+        }
+      }
+    ]
+  })
+];
 ---
 <Layout 
   title={title}
   description={description}
-  seoArticle={seoArticle}
+  schemas={schemas}
 >
   <main>
     <CategoryHeader

@@ -1,23 +1,17 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import CategoryHeader from "../../../components/CategoryHeader.astro";
-import { buildSeoArticle } from "../../../datos/seoBase.js";
 
 const title = "Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente";
 const description = "Descubre cómo iRobot Braava transforma la limpieza de tu hogar con tecnología avanzada, mapeo inteligente y conectividad total.";
 const canonicalURL = "https://limpiezainteligente.store/irobot/bravaa";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
-
-const seoArticle = buildSeoArticle({
-  title,
-  description,
-  canonicalURL,
-  pubDatetime,
-  modDatetime
-});
 ---
-<Layout title={title} description={description} seoArticle={seoArticle}>
+<Layout 
+  title={title}
+  description={description}
+>
   <CategoryHeader
     h1="Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente"
     p="La era de los suelos impecables ha llegado, y su nombre es iRobot Braava. Olvídate de los métodos tradicionales y descubre la eficiencia de un sistema diseñado para transformar la limpieza de tu hogar en una experiencia sin esfuerzo y con resultados profesionales."

@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import AmazonCluster from "../components/AmazonCluster.astro";
 import { amazonProduts } from "../datos/database";
-import { buildSeoArticle } from "../datos/seoBase.js";
 
 const title = "¿Cuál es el Mejor Robot Aspirador para Suelo Laminado?";
 const description = "Descubre cómo elegir el mejor robot aspirador para tarima laminada: evita rayaduras, conoce las mejores marcas y compra seguro.";
@@ -10,51 +9,42 @@ const canonicalURL = "https://limpiezainteligente.store/suelo-laminado";
 const author = "diaz web app";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
-
-const seoArticle = buildSeoArticle({
-  title,
-  description,
-  canonicalURL,
-  pubDatetime,
-  modDatetime
-});
 ---
-<Layout
+<Layout 
   title={title}
   description={description}
-  seoArticle={seoArticle}
 >
-<main>
-  <section class="container">
-    <h1>¿Cuál es el Mejor Robot Aspirador para Suelo Laminado del año?</h1>
-    <p>Si buscas <strong>limpiar tu tarima laminada sin riesgos</strong>, un robot aspirador especializado es la solución. Te explicamos <strong>qué modelos evitan rayaduras</strong>, cómo elegirlos y por qué son inversiones inteligentes.</p>
-    <a href="https://amzn.to/3Zp4aGm" class="cta">👉 Ver Robots Recomendados</a>
-  </section>
+  <main>
+    <section class="container">
+      <h1>¿Cuál es el Mejor Robot Aspirador para Suelo Laminado del año?</h1>
+      <p>Si buscas <strong>limpiar tu tarima laminada sin riesgos</strong>, un robot aspirador especializado es la solución. Te explicamos <strong>qué modelos evitan rayaduras</strong>, cómo elegirlos y por qué son inversiones inteligentes.</p>
+      <a href="https://amzn.to/3Zp4aGm" class="cta">👉 Ver Robots Recomendados</a>
+    </section>
 
-  <section class="container">
-    <h2>¿Por qué Usar un Robot Aspirador en Suelos Laminados?</h2>
-    <p>Los suelos delicados exigen tecnología <strong>anti-choque y presión controlada</strong>. Los mejores modelos incluyen:</p>
-    <ul>
-      <li>Sensores para <strong>evitar golpes</strong> en muebles y paredes.</li>
-      <li>Modos <strong>silenciosos</strong> para no molestar.</li>
-      <li>Cepillos <strong>suaves</strong> que no dañan la superficie.</li>
-    </ul>
-  </section>
+    <section class="container">
+      <h2>¿Por qué Usar un Robot Aspirador en Suelos Laminados?</h2>
+      <p>Los suelos delicados exigen tecnología <strong>anti-choque y presión controlada</strong>. Los mejores modelos incluyen:</p>
+      <ul>
+        <li>Sensores para <strong>evitar golpes</strong> en muebles y paredes.</li>
+        <li>Modos <strong>silenciosos</strong> para no molestar.</li>
+        <li>Cepillos <strong>suaves</strong> que no dañan la superficie.</li>
+      </ul>
+    </section>
 
-  <section class="container">
-    <h2>Top 3 Características que DEBES Buscar</h2>
-    <p>Según análisis de marcas como <strong>Ecovacs o iRobot</strong>, prioriza:</p>
-    <ol>
-      <li><strong>Tecnología mop (fregado húmedo):</strong> Ideal para eliminar polvo adherente.</li>
-      <li><strong>Batería de larga duración:</strong> Para cubrir grandes áreas sin recargas.</li>
-      <li><strong>App con zonas prohibidas:</strong> Delimita áreas sensibles (ej. alfombras).</li>
-    </ol>
-    <AmazonCluster products={amazonProduts} />
-  </section>
+    <section class="container">
+      <h2>Top 3 Características que DEBES Buscar</h2>
+      <p>Según análisis de marcas como <strong>Ecovacs o iRobot</strong>, prioriza:</p>
+      <ol>
+        <li><strong>Tecnología mop (fregado húmedo):</strong> Ideal para eliminar polvo adherente.</li>
+        <li><strong>Batería de larga duración:</strong> Para cubrir grandes áreas sin recargas.</li>
+        <li><strong>App con zonas prohibidas:</strong> Delimita áreas sensibles (ej. alfombras).</li>
+      </ol>
+      <AmazonCluster products={amazonProduts} />
+    </section>
 
-  <section class="container">
-    <h2>Conclusión: Invierte en Protección y Eficiencia</h2>
-    <p>Un <strong>robot aspirador para suelo laminado</strong> no es un lujo, es una necesidad. Elige modelos con <strong>sistemas inteligentes</strong> y disfruta de una tarima impecable <strong>sin esfuerzo</strong>.</p>
-  </section>
-</main>
+    <section class="container">
+      <h2>Conclusión: Invierte en Protección y Eficiencia</h2>
+      <p>Un <strong>robot aspirador para suelo laminado</strong> no es un lujo, es una necesidad. Elige modelos con <strong>sistemas inteligentes</strong> y disfruta de una tarima impecable <strong>sin esfuerzo</strong>.</p>
+    </section>
+  </main>
 </Layout>

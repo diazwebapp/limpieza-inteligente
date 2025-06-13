@@ -16,7 +16,7 @@ export const PUBLISHER = {
 
 export const WEBSITE_URL = "https://limpiezainteligente.store/";
 export const WEBSITE_NAME = "Limpieza Inteligente";
-export const WEBSITE_DESCRIPTION = "Guía de robots aspiradores y limpieza inteligente para el hogar.";
+export const WEBSITE_DESCRIPTION = "Descubre los mejores robots de limpieza, robot aspirador y fregasuelos, aspirador y friegasuelos, y más. Compara modelos, encuentra ofertas y simplifica tu vida con la última tecnología en limpieza automática.";
 export const WEBSITE_LANGUAGE = "es";
 
 // Plantilla reutilizable para WebSite

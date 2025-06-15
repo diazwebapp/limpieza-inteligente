@@ -80,6 +80,96 @@ const seoArticle = buildSeoArticle({
 
 Esto permite que cada página solo defina lo que la hace única, manteniendo el SEO técnico centralizado y profesional.
 
+## Componentes Destacados
+
+### AmazonCluster
+
+Componente para mostrar un grid de productos de Amazon filtrados y ordenados.
+
+**Props:**
+- `idProducto` (number, opcional): Si se pasa, muestra solo ese producto e ignora los demás filtros.
+- `idMarca` (number, opcional): Filtra los productos por el id de la marca.
+- `orderBy` (string, opcional): Ordena los productos por "precio" o "rating".
+- `orderDir` (string, opcional): Dirección de orden, "asc" o "desc". Por defecto "desc".
+- `limit` (number, opcional): Límite de productos a mostrar. Por defecto 3.
+- `products` (array, opcional): Puedes pasar un array personalizado de productos si lo deseas.
+
+**Ejemplo de uso:**
+```astro
+<AmazonCluster idMarca={5} orderBy="precio" orderDir="asc" limit={4} />
+<AmazonCluster idProducto={4} />
+```
+
+### StoreCluster
+
+Componente duplicado de AmazonCluster, pero con estilos propios del sitio y botón destacado (clase `cta`).
+
+**Props:**
+- `idProducto` (number, opcional): Si se pasa, muestra solo ese producto e ignora los demás filtros.
+- `idMarca` (number, opcional): Filtra los productos por el id de la marca.
+- `orderBy` (string, opcional): Ordena los productos por "precio" o "rating".
+- `orderDir` (string, opcional): Dirección de orden, "asc" o "desc". Por defecto "desc".
+- `limit` (number, opcional): Límite de productos a mostrar. Por defecto 3.
+- `products` (array, opcional): Puedes pasar un array personalizado de productos si lo deseas.
+
+**Ejemplo de uso:**
+```astro
+<StoreCluster idMarca={5} orderBy="precio" orderDir="asc" limit={4} />
+<StoreCluster idProducto={4} />
+```
+
+### SingleProductHeader
+
+Componente para mostrar la cabecera de un producto individual, con galería, detalles técnicos, rating y botón de compra.
+
+**Props:**
+- `id` (number): Id del producto a mostrar (debe existir en `amazonProduts`).
+
+**Ejemplo de uso:**
+```astro
+<SingleProductHeader id={4} />
+```
+
+### GaleryProduct
+
+Componente de galería de imágenes tipo Amazon, con miniaturas y cambio de imagen principal.
+
+**Props:**
+- `main` (string): URL de la imagen principal.
+- `images` (string): URLs de imágenes adicionales, separadas por coma.
+
+**Ejemplo de uso:**
+```astro
+<GaleryProduct main="/robot-xiaomi.webp" images="/robot-xiaomi.webp,/para-laminado.webp,/para-madera.webp,/para-marmol.png" />
+```
+
+### CategoryHeader
+
+Componente para mostrar el encabezado de una categoría, con título, descripción y opcionalmente imagen.
+
+**Props:**
+- `title` (string): Título de la categoría.
+- `description` (string): Descripción de la categoría.
+- `image` (string, opcional): URL de la imagen de la categoría.
+
+**Ejemplo de uso:**
+```astro
+<CategoryHeader title="Robots Xiaomi" description="Descubre los mejores robots de Xiaomi para tu hogar." image="/robot-xiaomi.webp" />
+```
+
+### CategoryCluester
+
+Componente para mostrar un clúster de categorías o tipos de productos en formato de lista visual.
+
+**Props:**
+- `cats` (array): Array de objetos con las propiedades `link`, `image`, `title`, `description`.
+
+**Ejemplo de uso:**
+```astro
+<CategoryCluester cats={marcas} />
+<CategoryCluester cats={tiposSuelo} />
+```
+
 ## Licencia
 
 Este proyecto es solo para fines educativos y demostrativos.

@@ -1,0 +1,81 @@
+---
+const { cats } = Astro.props;
+---
+<ul class="cluster-nav">
+    {cats.map(cat => (
+      <li class="cluster-item">
+        <a href={cat.link}>
+            <article>
+                <figure>
+                    <img src={cat.image} alt={cat.title} loading="lazy" width="250" height="250"/>
+                </figure>
+                <div class="content">
+                    <h3>{cat.title}</h3>
+                    <p>{cat.description}</p>
+                </div>
+            </article>
+        </a>
+      </li>
+    ))}
+</ul>
+<style>
+.cluster-nav {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+.cluster-nav article figure{
+    padding: 10px;
+}
+@media (min-width: 600px) {
+  .cluster-nav {
+    grid-template-columns: 1fr 1fr;
+    gap: .1rem;
+  }
+}
+@media (min-width: 1024px) {
+  .cluster-nav {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.cluster-item {
+  list-style: none;
+}
+.cluster-nav article {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--rounded, 16px);
+  transition: all ease-in-out 0.3s;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  height: 100%;
+}
+.cluster-nav article:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.cluster-nav article .content {
+  width: 100%;
+  display: block;
+  padding: 16px;
+}
+.cluster-nav article figure {
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #b8057c 0%, var(--secondary, #f0f0f0) 100%);
+  border-radius: var(--rounded, 16px);
+  overflow: hidden;
+}
+.cluster-nav article figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+</style>

@@ -1,0 +1,80 @@
+---
+// GaleryProduct.astro
+// Props: main (string, url de la imagen principal), images (string, urls separadas por coma)
+const { main, images } = Astro.props;
+const imageList = images ? images.split(',').map(url => url.trim()).filter(Boolean) : [];
+let selected = main || (imageList.length > 0 ? imageList[0] : null);
+---
+<div class="gallery-product">
+  <div class="gallery-main">
+    <img src={selected} width="320" height="320" alt="Imagen principal del producto" class="gallery-main-img" id="gallery-main-img" />
+  </div>
+  <div class="gallery-thumbs">
+    {[main, ...imageList].filter((v, i, arr) => arr.indexOf(v) === i && v).map((img, idx) => (
+      <img src={img} alt={`Miniatura ${idx+1}`} class={`gallery-thumb${selected === img ? ' selected' : ''}`} width="56" height="56" style="cursor:pointer;" onClick={() => {
+        const mainImg = document.getElementById('gallery-main-img');
+        if(mainImg) mainImg.src = img;
+        selected = img;
+      }} />
+    ))}
+  </div>
+</div>
+
+<style>
+.gallery-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.gallery-main {
+  width: 320px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.gallery-main-img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px;
+  object-fit: contain;
+}
+.gallery-thumbs {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.gallery-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background: #fff;
+  transition: border 0.2s;
+}
+.gallery-thumb.selected {
+  border: 2px solid #0077ff;
+}
+.gallery-thumb:hover {
+  border: 2px solid #aaa;
+}
+</style>
+<script is:inline>
+  // Manejo de selección de miniaturas (debe funcionar en Astro)
+  document.addEventListener('astro:page-load', function() {
+    const thumbs = document.querySelectorAll('.gallery-thumb');
+    const mainImg = document.getElementById('gallery-main-img');
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        thumbs.forEach(t => t.classList.remove('selected'));
+        thumb.classList.add('selected');
+        if(mainImg) mainImg.src = thumb.src;
+      });
+    });
+  });
+</script>

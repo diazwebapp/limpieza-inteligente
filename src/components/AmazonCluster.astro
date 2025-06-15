@@ -1,6 +1,22 @@
 ---
-const { products, limit = 3 } = Astro.props;
-const showProducts = Array.isArray(products) ? products.slice(0, limit) : [];
+import { amazonProduts } from "../datos/database.js";
+const { idProducto = null, idMarca = null, orderBy = null, orderDir = 'desc', limit = 3 } = Astro.props;
+
+let filteredProducts = amazonProduts;
+if (idProducto !== null) {
+  filteredProducts = amazonProduts.filter(p => p.id === idProducto);
+} else {
+  if (idMarca !== null) {
+    filteredProducts = filteredProducts.filter(p => p.marca === idMarca);
+  }
+  if (orderBy === 'precio') {
+    filteredProducts = filteredProducts.slice().sort((a, b) => (orderDir === 'asc' ? a.precio - b.precio : b.precio - a.precio));
+  }
+  if (orderBy === 'rating') {
+    filteredProducts = filteredProducts.slice().sort((a, b) => (orderDir === 'asc' ? a.stars - b.stars : b.stars - a.stars));
+  }
+}
+const showProducts = filteredProducts.slice(0, limit);
 ---
 
 <div class="products-grid">

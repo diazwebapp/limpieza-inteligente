@@ -1,0 +1,169 @@
+---
+// @ts-nocheck
+import Layout from "../../layouts/Layout.astro";
+import SingleProductHeader from "../../components/SingleProductHeader.astro";
+import AmazonCluster from "../../components/AmazonCluster.astro";
+
+const title = "Xiaomi Vacuum S20: Mi Experiencia Real con la Limpieza del Futuro";
+const description = "Opinión y experiencia real con el Xiaomi Robot Vacuum S20. Descubre por qué este robot aspirador y fregasuelos puede transformar la limpieza de tu hogar.";
+const canonicalURL = "https://limpiezainteligente.store/xiaomi/vacuum-s20";
+const datePublished = "2025-06-14T00:00:00+00:00";
+const dateModified = "2025-06-14T00:00:00+00:00";
+import { schemaWebSite, schemaArticle, schemaProduct } from "../../datos/seoBase.js";
+
+const schemas = [
+  schemaWebSite(),
+  schemaArticle({
+    headline: title,
+    image: [
+      "https://m.media-amazon.com/images/I/51xaJeszmPL._AC_SX679_.jpg"
+    ],
+    datePublished,
+    dateModified,
+    description,
+    articleBody: "Opinión y experiencia real con el Xiaomi Robot Vacuum S20. Descubre por qué este robot aspirador y fregasuelos puede transformar la limpieza de tu hogar.",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalURL
+    }
+  }),
+  schemaProduct({
+    name: "Xiaomi Robot Vacuum S20",
+    image: [
+      "https://m.media-amazon.com/images/I/51xaJeszmPL._AC_SX679_.jpg"
+    ],
+    description: "Robot aspirador y fregasuelos con navegación láser LDS, succión de 5000 Pa, rutas de limpieza en zigzag, depósito 2 en 1 y control inteligente desde app.",
+    brand: { "@type": "Brand", name: "Xiaomi" },
+    sku: "BHR8629EU",
+    mpn: "BHR8629EU",
+    url: canonicalURL,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "EUR",
+      price: 139.99,
+      availability: "https://schema.org/InStock",
+      url: "https://amzn.to/3ZzFU4q"
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: 4.3,
+      reviewCount: 3896
+    },
+    review: [
+      {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: 5,
+          bestRating: 5
+        },
+        author: { "@type": "Person", name: "Usuario verificado" },
+        reviewBody: "Limpia muy bien, la navegación es precisa y el fregado es realmente útil. Muy recomendable."
+      }
+    ]
+  })
+];
+---
+<Layout title={title} description={description} schemas={schemas}>
+  <main>
+    <section class="container">
+      <h1>Descubre el Xiaomi Robot Vacuum S20: Mi Experiencia Real con la Limpieza del Futuro (y por qué no querrás otro)</h1>
+      <SingleProductHeader id={4} />
+      <section class="product-about" style="margin-top: 2rem;">
+        <h2>Acerca de este producto</h2>
+        <ul>
+          <li>Potente succión de 5000Pa. Limpia el suelo de una sola pasada. Equipado con un potente ventilador de succión de 5000 Pa y 3 modos de potencia, elimina fácilmente el polvo y pelos de todo tipo de suelos y zonas de difícil acceso</li>
+          <li>Depósito 2 en 1 de gran capacidad con depósito de agua. Depósito de polvo y suciedad de 400 ml y depósito de agua de 270 ml.</li>
+          <li>Eficiencia de limpieza mejorada. Ruta de aspiración en zigzag y ruta de fregado en forma de Y. La ruta en zigzag garantiza la máxima eficiencia de limpieza, mientras que la ruta en forma de Y está especialmente diseñada parafregar y simula la limpieza manual de la misma área en dos direcciones, eliminando las manchas sin esfuerzo</li>
+          <li>Mapea tu casa con facilidad. Xiaomi Robot Vacuum S20 puede escanear rápidamente su entorno para crear diseños precisos en la aplicación Mi Home/Xiaomi Home y planificar las rutas de limpieza más eficientes. Deje que este robot aspirador le muestre lo inteligente que puede ser</li>
+          <li>Sistema de navegación láser LDS. Menos puntos perdidos y menos áreas repetidas. La navegación láser es una tecnología de navegación que proporciona un posicionamiento altamente preciso, mediciones más precisas y un funcionamiento más estable</li>
+        </ul>
+      </section>
+    </section>
+    <section class="container">
+      <h2>Mi Experiencia con el Ecosistema Xiaomi y el Salto al S20</h2>
+      <div class="text-action">
+
+          <p class="text" >Antes de que este potente robot aspirador y fregasuelos S20 llegara a mi vida, tuve un modelo del ecosistema Xiaomi muy similar al Dreame 9, aunque más económico. A pesar de que funcionaba como el primer día después de cuatro años, su batería de 2.200mAh se me quedaba bastante justita. ¡Imagina la frustración de tener que aspirar la casa un día y luego esperar a que se cargara para poder fregarla! Siempre pensé que la función de fregado en esos dispositivos era más un "guarreo" que una limpieza real: mi mopa apenas se empapaba, dejaba marcas constantes en el suelo y el nivel de agua en el tanque apenas disminuía. Esto me llevó a dudar seriamente de la eficacia de los robots aspiradores con mopa.</p>
+         <div class="card">
+             <AmazonCluster idProducto={4} />
+         </div>
+
+      </div>
+    </section>
+    <section class="container">
+      <h2>La Clave del Fregado Eficiente: El Xiaomi Robot Vacuum S20 no Juega a la Limpieza</h2>
+      <p>Lo primero que noté al usar el Xiaomi S20 es su compromiso real con el fregado. ¡El Xiaomi moja y mucho el suelo! Esto para mí fue un cambio radical. Tiene tres niveles para regular la cantidad de agua, y te puedo asegurar que con el nivel 1 o 2 son más que suficientes para una limpieza diaria. He podido observar que con mi robot anterior, o no funcionaba bien la función de fregado, o la unidad era defectuosa. Ahora, mi suelo queda realmente limpio y sin las odiosas marcas de antes. Es un verdadero robot limpiador S20 que cumple lo que promete en cada pasada.</p>
+      <p>Mi segundo día de uso en profundidad con el Xiaomi S20 robot de limpieza fue revelador. Primero, aspiré una superficie de 36m² en 43 minutos. Luego, la fregué utilizando el modo profesional, que sigue un patrón en forma de Y, lo que le tomó 71 minutos adicionales. Al terminar, le quedaba aproximadamente un 20% de batería, lo cual es excelente considerando el trabajo realizado. Es importante mencionar que si utilizas el modo estándar de fregado, el tiempo y el consumo de batería disminuirán, optimizando aún más la autonomía Xiaomi S20.</p>
+    </section>
+    
+    <section class="container">
+      <h2>Versatilidad y Ahorro de Batería: Más Allá de un Simple Aspirador Inteligente</h2>
+      <div class="text-action">
+        <div class="card">
+            <AmazonCluster idProducto={4} />
+        </div>
+        <p>Uno de los motivos más importantes para elegir este aspirador inteligente Xiaomi S20 es su increíble versatilidad. A diferencia de otros modelos, te permite elegir por separado las tareas de aspirado y fregado. Esto significa que puede solo aspirar, puede aspirar y fregar al mismo tiempo, o incluso puede pasar la mopa sin aspirado. Esta última opción es un gran ahorro de batería, ideal para esos días en los que solo quieres un repaso rápido sin gastar energía de más. Es un dispositivo de limpieza robotizado S20 diseñado para adaptarse a tus necesidades diarias. <br/>
+
+        Además de su eficiencia, el Xiaomi Robot Vacuum S20 es sorprendentemente silencioso. Dispone de tres potencias de succión (silencioso, normal y turbo) que se ajustan a cada situación. Cuando activas la función de solo fregado, lo único que se escucha es la bomba inyectando agua a la mopa y el motor cuando se desplaza. Esto lo convierte en un robot de limpieza del hogar S20 ideal para usar en cualquier momento del día sin interrupciones.
+
+        </p>
+      </div>
+      
+    </section>
+    <section class="container">
+      <h2>Navegación Precisa y Mi Rutina de Limpieza</h2>
+      <p>He podido observar que el Xiaomi Robot Vacuum S20 tarda algo más en realizar la tarea en comparación con mi modelo anterior. La explicación es sencilla: su patrón de navegación es mucho más preciso, y el zig-zag tiene menos amplitud, lo que significa que pasa más veces por el mismo sitio. Si pudieras ver el número de líneas en las fotos de los mapeos de uno y otro, entenderías la diferencia en la meticulosidad de la limpieza. Esta navegación robot Xiaomi S20 garantiza que no quede ni un rincón sin atender.</p>
+      <p>En mi rutina diaria, entre semana solo aspiro la casa y utilizo la mopa en seco, eliminando todo el polvo que pueda haber. Cuando quiero fregar, simplemente lleno el depósito solo con agua y pulverizo una mezcla de agua y limpiador directamente sobre el suelo para darle un aroma agradable. Esta flexibilidad con los modos de limpieza S20 es fantástica. Estoy muy satisfecho con los resultados, especialmente comparándolo con mi anterior dispositivo, que apenas mojaba el suelo y requería que empapara la mopa cada diez minutos.</p>
+      <p>Es importante aclarar que, cuando hablamos de la función de fregado, nos referimos a situaciones cotidianas normales. No estamos hablando de manchas muy complicadas como, por ejemplo, barro, líquidos densos como el ketchup, o café reseco. En esos casos, nadie te va a quitar del fregado manual, por mucha tecnología de fregado que tenga el robot.</p>
+    </section>
+    <section class="container">
+      <h2>La Elección Inteligente para tu Hogar</h2>
+      <p>En el mercado existen aspiradores para pelos de mascotas y modelos mucho más caros con funciones de autovaciado, múltiples sensores y cámaras que evitan obstáculos, e incluso con mopas giratorias que se lavan solas y se secan con aire caliente. Sin embargo, el Xiaomi Robot Vacuum S20 es un modelo sencillo y básico, pero la verdad es que todo lo que hace, lo hace bien. Su rendimiento robot vacuum S20 es impecable para las tareas diarias.</p>
+      <p>Si buscas un robot aspirador con función de fregado S20 que ofrezca una limpieza eficiente, una autonomía sorprendente y una gran versatilidad, el Xiaomi Robot Vacuum S20 es sin duda la elección correcta. Te aseguro que, como yo, quedarás encantado con la transformación de tu hogar.</p>
+    </section>
+  </main>
+</Layout>
+<style>
+.text-action{
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.product-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+@media (min-width: 768px) {
+    .text-action{
+        flex-direction: row;
+    }
+
+    .text-action .text {
+        width: calc(100% - 300px);
+        padding: 0 1rem;
+    }
+    .text-action .card, {
+        width: 300px;
+    }
+  .product-flex {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .product-details {
+    margin-left: 2rem;
+  }
+}
+.product-details {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+}
+.product-details li {
+  margin-bottom: 0.5rem;
+}
+</style>

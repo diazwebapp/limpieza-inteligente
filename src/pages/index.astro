@@ -1,6 +1,6 @@
 ---
 import AmazonCluster from "../components/AmazonCluster.astro";
-import ClusterCategory from "../components/ClusterCategory.astro";
+import CategoryCluester from "../components/CategoryCluester.astro";
 import Layout from "../layouts/Layout.astro";
 import { marcas, tiposSuelo, amazonProduts } from "../datos/database";
 import { schemaWebSite } from "../datos/seoBase.js";
@@ -29,7 +29,7 @@ const schemas = [
 
 <section class="container cluster-nav" id="marcas">
   <h2>Marcas principates en robots de limpieza</h2>
-	<ClusterCategory cats={marcas} />
+	<CategoryCluester cats={marcas} />
 </section>
    <section class="container cluster-nav" id="ofertas">
   <h2>Ofertas Imperdibles en Robots Aspiradores y Fregasuelos</h2>
@@ -43,7 +43,7 @@ const schemas = [
     <h2>Robots limpiadores para cada tipo de pisos</h2>
     <p>Los robots aspiradores y fregasuelos son la solución definitiva para liberar tu tiempo y energía. No son solo un lujo, ¡son una inversión en tu bienestar y en la tranquilidad de tu hogar!.</p>
     <p><strong>¡Descubre a continuación el robot aspirador y fregasuelos ideal para tu tipo de suelo!</h3> </p>
-    <ClusterCategory cats={tiposSuelo}/>
+    <CategoryCluester cats={tiposSuelo}/>
 </section>
 
 ---

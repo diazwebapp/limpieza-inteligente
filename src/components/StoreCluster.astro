@@ -1,0 +1,160 @@
+---
+import { amazonProduts } from "../datos/database.js";
+const { idProducto = null, idMarca = null, orderBy = null, orderDir = 'desc', limit = 3 } = Astro.props;
+
+let filteredProducts = amazonProduts;
+if (idProducto !== null) {
+  filteredProducts = amazonProduts.filter(p => p.id === idProducto);
+} else {
+  if (idMarca !== null) {
+    filteredProducts = filteredProducts.filter(p => p.marca === idMarca);
+  }
+  if (orderBy === 'precio') {
+    filteredProducts = filteredProducts.slice().sort((a, b) => (orderDir === 'asc' ? a.precio - b.precio : b.precio - a.precio));
+  }
+  if (orderBy === 'rating') {
+    filteredProducts = filteredProducts.slice().sort((a, b) => (orderDir === 'asc' ? a.stars - b.stars : b.stars - a.stars));
+  }
+}
+const showProducts = filteredProducts.slice(0, limit);
+---
+
+<div class="store-products-grid">
+    {showProducts.map(product => (
+        <article class="store-product-card">
+            <a href={product.slug} class="store-product-link">
+                <figure class="store-product-image-container">
+                    <img loading="lazy" src={product.imageUrl} alt={product.title} class="store-product-image" />
+                </figure>
+                <div class="store-product-info">
+                    <h3 class="store-product-title">{product.title}</h3>
+                    <div class="store-product-rating">
+                        <span class="store-stars" aria-label={`${product.stars ?? 0} de 5 estrellas`}>
+                            {[1,2,3,4,5].map(i => (
+                                <span class={`store-star-icon ${product.stars >= i ? 'store-full-star' : product.stars >= i - 0.5 ? 'store-half-star' : 'store-empty-star'}`}></span>
+                            ))}
+                        </span>
+                        <span class="store-rating-count">({product.ratingCount ?? '0'})</span>
+                    </div>
+                </div>
+            </a>
+            <div class="store-product-actions">
+                <a href={product.slug} class="btn cta">Ver Detalles</a>
+            </div>
+        </article>
+    ))}
+</div>
+
+<style>
+.store-products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+}
+.store-product-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+    border: 1.5px solid #b6c2d1;
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, border 0.2s;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(60, 80, 120, 0.07);
+}
+.store-product-card:hover {
+    box-shadow: 0 6px 20px rgba(60, 80, 120, 0.13);
+    border: 1.5px solid #7ea0c7;
+}
+.store-product-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 18px 18px 0 18px;
+}
+.store-product-image-container {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.store-product-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.store-product-info {
+    padding: 0 5px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.store-product-title {
+    font-size: 1.13em;
+    color: #1a2a3a;
+    margin-bottom: 10px;
+    line-height: 1.3;
+    height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.store-product-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.store-star-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-color: #3bb77e;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    margin-right: 2px;
+}
+.store-empty-star {
+    background-color: #e0e7ef;
+}
+.store-half-star {
+    background: linear-gradient(to right, #3bb77e 50%, #e0e7ef 50%);
+}
+.store-rating-count {
+    color: #3bb77e;
+    font-size: 0.85em;
+    margin-left: 5px;
+}
+.store-product-actions {
+    padding: 18px;
+    border-top: 1px solid #e0e7ef;
+    text-align: center;
+}
+.btn.cta {
+    background: linear-gradient(90deg, #3bb77e 0%, #1a2a3a 100%);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 8px;
+    padding: 12px 22px;
+    box-shadow: 0 2px 8px rgba(60, 80, 120, 0.07);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+.btn.cta:hover {
+    background: linear-gradient(90deg, #1a2a3a 0%, #3bb77e 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(60, 80, 120, 0.13);
+}
+</style>

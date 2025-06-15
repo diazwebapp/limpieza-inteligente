@@ -68,3 +68,32 @@ export const schemaFAQ = ({
   "@type": "FAQPage",
   mainEntity
 });
+
+// Plantilla reutilizable para Product (con rich snippet de reseñas)
+export const schemaProduct = ({
+  name,
+  image = [],
+  description = "",
+  brand = {},
+  sku = "",
+  mpn = "",
+  url = WEBSITE_URL,
+  offers = {},
+  aggregateRating = {},
+  review = [],
+  inLanguage = WEBSITE_LANGUAGE
+} = {}) => ({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name,
+  image,
+  description,
+  brand,
+  sku,
+  mpn,
+  url,
+  offers,
+  aggregateRating,
+  review,
+  inLanguage
+});

@@ -3,6 +3,7 @@
 import Layout from "../../layouts/Layout.astro";
 import CategoryHeader from "../../components/CategoryHeader.astro";
 import AmazonCluster from "../../components/AmazonCluster.astro";
+import StoreCluster from "../../components/StoreCluster.astro";
 import { schemaWebSite, schemaArticle, schemaFAQ } from "../../datos/seoBase.js";
 
 const xiaomiProducts = [
@@ -139,6 +140,7 @@ const schemas = [
           <strong>Gran Potencia y Autonomía:</strong> Los <strong>fregasuelos Xiaomi</strong> no solo son inteligentes, sino también potentes. Con una succión robusta y baterías de larga duración, pueden limpiar grandes superficies sin interrupciones, garantizando resultados impecables en todo tu hogar.
         </li>
       </ul>
+      <StoreCluster idMarca={5} />
     </section>
     <section class="container">
       <h2>Modelos Destacados de Xiaomi Friegasuelos</h2>
@@ -152,6 +154,7 @@ const schemas = [
       <AmazonCluster products={xiaomiProductsPopulares} />
     
     </section>
+
     <section class="container">
       <h2>El Robot Limpiasuelos Xiaomi que Tu Hogar Necesita</h2>
       <p>

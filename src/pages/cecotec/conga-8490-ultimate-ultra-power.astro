@@ -54,7 +54,9 @@ const schemas = [
     <section class="container">
       <h1>{title}</h1>
       <SingleProductHeader {...ficha} images={ficha.imageIds} feactures={product?.feactures} marca="Cecotec" />
-      <section class="product-about" style="margin-top: 2rem;">
+      
+    </section>
+    <section class="container">
         <h2>Características destacadas</h2>
         <ul>
           <li><strong>Navegación láser:</strong> crea un mapa interactivo de tu casa para una limpieza precisa y personalizada de todos los espacios de tu hogar, sin importar la cantidad de luz ambiental. Room Plan: permite definir, planificar y programar la limpieza de tu vivienda completa o por habitaciones gracias al mapa generado en la APP. Elige el orden de limpieza, guarda mapa de distintos pisos, elige áreas restringidas.</li>
@@ -64,39 +66,38 @@ const schemas = [
           <li><strong>Total Surface:</strong> si el robot se queda sin batería, vuelve a la base de carga y retoma la limpieza para terminar con la limpieza programada una vez carga la batería. APP Control: maneja la Conga desde tu smartphone y controla los programas, la potencia, el fregado y el historial, entre otros.</li>
         </ul>
       </section>
-    </section>
-    <section>
+    <section class="container">
       <h2>¿Por qué elegir el Cecotec Conga 8490?</h2>
       <p>El <strong>robot aspirador Cecotec Conga 8490 Ultimate Ultra Power</strong> se ha convertido en una de las opciones más recomendadas para quienes buscan limpieza inteligente, comodidad y resultados profesionales en casa. Tras recibirlo en menos de 24 horas y probarlo durante varios días, puedo afirmar que es una de las mejores compras que he realizado.</p>
       <AmazonCluster id="5"/>
     </section>
 
-    <section>
+    <section class="container">
       <h2>Instalación y primeras impresiones</h2>
       <p>La instalación es muy sencilla y rápida. Al principio, el robot tuvo dificultades para encontrar la base de carga si había obstáculos, pero tras cambiar la base a un lugar despejado, la localiza perfectamente, llega y vacía la carga sin problemas.</p>
     </section>
 
-    <section>
+    <section class="container">
       <h2>Limpieza y resultados en diferentes superficies</h2>
       <p>El <strong>Conga 8490</strong> deja el parquet y los suelos brillantes, y realiza una limpieza profunda tanto en suelos duros como en alfombras. El bajo nivel de ruido permite usarlo a cualquier hora sin molestias.</p>
     </section>
 
-    <section>
+    <section class="container">
       <h2>Programación, mapeo y personalización</h2>
       <p>Destaca por su mapeo inteligente, que permite elegir zonas de limpieza, periodicidad, tipo de actividad (fregado, aspirado), intensidad y nivel de sonido. Todo se gestiona fácilmente desde la app, haciendo la experiencia muy cómoda.</p>
     </section>
 
-    <section>
+    <section class="container">
       <h2>Comparativa y relación calidad-precio</h2>
       <p>Comparado con otros robots aspiradores, el <strong>Cecotec Conga 8490 Ultimate Ultra Power</strong> es bastante económico y cumple con creces su función. Aunque existen modelos más avanzados, por su precio y prestaciones es una opción muy recomendable.</p>
     </section>
 
-    <section>
+    <section class="container">
       <h2>Opinión y experiencia personal tras varios días de uso</h2>
       <p>Después de dos o tres días de uso, no tengo ninguna queja. El robot deja la casa limpia para el día a día, es fácil de instalar y programar, y espero que dure mucho tiempo. Sin duda, lo recomiendo para quienes buscan un robot aspirador eficiente y asequible.</p>
     </section>
 
-    <section>
+    <section class="container">
       <h2>Preguntas frecuentes</h2>
       <ul>
         <li><strong>¿Hace mucho ruido?</strong> No, es bastante silencioso.</li>
@@ -106,35 +107,5 @@ const schemas = [
       </ul>
     </section>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Cecotec Conga 8490 Ultimate Ultra Power",
-      "image": [
-        "/public/conga-8490-1.webp",
-        "/public/conga-8490-2.webp",
-        "/public/conga-8490-3.webp"
-      ],
-      "description": "Robot aspirador con mapeo inteligente, autovaciado y limpieza avanzada. Opinión y experiencia real tras varios días de uso.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Cecotec"
-      },
-      "review": {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Usuario verificado"
-        },
-        "reviewBody": "Llegó en menos de 24 horas, fácil de instalar y programar. Limpia muy bien parquet y suelos, poco ruido y mapeo útil. Muy recomendable."
-      }
-    }
-    </script>
   </main>
 </Layout>

@@ -5,6 +5,7 @@ import { buildProductCard } from "../../utils/productCardBuilder.js";
 import { amazonProduts } from "../../datos/database.js";
 import { schemaWebSite, schemaArticle, schemaProduct } from "../../datos/seoBase.js";
 import AmazonCluster from "../../components/AmazonCluster.astro";
+import StyledOne from "../../components/StyledOne.astro";
 
 const product = amazonProduts.find(p => p.id === 5);
 const ficha = buildProductCard(product, ["slug", "precio", "marca", "modelo", "imageIds", "urlAfiliado"]);
@@ -58,19 +59,25 @@ const schemas = [
     </section>
     <section class="container">
         <h2>Características destacadas</h2>
-        <ul>
+        <StyledOne>
+        <div>
+            <ul>
           <li><strong>Navegación láser:</strong> crea un mapa interactivo de tu casa para una limpieza precisa y personalizada de todos los espacios de tu hogar, sin importar la cantidad de luz ambiental. Room Plan: permite definir, planificar y programar la limpieza de tu vivienda completa o por habitaciones gracias al mapa generado en la APP. Elige el orden de limpieza, guarda mapa de distintos pisos, elige áreas restringidas.</li>
           <li><strong>Ultrapotencia de 7.000 Pa:</strong> de succión de motor para acabar con todo tipo de suciedad (polvo, pelos y partículas grandes) en cualquier tipo de superficie o situación. Batería de 3200 mAh con hasta 170 minutos de autonomía en aspiración y fregado en nivel Eco de manera ininterrumpida para cubrir 170 m². * Según las pruebas realizadas en el laboratorio. El rendimiento real varía según la distribución del hogar.*</li>
           <li><strong>Aspira, barre, friega y pasa las mopas:</strong> permite hacer dichas tareas por separado o simultáneamente. Cepillo central de silicona: limpieza total multi superficie. Óptimo para el pelo de las mascotas.</li>
           <li><strong>Cepillo central de silicona:</strong> limpieza total multi superficie. Óptimo para el pelo de las mascotas. Áreas restringidas: selecciona desde la App las partes de tu casa que no quieres que limpie el robot y olvídate de preocupaciones.</li>
           <li><strong>Total Surface:</strong> si el robot se queda sin batería, vuelve a la base de carga y retoma la limpieza para terminar con la limpieza programada una vez carga la batería. APP Control: maneja la Conga desde tu smartphone y controla los programas, la potencia, el fregado y el historial, entre otros.</li>
         </ul>
+        </div>
+        <div><AmazonCluster idProducto={5}/></div>
+      </StyledOne>
+    
       </section>
     <section class="container">
       <h2>¿Por qué elegir el Cecotec Conga 8490?</h2>
-      <p>El <strong>robot aspirador Cecotec Conga 8490 Ultimate Ultra Power</strong> se ha convertido en una de las opciones más recomendadas para quienes buscan limpieza inteligente, comodidad y resultados profesionales en casa. Tras recibirlo en menos de 24 horas y probarlo durante varios días, puedo afirmar que es una de las mejores compras que he realizado.</p>
-      <AmazonCluster idProducto={5}/>
-    </section>
+      
+        <p>El <strong>robot aspirador Cecotec Conga 8490 Ultimate Ultra Power</strong> se ha convertido en una de las opciones más recomendadas para quienes buscan limpieza inteligente, comodidad y resultados profesionales en casa. Tras recibirlo en menos de 24 horas y probarlo durante varios días, puedo afirmar que es una de las mejores compras que he realizado.</p>
+    </section> 
 
     <section class="container">
       <h2>Instalación y primeras impresiones</h2>
@@ -79,7 +86,13 @@ const schemas = [
 
     <section class="container">
       <h2>Limpieza y resultados en diferentes superficies</h2>
-      <p>El <strong>Conga 8490</strong> deja el parquet y los suelos brillantes, y realiza una limpieza profunda tanto en suelos duros como en alfombras. El bajo nivel de ruido permite usarlo a cualquier hora sin molestias.</p>
+        <StyledOne reverse={true}> 
+        
+        <div><AmazonCluster idProducto={5}/></div>
+        <div>
+            <p>El <strong>Conga 8490</strong> deja el parquet y los suelos brillantes, y realiza una limpieza profunda tanto en suelos duros como en alfombras. El bajo nivel de ruido permite usarlo a cualquier hora sin molestias.</p>
+        </div>
+        </StyledOne>
     </section>
 
     <section class="container">

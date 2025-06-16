@@ -1,0 +1,25 @@
+---
+const { reverse } = Astro.props;
+---
+<div class=`text-action ${reverse ? 'reverse' : 'default'}`>
+    <slot />
+</div>
+<style >
+    .text-action{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+}
+
+@media (min-width: 916px) {
+    .text-action{
+        padding: 1rem 2rem;
+    }
+    .default{
+         grid-template-columns: 1fr 350px;
+    }
+    .reverse{
+        grid-template-columns: 350px 1fr;
+    }
+}
+</style>

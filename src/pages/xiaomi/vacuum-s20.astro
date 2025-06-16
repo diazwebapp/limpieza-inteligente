@@ -11,24 +11,18 @@ const description = "Opinión y experiencia real con el Xiaomi Robot Vacuum S20.
 const canonicalURL = "https://limpiezainteligente.store/xiaomi/vacuum-s20";
 const datePublished = "2025-06-14T00:00:00+00:00";
 const dateModified = "2025-06-14T00:00:00+00:00";
-import { schemaWebSite, schemaArticle, schemaProduct } from "../../datos/seoBase.js";
+import { schemaWebSite, schemaArticle, schemaProduct, schemaReview } from "../../datos/seoBase.js";
+
+const review = schemaReview({
+  datePublished,
+  reviewBody: "El Xiaomi Robot Vacuum S20 ha transformado mi rutina de limpieza. Aspira y friega con gran potencia, la navegación es precisa y la app es muy intuitiva. Ideal para quienes buscan eficiencia y versatilidad en un solo robot.",
+  reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+  name: "Opinión y experiencia real con el Xiaomi Robot Vacuum S20",
+  url: canonicalURL
+});
 
 const schemas = [
   schemaWebSite(),
-  schemaArticle({
-    headline: title,
-    image: [
-      "https://m.media-amazon.com/images/I/51xaJeszmPL._AC_SX679_.jpg"
-    ],
-    datePublished,
-    dateModified,
-    description,
-    articleBody: "Opinión y experiencia real con el Xiaomi Robot Vacuum S20. Descubre por qué este robot aspirador y fregasuelos puede transformar la limpieza de tu hogar.",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": canonicalURL
-    }
-  }),
   schemaProduct({
     name: "Xiaomi Robot Vacuum S20",
     image: [
@@ -49,18 +43,7 @@ const schemas = [
       ratingValue: 4.3,
       reviewCount: 3896
     },
-    review: [
-      {
-        "@type": "Review",
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: 5,
-          bestRating: 5
-        },
-        author: { "@type": "Person", name: "erickoficial69" },
-        reviewBody: "Limpia muy bien, la navegación es precisa y el fregado es realmente útil. Muy recomendable."
-      }
-    ]
+    review: [review]
   })
 ];
 

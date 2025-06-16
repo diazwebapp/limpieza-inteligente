@@ -1,0 +1,93 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SingleProductHeader from "../../components/SingleProductHeader.astro";
+import { buildProductCard } from "../../utils/productCardBuilder.js";
+import { amazonProduts } from "../../datos/database.js";
+import { schemaWebSite, schemaArticle, schemaProduct, schemaReview } from "../../datos/seoBase.js";
+
+const product = amazonProduts.find(p => p.id === 6);
+const ficha = buildProductCard(product, ["slug", "precio", "marca", "modelo", "imageIds", "urlAfiliado"]);
+const title = "Conga 999 Map X Treme: Reseña Real de un Usuario (¿Vale la Pena?)";
+const description = "Opinión y experiencia real con el robot aspirador Conga 999 Map X-Treme. Pros, contras y para quién es ideal.";
+const canonicalURL = `https://limpiezainteligente.store${product.slug}`;
+const datePublished = "2025-06-16T00:00:00+00:00";
+const dateModified = "2025-06-16T00:00:00+00:00";
+
+const review = schemaReview({
+  datePublished,
+  reviewBody: "Lo usamos principalmente como aspirador y limpia toda la casa perfectamente. Recoge pelo, polvo y suciedad sin atascos. No tiene mapeo avanzado, pero por su precio es una de las mejores opciones en robots aspiradores básicos. Muy recomendable para pisos pequeños o medianos.",
+  reviewRating: { "@type": "Rating", ratingValue: 4, bestRating: 5 },
+  name: "Conga 999 Map X Treme: Reseña Real de un Usuario",
+  url: canonicalURL
+});
+
+const schemas = [
+  schemaWebSite(),
+  schemaProduct({
+    name: title,
+    image: [
+      "https://m.media-amazon.com/images/I/91aX9IcU1aL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/6112LH9IOFL._AC_SX425_.jpg",
+      "https://m.media-amazon.com/images/I/61y-irdlylL._AC_SX425_.jpg"
+    ],
+    description,
+    brand: { "@type": "Brand", name: "Cecotec" },
+    url: canonicalURL,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "EUR",
+      price: product.precio,
+      availability: "https://schema.org/InStock",
+      url: product.urlAfiliado
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: product.stars,
+      reviewCount: product.ratingCount
+    },
+    review: [review]
+  })
+];
+---
+<Layout title={title} description={description} schemas={schemas}>
+  <main>
+    <section class="container">
+      <h1>{title}</h1>
+      <SingleProductHeader {...ficha} images={ficha.imageIds} feactures={product?.feactures} marca="Cecotec" />
+    </section>
+    <section class="container">
+      <h2>Introducción: Un Robot Económico pero Sorprendente</h2>
+      <p>Cuando compramos el Conga 999 Map X Treme, buscábamos una solución asequible pero eficaz para nuestro piso de 2 habitaciones, baño, salón y cocina. ¡Y ha superado todas las expectativas!</p>
+      <blockquote>Lo usamos principalmente como aspirador (aún no probamos el modo fregona) y limpia toda la casa perfectamente. Con el pelo que se me cae y el polvo diario, ha sido un salvavidas.</blockquote>
+    </section>
+    <section class="container">
+      <h2>🚀 ¿Qué Hace Bien Este Robot?</h2>
+      <h3>Aspirado Potente</h3>
+      <p>Recoge pelo, polvo y suciedad sin atascos (aunque los pelos se enrollan en los cepillos).</p>
+      <blockquote>Nunca he tenido un atasco grave. Limpiar los cepillos es fácil y rápido.</blockquote>
+      <h3>Cobertura Completa</h3>
+      <p>Navega por toda la casa sin problemas (aunque no tiene mapeo avanzado).</p>
+      <blockquote>Si quieres limpiar solo una habitación, toca moverlo manualmente. No es un problema para mí, pero es algo a considerar.</blockquote>
+      <h3>Relación Calidad-Precio</h3>
+      <p>Por su precio, es una de las mejores opciones en robots aspiradores básicos.</p>
+      <blockquote>No es el más avanzado, pero cumple muy bien su función.</blockquote>
+    </section>
+    <section class="container">
+      <h2>⚠️ Limitaciones a Tener en Cuenta</h2>
+      <ul>
+        <li>No tiene mapeo por habitaciones: Limpia en modo "aleatorio", por lo que no puedes seleccionar zonas específicas desde la app.</li>
+        <li>Modo fregona no probado: Aún no hemos usado esta función (actualizaremos la reseña cuando lo hagamos).</li>
+        <li>Cepillos requieren mantenimiento: Los pelos se enredan, pero se limpian fácilmente.</li>
+      </ul>
+    </section>
+    <section class="container">
+      <h2>💡 ¿Para Quién es Ideal?</h2>
+      <ul>
+        <li>Pisos pequeños o medianos (hasta 80-90 m²).</li>
+        <li>Personas con mascotas o que pierden mucho pelo.</li>
+        <li>Quienes buscan un robot sencillo, sin complicaciones.</li>
+      </ul>
+      <blockquote>Si no necesitas funciones premium como mapeo por habitaciones o programación avanzada, el Conga 999 es una excelente opción económica. ¡Estamos muy contentos con él!</blockquote>
+    </section>
+  </main>
+</Layout>

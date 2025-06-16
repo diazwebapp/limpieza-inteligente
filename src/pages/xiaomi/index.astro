@@ -6,54 +6,6 @@ import AmazonCluster from "../../components/AmazonCluster.astro";
 import StoreCluster from "../../components/StoreCluster.astro";
 import { schemaWebSite, schemaArticle, schemaFAQ } from "../../datos/seoBase.js";
 
-const xiaomiProducts = [
-  {
-    title:"Xiaomi Robot Vacuum S20 - Robot Aspirador y fregasuelos con Sistema Inteligente de navegación láser (LDS), succión de 5000 Pa, rutas de Limpieza en Zigzag, Blanco (Versión ES)",
-    urlAfiliado:"https://amzn.to/403wlL4",
-    imageUrl:"https://m.media-amazon.com/images/I/51ipYfoZovL._AC_SX679_.jpg",
-    stars:4.3,
-    ratingCount: 3849,
-  },
-  {
-    title:"Xiaomi Robot Vacuum E5 - Robot Aspirador con Función de aspiración y fregado en uno, succión de 2000 Pa, Planificación Inteligente de rutas, Blanco (Versión ES)",
-    urlAfiliado:"https://amzn.to/4kDUGj9",
-    imageUrl:"https://m.media-amazon.com/images/I/61xgzFVpiUL._AC_SX679_.jpg",
-    stars:4,
-    ratingCount: 129,
-  },
-  {
-    title:"Xiaomi Robot Vacuum E12 - Robot Aspirador y fregasuelos con planificación Inteligente de rutas, succión de 4000 Pa, Tres Niveles de fregado, Blanco",
-    urlAfiliado:"https://amzn.to/3ZqInxX",
-    imageUrl:"https://m.media-amazon.com/images/I/41DWEjHQUYL._AC_SX679_.jpg",
-    stars:3.6,
-    ratingCount: 665,
-  }
-]
-
-
-const xiaomiProductsPopulares = [
-  {
-    title:"Xiaomi Robot Vacuum S20 - Robot Aspirador y fregasuelos con Sistema Inteligente de navegación láser (LDS), succión de 5000 Pa, rutas de Limpieza en Zigzag, Blanco (Versión ES)",
-    urlAfiliado:"https://amzn.to/403wlL4",
-    imageUrl:"https://m.media-amazon.com/images/I/51ipYfoZovL._AC_SX679_.jpg",
-    stars:4.3,
-    ratingCount: 3849,
-  },
-  {
-    title:"Xiaomi Mi Robot Aspiradora Mop Pro, potencia de succión 2100Pa autonomía 110min 180m², detección obstáculos, planificación rutas, muros virtuales, comando de voz y a través de la aplicación - Negro",
-    urlAfiliado:"https://amzn.to/45lrrg3",
-    imageUrl:"https://m.media-amazon.com/images/I/6173uwPVzTL._AC_SX679_.jpg",
-    stars:4.2,
-    ratingCount: 6314,
-  },
-  {
-    title:"Xiaomi Robot Vacuum E10 Robot Aspirador WiFi",
-    urlAfiliado:"https://amzn.to/4dYOOyd",
-    imageUrl:"https://m.media-amazon.com/images/I/41J+7XqI+OL._AC_SX679_.jpg",
-    stars:4.3,
-    ratingCount: 275,
-  }
-]
 
 const title = "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente";
 const description = "Descubre el robot aspirador y friegasuelos Xiaomi ideal para tu hogar. La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!";
@@ -122,7 +74,7 @@ const schemas = [
       ctaLink="#mas-vendidos"
     />
     <section class="container" id="mas-vendidos">
-      <AmazonCluster products={xiaomiProducts} />
+      <AmazonCluster slugMarca="xiaomi" />
     </section>
     <section class="container">
       <h2>Por Qué Elegir un Xiaomi robot aspirador y fregasuelos </h2>
@@ -151,7 +103,7 @@ const schemas = [
         Entre los más populares, la serie <strong>Mi Robot Vacuum</strong> se destaca por su fiabilidad y rendimiento, ofreciendo modelos que integran a la perfección las funciones de aspirado y fregado, convirtiéndolos en verdaderos aliados para la limpieza diaria.
       </p>
       
-      <AmazonCluster products={xiaomiProductsPopulares} />
+      <AmazonCluster slugMarca="xiaomi" />
     
     </section>
 
@@ -163,7 +115,7 @@ const schemas = [
       <p>
         ¿Listo para transformar la limpieza de tu hogar? Explora nuestra selección de <strong>robots aspirador y fregasuelos Xiaomi</strong> y encuentra el modelo perfecto para ti.
       </p>
-      <AmazonCluster products={xiaomiProducts} />
+      <AmazonCluster slugMarca="xiaomi" />
     </section>
   </main>
 

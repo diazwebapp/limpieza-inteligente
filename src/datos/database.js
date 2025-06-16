@@ -136,6 +136,39 @@ export const amazonProduts = [
     superficies: "Todo tipo de suelos y alfombras",
     deposito: "Autovaciado"
   }
+},
+{
+  id: 6,
+  title: "Conga 999 Map X-Treme",
+  slug: "/cecotec/conga-999-map-x-treme",
+  urlAfiliado: "", // Añadir URL de afiliado si la tienes
+  imageIds: [301, 302, 303],
+  stars: 3.9,
+  ratingCount: 2920,
+  marca: 1, // id de Cecotec
+  modelo: "Conga 999 Map X-Treme",
+  precio: 99.00, // Añadir precio si lo tienes
+  momeda: "eur",
+  feactures: {
+    funcionEspecial: "inalámbrico",
+    color: "Conga 999 Map | 2 Mopas",
+    dimensiones: "31,5L x 31,5an. x 7,5al. centímetros",
+    componentes: "1 x Robot Aspirador; 2 x Cepillos laterales; 1 x Cepillo de autolimpieza; 1 x Depósito mixto; 1 x Filtro de alta eficiencia; 1 x Mando a distancia; 2 x Mopa de fregado",
+    tipoFiltro: "Filtro de alta eficiencia",
+    duracionBateria: "2 Horas",
+    fuenteAlimentacion: "Batería",
+    pilasIncluidas: true,
+    descripcionCorta: "Barre, aspira, pasa la mopa, friega y seca la superficie con modos de limpieza adaptados a tus necesidades.",
+    potenciaSuccion: "2000 Pa",
+    autonomia: "120 minutos",
+    totalSurface: true,
+    autoCharge: true,
+    tecnologia: "iTech SmartGyro",
+    controlApp: true,
+    conectividad: "WiFi 2,4 GHz y Bluetooth",
+    mopasCepillos: "2 mopas de fregado y 2 cepillos laterales",
+    iWater: "Fregado inteligente con 3 niveles de caudal de agua (High, Medium y Low)"
+  }
 }
 ]
 
@@ -176,5 +209,23 @@ export const productImages = [
     "250x250": "https://m.media-amazon.com/images/I/61OEayxvbiL._AC_SX522_.jpg",
     "60x60": "https://m.media-amazon.com/images/I/51TP6nnqMTL._AC_SR38,50_.jpg",
     "1280x720": "https://m.media-amazon.com/images/I/61OEayxvbiL._AC_SL1000_.jpg"
+  },
+  {
+    id: 301,
+    "250x250": "https://m.media-amazon.com/images/I/91aX9IcU1aL._AC_SX522_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51GBuG08aKL._AC_SR38,50_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/91aX9IcU1aL._AC_SL1500_.jpg"
+  },
+  {
+    id: 302,
+    "250x250": "https://m.media-amazon.com/images/I/6112LH9IOFL._AC_SX425_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51URDQKaRdL._AC_SR38,50_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/6112LH9IOFL._AC_SL1000_.jpg"
+  },
+  {
+    id: 303,
+    "250x250": "https://m.media-amazon.com/images/I/61y-irdlylL._AC_SX425_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/417KJNZ7gXL._AC_SR38,50_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/61y-irdlylL._AC_SL1000_.jpg"
   }
 ];

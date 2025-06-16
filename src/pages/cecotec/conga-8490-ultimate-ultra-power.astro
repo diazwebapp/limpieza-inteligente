@@ -3,7 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import SingleProductHeader from "../../components/SingleProductHeader.astro";
 import { buildProductCard } from "../../utils/productCardBuilder.js";
 import { amazonProduts } from "../../datos/database.js";
-import { schemaWebSite, schemaArticle, schemaProduct } from "../../datos/seoBase.js";
+import { schemaWebSite, schemaArticle, schemaProduct, schemaReview } from "../../datos/seoBase.js";
 import AmazonCluster from "../../components/AmazonCluster.astro";
 import StyledOne from "../../components/StyledOne.astro";
 
@@ -14,6 +14,14 @@ const description = "Descubre el Cecotec Conga 8490 Ultimate Ultra Power: robot 
 const canonicalURL = `https://limpiezainteligente.store${product.slug}`;
 const datePublished = "2025-06-15T00:00:00+00:00";
 const dateModified = "2025-06-15T00:00:00+00:00";
+
+const review = schemaReview({
+  datePublished,
+  reviewBody: "El Cecotec Conga 8490 Ultimate Ultra Power ha superado mis expectativas: limpieza potente, mapeo inteligente y muy fácil de usar. Tras varios días de uso, la casa queda impecable y el robot es silencioso y eficiente. Muy recomendable para quienes buscan calidad y precio.",
+  reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
+  name: "Reseña real: Conga 8490 Ultimate Ultra Power",
+  url: canonicalURL
+});
 
 const schemas = [
   schemaWebSite(),
@@ -46,7 +54,8 @@ const schemas = [
       "@type": "AggregateRating",
       ratingValue: product.stars,
       reviewCount: product.ratingCount
-    }
+    },
+    review: [review]
   })
 ];
 ---

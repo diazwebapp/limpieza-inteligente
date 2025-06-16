@@ -89,6 +89,7 @@ Componente para mostrar un grid de productos de Amazon filtrados y ordenados.
 **Props:**
 - `idProducto` (number, opcional): Si se pasa, muestra solo ese producto e ignora los demás filtros.
 - `idMarca` (number, opcional): Filtra los productos por el id de la marca.
+- `slugMarca` (string, opcional): Filtra los productos por el slug único de la marca (por ejemplo, "xiaomi", "cecotec"). Si se pasa, tiene prioridad sobre idMarca.
 - `orderBy` (string, opcional): Ordena los productos por "precio" o "rating".
 - `orderDir` (string, opcional): Dirección de orden, "asc" o "desc". Por defecto "desc".
 - `limit` (number, opcional): Límite de productos a mostrar. Por defecto 3.
@@ -96,8 +97,8 @@ Componente para mostrar un grid de productos de Amazon filtrados y ordenados.
 
 **Ejemplo de uso:**
 ```astro
-<AmazonCluster idMarca={5} orderBy="precio" orderDir="asc" limit={4} />
-<AmazonCluster idProducto={4} />
+<AmazonCluster slugMarca="xiaomi" orderBy="precio" orderDir="asc" limit={4} />
+<AmazonCluster idMarca={5} orderBy="precio" />
 ```
 
 ### StoreCluster
@@ -107,6 +108,7 @@ Componente duplicado de AmazonCluster, pero con estilos propios del sitio y bot�
 **Props:**
 - `idProducto` (number, opcional): Si se pasa, muestra solo ese producto e ignora los demás filtros.
 - `idMarca` (number, opcional): Filtra los productos por el id de la marca.
+- `slugMarca` (string, opcional): Filtra los productos por el slug único de la marca (por ejemplo, "xiaomi", "cecotec"). Si se pasa, tiene prioridad sobre idMarca.
 - `orderBy` (string, opcional): Ordena los productos por "precio" o "rating".
 - `orderDir` (string, opcional): Dirección de orden, "asc" o "desc". Por defecto "desc".
 - `limit` (number, opcional): Límite de productos a mostrar. Por defecto 3.
@@ -114,8 +116,8 @@ Componente duplicado de AmazonCluster, pero con estilos propios del sitio y bot�
 
 **Ejemplo de uso:**
 ```astro
-<StoreCluster idMarca={5} orderBy="precio" orderDir="asc" limit={4} />
-<StoreCluster idProducto={4} />
+<StoreCluster slugMarca="cecotec" orderBy="rating" />
+<StoreCluster idMarca={1} />
 ```
 
 ### SingleProductHeader
@@ -123,11 +125,18 @@ Componente duplicado de AmazonCluster, pero con estilos propios del sitio y bot�
 Componente para mostrar la cabecera de un producto individual, con galería, detalles técnicos, rating y botón de compra.
 
 **Props:**
-- `id` (number): Id del producto a mostrar (debe existir en `amazonProduts`).
+- `images` (array de ids): Array de ids de imágenes del producto (se usan para la galería y miniaturas).
+- `feactures` (object): Objeto JSON con las características técnicas del producto.
+- `stars` (number): Valor de rating (0-5).
+- `ratingCount` (number): Número de valoraciones.
+- `urlAfiliado` (string): URL de compra en Amazon.
+- `title` (string): Título del producto.
+- `marca` (string|number): Marca o id de marca.
+- `modelo` (string): Modelo del producto.
 
 **Ejemplo de uso:**
 ```astro
-<SingleProductHeader id={4} />
+<SingleProductHeader images={[101,102,103]} feactures={...} stars={4.3} ratingCount={3896} urlAfiliado="https://amzn.to/3ZzFU4q" title="Xiaomi S20" marca={5} modelo="BHR8629EU" />
 ```
 
 ### GaleryProduct
@@ -135,12 +144,15 @@ Componente para mostrar la cabecera de un producto individual, con galería, det
 Componente de galería de imágenes tipo Amazon, con miniaturas y cambio de imagen principal.
 
 **Props:**
-- `main` (string): URL de la imagen principal.
-- `images` (string): URLs de imágenes adicionales, separadas por coma.
+- `images` (array de ids): Array de ids de imágenes (se buscan en `productImages` y se muestran en 3 tamaños: 60x60, 250x250, 1280x720).
+
+**Comportamiento:**
+- Al hacer click en un thumb, se muestra la versión 250x250 en la imagen principal.
+- Al hacer click en la imagen principal, se abre un modal fullscreen con la versión 1280x720 (o 250x250 si no existe).
 
 **Ejemplo de uso:**
 ```astro
-<GaleryProduct main="/robot-xiaomi.webp" images="/robot-xiaomi.webp,/para-laminado.webp,/para-madera.webp,/para-marmol.png" />
+<GaleryProduct images={[101,102,103]} />
 ```
 
 ### CategoryHeader
@@ -169,6 +181,20 @@ Componente para mostrar un clúster de categorías o tipos de productos en forma
 <CategoryCluester cats={marcas} />
 <CategoryCluester cats={tiposSuelo} />
 ```
+
+### buildProductCard
+
+Función utilitaria para construir una ficha de producto personalizada a partir de un objeto de producto y una lista de campos extra.
+
+**Uso:**
+```js
+import { buildProductCard } from "src/utils/productCardBuilder.js";
+const ficha = buildProductCard(product, ["feactures", "slug", "precio", "marca", "modelo", "imageIds"]);
+```
+
+**Campos permitidos:**
+- Siempre incluye: `title`, `stars`, `ratingCount`.
+- Opcionales: `slug`, `feactures`, `precio`, `marca`, `modelo`, `imageIds`, `urlAfiliado`, `momeda`, `id`, `sku`, `mpn`, `brand`, `description`, `offers`, `aggregateRating`, `review`.
 
 ## Licencia
 

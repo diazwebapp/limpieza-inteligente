@@ -1,13 +1,18 @@
 ---
-import { amazonProduts } from "../datos/database.js";
-const { idProducto = null, idMarca = null, orderBy = null, orderDir = 'desc', limit = 3 } = Astro.props;
+import { amazonProduts, productImages, marcas } from "../datos/database.js";
+const { idProducto = null, idMarca = null, slugMarca = null, orderBy = null, orderDir = 'desc', limit = 3 } = Astro.props;
 
 let filteredProducts = amazonProduts;
+let marcaId = idMarca;
+if (slugMarca && !idMarca) {
+  const marcaObj = marcas.find(m => m.slug === slugMarca);
+  if (marcaObj) marcaId = marcaObj.id;
+}
 if (idProducto !== null) {
   filteredProducts = amazonProduts.filter(p => p.id === idProducto);
 } else {
-  if (idMarca !== null) {
-    filteredProducts = filteredProducts.filter(p => p.marca === idMarca);
+  if (marcaId !== null && marcaId !== undefined) {
+    filteredProducts = filteredProducts.filter(p => p.marca === marcaId);
   }
   if (orderBy === 'precio') {
     filteredProducts = filteredProducts.slice().sort((a, b) => (orderDir === 'asc' ? a.precio - b.precio : b.precio - a.precio));
@@ -20,11 +25,15 @@ const showProducts = filteredProducts.slice(0, limit);
 ---
 
 <div class="store-products-grid">
-    {showProducts.map(product => (
+    {showProducts.map(product => {
+        const imgId = Array.isArray(product.imageIds) ? product.imageIds[0] : null;
+        const imgObj = imgId ? productImages.find(img => img.id === imgId) : null;
+        const imgSrc = imgObj?.["250x250"] || "/public/placeholder-250x250.png";
+        return (
         <article class="store-product-card">
             <a href={product.slug} class="store-product-link">
                 <figure class="store-product-image-container">
-                    <img loading="lazy" src={product.imageUrl} alt={product.title} class="store-product-image" />
+                    <img loading="lazy" src={imgSrc} alt={product.title} class="store-product-image" />
                 </figure>
                 <div class="store-product-info">
                     <h3 class="store-product-title">{product.title}</h3>
@@ -42,7 +51,7 @@ const showProducts = filteredProducts.slice(0, limit);
                 <a href={product.slug} class="btn cta">Ver Detalles</a>
             </div>
         </article>
-    ))}
+    )})}
 </div>
 
 <style>

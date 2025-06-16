@@ -1,7 +1,7 @@
 export const marcas = [
     {
         id: 1,
-        name: "cecotec",
+        slug: "cecotec",
         title: "Robots Aspirador Friegasuelos Cecotec | Conga: Limpieza Inteligente",
         image: "/robot-cecotec.webp",
         thubnail: "/robot-cecotec.webp",
@@ -10,7 +10,7 @@ export const marcas = [
     },
     {
         id: 2,
-        name: "irobot",
+        slug: "irobot",
         title: "iRobot: Dominando la Limpieza del Hogar",
         image: "/robot-roomba.webp",
         thubnail: "/robot-roomba.webp",
@@ -19,7 +19,7 @@ export const marcas = [
         subitems: [
             {
                 id: 3,
-                name: "roomba",
+                slug: "roomba",
                 title: "Roomba Aspirador Friegasuelos | iRobot Roomba Combo: Limpieza Definitiva",
                 image: "/robot-roomba.webp",
                 thubnail: "/robot-roomba.webp",
@@ -28,7 +28,7 @@ export const marcas = [
             },
             {
                 id: 4,
-                name: "bravaa",
+                slug: "bravaa",
                 title: "Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente",
                 image: "/robot-roomba.webp",
                 thubnail: "/robot-roomba.webp",
@@ -39,7 +39,7 @@ export const marcas = [
     },
     {
         id: 5,
-        name: "xiaomi",
+        slug: "xiaomi",
         title: "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente",
         image: "/robot-xiaomi.webp",
         thubnail: "/robot-xiaomi.webp",
@@ -86,41 +86,11 @@ export const tiposSuelo =[
 
 export const amazonProduts = [
     {
-       id: 1,
-       title:"iRobot Roomba Combo Essential, Robot Aspirador y friegasuelos",
-       slug: "",
-       urlAfiliado:"https://amzn.to/3FBUnWJ",
-       imageUrl:"https://m.media-amazon.com/images/I/81y+6dYOxTL._AC_SL1500_.jpg",
-       stars:3.9,
-       ratingCount: 11669,
-       precio: 0
-    },
-    {
-       id: 2,
-       title:"Ultenic T10 Lite Robot Aspirador con Base Autovaciado 18000Pa, 60Días Manos Libres, Limpieza Matricial, Auto-Ajuste Potencia para Alfombra, Robot Aspirador y Fregasuelos con LIDAR para Mascota Niños",
-       slug: "",
-       urlAfiliado:"https://amzn.to/3TeNMEE",
-       imageUrl:"https://m.media-amazon.com/images/I/81-6nim6TML._AC_SL1500_.jpg",
-       stars:4.4,
-       ratingCount: 902,
-       precio: 0
-    },
-    {
-       id: 3,
-       title:"DREAME L10s Ultra Gen 2 Robot Aspirador y Fregasuelos con RoboSwing MopExtend, 10000 Pa, Modo para Mascotas, Estación Base Automática, 32 Ajustes de Nivel de Agua, Limpieza de Alfombras Versátil",
-       slug: "",
-       urlAfiliado:"https://amzn.to/43Mb5dW",
-       imageUrl:"https://m.media-amazon.com/images/I/61ijFwUV-wL._AC_SL1500_.jpg",
-       stars:4.3,
-       ratingCount: 1899,
-       precio: 0
-    },
-    {
     id: 4,
     title: "Xiaomi Robot Vacuum S20 Robot Aspirador y Fregasuelos",
     slug: "/xiaomi/vacuum-s20",
     urlAfiliado: "https://amzn.to/3ZzFU4q", // Cambia la URL si tienes la de afiliado
-    imageUrl: "https://m.media-amazon.com/images/I/51xaJeszmPL._AC_SX679_.jpg",
+    imageIds: [101,102,103],
     stars: 4.3, // Puedes actualizar si tienes el dato
     ratingCount: 3896, // Puedes actualizar si tienes el dato
     marca: 5, // id de la marca Xiaomi
@@ -140,5 +110,71 @@ export const amazonProduts = [
         depositoPolvo: "400 ml",
         depositoAgua: "270 ml"
     }
+},
+{
+  id: 5,
+  title: "Cecotec Conga 8490 Ultimate Ultra Power",
+  slug: "/cecotec/conga-8490-ultimate-ultra-power",
+  urlAfiliado: "https://amzn.to/3ZxvsKN",
+  imageIds: [201,202,203],
+  stars: 3.9,
+  ratingCount: 950,
+  marca: 1, // id de Cecotec
+  modelo: "Conga 8490 Ultimate Ultra Power",
+  precio: 167.65,
+  momeda: "eur",
+  feactures: {
+    potenciaSuccion: "7000 Pa",
+    autonomia: "170 min",
+    navegacion: "Láser",
+    cepillo: "Central de silicona",
+    funciones: "Barre, aspira, friega y pasa la mopa",
+    app: true,
+    roomPlan: true,
+    totalSurface: true,
+    bateria: "3200 mAh",
+    superficies: "Todo tipo de suelos y alfombras",
+    deposito: "Autovaciado"
+  }
 }
 ]
+
+// Imágenes optimizadas por producto (id, 250x250, 60x60, 1280x720)
+export const productImages = [
+  {
+    id: 101,
+    "250x250": "https://m.media-amazon.com/images/I/51xaJeszmPL._AC_SX679_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51xaJeszmPL._AC_US100_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/51xaJeszmPL._AC_.jpg"
+  },
+  {
+    id: 102,
+    "250x250": "https://m.media-amazon.com/images/I/51ipYfoZovL._AC_SX679_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/31tALzIJ51L._AC_US100_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/51ipYfoZovL._AC_SL1000_.jpg"
+  },
+  {
+    id: 103,
+    "250x250": "https://m.media-amazon.com/images/I/51+kbKHpOVL._AC_SX679_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/41Xd082HiNL._AC_US100_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/51+kbKHpOVL._AC_SL1000_.jpg"
+  },
+  {
+    id: 201,
+    "250x250": "https://m.media-amazon.com/images/I/81A+D-OxDiL._AC_SX522_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51o6RO7BvoL._AC_SR38,50_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/81A+D-OxDiL._AC_SL1500_.jpg"
+  },
+  {
+    id: 202,
+    "250x250": "https://m.media-amazon.com/images/I/61Atw2OsHFL._AC_SX522_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51lT6DxQecL._AC_SR38,50_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/61Atw2OsHFL._AC_SL1000_.jpg"
+  },
+  {
+    id: 203,
+    "250x250": "https://m.media-amazon.com/images/I/61OEayxvbiL._AC_SX522_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51TP6nnqMTL._AC_SR38,50_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/61OEayxvbiL._AC_SL1000_.jpg"
+  }
+];

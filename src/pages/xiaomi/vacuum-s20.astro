@@ -3,6 +3,8 @@
 import Layout from "../../layouts/Layout.astro";
 import SingleProductHeader from "../../components/SingleProductHeader.astro";
 import AmazonCluster from "../../components/AmazonCluster.astro";
+import { buildProductCard } from "../../utils/productCardBuilder.js";
+import { amazonProduts } from "../../datos/database.js";
 
 const title = "Xiaomi Vacuum S20: Mi Experiencia Real con la Limpieza del Futuro";
 const description = "Opinión y experiencia real con el Xiaomi Robot Vacuum S20. Descubre por qué este robot aspirador y fregasuelos puede transformar la limpieza de tu hogar.";
@@ -34,8 +36,6 @@ const schemas = [
     ],
     description: "Robot aspirador y fregasuelos con navegación láser LDS, succión de 5000 Pa, rutas de limpieza en zigzag, depósito 2 en 1 y control inteligente desde app.",
     brand: { "@type": "Brand", name: "Xiaomi" },
-    sku: "BHR8629EU",
-    mpn: "BHR8629EU",
     url: canonicalURL,
     offers: {
       "@type": "Offer",
@@ -57,18 +57,20 @@ const schemas = [
           ratingValue: 5,
           bestRating: 5
         },
-        author: { "@type": "Person", name: "Usuario verificado" },
+        author: { "@type": "Person", name: "erickoficial69" },
         reviewBody: "Limpia muy bien, la navegación es precisa y el fregado es realmente útil. Muy recomendable."
       }
     ]
   })
 ];
+
+const ficha = buildProductCard(amazonProduts.find(p => p.id === 4), ["feactures", "slug", "precio", "modelo", "imageIds"]);
 ---
 <Layout title={title} description={description} schemas={schemas}>
   <main>
     <section class="container">
       <h1>Descubre el Xiaomi Robot Vacuum S20: Mi Experiencia Real con la Limpieza del Futuro (y por qué no querrás otro)</h1>
-      <SingleProductHeader id={4} />
+      <SingleProductHeader {...ficha} images={ficha.imageIds}, marca="Xiaomi" />
       <section class="product-about" style="margin-top: 2rem;">
         <h2>Acerca de este producto</h2>
         <ul>

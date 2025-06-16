@@ -2,35 +2,12 @@
 // @ts-nocheck
 import Layout from "../../layouts/Layout.astro";
 import CategoryHeader from "../../components/CategoryHeader.astro";
-import AmazonCluster from "../../components/AmazonCluster.astro";
 import { schemaWebSite, schemaArticle } from "../../datos/seoBase.js";
+import AmazonCluster from "../../components/AmazonCluster.astro";
+import StoreCluster from "../../components/StoreCluster.astro";
 
-const productsCecotec =[
-  {
-    "title": "Cecotec Robot Aspirador con Navegación Giroscópica Conga 999 Map X-Treme. Motor de Succión",
-    "urlAfiliado": "https://amzn.to/43z3rVu",
-    "imageUrl": "https://m.media-amazon.com/images/I/91aX9IcU1aL._AC_UL320_.jpg",
-    "stars":3.9,
-    "ratingCount": 2800
-  },
-  {
-    "title": "Cecotec Robot Aspirador y Friegasuelos Conga 8490 Ultimate Ultra Power. Navegación Láser, App",
-    "urlAfiliado": "https://amzn.to/3FEu1Dv",
-    "imageUrl": "https://m.media-amazon.com/images/I/81A+D-OxDiL._AC_UL320_.jpg",
-    "stars":4,
-    "ratingCount": 944
-  },
-  {
-    "title": "Cecotec Robot Aspirador Conga 7490 Ultimate Home X-Treme, 2600 Pa, 120 min autonomía, navegación láser y Base de autovaciado, Limpieza 4 en 1, Cepillo Central multifunción, App",
-    "urlAfiliado": "https://amzn.to/4kJqH9a",
-    "imageUrl": "https://m.media-amazon.com/images/I/71A0tPyTaeL._AC_SX522_.jpg",
-    "stars":3.9,
-    "ratingCount": 109
-  }
-]
-
-const title = "Robot Aspirador Cecotec: Potencia y Tecnología para tu Hogar";
-const description = "Descubre la gama de robots aspirador Cecotec. Compara modelos, encuentra ofertas y disfruta de la limpieza inteligente con la mejor tecnología española.";
+const title = "Fregasuelos Cecotec: Opinión Real y Consejos Prácticos para Sacarle el Máximo";
+const description = "Los robots aspirador Cecotec destacan por su potencia, versatilidad y tecnología avanzada. Descubre cómo pueden transformar la limpieza de tu hogar y facilitar tu día a día con funciones inteligentes y resultados impecables.";
 const canonicalURL = "https://limpiezainteligente.store/cecotec";
 const datePublished = "2025-06-07T00:00:00+00:00";
 const dateModified = "2025-06-12T00:00:00+00:00";
@@ -59,44 +36,50 @@ const schemas = [
   schemas={schemas}
 >
   <main>
-    <CategoryHeader
-      h1="El fregasuelos Cecotec Ideal para Tu Hogar"
-      p="Olvídate de la escoba y la fregona, la tecnología de Cecotec aspira y friega a la vez, ofreciéndote comodidad y eficiencia en cada rincón."
-      ctaText="Descubre el cecotec fregasuelos ideal"
-      ctaLink="#ofertas-cecotec"
+    <CategoryHeader 
+      h1="Fregasuelos Cecotec: Opinión Real y Consejos Prácticos para Sacarle el Máximo"
+      p="Los robots aspirador Cecotec destacan por su potencia, versatilidad y tecnología avanzada. Descubre cómo pueden transformar la limpieza de tu hogar y facilitar tu día a día con funciones inteligentes y resultados impecables."
     />
-
-    <section id="ofertas-cecotec" class="container">
-      <h2>Ofertas Destacadas en Robots Cecotec</h2>
-      <p>Descubre las mejores promociones y modelos de robots aspirador y fregasuelos Cecotec. Aprovecha descuentos exclusivos y lleva la limpieza inteligente a tu hogar.</p>
-      <AmazonCluster products={productsCecotec} />
+    <section class="container">
+      <AmazonCluster slugMarca="cecotec" />
     </section>
-
-<section class="container">
-    <h2>Por qué un <strong>Robot Friegasuelos Conga</strong></h2>
-    <p>Dentro de la gama Cecotec, los modelos Conga fregasuelos son sinónimo de innovación y rendimiento. Un aspirador fregasuelos Conga no solo aspira con gran potencia, sino que también friega a fondo, dejando tus suelos relucientes. Si buscas un robot aspirador y fregasuelos Conga, encontrarás opciones.</p>
-    <ul class="feactures-list" >
-        <li><strong>Limpieza 2 en 1:</strong> Los modelos Cecotec 2 en 1 combinan la succión de partículas con el fregado húmedo, eliminando suciedad y manchas.</li>
-        <li><strong>Tecnología Avanzada:</strong> Modelos como el robot aspirador friegasuelos Conga incorporan navegación láser y funciones de mapeo para una limpieza organizada y eficiente.</li>
-        <li><strong>Programación Sencilla:</strong> Con un Conga aspira y friega a la vez, puedes programar los horarios de limpieza para que el robot trabaje mientras tú disfrutas de tu tiempo.</li>
-        <li><strong>Adiós a la suciedad persistente:</strong> Los limpiasuelos Conga y fregasuelos para Conga están diseñados para afrontar las manchas más difíciles, dejando un acabado perfecto.</li>
-    </ul>
-</section>
-
----
-
-<section class="container">
-    <h3>Elige tu <strong>Robot Conga Friegasuelos</strong> Ideal</h3>
-    <p>Tenemos el Cecotec aspirador y fregasuelos que se adapta a cada necesidad. Ya sea un robot friegasuelos Conga para espacios pequeños o un robot aspirador y fregasuelos conga para hogares grandes, la eficiencia está garantizada.</p>
-    <p>Descubre la amplia gama de Cecotec. ¡Es hora de experimentar la verdadera comodidad!</p>
-</section>
-
----
-
-<section class="container">
-    <h3>¡Consigue Hoy Tu <strong>Cecotec Aspirador Friegasuelos</strong>!</h3>
-    <p>No pospongas más la comodidad de tener un hogar siempre limpio. Un robot conga fregasuelos es una inversión en tu tiempo y bienestar. Con la garantía de Cecotec, sabes que estás adquiriendo un producto de calidad.</p>
-    <p><a rel="nofollow" href="https://amzn.to/43X9OAY" class="cta" >¡Haz clic y encuentra el Cecotec aspirador friegasuelos perfecto para ti! La limpieza inteligente te espera</a></p>
-</section>
+    <section class="container">
+      <h2>Funciones Clave que Destacan</h2>
+      <h3>1. Aspirado y Fregado: ¿Cómo lo Hace?</h3>
+      <p>Barre muy bien y la función mopa es aceptable, especialmente con ajustes personalizados.</p>
+      <p><strong>Problema detectado:</strong></p>
+      <blockquote>Bajo luz solar directa, el robot se despista y hace maniobras erráticas.</blockquote>
+      <h3>2. La App Cecotec: El Cerebro del Sistema</h3>
+      <p>La aplicación es lo mejor del aparato:</p>
+      <ul>
+        <li>Cartografía precisa de estancias.</li>
+        <li>Permite ajustar velocidad de aspiración, cantidad de agua y tipo de marcha.</li>
+      </ul>
+      <blockquote>Tienes acciones rápidas editables… una maravilla de opciones.</blockquote>
+      
+    </section>
+    <section class="container">
+      <h2>Mantenimiento: La Clave para su Durabilidad</h2>
+      <p>Error común: Creer que es "usar y olvidar".</p>
+      <blockquote>Después de cada uso, hay que limpiar cepillos, filtros y la base. Queda polvo atrás… ¡Lee el manual para acceder a todas las zonas!</blockquote>
+    </section>
+    <StoreCluster slugMarca="cecotec" />
+    <section class="container">
+      <h2>Truco para un Fregado Eficaz</h2>
+      <blockquote>Con un culito de vaso de fregasuelos común (olor a pino) y una gota de Fayri para manchas grasientas, los resultados mejoran notablemente.</blockquote>
+    </section>
+    <section class="container">
+      <h2>¿Vale la Pena el Robot Fregasuelos Cecotec?</h2>
+      <p>Tras semanas de uso, confirmo que el fregasuelos Cecotec es un gran apoyo doméstico, pero no es perfecto. Su eficacia depende de cómo lo uses. Por ejemplo:</p>
+      <blockquote>Hay que despejar zonas de cables y, sobre todo, meter los cordones del calzado dentro. Si quedan fuera, se enredan y la máquina se para.</blockquote>
+    </section>
+    <section class="container">
+      <h2>Conclusión: ¿Recomiendo el Cecotec?</h2>
+      <p>Sí, pero con condiciones:</p>
+      <ul>
+        <li>Ideal para parejas o personas solas que prioricen comodidad.</li>
+        <li>No es autónomo al 100%: Requiere supervisión y mantenimiento.</li>
+      </ul>
+    </section>
   </main>
 </Layout>

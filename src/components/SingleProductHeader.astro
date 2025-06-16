@@ -1,61 +1,33 @@
 ---
-import { amazonProduts, marcas } from "../datos/database.js";
 import GaleryProduct from "./GaleryProduct.astro";
-const { id } = Astro.props;
-const product = amazonProduts.find(p => p.id === id);
+const { images, feactures, stars, ratingCount, urlAfiliado, title, marca, modelo } = Astro.props;
 
-// Obtener el objeto de la marca y su nombre legible
-let marcaObj = null;
-if (product && product.marca) {
-  if (typeof product.marca === 'number') {
-    marcaObj = marcas.find(m => m.id === product.marca);
-  } else if (typeof product.marca === 'string') {
-    marcaObj = marcas.find(m => m.name === product.marca);
-  }
+// Utilidad para capitalizar la primera letra
+function capitalize(str: string) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
-const marcaName = marcaObj ? marcaObj.name.charAt(0).toUpperCase() + marcaObj.name.slice(1) : (product?.marca || '');
-
-// Imágenes de ejemplo para la galería (puedes personalizar según el producto)
-const galleryMain = product?.imageUrl;
-const galleryImages = [
-  "/https://m.media-amazon.com/images/I/31tALzIJ51L._AC_US100_.jpg",
-  "/https://m.media-amazon.com/images/I/31pWqBNz8RL._AC_US100_.jpg",
-  "/https://m.media-amazon.com/images/I/41Xd082HiNL._AC_US100_.jpg"
-].join(",");
 ---
-{product ? (
-  <div class="product-flex">
-    <GaleryProduct main={galleryMain} images={galleryImages} />
-    <div class="product-buy-rating">
-      <div class="product-rating">
-        <span class="stars" aria-label={`${product.stars ?? 0} de 5 estrellas`}>
-          {[1,2,3,4,5].map(i => (
-            <span class={`star-icon ${product.stars >= i ? 'full-star' : product.stars >= i - 0.5 ? 'half-star' : 'empty-star'}`}></span>
-          ))}
-        </span>
-        <span class="rating-count">({product.ratingCount ?? '0'})</span>
-      </div>
-      <a href={product.urlAfiliado} target="_blank" rel="noopener noreferrer" class="btn btn-amazon">Comprar en Amazon</a>
+<div class="product-flex">
+  <GaleryProduct images={images} />
+  <div class="product-buy-rating">
+    <div class="product-rating">
+      <span class="stars" aria-label={`${stars ?? 0} de 5 estrellas`}>
+        {[1,2,3,4,5].map(i => (
+          <span class={`star-icon ${stars >= i ? 'full-star' : stars >= i - 0.5 ? 'half-star' : 'empty-star'}`}></span>
+        ))}
+      </span>
+      <span class="rating-count">({ratingCount ?? '0'})</span>
     </div>
-    <ul class="product-details">
-      {marcaName && <li><strong>Marca:</strong> {marcaName}</li>}
-      {product.modelo && <li><strong>Modelo:</strong> {product.modelo}</li>}
-      {product.feactures?.color && <li><strong>Color:</strong> {product.feactures.color}</li>}
-      {product.feactures?.dimensiones && <li><strong>Dimensiones:</strong> {product.feactures.dimensiones}</li>}
-      {product.feactures?.capacidad && <li><strong>Capacidad:</strong> {product.feactures.capacidad}</li>}
-      {product.feactures?.voltaje && <li><strong>Voltaje:</strong> {product.feactures.voltaje}</li>}
-      {product.feactures?.apagadoAutomatico !== undefined && <li><strong>Apagado automático:</strong> {product.feactures.apagadoAutomatico ? 'Sí' : 'No'}</li>}
-      {product.feactures?.dispositivosCompatibles && <li><strong>Dispositivos compatibles:</strong> {product.feactures.dispositivosCompatibles}</li>}
-      {product.feactures?.caracteristicasEspeciales && <li><strong>Características especiales:</strong> {product.feactures.caracteristicasEspeciales}</li>}
-      {product.feactures?.peso && <li><strong>Peso del producto:</strong> {product.feactures.peso}</li>}
-      {product.feactures?.potenciaSuccion && <li><strong>Potencia de succión:</strong> {product.feactures.potenciaSuccion}</li>}
-      {product.feactures?.depositoPolvo && <li><strong>Depósito de polvo:</strong> {product.feactures.depositoPolvo}</li>}
-      {product.feactures?.depositoAgua && <li><strong>Depósito de agua:</strong> {product.feactures.depositoAgua}</li>}
-    </ul>
+    <a href={urlAfiliado} target="_blank" rel="noopener noreferrer" class="btn btn-amazon">Comprar en Amazon</a>
   </div>
-) : (
-  <div>Producto no encontrado</div>
-)}
+  <ul class="product-details">
+    {marca && <li><strong>Marca:</strong> {marca}</li>}
+    {modelo && <li><strong>Modelo:</strong> {modelo}</li>}
+    {feactures && Object.entries(feactures).map(([key, value]) => (
+      <li><strong>{capitalize(key)}:</strong> {typeof value === 'boolean' ? (value ? 'Sí' : 'No') : value}</li>
+    ))}
+  </ul>
+</div>
 <style>
 .product-flex {
   display: flex;

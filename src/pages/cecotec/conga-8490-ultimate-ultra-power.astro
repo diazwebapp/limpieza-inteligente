@@ -15,14 +15,6 @@ const canonicalURL = `https://limpiezainteligente.store${product.slug}`;
 const datePublished = "2025-06-15T00:00:00+00:00";
 const dateModified = "2025-06-15T00:00:00+00:00";
 
-const review = schemaReview({
-  datePublished,
-  reviewBody: "El Cecotec Conga 8490 Ultimate Ultra Power ha superado mis expectativas: limpieza potente, mapeo inteligente y muy fácil de usar. Tras varios días de uso, la casa queda impecable y el robot es silencioso y eficiente. Muy recomendable para quienes buscan calidad y precio.",
-  reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-  name: "Reseña real: Conga 8490 Ultimate Ultra Power",
-  url: canonicalURL
-});
-
 const schemas = [
   schemaWebSite(),
   schemaArticle({

@@ -33,7 +33,7 @@ const showProducts = filteredProducts.slice(0, limit);
         <article class="product-card">
             <a href={product.urlAfiliado} target="_blank" rel="noopener noreferrer" class="product-link">
                 <figure class="product-image-container">
-                    <img loading="lazy" src={imgSrc} alt={product.title} class="product-image" />
+                    <img loading="lazy" width="250" height="250" src={imgSrc} alt={product.title} class="product-image" />
                 </figure>
                 <div class="product-info">
                     <h3 class="product-title">{product.title}</h3>

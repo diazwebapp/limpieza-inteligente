@@ -33,7 +33,7 @@ const showProducts = filteredProducts.slice(0, limit);
         <article class="store-product-card">
             <a href={product.slug} class="store-product-link">
                 <figure class="store-product-image-container">
-                    <img loading="lazy" src={imgSrc} alt={product.title} class="store-product-image" />
+                    <img loading="lazy"  width="250" height="250" src={imgSrc} alt={product.title} class="store-product-image" />
                 </figure>
                 <div class="store-product-info">
                     <h3 class="store-product-title">{product.title}</h3>

@@ -46,28 +46,28 @@ export const marcas = [
 
 export const tiposSuelo =[
     {
-        slug: "/suelo-laminado",
+        slug: "/suelo-laminado/",
         title: "Para suelos laminado",
         image: "/para-laminado.webp",
         thubnail: "/para-laminado.webp",
         description: "El suelo laminado requiere limpieza delicada y control de humedad para evitar daños y mantener su brillo."
     },
     {
-        slug: "/suelo-madera",
+        slug: "/suelo-madera/",
         title: "Para pisos de madera",
         image: "/para-madera.webp",
         thubnail: "/para-madera.webp",
         description: "La madera necesita cuidado especial: limpieza suave, mínima humedad y protección contra arañazos."
     },
     {
-        slug: "/suelo-marmol",
+        slug: "/suelo-marmol/",
         title: "Para marmol y piedra",
         image: "/para-marmol.png",
         thubnail: "/para-marmol.png",
         description: "El mármol y la piedra requieren limpieza frecuente, productos neutros y evitar exceso de agua para conservar su elegancia."
     },
     {
-        slug: "/para-alfombras",
+        slug: "/para-alfombras/",
         title: "Para Alfombras",
         image: "/para-alfombras.webp",
         thubnail: "/para-alfombras.webp",
@@ -79,7 +79,7 @@ export const amazonProduts = [
     {
     id: 4,
     title: "Xiaomi Robot Vacuum S20 Robot Aspirador y Fregasuelos",
-    slug: "/xiaomi/vacuum-s20",
+    slug: "/xiaomi/vacuum-s20/",
     urlAfiliado: "https://amzn.to/3ZzFU4q", // Cambia la URL si tienes la de afiliado
     imageIds: [101,102,103],
     stars: 4.3, // Puedes actualizar si tienes el dato
@@ -105,7 +105,7 @@ export const amazonProduts = [
 {
   id: 5,
   title: "Cecotec Conga 8490 Ultimate Ultra Power",
-  slug: "/cecotec/conga-8490-ultimate-ultra-power",
+  slug: "/cecotec/conga-8490-ultimate-ultra-power/",
   urlAfiliado: "https://amzn.to/3ZxvsKN",
   imageIds: [201,202,203],
   stars: 3.9,
@@ -131,7 +131,7 @@ export const amazonProduts = [
 {
   id: 6,
   title: "Conga 999 Map X-Treme",
-  slug: "/cecotec/conga-999-map-x-treme",
+  slug: "/cecotec/conga-999-map-x-treme/",
   urlAfiliado: "", // Añadir URL de afiliado si la tienes
   imageIds: [301, 302, 303],
   stars: 3.9,

@@ -1,16 +1,33 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import CategoryHeader from "../../../components/CategoryHeader.astro";
+import { schemaWebSite, schemaArticle } from '../../../datos/seoBase';
 
 const title = "Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente";
 const description = "Descubre cómo iRobot Braava transforma la limpieza de tu hogar con tecnología avanzada, mapeo inteligente y conectividad total.";
-const canonicalURL = "https://limpiezainteligente.store/irobot/bravaa";
+const canonicalURL = "https://limpiezainteligente.store/irobot/bravaa/";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
-const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
+const modDatetime = new Date("2025-06-16T00:00:00+00:00").toISOString();
+
+const schemas = [
+  schemaWebSite({
+    name: 'Bravaa',
+    url: canonicalURL,
+  }),
+  schemaArticle({
+    headline: 'Descubre los mejores robots Bravaa',
+    description: 'Explora nuestra selección de robots aspiradores Bravaa.',
+    url: canonicalURL,
+    datePublished: pubDatetime,
+    dateModified: modDatetime,
+  }),
+];
 ---
+
 <Layout 
   title={title}
   description={description}
+  schemas={schemas}
 >
   <CategoryHeader
     h1="Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente"
@@ -44,12 +61,4 @@ const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
     <h2>No es solo un aparato; es una solución</h2>
     <p>iRobot Braava te libera de la tarea tediosa de fregar, permitiéndote disfrutar de más tiempo para lo que realmente importa. Elige la inteligencia, la eficiencia y la autoridad en limpieza de suelos. Es hora de experimentar la diferencia que solo un iRobot Braava puede ofrecer.</p>
   </section>
-  <!-- <section class="container">
-    <h2>Más información sobre la gama Braava</h2>
-    <ul>
-      <li>Más información sobre la gama Braava: <a href="#">iRobot Braava</a></li>
-      <li>Detalles del Braava Jet m6 en Amazon: <a href="#">iRobot Braava jet m6134</a></li>
-      <li>Características del Braava Jet m6 en MediaMarkt: <a href="#">Robot Aspirador Braava Jet M6 iRobot</a></li>
-    </ul>
-  </section> -->
 </Layout>

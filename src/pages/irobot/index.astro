@@ -1,17 +1,33 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import CategoryHeader from '../../components/CategoryHeader.astro';
+import { schemaWebSite, schemaArticle } from '../../datos/seoBase';
 
 const title = "iRobot - Limpieza Inteligente";
 const description = "Descubre la gama iRobot: aspiradores y fregasuelos robotizados para una limpieza autónoma, eficiente y profunda.";
-const canonicalURL = "https://limpiezainteligente.store/irobot";
+const canonicalURL = "https://limpiezainteligente.store/irobot/";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
+
+const schemas = [
+  schemaWebSite({
+    name: 'iRobot',
+    url: canonicalURL,
+  }),
+  schemaArticle({
+    headline: 'Descubre los mejores robots iRobot',
+    description: 'Explora nuestra selección de robots aspiradores iRobot.',
+    url: canonicalURL,
+    datePublished:pubDatetime,
+    dateModified: modDatetime,
+  }),
+];
 ---
 
 <Layout 
   title={title}
   description={description}
+  schemas={schemas}
 >
   <main>
     <CategoryHeader

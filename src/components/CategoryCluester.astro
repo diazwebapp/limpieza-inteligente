@@ -4,7 +4,7 @@ const { cats } = Astro.props;
 <ul class="cluster-nav">
     {cats.map(cat => (
       <li class="cluster-item">
-        <a href={cat.link}>
+        <a href={cat.slug}>
             <article>
                 <figure>
                     <img src={cat.image} alt={cat.title} loading="lazy" width="250" height="250"/>

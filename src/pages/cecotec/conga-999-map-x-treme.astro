@@ -13,22 +13,13 @@ const canonicalURL = `https://limpiezainteligente.store${product.slug}`;
 const datePublished = "2025-06-16T00:00:00+00:00";
 const dateModified = "2025-06-16T00:00:00+00:00";
 
-const review = schemaReview({
-  datePublished,
-  reviewBody: "Lo usamos principalmente como aspirador y limpia toda la casa perfectamente. Recoge pelo, polvo y suciedad sin atascos. No tiene mapeo avanzado, pero por su precio es una de las mejores opciones en robots aspiradores básicos. Muy recomendable para pisos pequeños o medianos.",
-  reviewRating: { "@type": "Rating", ratingValue: 4, bestRating: 5 },
-  name: "Conga 999 Map X Treme: Reseña Real de un Usuario",
-  url: canonicalURL
-});
 
 const schemas = [
   schemaWebSite(),
   schemaProduct({
     name: title,
     image: [
-      "https://m.media-amazon.com/images/I/91aX9IcU1aL._AC_SX522_.jpg",
-      "https://m.media-amazon.com/images/I/6112LH9IOFL._AC_SX425_.jpg",
-      "https://m.media-amazon.com/images/I/61y-irdlylL._AC_SX425_.jpg"
+      "https://m.media-amazon.com/images/I/91aX9IcU1aL._AC_SX522_.jpg"
     ],
     description,
     brand: { "@type": "Brand", name: "Cecotec" },
@@ -44,8 +35,7 @@ const schemas = [
       "@type": "AggregateRating",
       ratingValue: product.stars,
       reviewCount: product.ratingCount
-    },
-    review: [review]
+    }
   })
 ];
 ---

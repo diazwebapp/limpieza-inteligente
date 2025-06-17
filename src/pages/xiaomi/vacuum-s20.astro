@@ -5,21 +5,15 @@ import SingleProductHeader from "../../components/SingleProductHeader.astro";
 import AmazonCluster from "../../components/AmazonCluster.astro";
 import { buildProductCard } from "../../utils/productCardBuilder.js";
 import { amazonProduts } from "../../datos/database.js";
-
+const ficha = buildProductCard(amazonProduts.find(p => p.id === 4), ["feactures", "slug", "precio", "modelo", "imageIds"]);
+const product = amazonProduts.find(p => p.id === 5);
 const title = "Xiaomi Vacuum S20: Mi Experiencia Real con la Limpieza del Futuro";
 const description = "Opinión y experiencia real con el Xiaomi Robot Vacuum S20. Descubre por qué este robot aspirador y fregasuelos puede transformar la limpieza de tu hogar.";
-const canonicalURL = "https://limpiezainteligente.store/xiaomi/vacuum-s20";
+const canonicalURL = "https://limpiezainteligente.store/xiaomi/vacuum-s20/";
 const datePublished = "2025-06-14T00:00:00+00:00";
-const dateModified = "2025-06-14T00:00:00+00:00";
+const dateModified = "2025-06-17T00:00:00+00:00";
 import { schemaWebSite, schemaArticle, schemaProduct, schemaReview } from "../../datos/seoBase.js";
 
-const review = schemaReview({
-  datePublished,
-  reviewBody: "El Xiaomi Robot Vacuum S20 ha transformado mi rutina de limpieza. Aspira y friega con gran potencia, la navegación es precisa y la app es muy intuitiva. Ideal para quienes buscan eficiencia y versatilidad en un solo robot.",
-  reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-  name: "Opinión y experiencia real con el Xiaomi Robot Vacuum S20",
-  url: canonicalURL
-});
 
 const schemas = [
   schemaWebSite(),
@@ -34,20 +28,19 @@ const schemas = [
     offers: {
       "@type": "Offer",
       priceCurrency: "EUR",
-      price: 139.99,
+      price: product.precio,
       availability: "https://schema.org/InStock",
       url: "https://amzn.to/3ZzFU4q"
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: 4.3,
-      reviewCount: 3896
-    },
-    review: [review]
+      ratingValue: product.stars,
+      reviewCount: product.ratingCount
+    }
   })
 ];
 
-const ficha = buildProductCard(amazonProduts.find(p => p.id === 4), ["feactures", "slug", "precio", "modelo", "imageIds"]);
+
 ---
 <Layout title={title} description={description} schemas={schemas}>
   <main>

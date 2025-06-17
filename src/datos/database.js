@@ -1,7 +1,7 @@
 export const marcas = [
     {
         id: 1,
-        slug: "cecotec",
+        slug: "cecotec/",
         title: "Robots Aspirador Friegasuelos Cecotec | Conga: Limpieza Inteligente",
         image: "/robot-cecotec.webp",
         thubnail: "/robot-cecotec.webp",

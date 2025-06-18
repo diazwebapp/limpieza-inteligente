@@ -24,30 +24,11 @@ const schemas = [
     brand: { "@type": "Brand", name: "Cecotec" },
     url: canonicalURL,
     offers: {
-      "@type": "Offer",
-      priceCurrency: "EUR",
-      price: product.precio,
-      availability: "https://schema.org/InStock",
-      url: product.urlAfiliado,
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-          shippingRate: {
-              "@type": "MonetaryAmount",
-              value: 0,
-              currency: "EUR"
-        },
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: "00"  // Sin regiones específicas
-        }
-      },
-      hasMerchantReturnPolicy: {
-          "@type": "MerchantReturnPolicy",
-          applicableCountry: "00",
-          returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-          "merchantReturnDays": 30,  // Amazon suele dar 30 días para devoluciones
-          "returnMethod": "https://schema.org/ReturnByMail",
-        },
+      "@type": "AggregateOffer",
+      "offerCount": 5,
+      "lowPrice": product.precio,
+      "highPrice": product.precio,
+      priceCurrency: "EUR",     
     },
     aggregateRating: {
       "@type": "AggregateRating",

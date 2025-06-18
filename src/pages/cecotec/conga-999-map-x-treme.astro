@@ -25,11 +25,11 @@ const schemas = [
     brand: { "@type": "Brand", name: "Cecotec" },
     url: canonicalURL,
     offers: {
-      "@type": "Offer",
-      priceCurrency: "EUR",
-      price: product.precio,
-      availability: "https://schema.org/InStock",
-      url: product.urlAfiliado
+      "@type": "AggregateOffer",
+      "offerCount": 5,
+      "lowPrice": product.precio,
+      "highPrice": product.precio,
+      priceCurrency: "EUR",     
     },
     aggregateRating: {
       "@type": "AggregateRating",

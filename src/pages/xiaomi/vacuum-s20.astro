@@ -26,11 +26,11 @@ const schemas = [
     brand: { "@type": "Brand", name: "Xiaomi" },
     url: canonicalURL,
     offers: {
-      "@type": "Offer",
-      priceCurrency: "EUR",
-      price: product.precio,
-      availability: "https://schema.org/InStock",
-      url: "https://amzn.to/3ZzFU4q"
+      "@type": "AggregateOffer",
+      "offerCount": 5,
+      "lowPrice": product.precio,
+      "highPrice": product.precio,
+      priceCurrency: "EUR",     
     },
     aggregateRating: {
       "@type": "AggregateRating",

@@ -81,7 +81,6 @@ export const schemaProduct = ({
   offers = {},
   aggregateRating = {},
   review = [],
-  inLanguage = WEBSITE_LANGUAGE
 } = {}) => ({
   "@context": "https://schema.org",
   "@type": "Product",
@@ -94,8 +93,7 @@ export const schemaProduct = ({
   url,
   offers,
   aggregateRating,
-  review,
-  inLanguage
+  review
 });
 
 // Plantilla reutilizable para Review (reseña de producto)

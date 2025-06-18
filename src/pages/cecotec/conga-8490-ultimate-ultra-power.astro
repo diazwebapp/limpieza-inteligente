@@ -35,12 +35,12 @@ const schemas = [
               "@type": "MonetaryAmount",
               value: 0,
               currency: "EUR"
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "00"  // Sin regiones específicas
         }
       },
-      shippingDestination: {
-        "@type": "DefinedRegion",
-        addressCountry: "00"  // Sin regiones específicas
-      }
     },
     hasMerchantReturnPolicy: {
           "@type": "MerchantReturnPolicy",

@@ -28,8 +28,24 @@ const schemas = [
       priceCurrency: "EUR",
       price: product.precio,
       availability: "https://schema.org/InStock",
-      url: product.urlAfiliado
+      url: product.urlAfiliado,
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+          "shippingRate": {
+              "@type": "MonetaryAmount",
+              value: 0,
+              currency: "EUR"
+        },
     },
+    hasMerchantReturnPolicy: {
+          "@type": "MerchantReturnPolicy",
+          applicableCountry: "ES",
+          returnPolicyCountry: "ES",
+          returnPolicyCategory: "https://www.amazon.es/gp/help/customer/display.html?nodeId=201819300",
+          merchantReturnDays: 0,
+          returnMethod: "https://schema.org/ReturnByMail",
+          returnFees: "https://schema.org/FreeReturn"
+        },
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: product.stars,

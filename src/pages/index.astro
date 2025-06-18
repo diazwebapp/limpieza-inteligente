@@ -5,11 +5,11 @@ import Layout from "../layouts/Layout.astro";
 import { marcas, tiposSuelo, amazonProduts } from "../datos/database";
 import { schemaWebSite } from "../datos/seoBase.js";
 
-const title = "Robots de Limpieza: Tu Solución para un Hogar Impecable";
-const description = "Descubre los mejores robots de limpieza, robot aspirador y fregasuelos, aspirador y friegasuelos, y más. Compara modelos, encuentra ofertas y simplifica tu vida con la última tecnología en limpieza automática.";
+const title = "Robot Limpiador para Casa: Aspiradoras, Friegasuelos y Limpiacristales";
+const description = "Descubre cómo un robot limpiador puede transformar tu hogar. Guías de los mejores robots para pisos, suelos, cristales y la limpieza inteligente definitiva. Tu solución para automatizar la limpieza.";
 const canonicalURL = "https://limpiezainteligente.store/";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
-const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
+const modDatetime = new Date("2025-06-18T00:00:00+00:00").toISOString();
 
 const schemas = [
   schemaWebSite()
@@ -21,71 +21,59 @@ const schemas = [
   schemas={schemas}
 >
   <main>
-<section class="container" style="padding: 50px 0 0 0;">
-    <h1 >Robots 2 en 1: Aspirador y Fregasuelos Definitivo para Tu Hogar</h1>
-    <p style="padding: 30px 0 0 0;">Con los robots aspiradores y friegasuelos, olvidate de la limpieza manual, estos robots de limpieza automatica estas diseñados para optimizar tu tiempo, te permiten tener suelos siempre relucientes de forma inteligente y eficiente.</p>
-    <a href="#marcas" class="cta">Explora nuestras categorías</a>
-</section>
+    <section class="container">
+        <h1>Descubre el Robot de Limpieza Perfecto: Aspiradoras, Friegasuelos y Limpia Cristales</h1>
+        <p>En <strong>LimpiezaInteligente.store</strong>, te invitamos a explorar el fascinante mundo de los <strong>robots de limpieza</strong> que están revolucionando la forma en que mantenemos nuestros hogares. Olvídate de la tediosa rutina de la limpieza manual y dale la bienvenida a la comodidad y eficiencia de la automatización. Un <strong>robot limpiador</strong> no es solo un gadget; es tu aliado para tener más tiempo libre y disfrutar de un hogar impecable.</p>
+        <p>Ya sea que busques un <strong>robot para limpiar la casa</strong> de forma integral, un <strong>robot limpia suelos</strong> que deje tus pisos relucientes, o un ingenioso <strong>limpia vidrios robot</strong> que elimine las manchas de tus ventanas, aquí encontrarás la información más completa y las guías más útiles.</p>
+    </section>
+    <section class="container">
+        <h2>Descubre las Mejores Marcas de Robots de Limpieza</h2>
+        <p>Trabajamos con los fabricantes líderes para traerte la tecnología más avanzada y confiable en <strong>robots de limpieza</strong>.</p>
+        <CategoryCluester cats={marcas} />
+        <p style="margin-top: 20px;">Explora las opciones de las marcas más reconocidas en el mercado de <strong>robots aspiradores y friegasuelos</strong> para encontrar la que mejor se adapte a tus necesidades.</p>
+    </section>
+    <section class="container">
+        <h2>Transforma tu Hogar con Robots Limpiadores: ¿Qué Tipo Necesitas?</h2>
+        <p>La gama de <strong>robots de limpieza</strong> es amplia y está diseñada para cubrir cada necesidad. Entender las funciones específicas de cada uno te ayudará a elegir el <strong>robot limpiador</strong> ideal para tu espacio y estilo de vida.</p>
 
-<section class="container cluster-nav" id="marcas">
-  <h2>Marcas principates en robots de limpieza</h2>
-	<CategoryCluester cats={marcas} />
-</section>
-   <section class="container cluster-nav" id="ofertas">
-  <h2>Ofertas Imperdibles en Robots Aspiradores y Fregasuelos</h2>
-  <p>¿Buscas la mejor oferta en robot aspirador para llevar la limpieza de tu hogar al siguiente nivel? invertir en tecnología para el hogar es una decisión importante, por eso hemos seleccionado las mejores ofertas en robots aspiradores para que encuentres el decuento más conveniente. </p>
-	<AmazonCluster
-    products={amazonProduts}
-  />
-</section>
-   
-<section class="container">
-    <h2>Robots limpiadores para cada tipo de pisos</h2>
-    <p>Los robots aspiradores y fregasuelos son la solución definitiva para liberar tu tiempo y energía. No son solo un lujo, ¡son una inversión en tu bienestar y en la tranquilidad de tu hogar!.</p>
-    <p><strong>¡Descubre a continuación el robot aspirador y fregasuelos ideal para tu tipo de suelo!</h3> </p>
-    <CategoryCluester cats={tiposSuelo}/>
-</section>
+        <img src="placeholder_robot_aspirador_friegasuelos.jpg" alt="Robot Aspirador y Friegasuelos 2 en 1">
+        <h3>Robots Aspiradores y Friegasuelos (2 en 1)</h3>
+        <p>La solución más versátil para la limpieza diaria de tus <strong>pisos</strong> y <strong>suelos</strong>. Estos <strong>robots que limpian la casa</strong> aspiran la suciedad y, en la misma pasada o en una posterior, friegan para dejar las superficies impecables. Ideales para mantenimiento constante y para casas con mascotas.</p>
+        <a href="/mejores-robots-aspiradores-fregasuelos/" class="cta">Ver Comparativa de Robots 2 en 1</a>
+        
+        <!-- <div class="type-card">
+            <img src="placeholder_robot_limpiacristales.jpg" alt="Robot Limpiacristales Automático">
+            <h3>Robots Limpiacristales</h3>
+            <p>¿Cansado de limpiar ventanas? Un <strong>robot limpia vidrios</strong> es la respuesta. Estos dispositivos se adhieren a tus cristales y los dejan sin manchas, ahorrándote esfuerzo y peligros. Perfectos para grandes ventanales, espejos y superficies lisas verticales.</p>
+            <a href="/robots-limpiacristales/" class="cta">Descubre Robots Limpiacristales</a> 
+        </div>
 
----
-<section class="container">
-    <h2>Robots de Limpieza Inteligente</h2>
+        <div class="type-card">
+            <img src="placeholder_robot_aspirador.jpg" alt="Robot Aspirador">
+            <h3>Robots Aspiradores</h3>
+            <p>Especialmente diseñados para la eliminación de polvo, pelo y suciedad en todo tipo de <strong>suelos</strong>. Con potentes motores de succión y sistemas de navegación inteligentes, son la elección perfecta para un aspirado diario eficiente y autónomo.</p>
+            <a href="/robots-aspiradores/" class="cta">Explora Robots Aspiradores</a>
+        </div>
 
-<p>Estos robots aspirador inteligente, tienen la última tecnología en navegación, mapeo y reconocimiento de obstáculos. Olvídate de la suciedad y deja que la tecnología haga el trabajo por ti, adaptándose perfectamente a las necesidades de tu hogar.</p>
+        <div class="type-card">
+            <img src="placeholder_robot_friegasuelos_solo.jpg" alt="Robot Friegasuelos Dedicado">
+            <h3>Robots Friegasuelos Dedicados</h3>
+            <p>Para aquellos que buscan un fregado profundo y específico. Estos <strong>robots friegasuelos</strong> se centran en la limpieza húmeda, disolviendo manchas y dejando tus <strong>pisos</strong> con un brillo impecable, ideal para cocinas o baños.</p>
+            <a href="/robots-friegasuelos-dedicados/" class="cta">Conoce Robots Solo Friegasuelos</a>
+        </div> -->
+    </section>
 
-</section>
-
-<section class="container">
-    <h3>¿Por Qué Elegir un Robot Aspirador y Fregasuelos?</h3>
-    <ul>
-        <li><strong>Doble Función, Doble Beneficio:</strong> Nuestros robots de limpieza aspirador y fregasuelos no solo aspiran polvo, migas y pelo de mascotas, sino que también friegan tus suelos, eliminando manchas y dejando un acabado impecable. Es la solución 2 en 1 que tu hogar necesita.</li>
-        <li><strong>Ahorro de Tiempo y Esfuerzo:</strong> Libérate de la tediosa tarea de limpiar. Con un robot aspirador y friegasuelos, la limpieza se vuelve automática. Solo tienes que programarlo y dejar que haga el trabajo por ti.</li>
-        <li><strong>Tecnología Inteligente:</strong> Equipados con sensores avanzados, nuestros aspiradores fregasuelos navegan por tu hogar, evitando obstáculos y caídas. Algunos modelos incluso mapean tus espacios para una limpieza más organizada y completa.</li>
-        <li><strong>Adaptabilidad a Todo Tipo de Suelos:</strong> Desde parqué hasta baldosas, nuestros robots aspirador y fregasuelos se adaptan a diferentes superficies, garantizando resultados óptimos en cada rincón de tu casa.</li>
-    </ul>
-</section>
-
----
-
-<section class="container">
-    <h3>Encuentra el robot friegasuelos ideal para Ti</h3>
-    <p>Sabemos que cada hogar es único. ¿Buscas un robot friegasuelos aspirador con alta potencia de succión? ¿O quizás con funciones inteligentes de mapeo? ¡Lo tenemos!</p>
-    <a class="cta large" href="/mejores-robots-aspiradores-fregasuelos/" >Descubre los mejores robot aspirador y fregasuelos con un clic.</a>
-</section>
-
-<!-- NUEVO CONTENIDO FINAL -->
-<section class="container">
-    <h2>La Limpieza Inteligente de Tu Hogar Comienza Aquí</h2>
-    <p>Descubre cómo un robot de limpieza de pisos puede transformar tu rutina. Olvídate de barrer y fregar; estos asistentes automáticos están listos para mantener tu hogar impecable sin esfuerzo.</p>
-    <h3>Robots Limpiadores: Eficiencia para Cada Rincón</h3>
-    <p>Desde el robot barredor de pisos que elimina polvo hasta el robot lava pisos que friega a fondo. Nuestros modelos, incluido el completo limpiador de pisos automático, ofrecen soluciones 2 en 1 para una limpieza completa y autónoma. Ahorra tiempo y disfruta de suelos siempre brillantes.</p>
-</section>
-
-<section class="container">
-    <h3>¡No Esperes Más! Transforma la Limpieza de Tu Hogar</h3>
-    <p>Es el momento de dar el salto a la limpieza inteligente. Con el mejor robot aspirador y fregasuelos, no solo compras un dispositivo, sino que inviertes en más tiempo para ti y los tuyos.</p>
-    <p><strong>¡Haz clic aquí para explorar nuestra selección y llevar la limpieza al siguiente nivel! Tu hogar, más limpio que nunca, te espera.</strong></p>
-</section>
-
-
-  </main>
+    <section class="container">
+        <h2>Por Qué Elegir un Robot Limpiador para tu Casa</h2>
+        <p>La adopción de la limpieza inteligente va más allá de la simple comodidad. Un <strong>robot limpiador</strong> te ofrece:</p>
+        <ul>
+            <li><strong>Ahorro de Tiempo:</strong> Libera horas valiosas que puedes dedicar a lo que realmente importa.</li>
+            <li><strong>Limpieza Constante:</strong> Tu hogar se mantendrá impecable día tras día, sin esfuerzo de tu parte.</li>
+            <li><strong>Profundidad y Eficacia:</strong> Acceden a rincones difíciles y aplican la tecnología más avanzada para una limpieza superior de <strong>pisos</strong>, <strong>suelos</strong> y <strong>cristales</strong>.</li>
+            <li><strong>Salud y Bienestar:</strong> Reducen alérgenos, polvo y ácaros, mejorando la calidad del aire en tu hogar.</li>
+            <li><strong>Conveniencia:</strong> Controla tu <strong>robot de limpieza</strong> desde tu smartphone, programa limpiezas y olvídate.</li>
+        </ul>
+        <p>Invierte en un <strong>robot que limpia la casa</strong> y experimenta un nuevo nivel de bienestar y eficiencia.</p>
+    </section>
+</main>
 </Layout>

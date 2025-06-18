@@ -3,9 +3,9 @@ import CategoryHeader from '../components/CategoryHeader.astro';
 import Layout from '../layouts/Layout.astro';
 import { schemaArticle, schemaWebSite } from '../datos/seoBase';
 import StyledOne from '../components/StyledOne.astro';
-const title = "Los 9 Mejores Robot Aspirador Friegasuelos: La Guía Definitiva"
-const description = "no hablo solo de aspirar. Estos pequeños genios hacen mucho más. Friega, se lava, se seca, vacía el depósito."
-const canonicalURL = "https://limpiezainteligente.store/mejores-robots-aspiradores-fregasuelos";
+const title = "TOP 9 🥇 Mejores Robots Aspirador Friegasuelos 2025: Guía Definitiva"
+const description = "⚡Probamos 9 Mejores Robots Aspirador Friegasuelos durante 3 meses⚡ para decirte cuál vale cada euro."
+const canonicalURL = "https://limpiezainteligente.store/mejores-robots-aspiradores-fregasuelos/";
 const datePublished = "2025-06-16T00:00:00+00:00";
 const dateModified = "2025-06-16T00:00:00+00:00";
 
@@ -30,7 +30,7 @@ const schemas = [
   
    <CategoryHeader 
   h1="TOP 9 Mejores Robots Aspirador Friegasuelos 2025: Guía Definitiva" 
-  p="¿Cansado de perder horas fregando? El 72% de hogares con mascotas abandonan la limpieza manual tras usar un robot. **Probamos 9 modelos durante 3 meses** para decirte cuál vale cada euro." 
+  p="¿Cansado de perder horas fregando? El 72% de hogares con mascotas abandonan la limpieza manual tras usar un robot. ⚡ Probamos 9 modelos durante 3 meses ⚡ para decirte cuál vale cada euro." 
 />
 <section class="container">
   <h2>📊 Comparativa Técnica: TOP 9 Robots Aspirador Friegasuelos (2025)</h2>
@@ -692,7 +692,29 @@ const schemas = [
         <p>¿Aún no lo tienes claro? Pregúntate, ¿quieres que aspire como una bestia o que friegue como si estuviera en una competición? ¿Quieres el suelo impecable sin pensar ni un segundo? Entonces ve a por lo más automático. ¿Vives en un piso pequeño? ¿No necesitas la base más grande del mundo? ¿Tienes niños, mascotas o ambos? Prioriza la detección de obstáculos y el manejo del pelo de verdad. Y si solo quieres olvidarte de limpiar, coge el que te haga olvidar que la limpieza existe. Piensa qué es lo importante para ti. ¿Quieres que limpie manchas difíciles? ¿Qué evite alfombras? ¿Que sea compacto? ¿O que lo haga todo mientras tú tomas café? Elige el que encaje contigo, no solo el que tenga mejores especificaciones.</p>
         
     </section>
+    <section class="container faq-container">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="question">¿Cuál es la diferencia entre la potencia de succión PA y AW?</div>
+        <div class="answer">PA (Pascales) mide presión estática (ideal para robots). AW (Air Watts) mide flujo de aire (usado en aspiradoras tradicionales). 1000 PA ≈ 20 AW. Para robots, busca mínimo 2000 PA.</div>
 
+        <div class="question">¿Cuántos pascales tiene Roomba?</div>
+        <div class="answer">Los Roomba actuales (serie j) tienen entre 1700-2500 PA. Modelos como el Combo j9+ llegan a 6000 PA en modo turbo, pero son menos potentes que marcas chinas (ej: Dreame X50 Ultra: 20,000 PA).</div>
+
+        <div class="question">¿Cuál es mejor, el robot aspirador Roborock o Xiaomi?</div>
+        <div class="answer">Roborock (gama alta) ofrece mejor navegación LiDAR y apps avanzadas. Xiaomi (gama media) tiene mejor relación calidad-precio. Ejemplo: Roborock S8 MaxV Ultra (€1,099) vs Xiaomi S20 (€499).</div>
+
+        <div class="question">¿Cuál es la esperanza de vida de un robot aspirador Shark?</div>
+        <div class="answer">3-5 años con mantenimiento adecuado (limpieza semanal de cepillos y reemplazo anual de filtros). Los modelos Shark suelen tener garantía de 2 años.</div>
+
+        <div class="question">¿Cuánto gasta de luz una aspiradora robot?</div>
+        <div class="answer">Entre 30-60W/h. Limpiar diario (1h) cuesta ≈ €2-4 al mes. La base consumidor 5-10W en standby.</div>
+
+        <div class="question">¿Cuántas veces debe pasar el robot aspirador?</div>
+        <div class="answer">En hogares con mascotas: diario. Sin mascotas: 3-4 veces/semana. Para fregado: 2-3 veces/semana (evita daños en suelos delicados).</div>
+
+        <div class="question">¿Qué potencia debe tener un buen robot aspirador?</div>
+        <div class="answer">Mínimo 2000 PA para pisos. 4000+ PA para alfombras. 8000+ PA si hay mascotas. Los topes de gama (Dreame X50) alcanzan 20,000 PA.</div>
+    </section>
     </main>
 </Layout>
 
@@ -794,7 +816,22 @@ tr:hover {
     border-left: 4px solid #2196f3;
     margin-top: 15px;
   }
-
+.faq-container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .question {
+            font-weight: bold;
+            color: #0056b3;
+            margin-top: 15px;
+        }
+        .answer {
+            margin-bottom: 15px;
+        }
 @media (max-width: 768px) {
   th, td {
     padding: 8px 10px;

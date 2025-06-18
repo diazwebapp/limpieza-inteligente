@@ -45,6 +45,8 @@ const schemas = [
           "@type": "MerchantReturnPolicy",
           applicableCountry: "00",
           returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+          "merchantReturnDays": 30,  // Amazon suele dar 30 días para devoluciones
+          "returnMethod": "https://schema.org/ReturnByMail",
         },
     },
     aggregateRating: {

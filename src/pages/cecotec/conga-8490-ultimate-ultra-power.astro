@@ -31,11 +31,12 @@ const schemas = [
       url: product.urlAfiliado,
       shippingDetails: {
         "@type": "OfferShippingDetails",
-          "shippingRate": {
+          shippingRate: {
               "@type": "MonetaryAmount",
               value: 0,
               currency: "EUR"
-        },
+        }
+      }
     },
     hasMerchantReturnPolicy: {
           "@type": "MerchantReturnPolicy",

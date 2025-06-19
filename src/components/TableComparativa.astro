@@ -1,0 +1,286 @@
+---
+// src/components/TableComparativa.astro
+
+interface Props {
+  limit?: number;
+  idMarca?: number;
+  amazonProduts:[]
+}
+
+const { limit = 5, idMarca, amazonProduts } = Astro.props;
+
+// Filtrar productos por marca si se especifica
+let filteredProducts = idMarca 
+  ? amazonProduts.filter(p => p.marca === idMarca)
+  : [...amazonProduts];
+
+// Ordenar por rating y limitar
+const products = filteredProducts
+  .sort((a, b) => (b.stars || 0) - (a.stars || 0))
+  .slice(0, limit);
+
+// Función para generar precio "original" con aumento aleatorio
+const getPrecioOriginal = (precioActual: number) => {
+  const aumento = Math.floor(Math.random() * (22 - 12 + 1)) + 12;
+  return precioActual + aumento;
+};
+
+
+// Función renderStars optimizada para Astro estático
+const renderStars = (rating: number) => {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5 ? '★' : '';
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+  
+  const stars = 
+    '★'.repeat(fullStars) + 
+    hasHalfStar + 
+    '☆'.repeat(emptyStars);
+  
+  return stars;
+};
+
+// Determinar badges
+const getBadges = (product: any) => {
+  const badges = [];
+  if (product.stars >= 4.5) badges.push("⭐ Top rated");
+  if (product.ratingCount > 1000) badges.push("🔥 Más vendido");
+  if (product.precio < 200) badges.push("💸 Oferta");
+  return badges;
+};
+---
+
+
+<div class="tableContainer" >
+<table class="comparison-table comparison-table--robots">
+  <tr>
+    <th>Modelo</th>
+    <th>Valoración</th>
+    <th>Precio</th>
+    <th>Potencia</th>
+    <th>Autonomía</th>
+    <th>Navegación</th>
+    <th>Funciones</th>
+    <th>Acción</th>
+  </tr>
+  
+  {products.map(product => {
+    const precioOriginal = getPrecioOriginal(product.precio);
+    const badges = getBadges(product);
+    
+    return (
+      <tr>
+        <td>
+          <div class="product-title">
+            <a href={product.slug}>{product.modelo}</a>
+            {badges.length > 0 && (
+              <div class="badges">
+                {badges.map(badge => (
+                  <span class="badge">{badge}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </td>
+        <td>
+          <div class="star-rating">{renderStars(product.stars)}</div>
+          <div class="rating-count">({product.ratingCount} opiniones)</div>
+        </td>
+        <td>
+          <div class="price-container">
+            <span class="current-price">€{product.precio}</span> 
+            <span class="original-price">
+              €{precioOriginal}
+            </span>
+          </div>
+        </td>
+        <td>
+          {product.feactures?.potenciaSuccion || 'N/A'}
+        </td>
+        <td>
+          {product.feactures?.autonomia || 'N/A'}
+        </td>
+        <td>
+          {product.feactures?.navegacion || 'N/A'}
+        </td>
+        <td>
+          {product.feactures?.funciones
+            ?.split(', ')
+            ?.slice(0, 3)
+            ?.map(feat => `✔️ ${feat}`)
+            ?.join(' ')}
+        </td>
+        <td>
+          <a 
+            href={product.urlAfiliado || product.slug} 
+            class="offer-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            🎁 Ver oferta
+          </a>
+        </td>
+      </tr>
+    );
+  })}
+</table>
+</div>
+<style>
+    .tableContainer{
+        width: 100%;
+        overflow: scroll;
+    }
+  /* Tabla base - reusable en cualquier parte */
+  .comparison-table {
+    width: 100%;
+    min-width: 1080px;
+    border-collapse: collapse;
+    margin: 2rem auto;
+    font-family: sans-serif;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-radius: var(--rounded, 12px);
+    overflow: hidden;
+  }
+
+  .comparison-table th {
+    background-color: #b8057c;
+    color: white;
+    text-align: left;
+    padding: 12px;
+    font-weight: 600;
+  }
+
+  .comparison-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+  }
+
+  .comparison-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .comparison-table tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  /* Estilos específicos para la tabla de robots */
+  .comparison-table--robots td:nth-child(1) { /* Columna Modelo */
+    font-weight: 600;
+    color: #b8057c;
+  }
+
+  .comparison-table--robots td:nth-child(4) { /* Columna Precio */
+    font-weight: 700;
+  }
+
+  /* Estilos para badges */
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 6px;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: bold;
+  }
+
+  .badge:nth-child(1) {
+    background-color: #ffd700;
+    color: #000;
+  }
+
+  .badge:nth-child(2) {
+    background-color: #ff4500;
+    color: white;
+  }
+
+  .badge:nth-child(3) {
+    background-color: #32cd32;
+    color: white;
+  }
+
+  /* Estilos para estrellas */
+  .star-rating {
+    color: #ffc107;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .star {
+    display: inline-block;
+    position: relative;
+  }
+
+  .star.half::before {
+    position: absolute;
+    content: '★';
+    width: 50%;
+    overflow: hidden;
+    color: #ffc107;
+  }
+
+  .star.empty {
+    color: #ddd;
+  }
+
+  .rating-count {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  /* Estilos para precios */
+  .price-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .current-price {
+    color: #b8057c;
+    font-weight: bold;
+  }
+
+  .original-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.8rem;
+  }
+
+  /* Estilos para botón de oferta */
+  .offer-button {
+    display: block;
+    padding: 8px 12px;
+    background-color: #b8057c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 150px;
+    text-align: center;
+  }
+
+  .offer-button:hover {
+    background-color: #9a0468;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .comparison-table {
+      display: block;
+      overflow-x: auto;
+    }
+    
+    .offer-button {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+  }
+</style>

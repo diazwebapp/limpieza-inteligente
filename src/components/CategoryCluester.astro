@@ -1,81 +1,144 @@
 ---
-const { cats } = Astro.props;
+// Datos estáticos generados en build-time
+const { cats, amazonProduts } = Astro.props;
+
+const brandsWithTopProducts = cats.map(cat => {
+  const products = amazonProduts.filter(p => p.marca === cat.id);
+  const topProduct = products.sort((a, b) => (b.stars || 0) - (a.stars || 0))[0] || null;
+  
+  // Extracción segura de características
+  let features = [];
+  if (topProduct?.feactures) {
+    if (topProduct.feactures.caracteristicasEspeciales) {
+      features = topProduct.feactures.caracteristicasEspeciales.split(', ').slice(0, 3);
+    } else {
+      // Fallback: Buscar cualquier característica disponible
+      features = Object.entries(topProduct.feactures)
+        .filter(([key, val]) => typeof val === 'string' && val.length < 50)
+        .map(([key, val]) => val)
+        .slice(0, 3);
+    }
+  }
+
+  return {
+    ...cat,
+    topProduct: topProduct ? {
+      modelo: topProduct.modelo || 'Modelo no especificado',
+      precio: topProduct.precio ? `${topProduct.precio} €` : 'Consultar precio',
+      rating: topProduct.stars ? `⭐ ${topProduct.stars}${topProduct.ratingCount ? ` (${topProduct.ratingCount} opiniones)` : ''}` : '',
+      features,
+      slug: topProduct.slug || cat.slug
+    } : null
+  };
+});
 ---
-<ul class="cluster-nav">
-    {cats.map(cat => (
-      <li class="cluster-item">
-        <a href={cat.slug}>
-            <article>
-                <figure>
-                    <img src={cat.image} alt={cat.title} loading="lazy" width="250" height="250"/>
-                </figure>
-                <div class="content">
-                    <h3>{cat.title}</h3>
-                    <p>{cat.description}</p>
-                </div>
-            </article>
-        </a>
-      </li>
-    ))}
+
+<ul class="brands-analysis">
+  {brandsWithTopProducts.map(brand => (
+    <li class="brand-card">
+      <a href={brand.topProduct?.slug}>
+        <article>
+          <figure>
+            <img 
+              src={brand.image} 
+              alt={`${brand.title} - Robot de limpieza`} 
+              loading="lazy" 
+              width="250" 
+              height="250"
+            />
+          </figure>
+          <div class="brand-content">
+            <h3>{brand.name}</h3>
+            {brand.topProduct && (
+              <div class="brand-meta">
+                {brand.topProduct.modelo && <p class="product-model">{brand.topProduct.modelo}</p>}
+                {brand.topProduct.precio && <p class="product-price">{brand.topProduct.precio}</p>}
+                {brand.topProduct.rating && <div class="product-rating">{brand.topProduct.rating}</div>}
+                {brand.topProduct.features.length > 0 && (
+                  <ul class="product-features">
+                    {brand.topProduct.features.map((feat, i) => (
+                      <li key={i}>✔️ {feat}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            )}
+          </div>
+        </article>
+      </a>
+    </li>
+  ))}
 </ul>
+
 <style>
-.cluster-nav {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  padding: 0;
-  margin: 0;
-}
-.cluster-nav article figure{
-    padding: 10px;
-}
-@media (min-width: 600px) {
-  .cluster-nav {
-    grid-template-columns: 1fr 1fr;
-    gap: .1rem;
+  /* Estilos base reutilizables */
+  .brands-analysis {
+    display: grid;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 2rem 0;
+    list-style: none;
   }
-}
-@media (min-width: 1024px) {
-  .cluster-nav {
-    grid-template-columns: 1fr 1fr 1fr;
+
+  .brand-card article {
+    background: white;
+    border-radius: var(--rounded, 16px);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+    height: 100%;
   }
-}
-.cluster-item {
-  list-style: none;
-}
-.cluster-nav article {
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--rounded, 16px);
-  transition: all ease-in-out 0.3s;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  overflow: hidden;
-  height: 100%;
-}
-.cluster-nav article:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-}
-.cluster-nav article .content {
-  width: 100%;
-  display: block;
-  padding: 16px;
-}
-.cluster-nav article figure {
-  width: 280px;
-  height: 280px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(120deg, #b8057c 0%, var(--secondary, #f0f0f0) 100%);
-  border-radius: var(--rounded, 16px);
-  overflow: hidden;
-}
-.cluster-nav article figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
+
+  .brand-card article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+
+  /* Contenido específico */
+  .brand-content {
+    padding: 1.25rem;
+  }
+
+  .brand-content h3 {
+    color: #b8057c;
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+
+  .product-model {
+    color: #666;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+  }
+
+  .product-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    color: #333;
+  }
+
+  .product-rating {
+    font-size: 0.85rem;
+    color: #666;
+  }
+
+  .product-features {
+    padding-left: 1rem;
+    font-size: 0.85rem;
+    color: #444;
+  }
+
+  /* Responsive */
+  @media (min-width: 600px) {
+    .brands-analysis {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .brands-analysis {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 </style>

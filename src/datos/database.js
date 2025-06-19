@@ -2,6 +2,7 @@ export const marcas = [
     {
         id: 1,
         slug: "/cecotec/",
+        name:"Cecotec",
         title: "Robots Aspirador Friegasuelos Cecotec | Conga: Limpieza Inteligente",
         image: "/robot-cecotec.webp",
         thubnail: "/robot-cecotec.webp",
@@ -10,6 +11,7 @@ export const marcas = [
     {
         id: 2,
         slug: "/irobot/",
+        name:"iRobot",
         title: "iRobot: Dominando la Limpieza del Hogar",
         image: "/robot-roomba.webp",
         thubnail: "/robot-roomba.webp",
@@ -18,6 +20,7 @@ export const marcas = [
             {
                 id: 3,
                 slug: "/irobot/roomba/",
+                name: "Roomba",
                 title: "Roomba Aspirador Friegasuelos | iRobot Roomba Combo: Limpieza Definitiva",
                 image: "/robot-roomba.webp",
                 thubnail: "/robot-roomba.webp",
@@ -26,6 +29,7 @@ export const marcas = [
             {
                 id: 4,
                 slug: "/irobot/bravaa/",
+                name: "Braava",
                 title: "Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente",
                 image: "/robot-roomba.webp",
                 thubnail: "/robot-roomba.webp",
@@ -36,6 +40,7 @@ export const marcas = [
     {
         id: 5,
         slug: "/xiaomi/",
+        name:"Xiaomi",
         title: "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente",
         image: "/robot-xiaomi.webp",
         thubnail: "/robot-xiaomi.webp",
@@ -85,19 +90,21 @@ export const amazonProduts = [
     stars: 4.3, // Puedes actualizar si tienes el dato
     ratingCount: 3896, // Puedes actualizar si tienes el dato
     marca: 5, // id de la marca Xiaomi
-    modelo: "BHR8629EU",
+    modelo: "Xiaomi Vacuum S20",
     precio: 139.99,
     momeda:"eur", // Precio en euros
     feactures: {
+        potenciaSuccion: "5000 Pa",
+        navegacion:"laser",
+        funciones: "Acoplamiento automático, Navegación lógica, Mapeo inteligente, Mapeo y navegación láser de precisión, Aspira y friega simultáneamente",
+        autonomia: "150 minutos",
         color: "Blanco",
         dimensiones: "47 x 38,7 x 15,3 cm; 3,3 kg",
         capacidad: "400 Mililitros",
         voltaje: "20 Voltios",
         apagadoAutomatico: true,
         dispositivosCompatibles: "Smartphones",
-        caracteristicasEspeciales: "Acoplamiento automático, Navegación lógica, Mapeo inteligente, Mapeo y navegación láser de precisión, Aspira y friega simultáneamente",
         peso: "3,3 kg",
-        potenciaSuccion: "5000Pa",
         depositoPolvo: "400 ml",
         depositoAgua: "270 ml"
     }
@@ -116,10 +123,10 @@ export const amazonProduts = [
   momeda: "eur",
   feactures: {
     potenciaSuccion: "7000 Pa",
-    autonomia: "170 min",
     navegacion: "Láser",
-    cepillo: "Central de silicona",
     funciones: "Barre, aspira, friega y pasa la mopa",
+    autonomia: "170 min",
+    cepillo: "Central de silicona",
     app: true,
     roomPlan: true,
     totalSurface: true,
@@ -132,7 +139,7 @@ export const amazonProduts = [
   id: 6,
   title: "Conga 999 Map X-Treme",
   slug: "/cecotec/conga-999-map-x-treme/",
-  urlAfiliado: "", // Añadir URL de afiliado si la tienes
+  urlAfiliado: "https://amzn.to/460vsXs", // Añadir URL de afiliado si la tienes
   imageIds: [301, 302, 303],
   stars: 3.9,
   ratingCount: 2920,
@@ -141,17 +148,17 @@ export const amazonProduts = [
   precio: 99.00, // Añadir precio si lo tienes
   momeda: "eur",
   feactures: {
-    funcionEspecial: "inalámbrico",
+    potenciaSuccion: "2000 Pa",
+    navegacion:"iTech 3.0 giroscópica",
+    funciones: "Barre, aspira, pasa la mopa, friega y seca la superficie",
+    autonomia: "120 minutos",
     color: "Conga 999 Map | 2 Mopas",
+    funcionEspecial: "inalámbrico",
     dimensiones: "31,5L x 31,5an. x 7,5al. centímetros",
     componentes: "1 x Robot Aspirador; 2 x Cepillos laterales; 1 x Cepillo de autolimpieza; 1 x Depósito mixto; 1 x Filtro de alta eficiencia; 1 x Mando a distancia; 2 x Mopa de fregado",
     tipoFiltro: "Filtro de alta eficiencia",
-    duracionBateria: "2 Horas",
     fuenteAlimentacion: "Batería",
     pilasIncluidas: true,
-    descripcionCorta: "Barre, aspira, pasa la mopa, friega y seca la superficie con modos de limpieza adaptados a tus necesidades.",
-    potenciaSuccion: "2000 Pa",
-    autonomia: "120 minutos",
     totalSurface: true,
     autoCharge: true,
     tecnologia: "iTech SmartGyro",

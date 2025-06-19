@@ -2,12 +2,12 @@
 export const AUTHOR = {
   "@type": "Person",
   name: "Diaz Web App",
-  url: "https://github.com/diazwebapp"
+  url: "https://github.com/diazwebapp/"
 };
 
 export const PUBLISHER = {
   "@type": "Organization",
-  name: "Limpieza Inteligente Store",
+  name: "Limpieza Inteligente",
   logo: {
     "@type": "ImageObject",
     url: "http://limpiezainteligente.store/favicon.ico"

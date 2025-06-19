@@ -1,9 +1,11 @@
 ---
+// @ts-nocheck
 import AmazonCluster from "../components/AmazonCluster.astro";
 import CategoryCluester from "../components/CategoryCluester.astro";
 import Layout from "../layouts/Layout.astro";
-import { marcas, tiposSuelo, amazonProduts } from "../datos/database";
-import { schemaWebSite } from "../datos/seoBase.js";
+import { marcas, tiposSuelo, amazonProduts, productImages } from "../datos/database";
+import { schemaWebSite, schemaFAQ } from "../datos/seoBase.js";
+import TableComparativa from "../components/TableComparativa.astro";
 
 const title = "Robot Limpiador para Casa: Aspiradoras, Friegasuelos y Limpiacristales";
 const description = "Descubre cómo un robot limpiador puede transformar tu hogar. Guías de los mejores robots para pisos, suelos, cristales y la limpieza inteligente definitiva. Tu solución para automatizar la limpieza.";
@@ -11,8 +13,110 @@ const canonicalURL = "https://limpiezainteligente.store/";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-18T00:00:00+00:00").toISOString();
 
+/////////////////SCHEMAS////////////////////////////
+console.log(amazonProduts[0].image);
+
+// Filtramos los productos mejor valorados (top 5)
+const topProducts = [...amazonProduts]
+  .sort((a, b) => (b.stars || 0) - (a.stars || 0))
+  .slice(0, 5);
+
+// Schema para ItemList (recomendado para listados)
+const productListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": topProducts.map((product, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": product.modelo,
+      "image": productImages.find(img => img.id === product.id)?.["250x250"] || "https://limpiezainteligente.store/default-product-image.jpg",
+      "description": `${product.feactures.funciones }`,
+      "brand": {
+        "@type": "Brand",
+        "name": marcas.find(cat => cat.id === product.marca)?.name || "Desconocida",
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "offerCount": 10,
+        "lowPrice": product.precio,
+        "highPrice": product.precio,
+        "url":product.urlAfiliado,
+        "priceCurrency": "EUR",    
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": product.stars,
+        "reviewCount": product.ratingCount || 1
+      }
+    }
+  }))
+};
+
 const schemas = [
-  schemaWebSite()
+  schemaWebSite(),
+  productListSchema,
+  schemaFAQ({
+    mainEntity:[
+    {
+      "@type": "Question",
+      "name": "¿Qué robot limpia pisos y friega mejor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El Roborock S8 es el mejor combo aspirado+fregado en 2024 según nuestros tests, combinando 6000Pa de succión con sistema vibratorio de fregado avanzado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo funciona una limpiadora robot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los robots limpiadores usan sensores y navegación inteligente (LIDAR, láser o cámara) para mapear espacios, evitando obstáculos mientras aspiran/friegan. Se programan vía app y regresan solos a su base."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué puede hacer un robot doméstico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1️⃣ Aspirar pelo y polvo | 2️⃣ Fregar suelos | 3️⃣ Mapear tu casa | 4️⃣ Programar limpiezas | 5️⃣ Evitar escalones y obstáculos | 6️⃣ Autovaciado (modelos premium). Los modelos avanzados incluso reconocen tipos de suelo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta un robot que limpia la casa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desde €150 (básico) hasta €1,200 (gama alta). Los más vendidos están entre €300-€600. Los robots 2-en-1 (aspirador+fregador) cuestan €400-€800."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la vida útil de un robot aspirador?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3-5 años con mantenimiento adecuado (limpieza de filtros y cepillos cada 2 semanas). Las baterías suelen durar 2-3 años con uso diario."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué potencia es recomendada para robots aspiradores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mínimo 2000Pa para pisos lisos | Ideal 2500-5000Pa para alfombras o casas con mascotas | Gama premium +6000Pa para máxima eficiencia en suciedad incrustada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Merece la pena un robot de limpieza?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, especialmente si: Tienes mascotas | Pisos grandes | Problemas de alergias | Poco tiempo para limpieza. Reducen hasta un 80% el polvo y ácaros."
+      }
+    }
+  ]
+  })
 ];
 ---
 <Layout 
@@ -22,45 +126,145 @@ const schemas = [
 >
   <main>
     <section class="container">
-        <h1>Descubre el Robot de Limpieza Perfecto: Aspiradoras, Friegasuelos y Limpia Cristales</h1>
-        <p>En <strong>LimpiezaInteligente.store</strong>, te invitamos a explorar el fascinante mundo de los <strong>robots de limpieza</strong> que están revolucionando la forma en que mantenemos nuestros hogares. Olvídate de la tediosa rutina de la limpieza manual y dale la bienvenida a la comodidad y eficiencia de la automatización. Un <strong>robot limpiador</strong> no es solo un gadget; es tu aliado para tener más tiempo libre y disfrutar de un hogar impecable.</p>
-        <p>Ya sea que busques un <strong>robot para limpiar la casa</strong> de forma integral, un <strong>robot limpia suelos</strong> que deje tus pisos relucientes, o un ingenioso <strong>limpia vidrios robot</strong> que elimine las manchas de tus ventanas, aquí encontrarás la información más completa y las guías más útiles.</p>
+        <h1>Robot de Limpieza 2024: TOP 5 Modelos y Guía Definitiva para Comprar</h1>
+<p>Comparativa real de los mejores <strong>robots aspiradores y friegasuelos</strong>, con análisis pros/contras y precios actualizados. ¿Cuál es el <strong>mejor robot para limpiar la casa</strong>? Te lo decimos aquí.</p>
+    </section>
+   <section class="container">
+    <TableComparativa amazonProduts={amazonProduts}/>
     </section>
     <section class="container">
-        <h2>Descubre las Mejores Marcas de Robots de Limpieza</h2>
-        <p>Trabajamos con los fabricantes líderes para traerte la tecnología más avanzada y confiable en <strong>robots de limpieza</strong>.</p>
-        <CategoryCluester cats={marcas} />
+        <h2>¿Qué marca de robot de limpieza elegir? </h2>
+        <p>Estos son fabricantes líderes con la tecnología más avanzada y confiable en <strong>robots de limpieza</strong>.</p>
         <p style="margin-top: 20px;">Explora las opciones de las marcas más reconocidas en el mercado de <strong>robots aspiradores y friegasuelos</strong> para encontrar la que mejor se adapte a tus necesidades.</p>
+        <CategoryCluester cats={marcas} amazonProduts={amazonProduts}/>
+        
     </section>
+ 
+<section class="container faq-section">
+  <h2>❓ ¿Qué tener en cuenta al comprar un robot de limpieza?</h2>
+  <div class="faq-grid">
+    
+    <!-- Sección 1: Funcionamiento Básico -->
+    <div class="faq-group">
+      <h3>Funcionamiento y Capacidades</h3>
+      <div class="faq-item">
+        <h3>¿Cómo funciona una limpiadora robot?</h3>
+        <p>Los robots limpiadores usan sensores y navegación inteligente (LIDAR, láser o cámara) para mapear espacios, evitando obstáculos mientras aspiran/friegan. Se programan vía app y regresan solos a su base.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Qué puede hacer un robot doméstico?</h3>
+        <p>1️⃣ Aspirar pelo y polvo | 2️⃣ Fregar suelos | 3️⃣ Mapear tu casa | 4️⃣ Programar limpiezas | 5️⃣ Evitar escalones y obstáculos | 6️⃣ Autovaciado (modelos premium).</p>
+      </div>
+    </div>
+
+    <!-- Sección 2: Costos y Mantenimiento -->
+    <div class="faq-group">
+      <h3>Precios y Durabilidad</h3>
+      
+      <div class="faq-item">
+        <h4>¿Cuánto cuesta un robot que limpia la casa?</h4>
+        <p>Desde €150 (básico) hasta €1,200 (gama alta). Los más vendidos están entre €300-€600.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>¿Cuál es la vida útil de un robot aspirador?</h4>
+        <p>3-5 años con mantenimiento (limpieza de filtros y cepillos cada 2 semanas). Las baterías suelen durar 2-3 años.</p>
+      </div>
+    </div>
+
+    <!-- Sección 3: Rendimiento -->
+    <div class="faq-group">
+      <h3>Eficiencia y Consumo</h3>
+      
+      <div class="faq-item">
+        <h4>¿Qué potencia es recomendada para robots aspiradores?</h4>
+        <p>Mínimo 2000Pa (pisos lisos) | Ideal 2500-5000Pa (alfombras/mascotas) | Premium +6000Pa.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>¿Cuánto consume de luz?</h4>
+        <p>≈€0.05 por carga (30-90W). Limpiar diario cuesta ≈€1.50/mes.</p>
+      </div>
+    </div>
+
+    <!-- Sección 4: Comparativas -->
+    <div class="faq-group">
+      <h3>Decisiones de Compra</h3>
+      
+      <div class="faq-item">
+        <h4>¿Qué es mejor, aspiradora manual o robot?</h4>
+        <p><strong>Robot:</strong> Mantenimiento diario automático | <strong>Manual:</strong> Limpieza profunda ocasional. Ideal combinar ambas.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>¿Puede limpiar una casa entera?</h4>
+        <p>Sí, si tiene suficiente autonomía (mínimo 90min) y navegación inteligente para recordar múltiples habitaciones.</p>
+      </div>
+    </div>
+    <div class="faq-group">
+       <div class="faq-item">
+         <h4>¿Qué robot limpia pisos y friega mejor?</h4>
+            <p>El <strong>Roborock S8</strong> es el mejor combo aspirado+fregado en 2024 según nuestros tests...</p>
+       </div>
+<div class="faq-item">
+    <h4>¿Merece la pena un robot de limpieza?</h4>
+<p>Sí, un <strong>robot para limpiar la casa</strong> ahorra tiempo y reduce alergenos...</p>
+</div>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .faq-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+  }
+  .faq-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+  .faq-group {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+  .faq-item h4 {
+    color: #b8057c;
+    margin-bottom: 0.5rem;
+  }
+  .faq-item p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  @media (max-width: 768px) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+   
+
     <section class="container">
         <h2>Transforma tu Hogar con Robots Limpiadores: ¿Qué Tipo Necesitas?</h2>
         <p>La gama de <strong>robots de limpieza</strong> es amplia y está diseñada para cubrir cada necesidad. Entender las funciones específicas de cada uno te ayudará a elegir el <strong>robot limpiador</strong> ideal para tu espacio y estilo de vida.</p>
 
-        <img src="placeholder_robot_aspirador_friegasuelos.jpg" alt="Robot Aspirador y Friegasuelos 2 en 1">
+        <figure style="width:100%;height:480px;" >
+            <img loading="lazy" src="https://www.electronow.es/blog/wp-content/uploads/2019/06/conga-series-3090-cecotec-04.jpg" style="object-fit: cover;width:100%;height:100%;" width="900" height="506.2" alt="Robot Aspirador y Friegasuelos 2 en 1">
+        </figure>
+
         <h3>Robots Aspiradores y Friegasuelos (2 en 1)</h3>
         <p>La solución más versátil para la limpieza diaria de tus <strong>pisos</strong> y <strong>suelos</strong>. Estos <strong>robots que limpian la casa</strong> aspiran la suciedad y, en la misma pasada o en una posterior, friegan para dejar las superficies impecables. Ideales para mantenimiento constante y para casas con mascotas.</p>
         <a href="/mejores-robots-aspiradores-fregasuelos/" class="cta">Ver Comparativa de Robots 2 en 1</a>
-        
-        <!-- <div class="type-card">
-            <img src="placeholder_robot_limpiacristales.jpg" alt="Robot Limpiacristales Automático">
-            <h3>Robots Limpiacristales</h3>
-            <p>¿Cansado de limpiar ventanas? Un <strong>robot limpia vidrios</strong> es la respuesta. Estos dispositivos se adhieren a tus cristales y los dejan sin manchas, ahorrándote esfuerzo y peligros. Perfectos para grandes ventanales, espejos y superficies lisas verticales.</p>
-            <a href="/robots-limpiacristales/" class="cta">Descubre Robots Limpiacristales</a> 
-        </div>
-
-        <div class="type-card">
-            <img src="placeholder_robot_aspirador.jpg" alt="Robot Aspirador">
-            <h3>Robots Aspiradores</h3>
-            <p>Especialmente diseñados para la eliminación de polvo, pelo y suciedad en todo tipo de <strong>suelos</strong>. Con potentes motores de succión y sistemas de navegación inteligentes, son la elección perfecta para un aspirado diario eficiente y autónomo.</p>
-            <a href="/robots-aspiradores/" class="cta">Explora Robots Aspiradores</a>
-        </div>
-
-        <div class="type-card">
-            <img src="placeholder_robot_friegasuelos_solo.jpg" alt="Robot Friegasuelos Dedicado">
-            <h3>Robots Friegasuelos Dedicados</h3>
-            <p>Para aquellos que buscan un fregado profundo y específico. Estos <strong>robots friegasuelos</strong> se centran en la limpieza húmeda, disolviendo manchas y dejando tus <strong>pisos</strong> con un brillo impecable, ideal para cocinas o baños.</p>
-            <a href="/robots-friegasuelos-dedicados/" class="cta">Conoce Robots Solo Friegasuelos</a>
-        </div> -->
+       
     </section>
 
     <section class="container">
@@ -77,3 +281,6 @@ const schemas = [
     </section>
 </main>
 </Layout>
+
+
+

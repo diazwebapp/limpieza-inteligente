@@ -7,7 +7,7 @@ export const AUTHOR = {
 
 export const PUBLISHER = {
   "@type": "Organization",
-  name: "Limpieza Inteligente",
+  name: "Robots de limpieza",
   logo: {
     "@type": "ImageObject",
     url: "http://limpiezainteligente.store/favicon.ico"
@@ -15,8 +15,8 @@ export const PUBLISHER = {
 };
 
 export const WEBSITE_URL = "https://limpiezainteligente.store/";
-export const WEBSITE_NAME = "Limpieza Inteligente";
-export const WEBSITE_DESCRIPTION = "Descubre los mejores robots de limpieza, robot aspirador y fregasuelos, aspirador y friegasuelos, y más. Compara modelos, encuentra ofertas y simplifica tu vida con la última tecnología en limpieza automática.";
+export const WEBSITE_NAME = "Robots de limpieza";
+export const WEBSITE_DESCRIPTION = "Descubre cómo un robot limpiador puede limpiar tu hogar. Guías de los mejores robots para pisos,  Tu solución para automatizar la limpieza.";
 export const WEBSITE_LANGUAGE = "es";
 
 // Plantilla reutilizable para WebSite

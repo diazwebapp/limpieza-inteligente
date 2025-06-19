@@ -21,11 +21,16 @@ const { title, description, schemas = [] } = Astro.props;
       />
     ))}
       <!-- Favicon SVG (recomendado para modernos) -->
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
   <!-- Fallback para navegadores antiguos (opcional) -->
   <link rel="alternate icon" href="/favicon.ico" type="image/x-icon" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <meta property="og:image" content="https://www.electronow.es/blog/wp-content/uploads/2019/06/conga-series-3090-cecotec-04.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
 </head>
 <body>
 

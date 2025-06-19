@@ -31,7 +31,7 @@ const productListSchema = {
     "item": {
       "@type": "Product",
       "name": product.modelo,
-      "image": productImages.find(img => img.id === product.id)?.["250x250"] || "https://limpiezainteligente.store/default-product-image.jpg",
+      "image": productImages.find(img => img.id === product.id)?.["250x250"] || "https://limpiezainteligente.store/para-laminado.webp",
       "description": `${product.feactures.funciones }`,
       "brand": {
         "@type": "Brand",
@@ -201,16 +201,15 @@ const schemas = [
         <h4>¿Puede limpiar una casa entera?</h4>
         <p>Sí, si tiene suficiente autonomía (mínimo 90min) y navegación inteligente para recordar múltiples habitaciones.</p>
       </div>
-    </div>
-    <div class="faq-group">
+
        <div class="faq-item">
-         <h4>¿Qué robot limpia pisos y friega mejor?</h4>
+            <h4>¿Qué robot limpia pisos y friega mejor?</h4>
             <p>El <strong>Roborock S8</strong> es el mejor combo aspirado+fregado en 2024 según nuestros tests...</p>
        </div>
-<div class="faq-item">
-    <h4>¿Merece la pena un robot de limpieza?</h4>
-<p>Sí, un <strong>robot para limpiar la casa</strong> ahorra tiempo y reduce alergenos...</p>
-</div>
+        <div class="faq-item">
+            <h4>¿Merece la pena un robot de limpieza?</h4>
+            <p>Sí, un <strong>robot para limpiar la casa</strong> ahorra tiempo y reduce alergenos...</p>
+        </div>
     </div>
   </div>
 
@@ -218,7 +217,6 @@ const schemas = [
 
 <style>
   .faq-section {
-    margin: 3rem 0;
     padding: 2rem;
     background: #f9f9f9;
     border-radius: 12px;

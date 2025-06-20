@@ -2,7 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import SingleProductHeader from "../../components/SingleProductHeader.astro";
 import { amazonProduts, productImages } from "../../datos/database.js";
-import { schemaWebSite, schemaProduct, AUTHOR } from "../../datos/seoBase.js";
+import { schemaWebSite, schemaProduct, schemaArticle } from "../../datos/seoBase.js";
 
 const product = amazonProduts.find(p => p.id === 6);
 const images = productImages.filter(image => product?.imageIds.includes(image.id));

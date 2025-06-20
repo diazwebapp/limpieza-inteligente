@@ -3,52 +3,60 @@
 import Layout from "../../layouts/Layout.astro";
 import SingleProductHeader from "../../components/SingleProductHeader.astro";
 import AmazonCluster from "../../components/AmazonCluster.astro";
-import { buildProductCard } from "../../utils/productCardBuilder.js";
-import { amazonProduts } from "../../datos/database.js";
-const ficha = buildProductCard(amazonProduts.find(p => p.id === 4), ["feactures", "slug", "precio", "modelo", "imageIds"]);
-const product = amazonProduts.find(p => p.id === 5);
+import { amazonProduts, productImages } from "../../datos/database.js";
+
+const product = amazonProduts.find(p => p.id === 4);
+const images = productImages.filter(image => product?.imageIds.includes(image.id));
+
 const title = "Xiaomi Vacuum S20: Mi Experiencia Real con la Limpieza del Futuro";
 const description = "Opinión y experiencia real con el Xiaomi Robot Vacuum S20. Descubre por qué este robot aspirador y fregasuelos puede transformar la limpieza de tu hogar.";
 const canonicalURL = "https://limpiezainteligente.store/xiaomi/vacuum-s20/";
 const datePublished = "2025-06-14T00:00:00+00:00";
-const dateModified = "2025-06-17T00:00:00+00:00";
+const dateModified = "2025-06-20T00:00:00+00:00";
 import { schemaWebSite, schemaArticle, schemaProduct, schemaReview } from "../../datos/seoBase.js";
 
 
 const schemas = [
   schemaWebSite(),
   schemaProduct({
-    name: "Xiaomi Robot Vacuum S20",
-    image: [
-      "https://m.media-amazon.com/images/I/51xaJeszmPL._AC_SX679_.jpg"
-    ],
+    name: product?.title,
+    image: images.map(img => img["250x250"]),
     description: "Robot aspirador y fregasuelos con navegación láser LDS, succión de 5000 Pa, rutas de limpieza en zigzag, depósito 2 en 1 y control inteligente desde app.",
     brand: { "@type": "Brand", name: "Xiaomi" },
     url: canonicalURL,
     offers: {
       "@type": "AggregateOffer",
       "offerCount": 5,
-      "lowPrice": product.precio,
-      "highPrice": product.precio,
-      "url":product.urlAfiliado,
+      "lowPrice": product?.precio,
+      "highPrice": product?.precio,
+      "url":product?.urlAfiliado,
       priceCurrency: "EUR",     
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: product.stars,
-      reviewCount: product.ratingCount
+      ratingValue: product?.stars,
+      reviewCount: product?.ratingCount
     }
-  })
+  }),
+  schemaArticle({
+    headline: title,
+    description: description,
+    image: images.map(img => img["250x250"]),
+    url: canonicalURL,
+    datePublished,
+    dateModified 
+  }),
 ];
 
 
 ---
 <Layout title={title} description={description} schemas={schemas}>
   <main>
-    <section class="container">
-      <h1>Descubre el Xiaomi Robot Vacuum S20: Mi Experiencia Real con la Limpieza del Futuro (y por qué no querrás otro)</h1>
-      <SingleProductHeader {...ficha} images={ficha.imageIds}, marca="Xiaomi" />
-      <section class="product-about" style="margin-top: 2rem;">
+   
+      
+    <SingleProductHeader title={product?.title} img={images} price={product?.precio} description={description} />
+      <section class="container">
+       
         <h2>Acerca de este producto</h2>
         <ul>
           <li>Potente succión de 5000Pa. Limpia el suelo de una sola pasada. Equipado con un potente ventilador de succión de 5000 Pa y 3 modos de potencia, elimina fácilmente el polvo y pelos de todo tipo de suelos y zonas de difícil acceso</li>
@@ -57,8 +65,9 @@ const schemas = [
           <li>Mapea tu casa con facilidad. Xiaomi Robot Vacuum S20 puede escanear rápidamente su entorno para crear diseños precisos en la aplicación Mi Home/Xiaomi Home y planificar las rutas de limpieza más eficientes. Deje que este robot aspirador le muestre lo inteligente que puede ser</li>
           <li>Sistema de navegación láser LDS. Menos puntos perdidos y menos áreas repetidas. La navegación láser es una tecnología de navegación que proporciona un posicionamiento altamente preciso, mediciones más precisas y un funcionamiento más estable</li>
         </ul>
+      
       </section>
-    </section>
+    
     <section class="container">
       <h2>Mi Experiencia con el Ecosistema Xiaomi y el Salto al S20</h2>
       <div class="text-action">
@@ -125,7 +134,7 @@ const schemas = [
         width: calc(100% - 300px);
         padding: 0 1rem;
     }
-    .text-action .card, {
+    .text-action .card {
         width: 300px;
     }
   .product-flex {

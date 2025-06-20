@@ -98,6 +98,7 @@ export const amazonProduts = [
         navegacion:"laser",
         funciones: "Acoplamiento automático, Navegación lógica, Mapeo inteligente, Mapeo y navegación láser de precisión, Aspira y friega simultáneamente",
         autonomia: "150 minutos",
+        superficies:"Todo tipo de suelos y alfombras",
         color: "Blanco",
         dimensiones: "47 x 38,7 x 15,3 cm; 3,3 kg",
         capacidad: "400 Mililitros",
@@ -126,12 +127,12 @@ export const amazonProduts = [
     navegacion: "Láser",
     funciones: "Barre, aspira, friega y pasa la mopa",
     autonomia: "170 min",
+    superficies: "Todo tipo de suelos y alfombras",
     cepillo: "Central de silicona",
     app: true,
     roomPlan: true,
     totalSurface: true,
     bateria: "3200 mAh",
-    superficies: "Todo tipo de suelos y alfombras",
     deposito: "Autovaciado"
   }
 },
@@ -152,6 +153,7 @@ export const amazonProduts = [
     navegacion:"iTech 3.0 giroscópica",
     funciones: "Barre, aspira, pasa la mopa, friega y seca la superficie",
     autonomia: "120 minutos",
+    superficies: "Todo tipo de suelos y alfombras",
     color: "Conga 999 Map | 2 Mopas",
     funcionEspecial: "inalámbrico",
     dimensiones: "31,5L x 31,5an. x 7,5al. centímetros",
@@ -166,6 +168,36 @@ export const amazonProduts = [
     conectividad: "WiFi 2,4 GHz y Bluetooth",
     mopasCepillos: "2 mopas de fregado y 2 cepillos laterales",
     iWater: "Fregado inteligente con 3 niveles de caudal de agua (High, Medium y Low)"
+  }
+},
+{
+  id: 7,
+  title: "iRobot Roomba Combo Essential",
+  slug: "/irobot/roomba-combo-essential/",
+  urlAfiliado: "https://amzn.to/4ejQJ0E", // URL de afiliado no proporcionada
+  imageIds: [104, 105, 106],
+  stars: 3.9,
+  ratingCount: 11697,
+  marca: 2, // id de la marca iRobot
+  modelo: "iRobot Roomba Combo Essentia",
+  precio: 149.00, // Precio no proporcionado
+  momeda: "eur", // Moneda no proporcionada
+  feactures: {
+    potenciaSuccion: "4000 Pa", // Potencia de succión no proporcionada
+    navegacion: "Smart Navigation", // Navegación no proporcionada
+    funciones: "Control de succión variable, Húmedo/Seco, Navegación habitación por habitación, Programable, Aspiración y limpieza simultáneas",
+    autonomia: "2 Horas",
+    superficies: "Suelo duro, alfombra",
+    color: "Blanco",
+    dimensiones: "33l. x 33an. x 8al. centímetros",
+    componentes: "Filtro, Manual de instrucciones, Cepillos laterales, Almohadilla de mopa, Estación de acoplamiento",
+    tipoFiltro: "Cartucho",
+    fuenteAlimentacion: "Litio Ion",
+    pilasIncluidas: false,
+    metodoControl: "Voz, Aplicación, Toque",
+    dispositivosCompatibles: "Smartphones, Amazon Echo, Tablets, Google Home",
+    factorForma: "Portátil",
+    peso: "2,8 Kilogramos"
   }
 }
 ]
@@ -225,5 +257,23 @@ export const productImages = [
     "250x250": "https://m.media-amazon.com/images/I/61y-irdlylL._AC_SX425_.jpg",
     "60x60": "https://m.media-amazon.com/images/I/417KJNZ7gXL._AC_SR38,50_.jpg",
     "1280x720": "https://m.media-amazon.com/images/I/61y-irdlylL._AC_SL1000_.jpg"
+  },
+  {
+    id: 104,
+    "250x250": "https://m.media-amazon.com/images/I/713AuD2N13L._AC_SX679_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/31u20aOyYIL._AC_US100_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/713AuD2N13L._AC_SL1500_.jpg"
+  },
+  {
+    id: 105,
+    "250x250": "https://m.media-amazon.com/images/I/81YrikQhKSL._AC_SX679_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51wdXmYq5mL._AC_US100_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/81YrikQhKSL._AC_SL1500_.jpg"
+  },
+  {
+    id: 106,
+    "250x250": "https://m.media-amazon.com/images/I/71yIHpYcUxL._AC_SX679_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51wD4Z4K76L._AC_US100_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/71yIHpYcUxL._AC_SL1500_.jpg"
   }
 ];

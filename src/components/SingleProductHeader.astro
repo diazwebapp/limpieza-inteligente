@@ -1,106 +1,192 @@
 ---
 import GaleryProduct from "./GaleryProduct.astro";
-const { images, feactures, stars, ratingCount, urlAfiliado, title, marca, modelo } = Astro.props;
+const { title, img, description, slogan="" } = Astro.props;
+const amazonUrl = "#"; // Cambia esto por tu enlace real de Amazon
+const rating = 3.7;
+const reviews = 2041;
 
-// Utilidad para capitalizar la primera letra
-function capitalize(str: string) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+// Función para renderizar estrellas
+function renderStars(rating: number) {
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 >= 0.5;
+  const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+  let stars = "★".repeat(fullStars);
+  if (halfStar) stars += "☆";
+  stars += "✩".repeat(emptyStars);
+  return stars;
 }
 ---
-<div class="product-flex">
-  <GaleryProduct images={images} />
-  <div class="product-buy-rating">
-    <div class="product-rating">
-      <span class="stars" aria-label={`${stars ?? 0} de 5 estrellas`}>
-        {[1,2,3,4,5].map(i => (
-          <span class={`star-icon ${stars >= i ? 'full-star' : stars >= i - 0.5 ? 'half-star' : 'empty-star'}`}></span>
-        ))}
-      </span>
-      <span class="rating-count">({ratingCount ?? '0'})</span>
+
+<div class="product-header">
+  <div class="container">
+    <div class="header-content">
+    <div class="image-section">
+      <picture>
+        <img src={(img[2] || img[0])?.['250x250'] || "/public/placeholder-250x250.png"} width="250" height="250" alt={`Imagen de ${title}`} loading="lazy" />
+      </picture>
     </div>
-    <a href={urlAfiliado} target="_blank" rel="noopener noreferrer" class="btn btn-amazon">Comprar en Amazon</a>
+    <div class="info-section">
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <div class="rating-block">
+        <div class="stars">
+          {renderStars(rating)}
+          <span class="rating-number">{rating}</span>
+        </div>
+        <span class="reviews">({reviews.toLocaleString()} opiniones)</span>
+      </div>
+      <a href={amazonUrl} target="_blank" rel="noopener" class="amazon-btn">
+        ver en Amazon
+      </a>
+    </div>
   </div>
-  <ul class="product-details">
-    {marca && <li><strong>Marca:</strong> {marca}</li>}
-    {modelo && <li><strong>Modelo:</strong> {modelo}</li>}
-    {feactures && Object.entries(feactures).map(([key, value]) => (
-      <li><strong>{capitalize(key)}:</strong> {typeof value === 'boolean' ? (value ? 'Sí' : 'No') : value}</li>
-    ))}
-  </ul>
+  <div id="buy" class="buy-card">
+      <div class="buy-card-info">
+        <h2>Adquiere este producto</h2>
+        <p>{slogan}</p>
+      </div>
+      <div class="galery">
+        <GaleryProduct images={img} />
+      </div>
+  </div>
+  </div>
 </div>
+
 <style>
-.product-flex {
-  display: flex;
-  flex-flow: column;
-  align-items:center;
-  margin-bottom: 2rem;
-}
-.product-details {
+/* Mobile-first styles */
+.product-header {
   width: 100%;
-  box-sizing: border-box;
+  background: linear-gradient(135deg, #f8fafc 60%, #e0e7ff 100%);
+  padding: 1rem 0;
 }
-@media (min-width: 768px) {
-  .product-flex {
-    flex-flow: row wrap;
-    align-items: flex-start;
-    max-width: 900px;
-    gap: 2rem;
-  }
-  .product-flex .gallery-product{
-    width: 320px;
-  }
-  .product-details {
-    width: calc(100% - 320px);
-    box-sizing: border-box;
-    padding-left: 5rem;
-    padding-top: 1rem;
-  }
-  .product-buy-rating {
-    width: 300px;
-    align-items: flex-start;
-    margin-top: 0;
-  }
-}
-.product-buy-rating {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 1rem;
-  order:3;
-}
-.product-rating {
-  font-size: 1.1rem;
-  display: flex;
-  flex-direction: row;
+
+.header-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  text-align: center;
+  margin: 20px auto;
+}
+
+.image-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-section picture {
+  width: 300px;
+  height: 300px;
+  display: block;
+}
+.image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  background: #fff;
+  display: block;
+}
+
+.info-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  background: rgba(255,255,255,0.85);
+  border-radius: 1.5rem;
+  padding: 1rem 0.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+}
+.info-section h1 {
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+}
+.description {
+  color: #475569;
+  margin-bottom: 0.5rem;
+}
+.rating-block {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.5rem;
 }
 .stars {
-  color: #f5a623;
-  font-size: 1.2em;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
-.star-icon.full-star::before { content: '★'; color: #FFD700; }
-.star-icon.half-star::before { content: '★'; color: #FFD700; opacity: 0.5; }
-.star-icon.empty-star::before { content: '★'; color: #eee; }
-.rating-count {
-  color: #666;
-  font-size: 1em;
+.rating-number {
+  color: #f59e42;
+  margin-left: 0.3rem;
+  font-weight: 600;
 }
-.btn.btn-amazon {
-  background: #ffd814;
-  color: #232f3e;
+.reviews {
+  color: #64748b;
+}
+.amazon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background: linear-gradient(90deg, #ff9900 60%, #f59e42 100%);
+  color: #fff;
+  font-weight: 700;
   border: none;
-  padding: 0.5em 1.2em;
-  border-radius: 4px;
-  font-weight: bold;
+  border-radius: 2rem;
+  padding: 0.8rem;
   text-decoration: none;
-  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(255,153,0,0.10);
+  transition: background 0.2s, transform 0.2s;
+  margin-bottom: 0.5rem;
 }
-.btn.btn-amazon:hover {
-  background: #f7ca00;
+.amazon-btn:hover {
+  background: linear-gradient(90deg, #f59e42 60%, #ff9900 100%);
+  transform: translateY(-2px) scale(1.03);
+}
+
+.buy-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: #fff;
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  text-align: center;
+}
+.buy-card h2 {
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+.buy-card p {
+  color: #475569;
+  padding: 0 1rem;
+}
+
+/* Desktop breakpoint */
+@media (min-width: 916px) {
+  .header-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem 1rem;
+  }
+  .image-section,
+  .info-section {
+    width: auto;
+  }
+  .info-section {
+    padding: 2rem 2rem 2rem 2rem;
+  }
+  
+  .buy-card {
+    padding: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  .buy-card p {
+    padding: 0 5rem;
+  }
 }
 </style>
+

@@ -1,22 +1,50 @@
 ---
 // src/components/TableComparativa.astro
 
+interface Product {
+  id: number;
+  modelo: string;
+  slug: string;
+  urlAfiliado?: string;
+  stars?: number;
+  ratingCount?: number;
+  precio?: number;
+  marca?: number;
+  feactures?: {
+    potenciaSuccion?: string;
+    navegacion?: string;
+    autonomia?: string;
+    funciones?: string;
+  };
+}
+
 interface Props {
   limit?: number;
   idMarca?: number;
-  amazonProduts:[]
+  idProductoDestacado?: number;
+  amazonProduts: Product[];
 }
 
-const { limit = 5, idMarca, amazonProduts } = Astro.props;
+const { limit = 5, idMarca, idProductoDestacado, amazonProduts } = Astro.props;
 
 // Filtrar productos por marca si se especifica
 let filteredProducts = idMarca 
   ? amazonProduts.filter(p => p.marca === idMarca)
   : [...amazonProduts];
 
-// Ordenar por rating y limitar
-const products = filteredProducts
-  .sort((a, b) => (b.stars || 0) - (a.stars || 0))
+// Si hay idProductoDestacado, ponerlo primero
+let productsSorted = filteredProducts;
+if (idProductoDestacado) {
+  const idx = filteredProducts.findIndex(p => p.id === idProductoDestacado);
+  if (idx !== -1) {
+    const destacado = filteredProducts.splice(idx, 1)[0];
+    productsSorted = [destacado, ...filteredProducts];
+  }
+}
+
+// Ordenar por rating y limitar (excepto el destacado ya está primero)
+const products = productsSorted
+  .sort((a, b) => (a.id === idProductoDestacado ? -1 : b.id === idProductoDestacado ? 1 : (b.stars || 0) - (a.stars || 0)))
   .slice(0, limit);
 
 // Función para generar precio "original" con aumento aleatorio
@@ -163,17 +191,24 @@ const getBadges = (product: any) => {
   .comparison-table tr:hover {
     background-color: #f9f9f9;
   }
-
+.comparison-table th,
+.comparison-table td{
+  width: 100px;
+  overflow:hidden;
+}
   /* Estilos específicos para la tabla de robots */
   .comparison-table--robots td:nth-child(1) { /* Columna Modelo */
-    font-weight: 600;
+    font-weight: 500;
     color: #b8057c;
+    width: 150px;
   }
 
   .comparison-table--robots td:nth-child(4) { /* Columna Precio */
-    font-weight: 700;
+    font-weight: 600;
   }
-
+ .comparison-table--robots td:nth-child(7){
+  width: 200px;
+ }
   /* Estilos para badges */
   .badges {
     display: flex;

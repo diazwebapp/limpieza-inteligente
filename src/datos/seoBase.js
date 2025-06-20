@@ -45,7 +45,8 @@ export const schemaArticle = ({
   publisher = PUBLISHER,
   description,
   articleBody,
-  mainEntityOfPage
+  mainEntityOfPage,
+  url
 } = {}) => ({
   "@context": "https://schema.org",
   "@type": "Article",
@@ -57,7 +58,8 @@ export const schemaArticle = ({
   publisher,
   description,
   articleBody,
-  mainEntityOfPage
+  mainEntityOfPage,
+  url
 });
 
 // Plantilla reutilizable para FAQPage

@@ -1,51 +1,55 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SingleProductHeader from "../../components/SingleProductHeader.astro";
-import { buildProductCard } from "../../utils/productCardBuilder.js";
-import { amazonProduts } from "../../datos/database.js";
-import { schemaWebSite, schemaArticle, schemaProduct, schemaReview } from "../../datos/seoBase.js";
+import { amazonProduts, productImages } from "../../datos/database.js";
+import { schemaWebSite, schemaProduct, AUTHOR } from "../../datos/seoBase.js";
 
 const product = amazonProduts.find(p => p.id === 6);
-const ficha = buildProductCard(product, ["slug", "precio", "marca", "modelo", "imageIds", "urlAfiliado"]);
+const images = productImages.filter(image => product?.imageIds.includes(image.id));
 const title = "Conga 999 Map X Treme: Reseña Real de un Usuario (¿Vale la Pena?)";
 const description = "Opinión y experiencia real con el robot aspirador Conga 999 Map X-Treme. Pros, contras y para quién es ideal.";
 const canonicalURL = `https://limpiezainteligente.store${product.slug}`;
 const datePublished = "2025-06-16T00:00:00+00:00";
-const dateModified = "2025-06-16T00:00:00+00:00";
+const dateModified = "2025-06-20T00:00:00+00:00";
 
 
 const schemas = [
   schemaWebSite(),
   schemaProduct({
-    name: title,
-    image: [
-      "https://m.media-amazon.com/images/I/91aX9IcU1aL._AC_SX522_.jpg"
-    ],
+    name: product?.title,
+    image: images.map(img => img["250x250"]),
     description,
     brand: { "@type": "Brand", name: "Cecotec" },
     url: canonicalURL,
     offers: {
       "@type": "AggregateOffer",
       "offerCount": 5,
-      "lowPrice": product.precio,
-      "highPrice": product.precio,
-      "url":product.urlAfiliado,
+      "lowPrice": product?.precio,
+      "highPrice": product?.precio,
+      "url":product?.urlAfiliado,
       priceCurrency: "EUR",     
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: product.stars,
-      reviewCount: product.ratingCount
+      ratingValue: product?.stars,
+      reviewCount: product?.ratingCount
     }
-  })
+  }),
+  schemaArticle({
+    headline: title,
+    description: description,
+    image: images.map(img => img["250x250"]),
+    url: canonicalURL,
+    datePublished,
+    dateModified
+  }),
 ];
 ---
 <Layout title={title} description={description} schemas={schemas}>
   <main>
-    <section class="container">
-      <h1>{title}</h1>
-      <SingleProductHeader {...ficha} images={ficha.imageIds} feactures={product?.feactures} marca="Cecotec" />
-    </section>
+    
+    <SingleProductHeader title={product?.title} img={images} price={product?.precio} description={description} feactures={product?.feactures} marca="Cecotec" />
+   
     <section class="container">
       <h2>Introducción: Un Robot Económico pero Sorprendente</h2>
       <p>Cuando compramos el Conga 999 Map X Treme, buscábamos una solución asequible pero eficaz para nuestro piso de 2 habitaciones, baño, salón y cocina. ¡Y ha superado todas las expectativas!</p>

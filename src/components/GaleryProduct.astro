@@ -1,12 +1,9 @@
 ---
 // GaleryProduct.astro
-// Recibe: images (array de ids de imagen)
-import { productImages } from "../datos/database.js";
+
 const { images } = Astro.props;
 // Construye un array de objetos: cada uno tiene las 3 dimensiones
-const imageObjs = Array.isArray(images)
-  ? images.map(id => productImages.find(img => img.id === id)).filter(Boolean)
-  : [];
+const imageObjs = images
 let selectedIdx = 0;
 ---
 <div class="gallery-product">

@@ -1,0 +1,360 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SingleProductHeader from '../../components/SingleProductHeader.astro';
+import { schemaArticle , schemaProduct, schemaWebSite, schemaFAQ } from '../../datos/seoBase';
+import { amazonProduts, productImages } from '../../datos/database';
+import TableComparativa from '../../components/TableComparativa.astro';
+
+
+const product = amazonProduts.find(p => p.id === 7);
+const images = productImages.filter(image => product?.imageIds.includes(image.id));
+
+
+
+const title = "Roomba Combo Essential";
+const description = "Descubre el iRobot Roomba Combo Essential: navegación inteligente, potencia de succión de 2000 Pa, y limpieza eficiente para suelos duros y alfombras.";
+const canonicalURL = "https://limpiezainteligente.store/irobot/roomba-combo-essential/";
+const pubDatetime = new Date("2025-06-20T00:00:00+00:00").toISOString();
+const modDatetime = new Date("2025-06-20T00:00:00+00:00").toISOString();
+
+const schemas = [
+  schemaWebSite(),
+  schemaProduct({
+    name: product?.title,
+    description: "Navegación inteligente, potencia de succión de 2000 Pa, y limpieza eficiente para suelos duros y alfombras.",
+    brand: "iRobot",
+    model: product?.modelo,
+    releaseDate: "2024",
+    offers: {
+       "@type": "AggregateOffer",
+      "offerCount": 5,
+      "lowPrice": product?.precio,
+      "highPrice": product?.precio,
+      "url":product?.urlAfiliado,
+      priceCurrency: "EUR",  
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: product?.stars,
+      reviewCount: product?.ratingCount
+    }
+  }),
+  schemaArticle({
+    headline: title,
+    description: description,
+    image: images.map(img => img["250x250"]),
+    url: canonicalURL,
+    datePublished: pubDatetime,
+    dateModified: modDatetime,
+  }),
+  schemaFAQ({mainEntity:[
+    {
+      "@type": "Question",
+      name: "¿Necesito estar en casa para que funcione?",
+      "acceptedAnswer": {
+          "@type": "Answer",
+            text: "No, el Roomba Combo Essential puede trabajar de forma autónoma. Puedes programarlo o activarlo remotamente mediante la app."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "¿Funciona en alfombras?",
+      "acceptedAnswer": {
+          "@type": "Answer",
+          text: "Sí, tiene sensores que detectan el tipo de superficie y ajusta la potencia automáticamente. En alfombras aumenta la succión."
+      }
+    },
+    {
+       "@type": "Question",
+      name: "¿Cómo se limpia el depósito?",
+      "acceptedAnswer": {
+          "@type": "Answer",
+          text: "El depósito de polvo es extraíble y fácil de vaciar. El filtro se puede limpiar con agua (dejándolo secar completamente antes de volver a colocar)."
+      }
+    },
+    {
+       "@type": "Question",
+      name: "¿Puedo elegir qué habitaciones limpiar?",
+      "acceptedAnswer": {
+          "@type": "Answer",
+          text: "Este modelo no tiene mapeo avanzado, pero puedes cerrar puertas o usar barreras virtuales (vendidas por separado) para delimitar zonas."
+      }
+    }
+  ]})
+];
+---
+
+<Layout 
+  title={title}
+  description={description}
+  schemas={schemas}
+>
+  <section>
+    <SingleProductHeader
+    title={product.title}
+    description="Como amante de la tecnología y la limpieza eficiente, he probado varios dispositivos de limpieza automática, pero el Roomba Combo Essential de iRobot ha superado mis expectativas. iRobot es sin duda la marca líder en el sector de los robots limpiadores, con una trayectoria que avala su calidad y eficiencia."
+    img={images}
+    price={product?.precio}
+  />
+  </section>
+<section class="container">
+  <h2>Irobot Roomba, marca TOP en Robots aspiradores y friegasuelos. Más de 1.000 personas lo compran cada semana</h2>
+  <p>No es casualidad que más de mil personas semanalmente confíen en este modelo para mantener sus hogares impecables.</p>
+  <br>
+  <p>La combinación de aspiración y fregado en un solo dispositivo ha revolucionado mi rutina de limpieza. Este robot limpiador multifunción no solo recoge el polvo y la suciedad, sino que además pasa una bayeta húmeda, dejando mis suelos relucientes con mínimo esfuerzo por mi parte.</p>
+</section>
+
+<section class="container">
+  <h2>Características Roomba Combo Essential</h2>
+  <p>El Roomba Combo Essential es un aspirador automático con función de fregado que incorpora tecnología puntera en un formato compacto y eficiente. Estas son sus características principales</p>
+
+  <ul>
+    <li><strong>Sistema de limpieza 3 en 1</strong>: aspira, barre y friega en una sola pasada</li>
+
+<li><strong>Tecnología de navegación inteligente</strong>: se mueve por tu casa evitando obstáculos</li>
+
+<li><strong>Tres niveles de succión</strong>: adaptables según el tipo de superficie y suciedad</li>
+
+<li><strong>Depósito de agua integrado</strong>: para la función de fregado con bayeta húmeda</li>
+
+<li><strong>Batería de larga duración</strong>: hasta 120 minutos de autonomía</li>
+
+<li><strong>Conectividad WiFi</strong>: control a través de la app iRobot HOME</li>
+
+<li><strong>Sensores anti-caída</strong>: evita escalones y desniveles</li>
+
+<li><strong>Altura reducida</strong>: 9,2 cm para acceder bajo muebles bajos</li>
+  </ul>
+</section>
+
+<section class="container">
+  <h2>¿Por qué tiene este precio Roomba Combo Essential?</h2>
+<p>Al analizar el mercado, el Roomba Combo Essential se posiciona como una opción muy competitiva en relación calidad-precio. iRobot ha logrado ofrecer un robot limpiador de suelos con funciones avanzadas a un precio accesible porque:</p>
+
+<ul>
+  <li>Eficiencia en producción: iRobot tiene una cadena de producción optimizada tras años de experiencia</li>
+
+<li><strong>Tecnología probada</strong>: utiliza sistemas ya desarrollados en modelos anteriores</li>
+<li><strong>Enfoque en lo esencial</strong>: incluye solo las funciones más demandadas por los usuarios</li>
+<li><strong>Escala de ventas</strong>: al vender miles de unidades semanales, pueden ofrecer mejores precios</li>
+</ul>
+
+<p>Comparado con otros robots aspiradores con fregado del mercado, el Roomba Combo Essential ofrece el equilibrio perfecto entre prestaciones y coste, especialmente para quienes buscan una solución completa sin pagar por funciones que quizás no utilicen.</p>
+</section>
+
+<section class="container">
+  <h2>Compara el Robot Roomba Combo Essential con artículos similares</h2>
+  <TableComparativa
+    limit={5}
+    amazonProduts={amazonProduts} idProductoDestacado={7}/>
+</section>
+
+
+<section class="container">
+  <h2>Pros y Contras Robot Roomba Combo Essential</h2>
+  <div style="min-width:300px; overflow:auto;">
+    <table style="min-width:550px;width:100%; border-collapse: collapse; margin: 20px 0;">
+      <tr>
+        <th style="background-color: #90EE90; padding: 12px; text-align: left; border: 1px solid #ddd;">Pros</th>
+        <th style="background-color: #FFB6C1; padding: 12px; text-align: left; border: 1px solid #ddd;">Contras</th>
+      </tr>
+      <tr>
+        <td style="padding: 8px; border: 1px solid #ddd; vertical-align: top;">
+          <dl style="margin: 0;">
+            <dt style="margin-bottom: 8px;">Excelente relación calidad-precio</dt>
+            <dt style="margin-bottom: 8px;">Funciona bien en alfombras y suelos duros</dt>
+            <dt style="margin-bottom: 8px;">Tres niveles de succión ajustables</dt>
+            <dt style="margin-bottom: 8px;">Batería de larga duración</dt>
+            <dt style="margin-bottom: 8px;">Fácil de limpiar y mantener</dt>
+            <dt style="margin-bottom: 8px;">Funciona en la oscuridad</dt>
+          </dl>
+        </td>
+        <td style="padding: 8px; border: 1px solid #ddd; vertical-align: top;">
+          <dl style="margin: 0;">
+            <dt style="margin-bottom: 8px;">Patrón de limpieza puede ser irregular al principio</dt>
+            <dt style="margin-bottom: 8px;">La app a veces tiene problemas de conexión</dt>
+            <dt style="margin-bottom: 8px;">No crea mapas detallados como modelos más avanzados</dt>
+            <dt style="margin-bottom: 8px;">La bayeta necesita ser humedecida manualmente</dt>
+          </dl>
+        </td>
+          </dl>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>
+</section>
+
+<section class="container">
+  <h2>Ventajas de Robot Roomba Combo Essential</h2>
+  <div style="min-width:300px; overflow:auto;">
+    <table style="min-width:550px;width:100%; border-collapse: collapse; margin: 20px 0;">
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Ahorro de tiempo:</strong> El robot aspirador friegasuelos limpia mientras tú te ocupas de otras tareas, optimizando tu rutina diaria.</td>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Eficiencia energética:</strong> Consume menos energía que una aspiradora tradicional, ayudando a reducir la factura eléctrica.</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Acceso a espacios difíciles:</strong> Gracias a su diseño compacto y altura reducida, llega bajo muebles y rincones donde no se suele limpiar manualmente.</td>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Programación flexible:</strong> Puedes establecer horarios de limpieza desde la app, adaptando el funcionamiento a tus necesidades.</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Adaptabilidad:</strong> Funciona en distintos tipos de suelos y alfombras, ajustando la potencia de succión según la superficie.</td>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Bajo mantenimiento:</strong> Solo necesitas vaciar el depósito y limpiar los filtros periódicamente, sin complicaciones.</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Reducción de alérgenos:</strong> Al aspirar a diario, disminuye la presencia de polvo y ácaros en el ambiente.</td>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Silencioso:</strong> Mucho menos ruidoso que una aspiradora convencional, permitiendo su uso incluso de noche.</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Aprendizaje inteligente:</strong> Memoriza la distribución de tu hogar y mejora su eficiencia con el tiempo.</td>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Seguridad:</strong> Sus sensores evitan caídas por escaleras y protegen los objetos delicados.</td>
+      </tr>
+      <tr>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"><strong>Ecológico:</strong> Reduce el uso de productos químicos y fomenta una limpieza más sostenible.</td>
+        <td style="padding: 10px; border: 1px solid #ddd; vertical-align: top;"></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Conoce las opiniones sobre el Robot Roomba Combo Essential</h2>
+  <div style="overflow-x:auto;">
+  <table style="min-width:550px;width:100%; border-collapse: collapse; margin: 20px 0;">
+    <tr>
+      <th style="background-color: #4CAF50; color: white; padding: 12px; text-align: left; border: 1px solid #ddd;">Usuario</th>
+      <th style="background-color: #4CAF50; color: white; padding: 12px; text-align: left; border: 1px solid #ddd;">Opinión</th>
+      <th style="background-color: #4CAF50; color: white; padding: 12px; text-align: left; border: 1px solid #ddd;">Valoración</th>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;">María G.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">"Estoy súper contenta. La relación calidad precio es estupenda. Aspira muy bien y el fregado deja el suelo bastante limpio."</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">★★★★★</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;">Carlos M.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">"Para el precio que he pagado, el aspirador es bueno y cumple de sobra. Mantiene la casa limpia con poco esfuerzo."</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">★★★★☆</td>
+    </tr>
+    <tr>
+      <td style="padding: 8px; border: 1px solid #ddd;">Ana L.</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">"Lo uso intensivamente en mi aula y en casa. Después de 10 años con otros modelos, este cumple perfectamente."</td>
+      <td style="padding: 8px; border: 1px solid #ddd;">★★★★★</td>
+    </tr>
+  </table>
+</div>
+</section>
+
+<section class="container">
+  <h2>Preguntas frecuentes</h2>
+
+  <style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin-top: 10px;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+</style>
+
+<button class="accordion">¿Necesito estar en casa para que funcione?</button>
+<div class="panel">
+  <p>No, el Roomba Combo Essential puede trabajar de forma autónoma. Puedes programarlo o activarlo remotamente mediante la app.</p>
+</div>
+
+<button class="accordion">¿Funciona en alfombras?</button>
+<div class="panel">
+  <p>Sí, tiene sensores que detectan el tipo de superficie y ajusta la potencia automáticamente. En alfombras aumenta la succión.</p>
+</div>
+
+<button class="accordion">¿Cómo se limpia el depósito?</button>
+<div class="panel">
+  <p>El depósito de polvo es extraíble y fácil de vaciar. El filtro se puede limpiar con agua (dejándolo secar completamente antes de volver a colocar).</p>
+</div>
+
+<button class="accordion">¿Puedo elegir qué habitaciones limpiar?</button>
+<div class="panel">
+  <p>Este modelo no tiene mapeo avanzado, pero puedes cerrar puertas o usar barreras virtuales (vendidas por separado) para delimitar zonas.</p>
+</div>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
+</section>
+
+<section class="container">
+  <h2>Otros beneficios del Robot Roomba Combo Essential</h2>
+  <p>
+    Tras probar el Roomba Combo Essential durante varias semanas, he descubierto ventajas adicionales que van más allá de la simple limpieza diaria. Este robot aspirador friegasuelos no solo mantiene el suelo libre de polvo y suciedad, sino que también contribuye a mejorar la calidad del aire en casa, algo fundamental para quienes sufrimos de alergias o convivimos con mascotas.
+  </p>
+  <ul>
+    <li>
+      <strong>Reducción de alérgenos:</strong> Al aspirar a diario, el robot elimina partículas de polvo, ácaros y pelo de mascotas, ayudando a mantener un ambiente más saludable.
+    </li>
+    <li>
+      <strong>Ideal para hogares con mascotas:</strong> Su potencia de succión y los cepillos laterales recogen eficazmente los pelos de perros y gatos, incluso en alfombras y rincones difíciles.
+    </li>
+    <li>
+      <strong>Facilidad de uso para personas mayores:</strong> Gracias a su funcionamiento automático y sencillo, cualquier persona puede beneficiarse de un hogar limpio sin esfuerzo físico.
+    </li>
+    <li>
+      <strong>Silencioso y discreto:</strong> Puedes programarlo para que limpie mientras duermes o trabajas desde casa, ya que su nivel de ruido es mucho menor que el de una aspiradora tradicional.
+    </li>
+    <li>
+      <strong>Acceso a zonas complicadas:</strong> Su diseño compacto y bajo le permite limpiar debajo de camas, sofás y muebles donde normalmente no llegamos con la escoba o la fregona.
+    </li>
+    <li>
+      <strong>Fácil mantenimiento:</strong> El depósito y los filtros se extraen y limpian en segundos, y los recambios son económicos y fáciles de encontrar.
+    </li>
+    <li>
+      <strong>Actualizaciones y soporte:</strong> Al ser de la marca iRobot, cuentas con una app intuitiva, actualizaciones periódicas y un servicio técnico de confianza.
+    </li>
+    <li>
+      <strong>Consumo eficiente:</strong> Su bajo consumo eléctrico y la posibilidad de programar horarios de limpieza ayudan a optimizar el gasto energético del hogar.
+    </li>
+    <li>
+      <strong>Mejora la rutina familiar:</strong> Tener siempre el suelo limpio reduce el tiempo dedicado a tareas domésticas y permite disfrutar más del tiempo libre.
+    </li>
+    <li>
+      <strong>Durabilidad y fiabilidad:</strong> Los materiales y la tecnología de iRobot garantizan una larga vida útil, incluso con uso intensivo diario.
+    </li>
+  </ul>
+  <p>
+    En definitiva, el Roomba Combo Essential no solo es un robot aspirador friegasuelos eficiente, sino que se convierte en un aliado para el bienestar y la comodidad en casa. Si buscas una solución práctica, fiable y que realmente marque la diferencia en tu día a día, este modelo es una apuesta segura.
+  </p>
+</section>
+
+  
+</Layout>

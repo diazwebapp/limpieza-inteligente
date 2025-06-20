@@ -1,51 +1,56 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SingleProductHeader from "../../components/SingleProductHeader.astro";
-import { buildProductCard } from "../../utils/productCardBuilder.js";
-import { amazonProduts } from "../../datos/database.js";
-import { schemaWebSite, schemaArticle, schemaProduct, schemaReview } from "../../datos/seoBase.js";
+import { amazonProduts, productImages } from "../../datos/database.js";
+import { schemaWebSite, schemaArticle, schemaProduct } from "../../datos/seoBase.js";
 import AmazonCluster from "../../components/AmazonCluster.astro";
 import StyledOne from "../../components/StyledOne.astro";
 
 const product = amazonProduts.find(p => p.id === 5);
-const ficha = buildProductCard(product, ["slug", "precio", "marca", "modelo", "imageIds", "urlAfiliado"]);
+const images = productImages.filter(image => product?.imageIds.includes(image.id));
 const title = product.title;
 const description = "Descubre el Cecotec Conga 8490 Ultimate Ultra Power: robot aspirador y friegasuelos con navegación láser, 7000 Pa, app y autonomía de 170 min.";
 const canonicalURL = `https://limpiezainteligente.store${product.slug}`;
 const datePublished = "2025-06-15T00:00:00+00:00";
-const dateModified = "2025-06-15T00:00:00+00:00";
+const dateModified = "2025-06-20T00:00:00+00:00";
 
 const schemas = [
   schemaWebSite(),
   schemaProduct({
-    name: title,
-    image: ["https://m.media-amazon.com/images/I/81A+D-OxDiL._AC_SX522_.jpg"],
+    name: product?.title,
+    image: images.map(img => img["250x250"]),
     description,
     brand: { "@type": "Brand", name: "Cecotec" },
     url: canonicalURL,
     offers: {
       "@type": "AggregateOffer",
       "offerCount": 5,
-      "lowPrice": product.precio,
-      "highPrice": product.precio,
-      "url":product.urlAfiliado,
+      "lowPrice": product?.precio,
+      "highPrice": product?.precio,
+      "url":product?.urlAfiliado,
       priceCurrency: "EUR",     
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: product.stars,
-      reviewCount: product.ratingCount
+      ratingValue: product?.stars,
+      reviewCount: product?.ratingCount
     }
-  })
+  }),
+  schemaArticle({
+    headline: title,
+    description: description,
+    image: images.map(img => img["250x250"]),
+    url: canonicalURL,
+    datePublished,
+    dateModified
+  }),
 ];
 ---
 <Layout title={title} description={description} schemas={schemas}>
   <main>
-    <section class="container">
-      <h1>{title}</h1>
-      <SingleProductHeader {...ficha} images={ficha.imageIds} feactures={product?.feactures} marca="Cecotec" />
+    
+      <SingleProductHeader title={product?.title} img={images} price={product?.precio} description={description} feactures={product?.feactures} marca="Cecotec" />
       
-    </section>
     <section class="container">
         <h2>Características destacadas</h2>
         <StyledOne>

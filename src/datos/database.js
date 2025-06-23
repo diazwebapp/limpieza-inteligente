@@ -171,41 +171,6 @@ export const amazonProduts = [
   }
 },
 {
-  id: 8,
-  title: "Cecotec Conga 13090 Spin Revolution Home",
-  slug: "/cecotec/conga-13090-spin-revolution-home/",
-  urlAfiliado: "https://amzn.to/3ZxvsKN",
-  imageIds: [401, 402, 403],
-  stars: 4.2,
-  ratingCount: 850,
-  marca: 1, // id de Cecotec
-  modelo: "Conga 13090 Spin Revolution Home",
-  precio: 199.99,
-  momeda: "eur",
-  feactures: {
-    potenciaSuccion: "7000 Pa",
-    navegacion: "Navegación láser LiDAR",
-    funciones: "Barre, aspira, friega y pasa la mopa con fregonas giratorias súper absorbentes",
-    autonomia: "140 minutos",
-    superficies: "Todo tipo de suelos y alfombras",
-    cepillo: "Cepillo de silicona antienredos",
-    app: true,
-    roomPlan: true,
-    totalSurface: true,
-    bateria: "Batería de litio",
-    autovaciado: true,
-    baseAutonoma: "Base totalmente autónoma: autovacía polvo, limpia mopas, las seca y recoge agua sucia",
-    conectividad: "Bluetooth y WiFi para redes 2,4 GHz y 5 GHz",
-    deteccionAlfombras: "Detección ultrasónica de alfombras con aumento automático de potencia",
-    capacidadBolsaPolvo: "2 L",
-    tanqueAguaLimpia: "2,8 L",
-    tanqueAguaSucia: "2,4 L",
-    sistemaDeteccion: "Sistema de detección de seguridad automática, boya de llenado y vacío",
-    mopasGiratorias: "2 mopas giratorias incluidas",
-    continuacionLimpieza: "Continúa limpieza desde donde lo dejó tras recarga automática"
-  }
-},
-{
   id: 7,
   title: "iRobot Roomba Combo Essential",
   slug: "/irobot/roomba-combo-essential/",

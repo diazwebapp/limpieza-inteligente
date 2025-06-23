@@ -171,6 +171,41 @@ export const amazonProduts = [
   }
 },
 {
+  id: 8,
+  title: "Cecotec Conga 13090 Spin Revolution Home",
+  slug: "/cecotec/conga-13090-spin-revolution-home/",
+  urlAfiliado: "https://amzn.to/3ZxvsKN", // Update with actual affiliate URL
+  imageIds: [401, 402, 403],
+  stars: 4.2,
+  ratingCount: 850,
+  marca: 1, // id de Cecotec
+  modelo: "Conga 13090 Spin Revolution Home",
+  precio: 199.99,
+  momeda: "eur",
+  feactures: {
+    potenciaSuccion: "8000 Pa",
+    navegacion: "Láser LiDAR",
+    funciones: "Barre, aspira, friega y pasa la mopa con tecnología Spin Revolution",
+    autonomia: "200 minutos",
+    superficies: "Todo tipo de suelos y alfombras",
+    cepillo: "Central de silicona + Spin Revolution",
+    app: true,
+    roomPlan: true,
+    totalSurface: true,
+    bateria: "4000 mAh",
+    deposito: "Autovaciado + estación de autolavado",
+    color: "Negro",
+    dimensiones: "35 x 35 x 9,7 cm",
+    peso: "3,8 kg",
+    depositoPolvo: "500 ml",
+    depositoAgua: "300 ml",
+    controlApp: true,
+    conectividad: "WiFi 2,4 GHz y Bluetooth",
+    tecnologia: "Spin Revolution + iTech Gyro 360",
+    modos: "Auto, Bordes, Habitación, Manual, Vuelta a casa, Área restringida"
+  }
+},
+{
   id: 7,
   title: "iRobot Roomba Combo Essential",
   slug: "/irobot/roomba-combo-essential/",
@@ -275,5 +310,23 @@ export const productImages = [
     "250x250": "https://m.media-amazon.com/images/I/71yIHpYcUxL._AC_SX679_.jpg",
     "60x60": "https://m.media-amazon.com/images/I/51wD4Z4K76L._AC_US100_.jpg",
     "1280x720": "https://m.media-amazon.com/images/I/71yIHpYcUxL._AC_SL1500_.jpg"
+  },
+  {
+    id: 401,
+    "250x250": "https://m.media-amazon.com/images/I/81A+D-OxDiL._AC_SX522_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51o6RO7BvoL._AC_SR38,50_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/81A+D-OxDiL._AC_SL1500_.jpg"
+  },
+  {
+    id: 402,
+    "250x250": "https://m.media-amazon.com/images/I/61Atw2OsHFL._AC_SX522_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51lT6DxQecL._AC_SR38,50_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/61Atw2OsHFL._AC_SL1000_.jpg"
+  },
+  {
+    id: 403,
+    "250x250": "https://m.media-amazon.com/images/I/61OEayxvbiL._AC_SX522_.jpg",
+    "60x60": "https://m.media-amazon.com/images/I/51TP6nnqMTL._AC_SR38,50_.jpg",
+    "1280x720": "https://m.media-amazon.com/images/I/61OEayxvbiL._AC_SL1000_.jpg"
   }
 ];

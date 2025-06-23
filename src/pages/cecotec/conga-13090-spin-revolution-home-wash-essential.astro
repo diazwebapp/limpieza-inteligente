@@ -5,7 +5,7 @@ import TableComparativa from '../../components/TableComparativa.astro';
 import { schemaProduct, schemaArticle } from '../../datos/seoBase';
 import { amazonProduts, productImages } from '../../datos/database.js';
 
-const product = amazonProduts.find(p => p.id == 8 || p.id === '8');
+const product = amazonProduts.find(p => p.id == 8 || p.id === 8);
 const images = productImages.filter(image => product?.imageIds.includes(image.id));
 
 const title = product?.title || "Cecotec Conga 13090 Spin Revolution Home&Wash Essential";

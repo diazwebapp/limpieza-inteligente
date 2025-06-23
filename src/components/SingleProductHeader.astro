@@ -1,9 +1,7 @@
 ---
 import GaleryProduct from "./GaleryProduct.astro";
-const { title, img, description, slogan="" } = Astro.props;
+const { title, img, description, slogan="", rating=0, reviews=0 } = Astro.props;
 const amazonUrl = "#"; // Cambia esto por tu enlace real de Amazon
-const rating = 3.7;
-const reviews = 2041;
 
 // Función para renderizar estrellas
 function renderStars(rating: number) {
@@ -49,8 +47,10 @@ function renderStars(rating: number) {
         <GaleryProduct images={img} />
       </div>
   </div>
-  </div>
-</div>
+
+ 
+
+
 
 <style>
 /* Mobile-first styles */

@@ -95,6 +95,8 @@ const schemas = [
     description="Como amante de la tecnología y la limpieza eficiente, he probado varios dispositivos de limpieza automática, pero el Roomba Combo Essential de iRobot ha superado mis expectativas. iRobot es sin duda la marca líder en el sector de los robots limpiadores, con una trayectoria que avala su calidad y eficiencia."
     img={images}
     price={product?.precio}
+    rating={product?.stars || 0}
+    reviews={product?.ratingCount || 0}
   />
   </section>
 <section class="container">

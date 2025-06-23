@@ -54,7 +54,7 @@ const schemas = [
   <main>
    
       
-    <SingleProductHeader title={product?.title} img={images} price={product?.precio} description={description} />
+    <SingleProductHeader title={product?.title} img={images} price={product?.precio} description={description} rating={product?.stars || 0} reviews={product?.ratingCount || 0} />
       <section class="container">
        
         <h2>Acerca de este producto</h2>

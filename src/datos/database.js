@@ -201,36 +201,36 @@ export const amazonProduts = [
   }
 },
 {
-  "id": "8",
-  "title": "Cecotec Conga 13090 Spin Revolution Home&Wash Essential",
-  "slug": "/cecotec/conga-13090-spin-revolution-home-wash-essential",
-  "urlAffiliado": "https://amzn.to/45BmPm6",
-  "imageIds": [107,108,109],
-  "stars": 3.9,
-  "ratingCount": 96,
-  "marca": "1", // id de la marca Cecotec (no proporcionado)
-  "modelo": "Conga 13090 Spin Revolution Home&Wash Essential",
-  "precio": "490", // Precio no proporcionado
-  "moneda": "eur", // Moneda no proporcionada
-  "features": {
-    "potenciaSuccion": "7000pa", // Potencia no proporcionada
-    "navegacion": "Mapeo y navegación láser de precisión",
-    "funciones": "Control de aplicaciones",
-    "autonomia": "140 minutos", // Autonomía no proporcionada
-    "superficies": "alfombra, madera dura, azulejos",
-    "color": "Conga 13090 | Autovaciado | Mopas",
-    "dimensiones": "35L x 34an. x 11al. centímetros",
-    "componentes": "Robot aspirador, Base de autovaciado con 2 tanques (agua limpia y agua sucia), Bolsa de polvo, Cepillo lateral, 2 Mopas giratorias, Cable de alimentación, Cepillo, Manual de instrucciones",
-    "tipofiltro": "Cartucho",
-    "fuenteAlimentacion": "Batería (Litio Ion)",
-    "pilsIncluidas": true,
-    "metodoControl": "Aplicación",
-    "dispositivosCompatibles": "Smartphones",
-    "factorForma": "Robótico",
-    "peso": "11,2 Kilogramos",
-    "altura": "47,5 centímetros",
-    "anchoRutaLimpieza": "34 Centímetros",
-    "duracionPiezasRecambio": "10 Años"
+  id: 8,
+  title: "Cecotec Conga 13090 Spin Revolution Home&Wash Essential",
+  slug: "/cecotec/conga-13090-spin-revolution-home-wash-essential",
+  urlAffiliado: "https://amzn.to/45BmPm6",
+  imageIds: [107,108,109],
+  stars: 3.9,
+  ratingCount: 96,
+  marca: 1, // id de la marca Cecotec (no proporcionado)
+  modelo: "Conga 13090 Spin Revolution Home&Wash Essential",
+  precio: 490, // Precio no proporcionado
+  moneda: "eur", // Moneda no proporcionada
+  feactures: {
+    potenciaSuccion: "7000pa", // Potencia no proporcionada
+    navegacion: "Mapeo y navegación láser de precisión",
+    funciones: "Control de aplicaciones",
+    autonomia: "140 minutos", // Autonomía no proporcionada
+    superficies: "alfombra, madera dura, azulejos",
+    color: "Conga 13090 | Autovaciado | Mopas",
+    dimensiones: "35L x 34an. x 11al. centímetros",
+    componentes: "Robot aspirador, Base de autovaciado con 2 tanques (agua limpia y agua sucia), Bolsa de polvo, Cepillo lateral, 2 Mopas giratorias, Cable de alimentación, Cepillo, Manual de instrucciones",
+    tipofiltro: "Cartucho",
+    fuenteAlimentacion: "Batería (Litio Ion)",
+    pilsIncluidas: true,
+    metodoControl: "Aplicación",
+    dispositivosCompatibles: "Smartphones",
+    factorForma: "Robótico",
+    peso: "11,2 Kilogramos",
+    altura: "47,5 centímetros",
+    anchoRutaLimpieza: "34 Centímetros",
+    duracionPiezasRecambio: "10 Años"
   }
 }
 ]

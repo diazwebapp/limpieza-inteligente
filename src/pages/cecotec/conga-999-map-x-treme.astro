@@ -48,7 +48,7 @@ const schemas = [
 <Layout title={title} description={description} schemas={schemas}>
   <main>
     
-    <SingleProductHeader title={product?.title} img={images} price={product?.precio} description={description} feactures={product?.feactures} marca="Cecotec" />
+    <SingleProductHeader title={product?.title} img={images} price={product?.precio} description={description} feactures={product?.feactures} marca="Cecotec" rating={product?.stars || 0} reviews={product?.ratingCount || 0} />
    
     <section class="container">
       <h2>Introducción: Un Robot Económico pero Sorprendente</h2>

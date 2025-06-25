@@ -3,7 +3,7 @@
 import AmazonCluster from "../components/AmazonCluster.astro";
 import CategoryCluester from "../components/CategoryCluester.astro";
 import Layout from "../layouts/Layout.astro";
-import { marcas, tiposSuelo, amazonProduts, productImages } from "../datos/database";
+import { marcas, tiposSuelo, amazonProduts, productImages, withDomain } from "../datos/database";
 import { schemaWebSite, schemaFAQ } from "../datos/seoBase.js";
 import TableComparativa from "../components/TableComparativa.astro";
 
@@ -14,8 +14,9 @@ const canonicalURL = SITE_URL.replace(/\/$/, "") + "/";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-18T00:00:00+00:00").toISOString();
 
+const ctaUri1 = withDomain("/mejores-robots-aspiradores-fregasuelos/");
 /////////////////SCHEMAS////////////////////////////
-console.log(amazonProduts[0].image);
+
 
 // Filtramos los productos mejor valorados (top 5)
 const topProducts = [...amazonProduts]
@@ -262,7 +263,7 @@ const schemas = [
 
         <h3>Robots Aspiradores y Friegasuelos (2 en 1)</h3>
         <p>La solución más versátil para la limpieza diaria de tus <strong>pisos</strong> y <strong>suelos</strong>. Estos <strong>robots que limpian la casa</strong> aspiran la suciedad y, en la misma pasada o en una posterior, friegan para dejar las superficies impecables. Ideales para mantenimiento constante y para casas con mascotas.</p>
-        <a href="/mejores-robots-aspiradores-fregasuelos/" class="cta">Ver Comparativa de Robots 2 en 1</a>
+        <a href={ctaUri1} class="cta">Ver Comparativa de Robots 2 en 1</a>
        
     </section>
 

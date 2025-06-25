@@ -1,7 +1,7 @@
 // Importa la variable de entorno
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://limpiezainteligente.store';
 
-function withDomain(slug) {
+export function withDomain(slug) {
   if (!slug) return '';
   return SITE_URL.replace(/\/$/, '') + (slug.startsWith('/') ? slug : '/' + slug);
 }

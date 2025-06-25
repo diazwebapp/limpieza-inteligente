@@ -5,7 +5,8 @@ import { schemaWebSite, schemaArticle } from '../../datos/seoBase';
 
 const title = "iRobot - Limpieza Inteligente";
 const description = "Descubre la gama iRobot: aspiradores y fregasuelos robotizados para una limpieza autónoma, eficiente y profunda.";
-const canonicalURL = "https://limpiezainteligente.store/irobot/";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/irobot/";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
 

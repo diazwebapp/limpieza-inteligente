@@ -1,3 +1,11 @@
+// Importa la variable de entorno
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://limpiezainteligente.store';
+
+function withDomain(slug) {
+  if (!slug) return '';
+  return SITE_URL.replace(/\/$/, '') + (slug.startsWith('/') ? slug : '/' + slug);
+}
+
 export const marcas = [
     {
         id: 1,
@@ -47,7 +55,20 @@ export const marcas = [
         description: "Xiaomi Mi Robot Vacuum: limpia y friega con precisión. Tecnología y buen precio para tu día a día."
     }
     // Puedes añadir más categorías aquí
-]
+].map(marca => ({
+  ...marca,
+  slug: withDomain(marca.slug),
+  thubnail: withDomain(marca.thubnail),
+  image: withDomain(marca.image),
+  subitems: marca.subitems
+    ? marca.subitems.map(sub => ({
+        ...sub,
+        slug: withDomain(sub.slug),
+        thubnail: withDomain(sub.thubnail),
+        image: withDomain(sub.image),
+      }))
+    : undefined
+}));
 
 export const tiposSuelo =[
     {
@@ -78,7 +99,12 @@ export const tiposSuelo =[
         thubnail: "/para-alfombras.webp",
         description: "Las alfombras necesitan aspirado profundo y regular para eliminar polvo, pelos y alérgenos incrustados."
     }
-]
+].map(tipo => ({
+  ...tipo,
+  slug: withDomain(tipo.slug),
+  thubnail: withDomain(tipo.thubnail),
+  image: withDomain(tipo.image),
+}));
 
 export const amazonProduts = [
     {
@@ -267,8 +293,10 @@ export const amazonProduts = [
     anchoRutaLimpieza: "34 Centímetros",
     duracionPiezasRecambio: "10 Años"
   }
-}
-]
+}].map(product => ({
+  ...product,
+  slug: withDomain(product.slug),
+}));
 
 // Imágenes optimizadas por producto (id, 250x250, 60x60, 1280x720)
 export const productImages = [

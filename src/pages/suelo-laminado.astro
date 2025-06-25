@@ -7,7 +7,8 @@ import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
 
 const title = "¿Cuál es el Mejor Robot Aspirador para Suelo Laminado?";
 const description = "Descubre cómo elegir el mejor robot aspirador para tarima laminada: evita rayaduras, conoce las mejores marcas y compra seguro.";
-const canonicalURL = "https://limpiezainteligente.store/suelo-laminado";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/suelo-laminado/";
 const datePublished = "2025-06-8T00:00:00+00:00";
 const dateModified = "2025-06-12T00:00:00+00:00";
 

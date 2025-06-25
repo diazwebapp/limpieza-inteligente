@@ -9,7 +9,8 @@ import TableComparativa from "../components/TableComparativa.astro";
 
 const title = "Robot de Limpieza 2025:⭐ TOP 5 ⭐ Modelos y Guía de compra";
 const description = "Descubre cómo un robot limpiador puede limpiar tu hogar. Guías de los mejores robots para pisos,  Tu solución para automatizar la limpieza.";
-const canonicalURL = "https://limpiezainteligente.store/";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-18T00:00:00+00:00").toISOString();
 

@@ -7,7 +7,8 @@ import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
 
 const title = "Robot Aspirador para Alfombras: Limpieza Profunda y Sin Esfuerzo";
 const description = "Descubre los mejores robots aspirador y friegasuelos para alfombras. Mantén tus alfombras limpias y libres de polvo con la tecnología más avanzada.";
-const canonicalURL = "https://limpiezainteligente.store/para-alfombras";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/para-alfombras/";
 const datePublished = "2025-06-8T00:00:00+00:00";
 const dateModified = "2025-06-12T00:00:00+00:00";
 

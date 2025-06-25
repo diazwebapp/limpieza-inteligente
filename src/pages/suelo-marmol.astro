@@ -7,7 +7,8 @@ import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
 
 const title = "Robot Aspirador para Suelo de Mármol: Limpieza y Brillo sin Esfuerzo";
 const description = "Elige el mejor robot aspirador y friegasuelos para mármol. Mantén tus suelos brillantes y sin manchas con la tecnología más avanzada.";
-const canonicalURL = "https://limpiezainteligente.store/suelo-marmol";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/suelo-marmol/";
 const datePublished = "2025-06-8T00:00:00+00:00";
 const dateModified = "2025-06-12T00:00:00+00:00";
 

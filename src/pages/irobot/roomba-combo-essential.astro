@@ -13,7 +13,8 @@ const images = productImages.filter(image => product?.imageIds.includes(image.id
 
 const title = "Roomba Combo Essential";
 const description = "Descubre el iRobot Roomba Combo Essential: navegación inteligente, potencia de succión de 2000 Pa, y limpieza eficiente para suelos duros y alfombras.";
-const canonicalURL = "https://limpiezainteligente.store/irobot/roomba-combo-essential/";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/irobot/roomba-combo-essential/";
 const pubDatetime = new Date("2025-06-20T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-20T00:00:00+00:00").toISOString();
 

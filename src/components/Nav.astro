@@ -1,17 +1,27 @@
 ---
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+function withDomain(slug) {
+  if (!slug) return '';
+  return SITE_URL.replace(/\/$/, '') + (slug.startsWith('/') ? slug : '/' + slug);
+}
 const marcas = [
-  { name: "Cecotec", link: "/cecotec/" },
+  { name: "Cecotec", link: withDomain("/cecotec/") },
   {
     name: "iRobot",
-    link: "/irobot/",
+    link: withDomain("/irobot/"),
     subitems: [
-      { name: "Roomba", link: "/irobot/roomba/" },
-      { name: "Braava", link: "/irobot/bravaa/" }
+      { name: "Roomba", link: withDomain("/irobot/roomba/") },
+      { name: "Braava", link: withDomain("/irobot/bravaa/") }
     ]
   },
-  { name: "Xiaomi", link: "/xiaomi/" }
+  { name: "Xiaomi", link: withDomain("/xiaomi/") }
 ];
-
+const superficies = [
+  { name: "Para Laminado", link: withDomain("/suelo-laminado/") },
+  { name: "Para Madera", link: withDomain("/suelo-madera/") },
+  { name: "Para Mármol", link: withDomain("/suelo-marmol/") },
+  { name: "Para Alfombras", link: withDomain("/para-alfombras/") }
+];
 ---
 
 <nav class="nav-dropdown">
@@ -34,15 +44,13 @@ const marcas = [
       </ul>
     </li>
     <li class="dropdown">
- <button type="button" class="dropdown-toggle" aria-expanded="false">Superficie ▼</button>
-  <ul class="dropdown-menu">
-    <li><a href="/suelo-laminado/">Para Laminado</a></li>
-    <li><a href="/suelo-madera/">Para Madera</a></li>
-    <li><a href="/suelo-marmol/">Para Mármol</a></li>
-    <li><a href="/para-alfombras/">Para Alfombras</a></li>
-  </ul>
-</li>
-
+      <button type="button" class="dropdown-toggle" aria-expanded="false">Superficie ▼</button>
+      <ul class="dropdown-menu">
+        {superficies.map(sup => (
+          <li><a href={sup.link}>{sup.name}</a></li>
+        ))}
+      </ul>
+    </li>
   </ul>
 </nav>
 

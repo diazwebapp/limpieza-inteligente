@@ -9,7 +9,9 @@ import { schemaWebSite, schemaArticle, schemaFAQ } from "../../datos/seoBase.js"
 
 const title = "Robot Aspirador Friegasuelos Xiaomi ";
 const description = "La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!";
-const canonicalURL = "https://limpiezainteligente.store/xiaomi/";
+
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/xiaomi/";
 
 const datePublished = "2025-06-6T00:00:00+00:00";
 const dateModified = "2025-06-16T00:00:00+00:00";

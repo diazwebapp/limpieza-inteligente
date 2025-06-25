@@ -10,7 +10,8 @@ const images = productImages.filter(image => product?.imageIds.includes(image.id
 
 const title = product?.title || "Cecotec Conga 13090 Spin Revolution Home&Wash Essential";
 const description = "Descubre el Cecotec Conga 13090 Spin Revolution Home&Wash Essential: robot aspirador y friegasuelos con mapeo láser, autovaciado y mopas giratorias.";
-const canonicalURL = `https://limpiezainteligente.store${product?.slug}`;
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/cecotec/conga-13090-spin-revolution-home-wash-essential/";
 const pubDatetime = new Date("2025-06-22T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-22T00:00:00+00:00").toISOString();
 

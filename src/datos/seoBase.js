@@ -1,4 +1,5 @@
 // Variables reutilizables globales
+const WEBSITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store/";
 export const AUTHOR = {
   "@type": "Person",
   name: "Diaz Web App",
@@ -10,11 +11,10 @@ export const PUBLISHER = {
   name: "Robots de limpieza",
   logo: {
     "@type": "ImageObject",
-    url: "http://limpiezainteligente.store/favicon.ico"
+    url: WEBSITE_URL.replace(/\/$/, "") + "/favicon.ico"
   }
 };
 
-export const WEBSITE_URL = "https://limpiezainteligente.store/";
 export const WEBSITE_NAME = "Robots de limpieza";
 export const WEBSITE_DESCRIPTION = "Descubre cómo un robot limpiador puede limpiar tu hogar. Guías de los mejores robots para pisos,  Tu solución para automatizar la limpieza.";
 export const WEBSITE_LANGUAGE = "es";

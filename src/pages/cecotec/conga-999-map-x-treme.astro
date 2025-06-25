@@ -8,7 +8,8 @@ const product = amazonProduts.find(p => p.id === 6);
 const images = productImages.filter(image => product?.imageIds.includes(image.id));
 const title = "Conga 999 Map X Treme: Reseña Real de un Usuario (¿Vale la Pena?)";
 const description = "Opinión y experiencia real con el robot aspirador Conga 999 Map X-Treme. Pros, contras y para quién es ideal.";
-const canonicalURL = `https://limpiezainteligente.store${product.slug}`;
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/cecotec/conga-999-map-x-treme/";
 const datePublished = "2025-06-16T00:00:00+00:00";
 const dateModified = "2025-06-20T00:00:00+00:00";
 

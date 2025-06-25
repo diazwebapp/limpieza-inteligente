@@ -5,7 +5,8 @@ import { schemaWebSite, schemaArticle } from '../../../datos/seoBase';
 
 const title = "Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente";
 const description = "Descubre cómo iRobot Braava transforma la limpieza de tu hogar con tecnología avanzada, mapeo inteligente y conectividad total.";
-const canonicalURL = "https://limpiezainteligente.store/irobot/bravaa/";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/irobot/bravaa/";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-16T00:00:00+00:00").toISOString();
 

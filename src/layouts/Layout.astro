@@ -2,7 +2,7 @@
 import { ClientRouter } from "astro:transitions";
 import Nav from "../components/Nav.astro";
 
-const { title, description, schemas = [] } = Astro.props;
+const { title, description, schemas = [], googleSiteVerification } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -20,6 +20,7 @@ const { title, description, schemas = [] } = Astro.props;
         key={i}
       />
     ))}
+   <meta name="google-site-verification" content="_AcFY2JvJbHHxMkuGvPt7YQmKqqjwDqTBH1ZIOdc9T8" />
       <!-- Favicon SVG (recomendado para modernos) -->
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 

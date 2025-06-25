@@ -4,6 +4,7 @@ import Layout from "../../layouts/Layout.astro";
 import SingleProductHeader from "../../components/SingleProductHeader.astro";
 import AmazonCluster from "../../components/AmazonCluster.astro";
 import { amazonProduts, productImages } from "../../datos/database.js";
+import { schemaWebSite, schemaArticle, schemaProduct, schemaReview } from "../../datos/seoBase.js";
 
 const product = amazonProduts.find(p => p.id === 4);
 const images = productImages.filter(image => product?.imageIds.includes(image.id));
@@ -11,11 +12,9 @@ const images = productImages.filter(image => product?.imageIds.includes(image.id
 const title = "Xiaomi Vacuum S20: Mi Experiencia Real con la Limpieza del Futuro";
 const description = "Opinión y experiencia real con el Xiaomi Robot Vacuum S20. Descubre por qué este robot aspirador y fregasuelos puede transformar la limpieza de tu hogar.";
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
-const canonicalURL = SITE_URL.replace(/\/$/, "") + "/xiaomi/vacuum-s20/";
+const canonicalURL = product?.slug || SITE_URL;
 const datePublished = "2025-06-14T00:00:00+00:00";
 const dateModified = "2025-06-20T00:00:00+00:00";
-import { schemaWebSite, schemaArticle, schemaProduct, schemaReview } from "../../datos/seoBase.js";
-
 
 const schemas = [
   schemaWebSite(),

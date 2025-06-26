@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
     output: 'static',
     redirects: {
-    "/mejores-robots-aspiradores-fregasuelos": {
+    "/mejores-robots-aspiradores-fregasuelos/": {
         status: 301,
         destination: "/"
     },

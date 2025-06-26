@@ -6,17 +6,8 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-    output: 'static',
-    redirects: {
-    "/mejores-robots-aspiradores-fregasuelos/": {
-        status: 301,
-        destination: "/"
-    },
-    "/mejores-robots-aspiradores-fregasuelos": {
-        status: 301,
-        destination: "/"
-    },
-  },
+    output: 'server',
+    adapter: vercelAdapter(),
     site: process.env.PUBLIC_SITE_URL || 'https://limpiezainteligente.store',
     integrations: [sitemap()]
 });

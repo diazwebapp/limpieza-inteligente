@@ -1,5 +1,5 @@
 ---
----
+
 // src/pages/mejores-robots-aspiradores-fregasuelos.astro
 import { Astro } from 'astro:env/server';
 
@@ -7,7 +7,7 @@ export function GET({ redirect }) {
   // Esta función se ejecutará como una Serverless Function en Vercel
   return redirect('/', 301);
 }
----
+
 import CategoryHeader from '../components/CategoryHeader.astro';
 import CategoryCluester from '../components/CategoryCluester.astro';
 import { marcas, amazonProduts, withDomain } from '../datos/database';

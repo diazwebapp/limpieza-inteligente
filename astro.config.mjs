@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import vercelAdapter from '@astrojs/vercel';
 
 import sitemap from '@astrojs/sitemap';
 

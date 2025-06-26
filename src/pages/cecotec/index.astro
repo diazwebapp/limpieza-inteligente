@@ -1,119 +1,367 @@
 ---
-// @ts-nocheck
+// Página generada automáticamente desde la guía HTML local
 import Layout from "../../layouts/Layout.astro";
+import TableComparativa from "../../components/TableComparativa.astro";
+import FaqAccordion from "../../components/FaqAccordion.astro";
+import { amazonProduts, withDomain } from "../../datos/database";
+import { schemaArticle, schemaWebSite } from "../../datos/seoBase";
 import CategoryHeader from "../../components/CategoryHeader.astro";
-import { schemaWebSite, schemaArticle } from "../../datos/seoBase.js";
 import StoreCluster from "../../components/StoreCluster.astro";
-import StyledOne from "../../components/StyledOne.astro";
+const title = "Guía Completa de Fregasuelos Cecotec: Modelos y Características";
+const description = "Descubre todos los modelos, características, ventajas y comparativas de los robots fregasuelos Cecotec. Guía completa, opiniones y consejos para elegir el mejor modelo para tu hogar.";
+const datePublished = "2024-06-26";
+const dateModified = "2025-06-26";
+const canonical = withDomain("/cecotec/");
 
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
-const canonicalURL = SITE_URL.replace(/\/$/, "") + "/cecotec/";
-
-const title =
-  "Fregasuelos Cecotec: Opinión Real y Consejos Prácticos para Sacarle el Máximo";
-const description =
-  "Los robots aspirador Cecotec destacan por su potencia, versatilidad y tecnología avanzada. Descubre cómo pueden transformar la limpieza de tu hogar y facilitar tu día a día con funciones inteligentes y resultados impecables.";
-const datePublished = "2025-06-07T00:00:00+00:00";
-const dateModified = "2025-06-12T00:00:00+00:00";
+const imagen1 = withDomain("/cecotec-1.jpg");
+const imagen2 = withDomain("/cecotec-2.jpg");
+const imagen3 = withDomain("/cecotec-3.jpg");
+const imagen4 = withDomain("/cecotec-4.jpg");
+const imagen5 = withDomain("/cecotec-5.jpg");
+const imagen6 = withDomain("/cecotec-6.jpg");
 
 const schemas = [
   schemaWebSite(),
   schemaArticle({
     headline: title,
-    image: ["https://limpiezainteligente.store/robot-cecotec.webp"],
-    datePublished,
-    dateModified,
     description,
-    articleBody: description,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": canonicalURL,
-    },
-  }),
+    url: canonical,
+    image: "https://storage.googleapis.com/48877118-7272-4a4d-b302-0465d8aa4548/d9f39634-89ff-4d06-bfbd-5f49c77dd868/173e55ed-d1ab-40fa-9075-cf6ec916e2e5.jpg",
+    datePublished,
+    dateModified
+  })
+];
+const faqs = [
+  {
+    question:"¿Cómo configurar las zonas restringidas en un fregasuelos Cecotec?",
+    answer: `1. Descarga y abre la aplicación Cecotec 3.0 en tu smartphone.
+2. Conecta tu robot a la aplicación siguiendo las instrucciones.
+3. Realiza un primer mapeo completo de tu hogar.
+4. En la sección de mapas, selecciona "Editar mapa".
+5. Elige la opción "Zonas restringidas" o "Zonas prohibidas".
+6. Dibuja en el mapa las áreas donde no quieres que entre el robot.
+7. Guarda la configuración.`
+  },
+  { question: "¿Puedo usar detergente en los robots fregasuelos Cecotec?", answer: "Sí, algunos modelos permiten añadir detergente específico para suelos. Consulta el manual para saber la cantidad y tipo recomendado." },
+  { question: "¿Funcionan bien en casas con mascotas?", answer: "Sí, la alta potencia de succión y los cepillos especiales eliminan pelos y suciedad de mascotas con facilidad." },
+  { question: "¿Qué mantenimiento requieren?", answer: "Es recomendable limpiar los depósitos, cepillos y mopas regularmente. Los modelos con base autolimpiante facilitan mucho el mantenimiento." },
+  { question: "¿Pueden mapear varias plantas?", answer: "Los modelos con mapeo láser pueden guardar varios mapas, ideales para casas de varias plantas." },
+  { question: "¿Qué garantía tienen?", answer: "Todos los robots Cecotec cuentan con 2 años de garantía oficial en España." }
 ];
 ---
-
-<Layout title={title} description={description} schemas={schemas}>
-  <main>
-    <CategoryHeader
-      h1="Fregasuelos Cecotec: Opinión Real y Consejos Prácticos para Sacarle el Máximo"
-      p="Los robots aspirador Cecotec destacan por su potencia, versatilidad y tecnología avanzada. Descubre cómo pueden transformar la limpieza de tu hogar y facilitar tu día a día con funciones inteligentes y resultados impecables."
-    />
-    <section class="container">
-      <StoreCluster idMarca={1} />
-      <h2>Aspirador Cecotec: Funciones Clave que Destacan</h2>
+<Layout title={title} description={description} schemas={schemas} canonical={canonical}>
+  <main class="styled-container">
+    <CategoryHeader h1="Guía Completa de Fregasuelos Cecotec: Revoluciona la Limpieza de tu Hogar" p="La tecnología ha transformado la forma en que mantenemos nuestros hogares limpios. Los fregasuelos Cecotec representan la vanguardia en soluciones de limpieza inteligente, combinando aspiración potente con sistemas avanzados de fregado. Esta guía te ayudará a descubrir el modelo perfecto para tus necesidades, comparando características, precios y opiniones reales de usuarios."/>
+    <section class="container" id="productos">
+      <StoreCluster amazonProduts={amazonProduts} idMarca={1} />
+    </section>
+    <section class="container" id="what-are-robot-mops">
+      <h2>¿Qué son los Robots <span class="highlight">Fregasuelos Cecotec</span>?</h2>
+      <p>Los robots <span class="highlight">fregasuelos Cecotec</span> son dispositivos de limpieza automáticos que combinan la función de aspiración con sistemas avanzados de fregado. A diferencia de los aspiradores tradicionales, estos robots pueden realizar una limpieza completa de tus suelos en una sola pasada, eliminando tanto el polvo y la suciedad como las manchas más difíciles.</p>
+      <p>La marca española Cecotec ha revolucionado el mercado con su línea Conga, que ofrece robots aspiradores con función de fregado integrada. Estos dispositivos utilizan tecnología inteligente para navegar por tu hogar, detectar obstáculos y adaptar su limpieza según el tipo de superficie.</p>
       
-          <h3>1- Aspirado y Fregado: ¿Cómo lo Hace?</h3>
-          <p>
-            El <strong>aspirador Cecotec</strong> ofrece una doble funcionalidad
-            de aspirado y fregado que lo convierte en un asistente doméstico muy
-            útil. Aunque cumple su función de barrido eficientemente, la mopa requiere
-            de ajustes personalizados para lograr resultados óptimos.
-          </p>
-          <p><strong>Problema detectado:</strong></p>
-          <blockquote>
-            Bajo la luz solar directa, el robot puede desorientarse y realizar
-            movimientos erráticos.
-          </blockquote>
-
-          <h3>2- Cecotec Conga: La App es el Cerebro del Sistema</h3>
-      <p>
-        La aplicación de Cecotec es, sin duda, uno de los puntos más fuertes de
-        este <strong>aspirador fregasuelos Cecotec</strong>. Permite una
-        cartografía precisa de las estancias y ofrece un control detallado sobre
-        la velocidad de aspiración, la cantidad de agua utilizada y el tipo de
-        marcha.
-      </p>
-      <blockquote>
-        Tienes acciones rápidas editables… una maravilla de opciones. Si buscas
-        un <strong>aspirador fregasuelos Conga</strong> con un control preciso, la
-        app de Cecotec no te defraudará.
-      </blockquote>
     </section>
+    <section class="container" id="key-features">
+      <h2>Características Clave de los <span class="highlight">Fregasuelos Cecotec</span></h2>
+      <div class="three-columns">
+        <div class="column-card">
+          <h3>Navegación Inteligente</h3>
+          <p>Los modelos avanzados utilizan tecnología láser para mapear tu hogar con precisión milimétrica. Esto permite una limpieza sistemática que no deja ningún rincón sin limpiar, incluso en condiciones de poca luz.</p>
+            <div class="img-container">
+            <img width="270" height="270" loading="lazy" alt="Sistema de navegación láser de un fregasuelos Cecotec" src={imagen1} />
+            </div>
+          </div>
+          <div class="column-card">
+            <h3>Sistemas de Fregado Avanzados</h3>
+            <p>Desde mopas giratorias hasta sistemas de dosificación automática de jabón, los <span class="highlight">fregasuelos Cecotec</span> ofrecen múltiples tecnologías para eliminar manchas difíciles. Las mopas elevables protegen tus alfombras de la humedad.</p>
+            <div class="img-container">
+            <img width="270" height="270" loading="lazy" alt="Sistema de fregado con mopas giratorias de un robot Cecotec" src={imagen2} />
+            </div>
+          </div>
+          <div class="column-card">
+            <h3>Control por App y Asistentes Virtuales</h3>
+            <p>Controla tu robot desde cualquier lugar mediante la aplicación móvil. Programa limpiezas, establece zonas restringidas o activa modos específicos. Compatible con Alexa y Google Assistant para control por voz.</p>
+            <div class="img-container">
+            <img width="270" height="270" loading="lazy" alt="Control por app de un fregasuelos Cecotec mostrando el mapa de limpieza" src={imagen3} />
+            </div>
+          </div>
+          </div>
+          <div class="three-columns">
+          <div class="column-card">
+            <h3>Potencia de Succión</h3>
+            <p>Con hasta 8000 Pa de presión de succión, estos robots eliminan desde el polvo más fino hasta residuos más grandes. La tecnología ciclónica garantiza una aspiración constante y potente.</p>
+            <div class="img-container">
+            <img width="270" height="270" loading="lazy" alt="Demostración de la potencia de succión de un robot Cecotec" src={imagen4} />
+            </div>
+          </div>
+          <div class="column-card">
+            <h3>Bases Autovaciables</h3>
+            <p>Los modelos premium incluyen bases que vacían automáticamente el depósito del robot, limpian sus mopas y rellenan el depósito de agua. Algunas incluso cortan y aspiran los pelos enredados en el cepillo.</p>
+            <div class="img-container">
+            <img width="270" height="270" loading="lazy" alt="Base de autovaciado de un robot fregasuelos Cecotec" src={imagen5} />
+            </div>
+          </div>
+          <div class="column-card">
+            <h3>Inteligencia Artificial</h3>
+            <p>Los modelos más avanzados incorporan IA que reconoce objetos, analiza el tipo de suelo y adapta la limpieza según el nivel de suciedad detectado. Incluso identifica mascotas para no molestarlas.</p>
+            <div class="img-container">
+            <img width="270" height="270" loading="lazy" alt="Robot Cecotec con IA detectando y esquivando objetos" src={imagen6} />
+          </div>
+        </div>
+      </div>
+      <div class="cta-box">
+        <div><strong>Tecnología Avanzada para una Limpieza Superior</strong>
+        <p>Descubre cómo la tecnología de los <span class="highlight">fregasuelos Cecotec</span> puede transformar la limpieza de tu hogar.</p></div>
+        <div><a href="#productos" class="cta" rel="nofollow">Explorar Tecnología Cecotec</a></div>
+      </div>
+    </section>
+    <section class="container" id="model-comparison">
+      <h2>Comparativa de Modelos <span class="highlight">Fregasuelos Cecotec</span></h2>
+      <p>Hemos seleccionado los modelos más destacados de <span class="highlight">fregasuelos Cecotec</span> para ayudarte a encontrar el que mejor se adapte a tus necesidades y presupuesto.</p>
+      <TableComparativa idMarca={1} amazonProduts={amazonProduts} />
+    </section>
+    
+    <section class="container" id="ventajas-desventajas">
+      <h2><span>Ventajas y Desventajas de los <span class="highlight">Fregasuelos Cecotec</span></span></h2>
+      <div class="ventajas-desventajas-grid">
+        <div class="ventajas-box">
+          <div class="ventajas-title"><span class="icon">✔</span> Ventajas</div>
+          <ul>
+        <li>Combinan aspiración potente y fregado en un solo dispositivo</li>
+        <li>Navegación láser precisa que mapea eficientemente el hogar</li>
+        <li>Modelos avanzados con IA que reconoce y esquiva objetos</li>
+        <li>Bases autovaciables que reducen el mantenimiento manual</li>
+        <li>Sistemas de fregado avanzados con mopas giratorias</li>
+        <li>Control mediante app intuitiva y asistentes virtuales</li>
+        <li>Excelente relación calidad-precio comparado con otras marcas</li>
+        <li>Envío gratuito a Península y Canarias</li>
+        <li>Posibilidad de pago a plazos sin intereses</li>
+          </ul>
+        </div>
+        <div class="desventajas-box" >
+          <div class="desventajas-title"><span class="icon">✗</span> Desventajas</div>
+          <ul>
+        <li>Los modelos más avanzados tienen un precio elevado</li>
+        <li>Requieren mantenimiento periódico de filtros y cepillos</li>
+        <li>El fregado, aunque avanzado, no sustituye completamente la limpieza manual para manchas difíciles</li>
+        <li>Las bases de autovaciado ocupan espacio considerable</li>
+        <li>Algunos modelos pueden tener dificultades con alfombras de pelo largo</li>
+        <li>El depósito de agua en algunos modelos requiere rellenado frecuente</li>
+        <li>La configuración inicial puede resultar compleja para usuarios no tecnológicos</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="container" >
+      <h2>Guía de Compra: ¿Qué Considerar al Elegir tu <span class="highlight">Fregasuelos Cecotec</span>?</h2>
+      <div class="buying-guide-grid">
+        <div class="buying-guide-card">
+          <h3>Tipo de Suelo</h3>
+          <p>Los <span class="highlight">fregasuelos Cecotec</span> funcionan en múltiples superficies, pero debes considerar tu tipo de suelo predominante:</p>
+          <ul>
+            <li><strong>Suelos duros (cerámica, mármol, parquet sellado):</strong> Cualquier modelo funcionará bien</li>
+            <li><strong>Parquet o madera sin sellar:</strong> Busca modelos con control preciso de agua</li>
+            <li><strong>Alfombras:</strong> Prioriza modelos con mopas elevables automáticamente</li>
+            <li><strong>Suelos mixtos:</strong> Los modelos con IA adaptan la limpieza automáticamente</li>
+          </ul>
+        </div>
+        <div class="buying-guide-card">
+          <h3>Tamaño del Hogar</h3>
+          <p>La autonomía y capacidad de los depósitos son cruciales según el área a limpiar:</p>
+          <ul>
+            <li><strong>Pisos pequeños (hasta 80m²):</strong> Modelos básicos con 120-150 min de autonomía</li>
+            <li><strong>Hogares medianos (80-150m²):</strong> Modelos con 180-200 min y depósitos medianos</li>
+            <li><strong>Casas grandes (más de 150m²):</strong> Modelos premium con 240 min y bases autovaciables</li>
+            <li><strong>Múltiples plantas:</strong> Considera modelos que memoricen varios mapas</li>
+          </ul>
+        </div>
+        <div class="buying-guide-card">
+          <h3>Mascotas en Casa</h3>
+          <p>Si tienes mascotas, estos factores son especialmente importantes:</p>
+          <ul>
+            <li><strong>Cepillos de silicona:</strong> Evitan enredos de pelo</li>
+            <li><strong>Sistema Hair Cutting:</strong> Corta automáticamente pelos enredados</li>
+            <li><strong>Alta potencia de succión:</strong> Mínimo 5000 Pa para pelo de mascotas</li>
+            <li><strong>Detección de mascotas:</strong> Modelos con IA que las esquivan</li>
+            <li><strong>Bases autovaciables:</strong> Reducen el contacto con alérgenos</li>
+          </ul>
+        </div>
+      </div>
+      <div class="buying-guide-grid">
+        <div class="buying-guide-card">
+          <h3>Presupuesto</h3>
+          <p>Cecotec ofrece opciones para diferentes presupuestos:</p>
+          <ul>
+            <li><strong>Gama económica (150-250€):</strong> Funciones básicas pero eficientes</li>
+            <li><strong>Gama media (250-500€):</strong> Buen equilibrio entre prestaciones y precio</li>
+            <li><strong>Gama premium (500-800€):</strong> Tecnología avanzada y máxima autonomía</li>
+            <li><strong>Opciones de financiación:</strong> Pago a plazos sin intereses</li>
+          </ul>
+        </div>
+        <div class="buying-guide-card">
+          <h3>Integración Smart Home</h3>
+          <p>Para un hogar conectado, considera estas características:</p>
+          <ul>
+            <li><strong>Compatibilidad con asistentes:</strong> Alexa, Google Assistant</li>
+            <li><strong>Conectividad WiFi:</strong> Preferiblemente dual (2,4 GHz y 5 GHz)</li>
+            <li><strong>App avanzada:</strong> Programación, zonas restringidas, limpieza por habitaciones</li>
+            <li><strong>Videomanager:</strong> Modelos con cámara para supervisión remota</li>
+          </ul>
+        </div>
+        <div class="buying-guide-card">
+          <h3>Mantenimiento</h3>
+          <p>Evalúa cuánto mantenimiento estás dispuesto a realizar:</p>
+          <ul>
+            <li><strong>Bases autovaciables:</strong> Reducen la frecuencia de vaciado a semanas</li>
+            <li><strong>Autolimpieza de mopas:</strong> Mantiene las mopas limpias y desinfectadas</li>
+            <li><strong>Autorrellenado:</strong> Modelos que recargan automáticamente el agua</li>
+            <li><strong>Filtros lavables:</strong> Reducen el costo de reemplazos</li>
+            <li><strong>Disponibilidad de repuestos:</strong> Cecotec ofrece fácil acceso a consumibles</li>
+          </ul>
+        </div>
+      </div>
 
+    </section>
     <section class="container">
-      <h2>Aspiradora Cecotec: Mantenimiento para una Mayor Durabilidad</h2>
-      <p>
-        Es un error común pensar que una <strong>aspiradora Cecotec</strong> es un
-        dispositivo de "usar y olvidar". Para garantizar su durabilidad y eficacia,
-        el mantenimiento es clave.
-      </p>
-      <blockquote>
-        Después de cada uso, es fundamental limpiar los cepillos, filtros y la
-        base. Si notas que queda polvo, consulta el manual para acceder a todas
-        las zonas que requieren limpieza. Este cuidado regular es esencial para
-        mantener tu <strong>aspirador fregasuelos Conga</strong> en óptimas condiciones.
-      </blockquote>
+      
     </section>
-
-    <section class="container">
-      <StoreCluster idMarca={1} />
-      <h2>Cecotec Fregasuelos: Truco para un Fregado Eficaz</h2>
-      <blockquote>
-        Para mejorar significativamente los resultados de fregado con tu <strong
-          >fregasuelos Cecotec</strong>, te compartimos un truco práctico: añade una pequeña cantidad de
-        fregasuelos común (con olor a pino) y una gota de lavavajillas para las
-        manchas de grasa. Esta combinación potenciará la limpieza, permitiendo
-        que tu <strong>cecotec aspira y friega a la vez</strong> con mayor eficacia.
-        Si tienes un <strong>cecotec aspirador friegasuelos</strong>, este
-        consejo te ayudará a optimizar su rendimiento.
-      </blockquote>
+    
+    <section class="container" id="faq">
+      <h2>Preguntas Frecuentes sobre Fregasuelos Cecotec</h2>
+      <FaqAccordion faqs={faqs} />
     </section>
-
-    <section class="container">
-      <h2>Conga Fregasuelos: ¿Vale la Pena el Robot Fregasuelos Cecotec?</h2>
-      <p>
-        Después de varias semanas de uso, podemos afirmar que el <strong
-          >robot fregasuelos Cecotec</strong
-        > es un gran apoyo en las tareas domésticas, aunque no es perfecto. Su eficacia
-        final dependerá en gran medida de cómo lo uses. Por ejemplo:
-      </p>
-      <blockquote>
-        Hay que despejar zonas de cables y, sobre todo, meter los cordones del
-        calzado dentro. Si quedan fuera, se enredan y la máquina se para. En
-        resumen, este <strong>aspirador fregasuelos Cecotec</strong> es una excelente
-        inversión si estás dispuesto a seguir estas recomendaciones.
-      </blockquote>
-    </section>
+   
   </main>
 </Layout>
+
+<style>
+.three-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.column-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.column-card:hover {
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.14);
+}
+
+.ventajas-desventajas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.ventajas-box, .desventajas-box {
+  background: #eafaf1;
+  border-radius: 12px;
+  padding: 1.5rem 2rem 1.5rem 2rem;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
+}
+.desventajas-box {
+  background: #ffeaea;
+}
+.ventajas-title, .desventajas-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+.ventajas-title .icon {
+  color: #2ecc71;
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+}
+.desventajas-title .icon {
+  color: #e74c3c;
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+}
+.ventajas-box ul, .desventajas-box ul {
+  margin: 0;
+  padding-left: 1.2em;
+  list-style: none;
+}
+.ventajas-box ul li::before {
+  content: "✔ ";
+  color: #2ecc71;
+  font-weight: bold;
+  margin-right: 0.3em;
+}
+.desventajas-box ul li::before {
+  content: "✗ ";
+  color: #e74c3c;
+  font-weight: bold;
+  margin-right: 0.3em;
+}
+.buying-guide-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin: 2rem 0;
+      }
+      .buying-guide-card {
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.08);
+        padding: 2rem 1.5rem 1.5rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+      }
+      .buying-guide-card h3 {
+        color: #1a7f37;
+        margin-bottom: 0.7rem;
+      }
+      .buying-guide-card ul {
+        margin: 0.5rem 0 0 0;
+        padding-left: 1.2em;
+      }
+      .buying-guide-card ul li {
+        margin-bottom: 0.4em;
+      }
+@media (max-width: 900px) {
+  .three-columns {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .column-card {
+    padding: 1.5rem 1rem;
+  }
+  .ventajas-desventajas-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .buying-guide-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .buying-guide-card {
+          padding: 1.5rem 1rem;
+        }
+}
+.img-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.img-container img {
+  max-width: 100%;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.06);
+}
+</style>

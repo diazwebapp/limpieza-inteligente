@@ -1,0 +1,63 @@
+---
+// Componente FAQ Accordion reutilizable
+import { schemaFAQ } from "../datos/seoBase";
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+const { faqs = [] } = Astro.props;
+const faqSchema = schemaFAQ({
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer
+    }
+  }))
+});
+---
+<script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+<style>
+.faq-accordion {
+  width: 100%;
+  margin: 2rem 0;
+}
+.faq-accordion details {
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  background: #fafbfc;
+  transition: box-shadow 0.2s;
+}
+.faq-accordion details[open] {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.faq-accordion summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 1rem;
+  outline: none;
+  background: #f5f7fa;
+  border-radius: 6px 6px 0 0;
+  transition: background 0.2s;
+}
+.faq-accordion details[open] summary {
+  background: #e6f0fa;
+}
+.faq-accordion details > div {
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+  color: #444;
+  background: #fff;
+  border-radius: 0 0 6px 6px;
+}
+</style>
+<div class="faq-accordion">
+  {faqs.map((faq) => (
+    <details>
+      <summary>{faq.question}</summary>
+      <div>{faq.answer}</div>
+    </details>
+  ))}
+</div>

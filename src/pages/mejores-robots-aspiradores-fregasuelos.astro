@@ -1,8 +1,12 @@
 ---
+
 import CategoryHeader from '../components/CategoryHeader.astro';
+import CategoryCluester from '../components/CategoryCluester.astro';
+import { marcas, amazonProduts, withDomain } from '../datos/database';
 import Layout from '../layouts/Layout.astro';
 import { schemaArticle, schemaWebSite } from '../datos/seoBase';
 import StyledOne from '../components/StyledOne.astro';
+import TableComparativa from '../components/TableComparativa.astro';
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
 const canonicalURL = SITE_URL.replace(/\/$/, "") + "/mejores-robots-aspiradores-fregasuelos/";
 const title = "TOP 9 🥇 Mejores Robots Aspirador Friegasuelos 2025: Guía Definitiva"
@@ -25,14 +29,49 @@ const schemas = [
     }
   })
 ];
+
+const anclaXiaomi = withDomain("/xiaomi/")
 ---
 <Layout title={title} description={description} schemas={schemas}>
     <main>
   
    <CategoryHeader 
-  h1="TOP 9 Mejores Robots Aspirador Friegasuelos 2025: Guía Definitiva" 
-  p="¿Cansado de perder horas fregando? El 72% de hogares con mascotas abandonan la limpieza manual tras usar un robot. ⚡ Probamos 9 modelos durante 3 meses ⚡ para decirte cuál vale cada euro." 
+  h1="Robot aspirador y fregasuelos: Guia Definitiva 2025" 
+  p="La limpieza automática ha alcanzado un nuevo nivel. Te explicaré que son estos robots aspiradores y fregasuelos, sus beneficios, comparativa y puntos a considerar al elegir uno." 
 />
+<section class="container">
+    <h2>Robots limpiadores de pisos: Puntos Clave</h2>
+    <p>De estos robots de limpieza existes diferentes tipos como aspiradores y fregasuelos.
+         estos pueden tener cepillo multifunción, mopas giratorias, tanques de polvo y agua, mapeo laser, alexa etc.
+    </p>Considera características como potencia de aspiración - autonomía (duración de batería), base de autovaciado, - sistema de navegación (navegación láser, cámaras, etc) - deposito de agua y presupuesto.</p>
+
+    <h2>Marcas destacadas</h2>
+    <CategoryCluester cats={marcas} amazonProduts={amazonProduts}/>
+</section>
+
+<section class="container">
+    <h2>¿Qué son los robots de limpieza?</h2>
+    <p>
+        Son dispositivos avanzados que simplifican las tareas de limpieza diarias. Incluyen un sensores para eliminar polvo y suciedad de suelos. Además, ofrecen fregado automático que dejan superficies brillantes. tienen sistema de navegación laser que les permite moverse por tu hogar con facilidad. Pueden adaptarse a diferentes espacios y evitar obstáculos.<br/>
+        La programación es una funcionalidad destacada. Esto permite que los robots de limpieza trabajen según un horario establecido. Así, no necesitas estar presente para que hagan su trabajo. Con ellos, tu hogar se mantendrá limpio y ordenado, ofreciéndote un ambiente más agradable y saludable.
+    </p>
+</section>
+
+<section class="container">
+  <h2>Ventajas de utilizar un robot de limpieza</h2>
+  <p>El uso de un robot de limpieza para el hogar ofrece múltiples beneficios. La eficiencia en la limpieza diaria es una de las ventajas más destacadas. Estos aspiradores y friegasuelos operan de forma autónoma en superficies amplias, logrando resultados óptimos en menos tiempo. Así, puedes disfrutar de un hogar limpio sin dedicar horas a tareas de limpieza manual.</p>
+  <h3>Eficiencia en la limpieza diaria</h3>
+  <p>La eficiencia de un robot de limpieza es asombrosa. Su tecnología avanzada permite mapear y limpiar áreas específicas con precisión. Esto asegura superficies limpias y optimiza el consumo de energía y recursos, ideal para cualquier hogar.</p>
+  <h3>Ahorro de tiempo y esfuerzo</h3>
+  <p>Programar tu robot aspirador te permite dedicarte a otras actividades mientras él trabaja. Cada minuto es valioso. Sin duda, el robot de limpieza para el hogar es un aliado perfecto para simplificar tu rutina diaria.</p>
+</section>
+
+<section class="container">
+  <h2>Top 5 modelos robots aspiradores y fregasuelos mejor valorados</h2>
+  <TableComparativa amazonProduts={amazonProduts}/>
+</section>
+
+
 <section class="container">
   <h2>📊 Comparativa Técnica: TOP 9 Robots Aspirador Friegasuelos (2025)</h2>
   
@@ -152,7 +191,7 @@ const schemas = [
     
     <div class="specs-box">
         <table>
-            <tr><th>Succión</th><td>7000 Pa</td></tr>
+            <tr><th>Potencia de succión</th><td>7000 Pa</td></tr>
             <tr><th>Autonomía</th><td>170 min</td></tr>
             <tr><th>Altura</th><td>8.5 cm</td></tr>
             <tr><th>Precio</th><td>€499</td></tr>
@@ -165,8 +204,8 @@ const schemas = [
             <div class="pros">
                 <h4>✅ Ventajas Clave</h4>
                 <ul>
-                    <li><strong>Base auto-lavable</strong>: Lava, seca y vacía mopas sin intervención.</li>
-                    <li><strong>Perfil ultra-delgado</strong>: Limpia bajo muebles de 9 cm.</li>
+                    <li><strong>Base de autovaciado</strong>: Lava, seca y vacía mopas sin intervención.</li>
+                    <li><strong>Diseño compacto</strong>: Limpia bajo muebles de 9 cm.</li>
                     <li><strong>Detección de alfombras</strong>: Eleva mopas 5 mm automáticamente.</li>
                 </ul>
             </div>
@@ -174,7 +213,7 @@ const schemas = [
                 <h4>❌ Limitaciones</h4>
                 <ul>
                     <li><strong>Detección de obstáculos básica</strong>: A veces empuja cables.</li>
-                    <li><strong>Depósito pequeño</strong>: 200 ml (requiere rellenado cada 2 limpiezas).</li>
+                    <li><strong>Depósito de agua</strong>: 200 ml (requiere rellenado cada 2 limpiezas).</li>
                 </ul>
             </div>
         </div>
@@ -207,7 +246,7 @@ const schemas = [
     
     <div class="specs-box">
         <table>
-            <tr><th>Succión</th><td>20,000 Pa</td></tr>
+            <tr><th>Potencia de succión</th><td>20,000 Pa</td></tr>
             <tr><th>Navegación</th><td>LiDAR 360° + IA</td></tr>
             <tr><th>Ruido</th><td>68 dB</td></tr>
             <tr><th>Precio</th><td>€899</td></tr>
@@ -221,7 +260,7 @@ const schemas = [
                 <ul>
                     <li><strong>Succión industrial</strong>: Elimina ácaros de alfombras profundas.</li>
                     <li><strong>Detección 3D</strong>: Evita heces de mascotas y cables.</li>
-                    <li><strong>Auto-vaciado</strong>: Base para 60 días de polvo.</li>
+                    <li><strong>Base de autovaciado</strong>: Base para 60 días de polvo.</li>
                 </ul>
             </div>
             <div class="cons">
@@ -246,7 +285,7 @@ const schemas = [
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot para casas grandes (+100m²)</strong> con mascotas. Excesivo para pisos pequeños.</p>
+        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador para casas grandes (+100m²)</strong> con mascotas. Excesivo para pisos pequeños.</p>
     </div>
 </section>
 
@@ -256,7 +295,7 @@ const schemas = [
     
     <div class="specs-box">
         <table>
-            <tr><th>Succión</th><td>10,000 Pa</td></tr>
+            <tr><th>Potencia de succión</th><td>10,000 Pa</td></tr>
             <tr><th>Cámara</th><td>1080p con IA</td></tr>
             <tr><th>Elevación mopa</th><td>20 mm</td></tr>
             <tr><th>Precio</th><td>€1,099</td></tr>
@@ -305,7 +344,7 @@ const schemas = [
     
     <div class="specs-box">
         <table>
-            <tr><th>Succión</th><td>18,500 Pa</td></tr>
+            <tr><th>Potencia de succión</th><td>18,500 Pa</td></tr>
             <tr><th>Temperatura agua</th><td>60°C</td></tr>
             <tr><th>Cepillos laterales</th><td>2</td></tr>
             <tr><th>Precio</th><td>€799</td></tr>
@@ -354,7 +393,7 @@ const schemas = [
     
     <div class="specs-box">
         <table>
-            <tr><th>Succión</th><td>8000 Pa</td></tr>
+            <tr><th>Potencia de succión</th><td>8000 Pa</td></tr>
             <tr><th>Altura</th><td>9 cm</td></tr>
             <tr><th>Autonomía</th><td>120 min</td></tr>
             <tr><th>Precio</th><td>€399</td></tr>
@@ -368,7 +407,7 @@ const schemas = [
                 <h4>✅ Ventajas Clave</h4>
                 <ul>
                     <li><strong>Base más compacta</strong>: 30% menor que el C20 Omni.</li>
-                    <li><strong>App intuitiva</strong>: Configuración en 5 minutos.</li>
+                    <li><strong>App Móvil intuitiva</strong>: Configuración en 5 minutos.</li>
                     <li><strong>Silencioso</strong>: Solo 58 dB (ideal para teletrabajo).</li>
                 </ul>
             </div>
@@ -403,7 +442,7 @@ const schemas = [
     
     <div class="specs-box">
         <table>
-            <tr><th>Succión</th><td>5500 Pa</td></tr>
+            <tr><th>Potencia de succión</th><td>5500 Pa</td></tr>
             <tr><th>Rodillo</th><td>Doble cepillo</td></tr>
             <tr><th>Autonomía</th><td>180 min</td></tr>
             <tr><th>Precio</th><td>€349</td></tr>
@@ -424,7 +463,7 @@ const schemas = [
                 <h4>❌ Limitaciones</h4>
                 <ul>
                     <li><strong>Fregado manual</strong>: No lava/secar mopas.</li>
-                    <li><strong>Sin IA</strong>: Atrapa cables pequeños.</li>
+                    <li><strong>Sin Inteligencia Artificial</strong>: Atrapa cables pequeños.</li>
                 </ul>
             </div>
         </div>
@@ -442,7 +481,7 @@ const schemas = [
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor aspirador robot bajo €400</strong> para hogares con mascotas. Buscar otra opción si priorizas fregado.</p>
+        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador robot bajo €400</strong> para hogares con mascotas. Buscar otra opción si priorizas fregado.</p>
     </div>
 </section>
 
@@ -452,9 +491,9 @@ const schemas = [
     
     <div class="specs-box">
         <table>
-            <tr><th>Succión</th><td>6000 Pa</td></tr>
+            <tr><th>Potencia de succión</th><td>6000 Pa</td></tr>
             <tr><th>Detección</th><td>PrecisionVision</td></tr>
-            <tr><th>Compatibilidad</th><td>Alexa/Google</td></tr>
+            <tr><th>Compatibilidad</th><td>Alexa / Google</td></tr>
             <tr><th>Precio</th><td>€999</td></tr>
         </table>
     </div>
@@ -473,7 +512,7 @@ const schemas = [
             <div class="cons">
                 <h4>❌ Limitaciones</h4>
                 <ul>
-                    <li><strong>Sin LiDAR</strong>: Mapeo menos preciso que competidores.</li>
+                    <li><strong>Sin navegación LiDAR</strong>: Mapeo menos preciso que competidores.</li>
                     <li><strong>Diseño anticuado</strong>: Estética de 2018.</li>
                 </ul>
             </div>
@@ -491,7 +530,7 @@ const schemas = [
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot para quienes odian problemas técnicos</strong>. Tecnología probada aunque menos vanguardista.</p>
+        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador para quienes odian problemas técnicos</strong>. Tecnología probada aunque menos vanguardista.</p>
     </div>
 </section>
 
@@ -501,7 +540,7 @@ const schemas = [
     
     <div class="specs-box">
         <table>
-            <tr><th>Succión</th><td>8000 Pa</td></tr>
+            <tr><th>Potencia de succión superior</th><td>8000 Pa</td></tr>
             <tr><th>Vaciado</th><td>45 días</td></tr>
             <tr><th>Altura</th><td>9.2 cm</td></tr>
             <tr><th>Precio</th><td>€299</td></tr>
@@ -550,7 +589,7 @@ const schemas = [
     
     <div class="specs-box">
         <table>
-            <tr><th>Succión</th><td>7500 Pa</td></tr>
+            <tr><th>Potencia de succión</th><td>7500 Pa</td></tr>
             <tr><th>Tecnología</th><td>CleanEdge</td></tr>
             <tr><th>Filtro</th><td>HEPA EPA 12</td></tr>
             <tr><th>Precio</th><td>€599</td></tr>
@@ -572,7 +611,7 @@ const schemas = [
                 <h4>❌ Limitaciones</h4>
                 <ul>
                     <li><strong>Autonomía corta</strong>: Solo 90 min.</li>
-                    <li><strong>App básica</strong>: Sin mapas 3D.</li>
+                    <li><strong>App Móvil básica</strong>: Sin mapas 3D.</li>
                 </ul>
             </div>
         </div>
@@ -589,7 +628,7 @@ const schemas = [
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot para hogares con 2+ mascotas</strong> o personas alérgicas. Requiere recargas frecuentes.</p>
+        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador para hogares con 2 omás mascotas</strong> o personas alérgicas. Requiere recargas frecuentes.</p>
     </div>
 </section>
 <script type="application/ld+json">
@@ -597,6 +636,62 @@ const schemas = [
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué robot limpia pisos y friega mejor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El Roborock S8 es el mejor combo aspirado+fregado en 2024 según nuestros tests, combinando 6000Pa de succión con sistema vibratorio de fregado avanzado."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo funciona una limpiadora robot?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los robots limpiadores usan sensores y navegación inteligente (LIDAR, láser o cámara) para mapear espacios, evitando obstáculos mientras aspiran/friegan. Se programan vía app y regresan solos a su base."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué puede hacer un robot doméstico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1️⃣ Aspirar pelo y polvo | 2️⃣ Fregar suelos | 3️⃣ Mapear tu casa | 4️⃣ Programar limpiezas | 5️⃣ Evitar escalones y obstáculos | 6️⃣ Autovaciado (modelos premium). Los modelos avanzados incluso reconocen tipos de suelo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta un robot que limpia la casa?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Desde €150 (básico) hasta €1,200 (gama alta). Los más vendidos están entre €300-€600. Los robots 2-en-1 (aspirador+fregador) cuestan €400-€800."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es la vida útil de un robot aspirador?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "3-5 años con mantenimiento adecuado (limpieza de filtros y cepillos cada 2 semanas). Las baterías suelen durar 2-3 años con uso diario."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué potencia es recomendada para robots aspiradores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mínimo 2000Pa para pisos lisos | Ideal 2500-5000Pa para alfombras o casas con mascotas | Gama premium +6000Pa para máxima eficiencia en suciedad incrustada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Merece la pena un robot de limpieza?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, especialmente si: Tienes mascotas | Pisos grandes | Problemas de alergias | Poco tiempo para limpieza. Reducen hasta un 80% el polvo y ácaros."
+      }
+    },
     {
       "@type": "Question",
       "name": "¿Cuál es la diferencia entre la potencia de succión PA y AW?",
@@ -667,15 +762,15 @@ const schemas = [
       <p>Tras analizar 9 modelos durante 3 meses, el <strong>Eufy X10 Pro Omni</strong> destaca como la mejor opción calidad-precio por:</p>
       
       <ul class="value-list">
-        <li>✅ <strong>Potencia equilibrada</strong>: 8000 Pa (suficiente para alfombras medianas y suelos duros)</li>
-        <li>✅ <strong>Base completa</strong>: Auto-lavado de mopas + vaciado automático (raro bajo €400)</li>
-        <li>✅ <strong>Perfil ultra-delgado</strong>: 9 cm de altura (limpia bajo muebles bajos)</li>
-        <li>✅ <strong>App intuitiva</strong>: Mapeo LiDAR fácil de usar para principiantes</li>
+        <li>✅ <strong>Potencia de aspiracion equilibrada</strong>: 8000 Pa (suficiente para alfombras medianas y suelos duros)</li>
+        <li>✅ <strong>Sistema de autovaciado</strong>: Auto-lavado de mopas + autovaciado automático (raro bajo €400)</li>
+        <li>✅ <strong>Diseño compacto</strong>: 9 cm de altura (limpia bajo muebles bajos)</li>
+        <li>✅ <strong>Control por app</strong>: Mapeo LiDAR fácil de usar para principiantes</li>
       </ul>
 
       <p>Comparado con alternativas:<br>
       <strong>• Roborock Q8 Max Plus (€349):</strong> Más barato pero sin lavado automático de mopas.<br>
-      <strong>• <a href="/cecotec/conga-8490-ultimate-ultra-power/" >Cecotec Conga 8490</a> (€499):</strong> Mejor succión (7000 Pa) pero base más voluminosa.</p>
+      <strong>• <a href="https://limpiezainteligente.store/cecotec/conga-8490-ultimate-ultra-power/">Cecotec Conga 8490</a> (€499):</strong> Mejor potencia de aspiración (7000 Pa) pero base más voluminosa.</p>
 
       <div class="price-alert">
         <p>💡 <strong>Oferta típica:</strong> €379-€399 (frente a €499 del Eufy C20 Omni con prestaciones similares)</p>
@@ -683,26 +778,92 @@ const schemas = [
     </div>
   </div>
 </section>
-
-    <section class="container">
-        <h2>¿Cuál es el Robot Aspirador Friegasuelos Ideal para Ti?</h2>
-        <p>Y ahora sí, vamos cerrando. Ya has visto algunos de los <strong>mejores robot aspirador friegasuelos</strong> disponibles. Si buscas libertad total al limpiar, cero esfuerzo y máxima potencia, elige el <strong>Roborock S8 MaxV Ultra</strong>, el <strong>Dreame X50 Ultra</strong> o el <strong>Ecobach T50 Max Pro Omni</strong>. Son ideales para casas grandes, mucha gente y quienes no quieren volver a tocar una fregona.</p>
-        <p>Si buscas una automatización equilibrada con funciones inteligentes, el <strong>Eufy C20 Omni</strong> y el <strong>Eufy X10 Pro Omni</strong> son opciones muy completas, fáciles de usar, potentes y con un buen diseño. Son el <strong>mejor robot aspirador friegasuelos calidad precio</strong> en su gama.</p>
-        <p>Si prefieres algo más centrado en aspirar o quieres un buen precio, el <strong>Roborock Q8 Max Plus</strong> y el <strong>Eureka E20 Plus</strong> dan mucho por muy poco.</p>
-        <p>Y si tu lucha diaria es con el pelo de mascotas, el <strong>Shark Matrix Plus 2 en 1</strong> y el <strong>iRobot Roomba Combo j9+</strong> están pensados para ti.</p>
-        <p>¿Aún no lo tienes claro? Pregúntate, ¿quieres que aspire como una bestia o que friegue como si estuviera en una competición? ¿Quieres el suelo impecable sin pensar ni un segundo? Entonces ve a por lo más automático. ¿Vives en un piso pequeño? ¿No necesitas la base más grande del mundo? ¿Tienes niños, mascotas o ambos? Prioriza la detección de obstáculos y el manejo del pelo de verdad. Y si solo quieres olvidarte de limpiar, coge el que te haga olvidar que la limpieza existe. Piensa qué es lo importante para ti. ¿Quieres que limpie manchas difíciles? ¿Qué evite alfombras? ¿Que sea compacto? ¿O que lo haga todo mientras tú tomas café? Elige el que encaje contigo, no solo el que tenga mejores especificaciones.</p>
-        
-    </section>
+<section class="container">
+    <h2>¿Por qué elegir un aspirador y fregasuelos?</h2>
+<p>Optar por robots aperadores te ofrece una solución integral para mantener tu hogar impecable. Este dispositivo combina la aspiración y el fregado, permitiendo una limpieza profunda de tus espacios. Imagina tener un suelo limpio y fresco sin esfuerzo físico en las tareas domésticas.</p>
+<p>Los hogares con niños y mascotas enfrentan el desafío de la suciedad acumulada. En estos casos, contar con un robot aspirador y fregasuelos es crucial. Este aparato facilita el mantenimiento diario, asegurando un ambiente saludable y agradable.</p>
+<p>La tecnología actual ha avanzado significativamente. Los robots son eficientes y manejables. Muchos modelos tienen programación y control a distancia. Esto te permite planificar sesiones de limpieza, incluso cuando no estás en casa.</p>
+<p>En definitiva, elegir un robot aspirador y fregasuelos ahorra tiempo y esfuerzo. Se convierte en una inversión para mejorar tu calidad de vida. Piensa en cómo transformará la rutina de limpieza en tu hogar.</p>
+</section>
     <section class="container faq-container">
         <h2>Preguntas Frecuentes</h2>
-        <div class="question">¿Cuál es la diferencia entre la potencia de succión PA y AW?</div>
-        <div class="answer">PA (Pascales) mide presión estática (ideal para robots). AW (Air Watts) mide flujo de aire (usado en aspiradoras tradicionales). 1000 PA ≈ 20 AW. Para robots, busca mínimo 2000 PA.</div>
+
+         <!-- Sección 1: Funcionamiento Básico -->
+    <div class="faq-group">
+      <h3>Funcionamiento y Capacidades</h3>
+      <div class="faq-item">
+        <h3>¿Cómo funciona una limpiadora robot?</h3>
+        <p>Los robots limpiadores usan sensores y navegación inteligente (LIDAR, láser o cámara) para mapear espacios, evitando obstáculos mientras aspiran/friegan. Se programan vía app y regresan solos a su base.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>¿Qué puede hacer un robot doméstico?</h3>
+        <p>1️⃣ Aspirar pelo y polvo | 2️⃣ Fregar suelos | 3️⃣ Mapear tu casa | 4️⃣ Programar limpiezas | 5️⃣ Evitar escalones y obstáculos | 6️⃣ Autovaciado (modelos premium).</p>
+      </div>
+    </div>
+
+    <!-- Sección 2: Costos y Mantenimiento -->
+    <div class="faq-group">
+      <h3>Precios y Durabilidad</h3>
+      
+      <div class="faq-item">
+        <h4>¿Cuánto cuesta un robot que limpia la casa?</h4>
+        <p>Desde €150 (básico) hasta €1,200 (gama alta). Los más vendidos están entre €300-€600.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>¿Cuál es la vida útil de un robot aspirador?</h4>
+        <p>3-5 años con mantenimiento (limpieza de filtros y cepillos cada 2 semanas). Las baterías suelen durar 2-3 años.</p>
+      </div>
+    </div>
+
+    <!-- Sección 3: Rendimiento -->
+    <div class="faq-group">
+      <h3>Eficiencia y Consumo</h3>
+      
+      <div class="faq-item">
+        <h4>¿Qué potencia es recomendada para robots aspiradores?</h4>
+        <p>Mínimo 2000Pa (pisos lisos) | Ideal 2500-5000Pa (alfombras/mascotas) | Premium +6000Pa.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>¿Cuánto consume de luz?</h4>
+        <p>≈€0.05 por carga (30-90W). Limpiar diario cuesta ≈€1.50/mes.</p>
+      </div>
+    </div>
+
+    <!-- Sección 4: Comparativas -->
+    <div class="faq-group">
+      <h3>Decisiones de Compra</h3>
+      
+      <div class="faq-item">
+        <h4>¿Qué es mejor, aspiradora manual o robot?</h4>
+        <p><strong>Robot:</strong> Mantenimiento diario automático | <strong>Manual:</strong> Limpieza profunda ocasional. Ideal combinar ambas.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>¿Puede limpiar una casa entera?</h4>
+        <p>Sí, si tiene suficiente autonomía (mínimo 90min) y navegación inteligente para recordar múltiples habitaciones.</p>
+      </div>
+
+       <div class="faq-item">
+            <h4>¿Qué robot limpia pisos y friega mejor?</h4>
+            <p>El <strong>Roborock S8</strong> es el mejor combo aspirado+fregado en 2024 según nuestros tests...</p>
+       </div>
+        <div class="faq-item">
+            <h4>¿Merece la pena un robot de limpieza?</h4>
+            <p>Sí, un <strong>robot para limpiar la casa</strong> ahorra tiempo y reduce alergenos...</p>
+        </div>
+    </div>
+
+        <div class="question">¿Cuál es la diferencia entre la potencia de aspiración PA y AW?</div>
+        <div class="answer">PA (Pascales) mide presión estática (ideal para robots). AW (Air Watts) mide flujo de aire (usado en aspiradoras tradicionales). 1000 PA ≈ 20 AW. Busca mínimo 2000 PA.</div>
 
         <div class="question">¿Cuántos pascales tiene Roomba?</div>
         <div class="answer">Los Roomba actuales (serie j) tienen entre 1700-2500 PA. Modelos como el Combo j9+ llegan a 6000 PA en modo turbo, pero son menos potentes que marcas chinas (ej: Dreame X50 Ultra: 20,000 PA).</div>
 
         <div class="question">¿Cuál es mejor, el robot aspirador Roborock o Xiaomi?</div>
-        <div class="answer">Roborock (gama alta) ofrece mejor navegación LiDAR y apps avanzadas. <a href="/xiaomi/" >Xiaomi (gama media)</a> tiene mejor relación calidad-precio. Ejemplo: Roborock S8 MaxV Ultra (€1,099) vs Xiaomi S20 (€499).</div>
+        <div class="answer">Roborock (gama alta) ofrece mejor navegación Laser y control mediante aplicación avanzada. <a href={anclaXiaomi} >Xiaomi (gama media)</a> con su aplicación mi home tiene mejor relación calidad-precio. Ejemplo: Roborock S8 MaxV Ultra (€1,099) vs Xiaomi S20 (€499).</div>
 
         <div class="question">¿Cuál es la esperanza de vida de un robot aspirador Shark?</div>
         <div class="answer">3-5 años con mantenimiento adecuado (limpieza semanal de cepillos y reemplazo anual de filtros). Los modelos Shark suelen tener garantía de 2 años.</div>

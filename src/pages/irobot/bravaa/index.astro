@@ -1,65 +1,866 @@
 ---
-import Layout from "../../../layouts/Layout.astro";
-import CategoryHeader from "../../../components/CategoryHeader.astro";
-import { schemaWebSite, schemaArticle } from '../../../datos/seoBase';
+import { withDomain } from "../../../datos/database"; // Ajusta la ruta según tu estructura
+import { schemaArticle } from "../../../datos/seoBase"; // Ajusta la ruta según tu estructura
+import Layout from "../../../layouts/Layout.astro"; // Ajusta la ruta según tu estructura
 
-const title = "Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente";
-const description = "Descubre cómo iRobot Braava transforma la limpieza de tu hogar con tecnología avanzada, mapeo inteligente y conectividad total.";
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
-const canonicalURL = SITE_URL.replace(/\/$/, "") + "/irobot/bravaa/";
-const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
-const modDatetime = new Date("2025-06-16T00:00:00+00:00").toISOString();
+const title = "Braava jet® m6: Tu Robot Friegasuelos Inteligente y Avanzado";
+const description = "Descubre el Braava jet® m6, el robot friegasuelos de iRobot diseñado para una limpieza profunda y automática. Este friegasuelos Braava es la solución definitiva para suelos impecables.";
+const canonicalURL = withDomain("/irobot/braava/");
+const pubDatetime = new Date("2025-06-27T00:00:00+00:00").toISOString();
+const modDatetime = new Date("2025-06-27T00:00:00+00:00").toISOString();
 
 const schemas = [
-  schemaWebSite({
-    name: 'Bravaa',
-    url: canonicalURL,
-  }),
-  schemaArticle({
-    headline: 'Descubre los mejores robots Bravaa',
-    description: 'Explora nuestra selección de robots aspiradores Bravaa.',
-    url: canonicalURL,
-    datePublished: pubDatetime,
-    dateModified: modDatetime,
-  }),
+    schemaArticle({
+        headline: title,
+        image: "https://www.irobot.es/cdn/shop/files/Braava-jet-m6-Main_1500x.png",
+        datePublished: pubDatetime,
+        dateModified: modDatetime,
+        description,
+        url: canonicalURL
+    })
 ];
 ---
 
-<Layout 
-  title={title}
-  description={description}
-  schemas={schemas}
->
-  <CategoryHeader
-    h1="Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente"
-    p="La era de los suelos impecables ha llegado, y su nombre es iRobot Braava. Olvídate de los métodos tradicionales y descubre la eficiencia de un sistema diseñado para transformar la limpieza de tu hogar en una experiencia sin esfuerzo y con resultados profesionales."
-  />
-  <section class="container">
-    <h2>La Intención de Búsqueda de Nuestros Usuarios</h2>
-    <p>Comprendemos que buscas la solución definitiva para mantener tus suelos relucientes. Ya sea que te interese la versatilidad de un robot friegasuelos para diversas superficies, la eficacia del Braava Jet 250 en espacios compactos, o la potencia y conectividad del Braava Jet m6 con conexión Wi-Fi para una limpieza exhaustiva y programada, has llegado al lugar indicado.</p>
-  </section>
-  <section class="container">
-    <h2>¿Por qué iRobot Braava es la Elección Superior?</h2>
-    <p>Hemos analizado las mejores soluciones del mercado para ofrecerte la verdad: iRobot Braava no es solo un fregasuelos; es una inversión en la pulcritud y el bienestar de tu hogar.</p>
-  </section>
-  <section class="container">
-    <h2>Tecnología de Precisión Inigualable</h2>
-    <p>Equipados con pulverizadores de chorro a presión, los robots friegasuelos Braava Jet disuelven la suciedad incrustada y la grasa de la cocina, garantizando una limpieza profunda que va más allá de lo superficial. Modelos como el Braava Jet m6 reconocen el tipo de almohadilla, optimizando automáticamente el modo de limpieza para resultados perfectos en cada tipo de suelo.</p>
-  </section>
-  <section class="container">
-    <h2>Mapeo Inteligente para una Cobertura Total</h2>
-    <p>Gracias a la navegación vSLAM™ y la tecnología Imprint® Smart Mapping, tu robot Braava aprende el diseño de tu hogar, creando mapas precisos para limpiar en filas ordenadas y eficientes. Puedes definir zonas de limpieza y exclusión, asegurando que el robot se enfoque donde más lo necesitas, sin invadir áreas restringidas.</p>
-  </section>
-  <section class="container">
-    <h2>Conectividad y Control Total</h2>
-    <p>Con modelos como el Braava Jet m6 con conexión Wi-Fi, el control está en la palma de tu mano. Utiliza la aplicación iRobot Home para programar limpiezas, seleccionar modos y coordinar con tu robot aspirador Roomba (tecnología Imprint™ Link) para una limpieza sinérgica y completa: primero aspira, luego friega. Además, la compatibilidad con asistentes de voz como Google Assistant eleva la comodidad a un nuevo nivel.</p>
-  </section>
-  <section class="container">
-    <h2>Rendimiento y Autonomía</h2>
-    <p>Con depósitos de 0.40 litros y una autonomía de hasta 90 minutos, el Braava Jet m6 cubre amplias superficies de hasta 100 m² con una sola carga. Su retorno automático a la base asegura que siempre esté listo para la próxima sesión de limpieza.</p>
-  </section>
-  <section class="container">
-    <h2>No es solo un aparato; es una solución</h2>
-    <p>iRobot Braava te libera de la tarea tediosa de fregar, permitiéndote disfrutar de más tiempo para lo que realmente importa. Elige la inteligencia, la eficiencia y la autoridad en limpieza de suelos. Es hora de experimentar la diferencia que solo un iRobot Braava puede ofrecer.</p>
-  </section>
+<Layout title={title} description={description} schemas={schemas}>
+    <main>
+        <section class="seccion-hero">
+            <div class="contenido-hero">
+                <h1 class="titulo-hero">
+                    Braava jet® m6: <span class="resaltado">El Robot Friegasuelos Definitivo</span>
+                </h1>
+                <p class="subtitulo-hero">
+                    El **robot friegasuelos Braava** más avanzado para una limpieza profunda y sin esfuerzo de tus suelos duros.
+                </p>
+                <div class="precio-reseñas">
+                    <span class="precio">699,00 €</span>
+                    <div class="estrellas-reseñas">
+                        <span class="estrellas">★★★★☆</span>
+                        <a href="#opiniones-clientes" class="enlace-reseñas">(Ver 120 opiniones)</a>
+                    </div>
+                </div>
+                <div class="acciones-hero">
+                    <a href="/checkout/braava-m6" class="boton-principal">
+                        Comprar ahora
+                    </a>
+                    <a href="#video-demo" class="boton-secundario">
+                        Ver en acción
+                    </a>
+                </div>
+            </div>
+            <div class="imagen-hero">
+                <img src="/images/braava-m6-main.webp" alt="iRobot Braava jet m6 Robot Friegasuelos Inteligente" class="imagen-producto">
+            </div>
+        </section>
+
+        <section class="seccion-caracteristicas">
+            <h2 class="titulo-seccion">
+                Características que Hacen la Diferencia en tu Limpieza con el **Friegasuelos Braava**
+            </h2>
+            <div class="lista-caracteristicas">
+                <div class="tarjeta-caracteristica">
+                    <img src="/icons/braava-jet-spray.svg" alt="Pulverizador de chorro a presión" class="icono-caracteristica">
+                    <h3 class="titulo-tarjeta">Pulverizador de Chorro a Presión</h3>
+                    <p>Este **friegasuelos Braava** disuelve y elimina la suciedad, la grasa de la cocina y las manchas pegajosas con su potente chorro.</p>
+                </div>
+                <div class="tarjeta-caracteristica">
+                    <img src="/icons/braava-mapping.svg" alt="Aprende y mapea" class="icono-caracteristica">
+                    <h3 class="titulo-tarjeta">Navegación Inteligente Imprint®</h3>
+                    <p>El **robot friegasuelos Braava** aprende y mapea tu hogar para limpiar en filas ordenadas y eficientes, sin dejar rincón.</p>
+                </div>
+                <div class="tarjeta-caracteristica">
+                    <img src="/icons/braava-os-voice.svg" alt="iRobot OS y Asistente de Voz" class="icono-caracteristica">
+                    <h3 class="titulo-tarjeta">iRobot OS y Control por Voz</h3>
+                    <p>Personaliza tu limpieza, crea rutinas y controla tu **Braava friegasuelos** con tu voz a través de asistentes.</p>
+                </div>
+                <div class="tarjeta-caracteristica">
+                    <img src="/icons/braava-precision-clean.svg" alt="Limpieza en filas ordenadas" class="icono-caracteristica">
+                    <h3 class="titulo-tarjeta">Limpieza Precisa y Ordenada</h3>
+                    <p>Nuestro **robot que friega** se desplaza en filas ordenadas y regresa a su base para recargarse y continuar su labor.</p>
+                </div>
+                <div class="tarjeta-caracteristica">
+                    <img src="/icons/braava-link.svg" alt="Trabajo en conjunto con Roomba" class="icono-caracteristica">
+                    <h3 class="titulo-tarjeta">Sincronización Imprint® Link</h3>
+                    <p>Se coordina con tu Roomba® para que el **robot friegasuelos** actúe automáticamente después de aspirar.</p>
+                </div>
+                <div class="tarjeta-caracteristica">
+                    <img src="/icons/braava-smartscrub.svg" alt="SmartScrub" class="icono-caracteristica">
+                    <h3 class="titulo-tarjeta">SmartScrub™: Fregado 2X Más Profundo</h3>
+                    <p>Este innovador **sistema de fregado Braava** friega hacia adelante y hacia atrás, eliminando la suciedad persistente.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="video-demo" class="seccion-video-demo">
+            <h2 class="titulo-seccion">
+                Braava jet® m6 en Acción: Descubre su Poder como **Robot Friegasuelos**
+            </h2>
+            <div class="contenedor-video">
+                <iframe
+                    src="https://www.youtube.com/embed/YOUR_BRAAVA_VIDEO_ID"
+                    title="Demostración de iRobot Braava jet m6"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="iframe-video"
+                ></iframe>
+            </div>
+            <p class="texto-video-demo">
+                Observa cómo el **Braava friegasuelos** pulveriza, friega y navega inteligentemente para un hogar impecable.
+            </p>
+        </section>
+
+        <section class="seccion-tecnologia-inteligente">
+            <div class="contenido-tecnologia">
+                <div class="imagen-tecnologia">
+                    <img src="/images/braava-mapping-app.webp" alt="Mapeo inteligente con iRobot Home App" class="imagen-producto">
+                </div>
+                <div class="texto-tecnologia">
+                    <h2 class="titulo-seccion">
+                        Mapeo Inteligente Imprint® y Personalización Avanzada del **Robot Braava**
+                    </h2>
+                    <p>
+                        Con el mapeo inteligente Imprint®, tu **friegasuelos Braava** aprende el diseño de tu hogar. Crea zonas de limpieza específicas, zonas de exclusión, y envía tu **robot que friega** a una habitación determinada, todo desde la intuitiva aplicación iRobot Home.
+                    </p>
+                    <ul>
+                        <li>**Limpieza por habitación:** Dirige tu **robot friegasuelos Braava** a zonas específicas con solo un toque en la app.</li>
+                        <li>**Zonas de exclusión:** Define áreas que el **friegasuelos Braava** debe evitar al limpiar.</li>
+                        <li>**Rutas de limpieza personalizadas:** Ajusta los patrones y preferencias para una limpieza a medida de tu hogar.</li>
+                        <li>**Detección y prevención de peligros:** Tu **robot Braava** evita obstáculos para una limpieza ininterrumpida y segura.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-comparativa">
+            <h2 class="titulo-seccion">
+                Compara Braava jet® m6 con Otros Modelos **Friegasuelos iRobot**
+            </h2>
+            <div class="tabla-responsive">
+                <table class="tabla-comparativa">
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Braava jet® m6</th>
+                            <th>Braava jet® 240</th>
+                            <th>Roomba Combo® j5+ <br>(Aspirar y Fregar)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>**Tipo de Limpieza**</td>
+                            <td>Fregado avanzado (mopa húmeda/seca)</td>
+                            <td>Fregado (mopa desechable)</td>
+                            <td>Aspiración y Fregado</td>
+                        </tr>
+                        <tr>
+                            <td>**Navegación Inteligente**</td>
+                            <td>Imprint® Smart Mapping</td>
+                            <td>iAdapt® 2.0 (Básica)</td>
+                            <td>PrecisionVision™ Navegación</td>
+                        </tr>
+                        <tr>
+                            <td>**Pulverizador**</td>
+                            <td>Chorro a presión (para el **friegasuelos Braava**)</td>
+                            <td>Chorro de precisión</td>
+                            <td>No aplica (depósito de fregado)</td>
+                        </tr>
+                        <tr>
+                            <td>**Área de Cobertura Recomendada**</td>
+                            <td>Grandes espacios (varias habitaciones)</td>
+                            <td>Habitaciones individuales / Baños</td>
+                            <td>Grandes espacios</td>
+                        </tr>
+                        <tr>
+                            <td>**Conectividad**</td>
+                            <td>Wi-Fi, App iRobot Home, Voz</td>
+                            <td>Bluetooth (App iRobot Home limitada)</td>
+                            <td>Wi-Fi, App iRobot Home, Voz</td>
+                        </tr>
+                        <tr>
+                            <td>**Compatibilidad Imprint® Link**</td>
+                            <td>Sí (con Roomba selectos)</td>
+                            <td>No</td>
+                            <td>Sí (con Braava jet m6 si se quiere solo aspirar)</td>
+                        </tr>
+                         <tr>
+                            <td>**Recarga Automática y Reanudación**</td>
+                            <td>Sí</td>
+                            <td>No</td>
+                            <td>Sí</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="texto-comparativa">
+                El **robot friegasuelos Braava jet® m6** ofrece la limpieza de fregado más avanzada para tu hogar, diseñado para complementar perfectamente la aspiración de tu Roomba®.
+            </p>
+        </section>
+
+        <section id="opiniones-clientes" class="seccion-opiniones">
+            <h2 class="titulo-seccion">
+                Lo que Nuestros Clientes Dicen del **Robot Friegasuelos Braava jet® m6**
+            </h2>
+            <div class="lista-opiniones">
+                <div class="tarjeta-opinion">
+                    <div class="calificacion-opinion">
+                        <span class="estrellas">★★★★★</span>
+                        <span class="titulo-opinion">¡Impresionante Friegasuelos!</span>
+                    </div>
+                    <p class="texto-opinion">
+                        "Nunca pensé que mi suelo podría estar tan limpio sin mover un dedo. El **Braava m6** es una maravilla, sobre todo en la cocina. ¡Recomendado!"
+                    </p>
+                    <p class="autor-opinion">- Sofía P., Bilbao</p>
+                </div>
+                <div class="tarjeta-opinion">
+                    <div class="calificacion-opinion">
+                        <span class="estrellas">★★★★☆</span>
+                        <span class="titulo-opinion">Gran complemento para el hogar</span>
+                    </div>
+                    <p class="texto-opinion">
+                        "Lo compré para complementar mi Roomba y estoy encantado. La casa siempre está limpia gracias a este **robot que friega**. Un pequeño detalle: a veces se salta una esquina."
+                    </p>
+                    <p class="autor-opinion">- Javier M., Sevilla</p>
+                </div>
+                <div class="tarjeta-opinion">
+                    <div class="calificacion-opinion">
+                        <span class="estrellas">★★★★★</span>
+                        <span class="titulo-opinion">Adiós a la fregona con Braava</span>
+                    </div>
+                    <p class="texto-opinion">
+                        "La función de mapeo es súper útil. Puedo enviarlo a fregar solo el baño después de la ducha. Mi mejor inversión en limpieza, este **robot friegasuelos** vale cada euro."
+                    </p>
+                    <p class="autor-opinion">- Ana G., Valencia</p>
+                </div>
+            </div>
+            <div class="acciones-opiniones">
+                <a href="/braava/reviews" class="boton-secundario">Leer todas las opiniones</a>
+            </div>
+        </section>
+
+        <section class="seccion-especificaciones">
+            <h2 class="titulo-seccion">
+                Especificaciones Técnicas Detalladas del **Braava jet® m6 Friegasuelos**
+            </h2>
+            <div class="lista-especificaciones">
+                <div class="item-especificacion">
+                    <h3 class="titulo-especificacion">Dimensiones del Robot</h3>
+                    <p>33.8 cm (Largo) x 33.0 cm (Ancho) x 8.9 cm (Alto)</p>
+                </div>
+                <div class="item-especificacion">
+                    <h3 class="titulo-especificacion">Peso del Robot</h3>
+                    <p>2.2 kg</p>
+                </div>
+                <div class="item-especificacion">
+                    <h3 class="titulo-especificacion">Capacidad del Depósito</h3>
+                    <p>445 ml (para agua o solución de limpieza Braava jet™)</p>
+                </div>
+                <div class="item-especificacion">
+                    <h3 class="titulo-especificacion">Batería</h3>
+                    <p>Litio-ion (autonomía hasta 90-120 min de fregado en seco)</p>
+                </div>
+                <div class="item-especificacion">
+                    <h3 class="titulo-especificacion">Tiempo de Carga</h3>
+                    <p>Aproximadamente 3 horas para una carga completa</p>
+                </div>
+                <div class="item-especificacion">
+                    <h3 class="titulo-especificacion">Área de Cobertura</h3>
+                    <p>Hasta 90 m² con una carga (con recarga y reanudación, cubre áreas mayores)</p>
+                </div>
+                <div class="item-especificacion">
+                    <h3 class="titulo-especificacion">Tipo de Suelos</h3>
+                    <p>Suelos duros sellados (madera, baldosa, piedra, laminado, vinilo), perfecto para tu **friegasuelos automático**.</p>
+                </div>
+                <div class="item-especificacion">
+                    <h3 class="titulo-especificacion">Conectividad</h3>
+                    <p>Wi-Fi 802.11 b/g/n a 2.4 GHz, compatible con la App iRobot Home</p>
+                </div>
+                <div class="item-especificacion">
+                    <h3 class="titulo-especificacion">Nivel de Ruido</h3>
+                    <p>Extremadamente bajo, diseñado para operar discretamente mientras tu **robot friegasuelos** trabaja.</p>
+                </div>
+            </div>
+            <p class="nota-especificaciones">
+                *La autonomía y el área de cobertura pueden variar según el tipo de suelo, los paños utilizados y el entorno de uso del **friegasuelos Braava**.
+            </p>
+        </section>
+
+        <section class="seccion-packs-accesorios">
+            <h2 class="titulo-seccion">
+                Completa tu Limpieza: Packs y Accesorios para tu **Friegasuelos Braava**
+            </h2>
+            <div class="lista-packs">
+                <div class="tarjeta-pack">
+                    <img src="/images/bundle-roomba-braava.webp" alt="Paquete Roomba y Braava" class="imagen-pack">
+                    <h3 class="titulo-pack">
+                        Pack Impecable: Roomba® + **Braava jet® m6 Robot Friegasuelos**
+                    </h3>
+                    <p class="descripcion-pack">
+                        La combinación perfecta para un hogar sin preocupaciones. Tu Roomba® aspira, y automáticamente tu **Braava que friega** completa la limpieza.
+                    </p>
+                    <p class="ahorro-pack">
+                        ¡Compra el pack y ahorra hasta X% en tu solución de limpieza integral!
+                    </p>
+                    <a href="/packs-ahorro/roomba-braava" class="boton-principal">
+                        Ver Packs Ahorro
+                    </a>
+                </div>
+                <div class="tarjeta-pack">
+                    <img src="/images/braava-accessories.webp" alt="Accesorios Braava jet m6" class="imagen-pack">
+                    <h3 class="titulo-pack">
+                        Accesorios y Recambios Originales para **Braava Friegasuelos**
+                    </h3>
+                    <p class="descripcion-pack">
+                        Asegura el máximo rendimiento de tu **robot friegasuelos Braava** con paños de fregado, soluciones de limpieza y recambios originales.
+                    </p>
+                    <a href="/braava/accesorios" class="boton-principal">
+                        Comprar Accesorios
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-cta-final">
+            <h2 class="titulo-cta-final">
+                Transforma tu Rutina de Limpieza con **Braava jet® m6 Friegasuelos**
+            </h2>
+            <p class="texto-cta-final">
+                Experimenta la comodidad de tener suelos impecables, día tras día, sin esfuerzo, gracias a tu nuevo **robot que friega**.
+            </p>
+            <a href="/checkout/braava-m6" class="boton-cta-blanco">
+                Comprar Braava jet® m6 ahora
+            </a>
+            <div class="soporte-final">
+                <h3 class="titulo-soporte">¿Necesitas Ayuda o Tienes Preguntas sobre tu **Friegasuelos Braava**?</h3>
+                <div class="enlaces-soporte">
+                    <a href="/soporte/braava-m6-faq" class="enlace-soporte">
+                        Preguntas Frecuentes (FAQ)
+                    </a>
+                    <a href="/soporte/braava-m6-manuales" class="enlace-soporte">
+                        Manuales y Guías
+                    </a>
+                    <a href="/contacto" class="enlace-soporte">
+                        Contactar Soporte
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 </Layout>
+
+<style>
+    /* Estilos Generales y Reseteo */
+    :root {
+        --color-primario: #007bff; /* Azul iRobot */
+        --color-secundario: #f0f0f0; /* Gris claro */
+        --color-texto: #333;
+        --color-texto-claro: #666;
+        --color-blanco: #fff;
+        --color-negro: #000;
+        --color-exito: #28a745; /* Verde para ahorros */
+        --color-advertencia: #ffc107; /* Amarillo para estrellas */
+    }
+
+    /* Contenedores de Sección */
+    .seccion-hero,
+    .seccion-caracteristicas,
+    .seccion-video-demo,
+    .seccion-tecnologia-inteligente,
+    .seccion-comparativa,
+    .seccion-opiniones,
+    .seccion-especificaciones,
+    .seccion-packs-accesorios,
+    .seccion-cta-final {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .seccion-hero {
+        background-color: var(--color-secundario);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        text-align: center;
+    }
+
+    @media (min-width: 768px) {
+        .seccion-hero {
+            flex-direction: row;
+            text-align: left;
+        }
+        .contenido-hero, .imagen-hero {
+            flex: 1;
+            padding: 0 20px;
+        }
+    }
+
+    .seccion-video-demo, .seccion-opiniones, .seccion-especificaciones, .seccion-packs-accesorios {
+        background-color: var(--color-secundario); /* Alternar fondo para contraste */
+    }
+
+    .seccion-cta-final {
+        background-color: var(--color-primario);
+        color: var(--color-blanco);
+        text-align: center;
+    }
+
+    /* Títulos y Subtítulos */
+    .titulo-hero {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: var(--color-texto);
+        line-height: 1.2;
+    }
+
+    .titulo-hero .resaltado {
+        color: var(--color-primario);
+    }
+
+    .subtitulo-hero {
+        font-size: 1.2em;
+        color: var(--color-texto-claro);
+        margin-top: 15px;
+    }
+
+    .titulo-seccion {
+        font-size: 2em;
+        font-weight: bold;
+        color: var(--color-texto);
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .titulo-cta-final {
+        font-size: 2.2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .texto-cta-final {
+        font-size: 1.1em;
+        margin-bottom: 40px;
+    }
+
+    .titulo-soporte {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        padding-top: 30px;
+    }
+
+    /* Botones */
+    .boton-principal, .boton-secundario, .boton-cta-blanco {
+        display: inline-block;
+        padding: 12px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        font-size: 1.1em;
+        margin: 10px;
+    }
+
+    .boton-principal {
+        background-color: var(--color-primario);
+        color: var(--color-blanco);
+        border: 2px solid var(--color-primario);
+    }
+
+    .boton-principal:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+    }
+
+    .boton-secundario {
+        background-color: transparent;
+        color: var(--color-primario);
+        border: 2px solid var(--color-primario);
+    }
+
+    .boton-secundario:hover {
+        background-color: var(--color-primario);
+        color: var(--color-blanco);
+    }
+
+    .boton-cta-blanco {
+        background-color: var(--color-blanco);
+        color: var(--color-primario);
+        border: 2px solid var(--color-blanco);
+    }
+
+    .boton-cta-blanco:hover {
+        background-color: var(--color-secundario);
+        color: var(--color-primario);
+    }
+
+    /* Precio y Reseñas */
+    .precio-reseñas {
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Centrar para móvil */
+        margin-top: 20px;
+    }
+
+    @media (min-width: 768px) {
+        .precio-reseñas {
+            justify-content: flex-start; /* Alinear a la izquierda en desktop */
+        }
+    }
+
+    .precio {
+        font-size: 2em;
+        font-weight: bold;
+        color: var(--color-negro);
+        margin-right: 20px;
+    }
+
+    .estrellas-reseñas {
+        display: flex;
+        align-items: center;
+    }
+
+    .estrellas {
+        color: var(--color-advertencia);
+        font-size: 1.2em;
+        margin-right: 5px;
+    }
+
+    .enlace-reseñas {
+        color: var(--color-primario);
+        font-size: 0.9em;
+        text-decoration: none;
+    }
+
+    .enlace-reseñas:hover {
+        text-decoration: underline;
+    }
+
+    /* Imágenes */
+    .imagen-producto {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Lista de Características */
+    .lista-caracteristicas {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+        .lista-caracteristicas {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .lista-caracteristicas {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .tarjeta-caracteristica {
+        text-align: center;
+        padding: 30px;
+        background-color: var(--color-blanco);
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .icono-caracteristica {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 20px;
+    }
+
+    .titulo-tarjeta {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: var(--color-texto);
+        margin-bottom: 10px;
+    }
+
+    /* Video Demo */
+    .contenedor-video {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        max-width: 900px; /* Limitar ancho del video */
+        margin: 0 auto;
+    }
+
+    .iframe-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    .texto-video-demo {
+        font-size: 1.1em;
+        color: var(--color-texto-claro);
+        margin-top: 30px;
+    }
+
+    /* Sección de Tecnología Inteligente */
+    .seccion-tecnologia-inteligente {
+        background-color: var(--color-blanco);
+    }
+
+    .contenido-tecnologia {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50px;
+    }
+
+    @media (min-width: 768px) {
+        .contenido-tecnologia {
+            flex-direction: row;
+            text-align: left;
+        }
+        .imagen-tecnologia, .texto-tecnologia {
+            flex: 1;
+            padding: 0 20px;
+        }
+    }
+
+    .texto-tecnologia ul {
+        list-style: disc;
+        padding-left: 20px;
+        margin-top: 20px;
+    }
+
+    .texto-tecnologia li {
+        margin-bottom: 10px;
+        color: var(--color-texto-claro);
+    }
+
+    /* Tabla Comparativa */
+    .tabla-responsive {
+        overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .tabla-comparativa {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 600px; /* Asegura que la tabla no sea demasiado estrecha */
+        background-color: var(--color-blanco);
+    }
+
+    .tabla-comparativa th, .tabla-comparativa td {
+        padding: 15px;
+        border-bottom: 1px solid var(--color-secundario);
+        text-align: left;
+    }
+
+    .tabla-comparativa th {
+        background-color: var(--color-primario);
+        color: var(--color-blanco);
+        font-weight: bold;
+    }
+
+    .tabla-comparativa tr:last-child td {
+        border-bottom: none;
+    }
+
+    .texto-comparativa {
+        font-size: 1em;
+        color: var(--color-texto-claro);
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    /* Opiniones de Clientes */
+    .lista-opiniones {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+        .lista-opiniones {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .lista-opiniones {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .tarjeta-opinion {
+        padding: 30px;
+        background-color: var(--color-blanco);
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        text-align: left;
+    }
+
+    .calificacion-opinion {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .calificacion-opinion .estrellas {
+        font-size: 1.1em;
+        margin-right: 10px;
+    }
+
+    .titulo-opinion {
+        font-weight: bold;
+        color: var(--color-negro);
+        font-size: 1.1em;
+    }
+
+    .texto-opinion {
+        font-style: italic;
+        color: var(--color-texto);
+        margin-top: 15px;
+    }
+
+    .autor-opinion {
+        font-size: 0.9em;
+        color: var(--color-texto-claro);
+        margin-top: 15px;
+        text-align: right;
+    }
+
+    .acciones-opiniones {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    /* Especificaciones Técnicas */
+    .lista-especificaciones {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+        .lista-especificaciones {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .lista-especificaciones {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .item-especificacion {
+        padding: 20px;
+        background-color: var(--color-blanco);
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+
+    .titulo-especificacion {
+        font-weight: bold;
+        color: var(--color-negro);
+        margin-bottom: 10px;
+    }
+
+    .nota-especificaciones {
+        font-size: 0.9em;
+        color: var(--color-texto-claro);
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    /* Packs y Accesorios */
+    .lista-packs {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+        .lista-packs {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    .tarjeta-pack {
+        padding: 30px;
+        background-color: var(--color-blanco);
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .imagen-pack {
+        max-height: 150px;
+        margin: 0 auto 20px;
+    }
+
+    .titulo-pack {
+        font-size: 1.4em;
+        font-weight: bold;
+        color: var(--color-negro);
+        margin-bottom: 15px;
+    }
+
+    .descripcion-pack {
+        color: var(--color-texto);
+        margin-bottom: 20px;
+    }
+
+    .ahorro-pack {
+        font-weight: bold;
+        color: var(--color-exito);
+        margin-bottom: 20px;
+    }
+
+    /* Soporte Final */
+    .soporte-final {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .enlaces-soporte {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    @media (min-width: 600px) {
+        .enlaces-soporte {
+            flex-direction: row;
+            justify-content: center;
+        }
+    }
+
+    .enlace-soporte {
+        color: var(--color-blanco);
+        text-decoration: none;
+        font-size: 1.1em;
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .enlace-soporte:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        text-decoration: underline;
+    }
+</style>

@@ -2,6 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import CategoryHeader from '../../components/CategoryHeader.astro';
 import { schemaWebSite, schemaArticle } from '../../datos/seoBase';
+import { withDomain } from '../../datos/database';
+import FaqAccordion from '../../components/FaqAccordion.astro';
 
 const title = "iRobot - Limpieza Inteligente";
 const description = "Descubre la gama iRobot: aspiradores y fregasuelos robotizados para una limpieza autónoma, eficiente y profunda.";
@@ -23,6 +25,51 @@ const schemas = [
     dateModified: modDatetime,
   }),
 ];
+const urlRoombaCombo = withDomain("/irobot/roomba-combo/")
+const urlRoomba = withDomain("/irobot/roomba/")
+const urlBraava = withDomain("/irobot/braava/")
+const faqs = [
+  {
+    "question": "¿Cuál es el problema con la empresa iRobot?",
+    "answer": "iRobot ha enfrentado desafíos financieros con pérdidas continuas, una disminución significativa de sus acciones y la cancelación de su acuerdo de adquisición por parte de Amazon, lo que llevó a despidos de personal."
+  },
+  {
+    "question": "¿Por qué Amazon canceló iRobot?",
+    "answer": "Amazon canceló la adquisición de iRobot debido a 'obstáculos regulatorios indebidos y desproporcionados', especialmente por objeciones antimonopolio de la Unión Europea que temían que Amazon favoreciera sus propios productos en su plataforma."
+  },
+  {
+    "question": "¿Por qué están cayendo las acciones de iRobot?",
+    "answer": "Las acciones de iRobot han caído significativamente debido a la cancelación del acuerdo con Amazon, las pérdidas financieras continuas de la empresa y la creciente competencia en el mercado de robots de limpieza."
+  },
+  {
+    "question": "¿Por qué fracasó el acuerdo con iRobot?",
+    "answer": "El acuerdo de adquisición entre Amazon e iRobot fracasó porque no obtuvo la aprobación regulatoria, particularmente por las preocupaciones antimonopolio de la Comisión Europea que creían que la fusión afectaría la competencia en el mercado."
+  },
+  {
+    "question": "¿Quién compró Roomba?",
+    "answer": "Roomba es un producto de la empresa iRobot. Amazon intentó comprar iRobot (y por ende Roomba), pero el acuerdo fue cancelado."
+  },
+  {
+    "question": "¿Podrá Amazon comprar iRobot?",
+    "answer": "No, Amazon canceló su intento de comprar iRobot en enero de 2024 debido a problemas regulatorios y objeciones antimonopolio."
+  },
+  {
+    "question": "¿Quién fabrica iRobot?",
+    "answer": "iRobot Corporation es una empresa estadounidense que diseña y construye sus robots. Utiliza fabricantes por contrato en el sur de China, Vietnam y Malasia para la producción."
+  },
+  {
+    "question": "¿Por qué se cae iRobot?",
+    "answer": "iRobot está experimentando dificultades debido a problemas financieros (pérdidas), la creciente competencia de otras marcas de robots de limpieza y el fracaso de su acuerdo de adquisición con Amazon."
+  },
+  {
+    "question": "¿Quién iba a comprar el iRobot?",
+    "answer": "Amazon iba a comprar iRobot, pero el acuerdo fue cancelado."
+  },
+  {
+    "question": "¿Roomba y iRobot son la misma empresa?",
+    "answer": "No, Roomba es una línea de productos (robots aspiradores) fabricada por la empresa iRobot. iRobot es la empresa matriz."
+  }
+];
 ---
 
 <Layout 
@@ -31,29 +78,96 @@ const schemas = [
   schemas={schemas}
 >
   <main>
-    <CategoryHeader
-      h1="Dominando la Limpieza del Hogar: iRobot, la Solución Definitiva para Aspirar y Fregar"
-      p="En la búsqueda incesante de un hogar impecable, la tecnología ha avanzado para ofrecernos soluciones que antes solo imaginábamos. Si su intención de búsqueda gira en torno a aspiradores y fregasuelos robotizados, ha llegado al lugar indicado."
-    />
     <section class="container">
-      <p><strong>iRobot</strong> no es solo una marca; es la promesa de una limpieza autónoma, eficiente y profunda. Olvídese de la tediosa tarea de aspirar y luego fregar. Con los aspiradores y fregasuelos iRobot, su hogar se mantendrá radiante con el mínimo esfuerzo.</p>
-      <p>Nuestros equipos combinan la potencia de succión más avanzada con sistemas de fregado inteligentes, garantizando que cada rincón de su vivienda quede impecable. Desde la eliminación de polvo y alérgenos hasta la limpieza de manchas difíciles, los robot aspiradores y friegasuelos iRobot son la inversión inteligente para su bienestar.</p>
+        <h1>Descubre iRobot: Innovación en Robots de Limpieza para tu Hogar</h1>
+        <p>iRobot ha revolucionado la forma en que limpiamos nuestros hogares. Con una trayectoria de innovación y millones de robots vendidos, la marca se ha consolidado como líder en soluciones de limpieza inteligente. Desde aspiradoras que aprenden tu hogar hasta mopas que friegan tus suelos, iRobot te ofrece tecnología de vanguardia para un hogar más limpio con menos esfuerzo.</p>
     </section>
+
     <section class="container">
-      <h2>¿Por qué elegir iRobot para la limpieza de su hogar?</h2>
-      <ul class="features-list">
-        <li><strong>Tecnología de Vanguardia:</strong> Nuestros modelos integran sensores avanzados, navegación inteligente y algoritmos de limpieza optimizados para adaptarse a cualquier tipo de suelo y suciedad.</li>
-        <li><strong>Eficiencia Inigualable:</strong> Ahorre tiempo y esfuerzo, permitiendo que su iRobot aspirador y fregasuelos se encargue de la rutina de limpieza diaria.</li>
-        <li><strong>Resultados Profesionales:</strong> Disfrute de suelos brillantes y libres de suciedad, como si un equipo de limpieza profesional visitara su hogar a diario.</li>
-        <li><strong>Opiniones Reales:</strong> Las opiniones de iRobot friegasuelos de miles de usuarios satisfechos confirman su rendimiento superior y su fiabilidad. La comunidad de iRobot es un testimonio del valor que estos dispositivos aportan a los hogares modernos.</li>
-      </ul>
+        <h2>Nuestro Modelo Más Destacado: iRobot Roomba j9+ Combo</h2>
+        <div class="featured-product">
+            <img src="placeholder-roomba-j9-plus-combo.jpg" alt="iRobot Roomba j9+ Combo" style="max-width: 300px; height: auto; display: block; margin: 0 auto;">
+            <h3>Características Principales:</h3>
+            <ul>
+                <li><strong>Aspiración y Fregado Poderosos:</strong> El Roomba j9+ Combo ofrece la máxima potencia de succión para el aspirado y un fregado potente para eliminar la suciedad más pegada, todo en un solo dispositivo.</li>
+                <li><strong>Tecnología Dirt Detective:</strong> Identifica automáticamente las áreas más sucias de tu hogar y las limpia con mayor intensidad, asegurando un nivel de limpieza superior.</li>
+                <li><strong>Base de Vaciado y Llenado Automático Clean Base®:</strong> Olvídate de vaciar el depósito de polvo por meses y de rellenar el depósito de agua de tu robot, el j9+ Combo lo hace por ti.</li>
+                <li><strong>Navegación Precisa y Detección de Obstáculos:</strong> Evita objetos inesperados como cables o excrementos de mascotas gracias a su navegación PrecisionVision, garantizando una limpieza sin interrupciones.</li>
+                <li><strong>Mapeo Inteligente Imprint®:</strong> Aprende el diseño de tu hogar para limpiar de forma eficiente y te permite especificar qué habitaciones limpiar y cuándo.</li>
+            </ul>
+            <p>El Roomba j9+ Combo es la solución definitiva para quienes buscan una limpieza integral y autónoma, manejando tanto el aspirado como el fregado con una eficiencia inigualable.</p>
+        </div>
     </section>
+
     <section class="container">
-      <h2>La Excelencia en Limpieza se Llama iRobot Roomba</h2>
-      <p>Cuando piense en la máxima expresión de la limpieza autónoma, piense en la gama iRobot Roomba. Estos prodigios de la ingeniería están diseñados para superar todas sus expectativas.</p>
-      <p><strong>¡Es hora de experimentar la revolución en la limpieza!</strong></p>
-      <p>Si busca un robot aspirador y fregasuelos que marque la diferencia, la línea iRobot Roomba aspirador y fregasuelos es su elección. Desde la potencia de aspiración inigualable hasta la capacidad de fregar suelos de manera impecable, los modelos iRobot Roomba fregasuelos están listos para transformar su rutina.</p>
-      <p>No espere más para disfrutar de un hogar más limpio y saludable. Explore nuestra gama de iRobot Roomba y descubra el modelo perfecto para usted.</p>
+        <h2>Las Familias de Productos iRobot</h2>
+        <p>iRobot ofrece diferentes líneas de productos, cada una diseñada para satisfacer necesidades específicas de limpieza. Las más populares son Roomba para aspiración, Braava para fregado y los innovadores Roomba Combo que combinan ambas funciones.</p>
+        <div class="product-categories">
+            <div class="category-card">
+                <h3><a href={urlRoomba} title="Robots Aspiradores iRobot Roomba" aria-label="Robots Aspiradores iRobot Roomba">iRobot Roomba: La Aspiración Inteligente</a></h3>
+                <p>Descubre la gama de robots aspiradores que han definido la categoría. Los Roomba son expertos en eliminar polvo, suciedad y pelo de mascotas de todo tipo de suelos y alfombras, con modelos que van desde lo esencial hasta la máxima sofisticación.</p>
+                <ul>
+                    <li>Potencia de succión superior.</li>
+                    <li>Sistemas de navegación avanzados.</li>
+                    <li>Perfectos para pelo de mascotas y alérgenos.</li>
+                </ul>
+            </div>
+            <div class="category-card">
+                <h3><a href={urlBraava} title="Robots Friegasuelos iRobot Braava" aria-label="Robots Friegasuelos iRobot Braava">iRobot Braava: Fregado Impecable para Suelos Duros</a></h3>
+                <p>Las mopas robot Braava están diseñadas para dejar tus suelos duros relucientes. Con tecnología de pulverización de precisión y almohadillas especializadas, son ideales para mantener la limpieza diaria y eliminar manchas.</p>
+                <ul>
+                    <li>Fregado y barrido en seco.</li>
+                    <li>Modos de limpieza específicos para cada tipo de suciedad.</li>
+                    <li>Funcionamiento silencioso.</li>
+                </ul>
+            </div>
+            <div class="category-card">
+                <h3><a href={urlRoombaCombo} title="Robots Aspirador y Friegasuelos iRobot Roomba Combo" aria-label="Robots Aspirador y Friegasuelos iRobot Roomba Combo">iRobot Roomba Combo: La Solución 2 en 1</a></h3>
+                <p>Para aquellos que buscan lo mejor de ambos mundos, los modelos Roomba Combo aspiran y friegan en un solo dispositivo. Son la opción ideal para una limpieza integral de suelos duros, reduciendo el número de aparatos en tu hogar.</p>
+                <ul>
+                    <li>Aspiración potente y fregado efectivo.</li>
+                    <li>Funcionalidad dual en un mismo robot.</li>
+                    <li>Máxima comodidad y eficiencia.</li>
+                </ul>
+            </div>
+        </div>
     </section>
-  </main>
+
+    <section class="container">
+        <h2>¿Por Qué Elegir un Robot de Limpieza iRobot?</h2>
+        <div class="reasons-list">
+            <div class="reason-item">
+                <h3>Tecnología de Vanguardia</h3>
+                <p>iRobot invierte constantemente en investigación y desarrollo para ofrecer la tecnología más avanzada en limpieza robótica, desde la navegación inteligente hasta los sistemas de cepillos autoajustables.</p>
+            </div>
+            <div class="reason-item">
+                <h3>Rendimiento Comprobado</h3>
+                <p>Millones de hogares en todo el mundo confían en iRobot. Sus robots están diseñados para un rendimiento superior, dejando tus suelos visiblemente más limpios.</p>
+            </div>
+            <div class="reason-item">
+                <h3>Facilidad de Uso</h3>
+                <p>Con la intuitiva aplicación iRobot Home, puedes controlar, programar y personalizar la limpieza de tu robot desde cualquier lugar, haciendo la limpieza más sencilla que nunca.</p>
+            </div>
+            <div class="reason-item">
+                <h3>Durabilidad y Soporte</h3>
+                <p>Los productos iRobot están construidos para durar, y la marca ofrece un sólido soporte al cliente para asegurar tu satisfacción a largo plazo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h2>Encuentra Tu Robot iRobot Ideal</h2>
+        <p>Ya sea que necesites un potente aspirador, una mopa robótica, o una solución combinada, iRobot tiene el modelo perfecto para ti. Explora nuestras categorías y descubre cómo la limpieza inteligente puede transformar tu vida.</p>
+        <div class="call-to-action">
+            <a href={urlRoomba} class="button" aria-label="ver robots aspiradores roomba">Ver Robots Aspiradores Roomba</a>
+            <a href={urlBraava} class="button" aria-label="ver robots friegasuelos braava">Ver Robots Friegasuelos Braava</a>
+            <a href={urlRoombaCombo} class="button" aria-label="Ver Robots 2 en 1 Roomba Combo">Ver Robots 2 en 1 Roomba Combo</a>
+        </div>
+    </section>
+
+    <section class="container">
+      <h2>Preguntas frecuentes sobre irobot</h2>
+      <FaqAccordion faqs={faqs} />
+    </section>
+</main>
 </Layout>

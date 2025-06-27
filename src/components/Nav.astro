@@ -1,9 +1,5 @@
 ---
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
-function withDomain(slug) {
-  if (!slug) return '';
-  return SITE_URL.replace(/\/$/, '') + (slug.startsWith('/') ? slug : '/' + slug);
-}
+import { withDomain } from "../datos/database";
 const marcas = [
   { name: "Cecotec", link: withDomain("/cecotec/") },
   {
@@ -11,7 +7,8 @@ const marcas = [
     link: withDomain("/irobot/"),
     subitems: [
       { name: "Roomba", link: withDomain("/irobot/roomba/") },
-      { name: "Braava", link: withDomain("/irobot/bravaa/") }
+      { name: "Braava", link: withDomain("/irobot/bravaa/") },
+      { name: "Rommba Combo", link: withDomain("/irobot/roomba-combo/") }
     ]
   },
   { name: "Xiaomi", link: withDomain("/xiaomi/") }

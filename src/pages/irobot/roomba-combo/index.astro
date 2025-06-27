@@ -355,15 +355,11 @@ const schemas=[
 </main>
 </Layout>
 
-<style>
-    /* IMPORTANTE: Asegúrate de que las clases 'container', H1, H2, H3, H4, P
-        ya están definidas en tu Layout.astro o en un CSS global de Astro.
-        Si no lo están, DEBERÍAS mover esos estilos fuera de este archivo
-        e incluirlos globalmente para evitar duplicidad en cada página. */
+<style is:inline >
 
     /* Estilos generales para listas y enlaces */
     ul {
-        list-style: none;
+    list-style: none;
         padding: 0;
         margin-bottom: 15px;
     }

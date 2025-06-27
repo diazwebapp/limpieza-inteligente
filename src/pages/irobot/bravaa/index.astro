@@ -23,7 +23,7 @@ const schemas = [
 
 <Layout title={title} description={description} schemas={schemas}>
     <main>
-        <section class="seccion-hero container">
+        <section class="seccion-hero">
             <div class="contenido-hero">
                 <h1 class="titulo-hero">
                     Robots **Friegasuelos Braava**: Innovación para Suelos Impecables
@@ -45,7 +45,7 @@ const schemas = [
             </div>
         </section>
 
-        <section id="nuestra-gama" class="container seccion-gama-braava">
+        <section id="nuestra-gama" class="seccion-gama-braava">
             <h2 class="titulo-seccion">
                 Conoce la Familia de **Friegasuelos Braava** de iRobot
             </h2>
@@ -53,7 +53,7 @@ const schemas = [
             <div class="producto-estrella">
                 <div class="contenido-estrella">
                     <h3 class="titulo-estrella">Nuestro Producto Estrella: El **Braava jet® m6**</h3>
-                    <p class="descripcion-estrella">
+                    <p class="">
                         El **Braava jet® m6** es el **robot friegasuelos** más avanzado de iRobot. Con su pulverizador de chorro a presión y mapeo inteligente, ofrece una limpieza profunda e impecable para grandes espacios, cocinas y baños. Sincronízalo con tu Roomba® para una limpieza completa de aspirado y fregado.
                     </p>
                     <div class="precio-reseñas">
@@ -87,7 +87,7 @@ const schemas = [
             </div>
         </section>
 
-        <section id="video-demo" class="container seccion-video-demo">
+        <section id="video-demo" class="seccion-video-demo">
             <h2 class="titulo-seccion">
                 El **Braava jet® m6** en Acción: Descubre su Poder como **Robot Friegasuelos**
             </h2>
@@ -106,7 +106,7 @@ const schemas = [
             </p>
         </section>
 
-        <section class="container seccion-tecnologia-inteligente">
+        <section class="seccion-tecnologia-inteligente">
             <div class="contenido-tecnologia">
                 <div class="imagen-tecnologia">
                     <img width="200" height="200" loading="lazy" src="https://m.media-amazon.com/images/S/aplus-media/vc/63a6fab0-7e3d-473f-bd76-0e6959043eaf.__CR0,0,2000,2000_PT0_SX220_V1___.jpg" alt="Mapeo inteligente con iRobot Home App" class="imagen-producto">
@@ -128,7 +128,7 @@ const schemas = [
             </div>
         </section>
 
-        <section class="container seccion-comparativa">
+        <section class="seccion-comparativa">
             <h2 class="titulo-seccion">
                 Compara Modelos de **Friegasuelos iRobot Braava**
             </h2>
@@ -193,7 +193,7 @@ const schemas = [
             </p>
         </section>
 
-        <section id="opiniones-clientes" class="container seccion-opiniones">
+        <section id="opiniones-clientes" class="seccion-opiniones">
             <h2 class="titulo-seccion">
                 Lo que Nuestros Clientes Dicen del **Robot Friegasuelos Braava jet® m6**
             </h2>
@@ -229,10 +229,12 @@ const schemas = [
                     <p class="autor-opinion">- Ana G., Valencia</p>
                 </div>
             </div>
-            
+            <div class="acciones-opiniones">
+                <a href="/braava/reviews" class="boton-secundario">Leer todas las opiniones del m6</a>
+            </div>
         </section>
 
-        <section class="container seccion-especificaciones">
+        <section class="seccion-especificaciones">
             <h2 class="titulo-seccion">
                 Especificaciones Técnicas Detalladas del **Braava jet® m6 Friegasuelos**
             </h2>
@@ -279,634 +281,437 @@ const schemas = [
             </p>
         </section>
 
+        <section class="seccion-packs-accesorios">
+            <h2 class="titulo-seccion">
+                Completa tu Limpieza: Packs y Accesorios para tu **Friegasuelos Braava**
+            </h2>
+            <div class="lista-packs">
+                <div class="tarjeta-pack">
+                    <img loading="lazy" width="200" height="150" src="/images/bundle-roomba-braava.webp" alt="Paquete Roomba y Braava" class="imagen-pack">
+                    <h3 class="titulo-pack">
+                        Pack Impecable: Roomba® + **Braava jet® m6 Robot Friegasuelos**
+                    </h3>
+                    <p class="descripcion-pack">
+                        La combinación perfecta para un hogar sin preocupaciones. Tu Roomba® aspira, y automáticamente tu **Braava que friega** completa la limpieza.
+                    </p>
+                    <p class="ahorro-pack">
+                        ¡Compra el pack y ahorra hasta X% en tu solución de limpieza integral!
+                    </p>
+                    <a href="/packs-ahorro/roomba-braava" class="boton-principal">
+                        Ver Packs Ahorro
+                    </a>
+                </div>
+                <div class="tarjeta-pack">
+                    <img loading="lazy" width="200" height="150" src="/images/braava-accessories.webp" alt="Accesorios Braava jet m6" class="imagen-pack">
+                    <h3 class="titulo-pack">
+                        Accesorios y Recambios Originales para **Braava Friegasuelos**
+                    </h3>
+                    <p class="descripcion-pack">
+                        Asegura el máximo rendimiento de tu **robot friegasuelos Braava** con paños de fregado, soluciones de limpieza y recambios originales.
+                    </p>
+                    <a href="/braava/accesorios" class="boton-principal">
+                        Comprar Accesorios
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="seccion-cta-final">
+            <h2 class="titulo-cta-final">
+                Transforma tu Rutina de Limpieza con un **Robot Friegasuelos Braava**
+            </h2>
+            <p class="texto-cta-final">
+                Experimenta la comodidad de tener suelos impecables, día tras día, sin esfuerzo, gracias a la tecnología de los **robots Braava**.
+            </p>
+            <a href="/checkout/braava-linea" class="boton-cta-blanco">
+                Explora la Línea Braava Ahora
+            </a>
+            <div class="soporte-final">
+                <h3 class="titulo-soporte">¿Necesitas Ayuda o Tienes Preguntas sobre tu **Friegasuelos Braava**?</h3>
+                <div class="enlaces-soporte">
+                    <a href="/soporte/braava-m6-faq" class="enlace-soporte">
+                        Preguntas Frecuentes (FAQ)
+                    </a>
+                    <a href="/soporte/braava-m6-manuales" class="enlace-soporte">
+                        Manuales y Guías
+                    </a>
+                    <a href="/contacto" class="enlace-soporte">
+                        Contactar Soporte
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 </Layout>
 
 <style>
     /* Estilos Generales y Reseteo */
     :root {
-        --color-primario: #007bff; /* Azul iRobot */
-        --color-secundario: #f0f0f0; /* Gris claro */
-        --color-texto: #333;
-        --color-texto-claro: #666;
-        --color-blanco: #fff;
-        --color-negro: #000;
-        --color-exito: #28a745; /* Verde para ahorros */
-        --color-advertencia: #ffc107; /* Amarillo para estrellas */
-    }
+    --color-primario: #007bff;
+    --color-secundario: #f0f0f0;
+    --color-texto: #333;
+    --color-texto-claro: #666;
+    --color-blanco: #fff;
+    --color-negro: #000;
+    --color-exito: #28a745;
+    --color-advertencia: #ffc107;
+}
 
-    body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        color: var(--color-texto);
-        margin: 0;
-        padding: 0;
-        background-color: var(--color-secundario);
-    }
+/* Estilos base */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-secundario);
+}
 
-    /* Contenedores de Sección */
-    .seccion-hero,
-    .seccion-gama-braava, /* Nuevo contenedor para la gama */
-    .seccion-video-demo,
-    .seccion-tecnologia-inteligente,
-    .seccion-comparativa,
-    .seccion-opiniones,
-    .seccion-especificaciones,
-    .seccion-packs-accesorios,
-     {
-        padding: 60px 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+/* Estructuras comunes */
+.seccion {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-    .seccion-hero {
-        background-color: var(--color-secundario);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-        text-align: center;
-    }
+.seccion-bg-blanco {
+    background-color: var(--color-blanco);
+}
 
-    @media (min-width: 768px) {
-        .seccion-hero {
-            flex-direction: row;
-            text-align: left;
-        }
-        .contenido-hero, .imagen-hero {
-            flex: 1;
-            padding: 0 20px;
-        }
-    }
+.seccion-bg-gris {
+    background-color: var(--color-secundario);
+}
 
-    .seccion-gama-braava, .seccion-opiniones, .seccion-especificaciones {
-        background-color: var(--color-blanco); /* Alternar fondo para contraste */
-    }
-    .seccion-video-demo, .seccion-comparativa, .seccion-packs-accesorios {
-        background-color: var(--color-secundario);
-    }
+.seccion-bg-azul {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
 
-   
+/* Contenedores flexibles */
+.contenedor-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
 
-    /* Títulos y Subtítulos */
-    .titulo-hero {
-        font-size: 2.5em;
-        font-weight: bold;
-        color: var(--color-texto);
-        line-height: 1.2;
+@media (min-width: 768px) {
+    .contenedor-flex {
+        flex-direction: row;
+        text-align: left;
     }
-
-    .titulo-hero .resaltado {
-        color: var(--color-primario);
+    .contenedor-flex > * {
+        flex: 1;
+        padding: 0 20px;
     }
+}
 
-    .subtitulo-hero {
-        font-size: 1.2em;
-        color: var(--color-texto-claro);
-        margin-top: 15px;
-    }
+/* Tipografía */
+.titulo {
+    font-weight: bold;
+    color: var(--color-texto);
+    line-height: 1.2;
+}
 
-    .titulo-seccion {
-        font-size: 2em;
-        font-weight: bold;
-        color: var(--color-texto);
-        text-align: center;
-        margin-bottom: 40px;
-    }
-    .subtitulo-gama {
-        font-size: 1.6em;
-        font-weight: bold;
-        color: var(--color-texto);
-        text-align: center;
-        margin-top: 60px;
-        margin-bottom: 30px;
-    }
+.titulo-hero {
+    font-size: 2.5em;
+}
 
-   
+.titulo-seccion {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 40px;
+}
 
-    .texto-cta-final {
-        font-size: 1.1em;
-        margin-bottom: 40px;
-    }
+.titulo-estrella {
+    font-size: 1.8em;
+    color: var(--color-negro);
+}
 
-    .titulo-soporte {
-        font-size: 1.5em;
-        font-weight: bold;
-        margin-top: 50px;
-        margin-bottom: 20px;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-        padding-top: 30px;
-    }
+.titulo-cta {
+    font-size: 2.2em;
+}
 
-    /* Botones */
-    .boton-principal, .boton-secundario, .boton-cta-blanco {
-        display: inline-block;
-        padding: 12px 25px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        font-size: 1.1em;
-        margin: 10px;
-    }
+.subtitulo {
+    color: var(--color-texto-claro);
+}
 
-    .boton-principal {
-        background-color: var(--color-primario);
-        color: var(--color-blanco);
-        border: 2px solid var(--color-primario);
-    }
+.subtitulo-hero {
+    font-size: 1.2em;
+    margin-top: 15px;
+}
 
-    .boton-principal:hover {
-        background-color: #0056b3;
-        border-color: #0056b3;
-    }
+.subtitulo-gama {
+    font-size: 1.6em;
+    margin: 60px 0 30px;
+}
 
-    .boton-secundario {
-        background-color: transparent;
-        color: var(--color-primario);
-        border: 2px solid var(--color-primario);
-    }
+/* Botones */
+.boton {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    margin: 10px;
+    border: 2px solid;
+}
 
-    .boton-secundario:hover {
-        background-color: var(--color-primario);
-        color: var(--color-blanco);
-    }
+.boton-primario {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border-color: var(--color-primario);
+}
 
-    .boton-cta-blanco {
-        background-color: var(--color-blanco);
-        color: var(--color-primario);
-        border: 2px solid var(--color-blanco);
-    }
+.boton-primario:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
 
-    .boton-cta-blanco:hover {
-        background-color: var(--color-secundario);
-        color: var(--color-primario);
-    }
+.boton-secundario {
+    background-color: transparent;
+    color: var(--color-primario);
+    border-color: var(--color-primario);
+}
 
-    /* Precio y Reseñas */
+.boton-secundario:hover {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+}
+
+.boton-blanco {
+    background-color: var(--color-blanco);
+    color: var(--color-primario);
+    border-color: var(--color-blanco);
+}
+
+.boton-blanco:hover {
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
+}
+
+/* Componentes comunes */
+.precio-reseñas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
     .precio-reseñas {
-        display: flex;
-        align-items: center;
-        justify-content: center; /* Centrar para móvil */
-        margin-top: 20px;
+        justify-content: flex-start;
     }
+}
 
-    @media (min-width: 768px) {
-        .precio-reseñas {
-            justify-content: flex-start; /* Alinear a la izquierda en desktop */
-        }
-    }
+.precio {
+    font-size: 2em;
+    font-weight: bold;
+    color: var(--color-negro);
+    margin-right: 20px;
+}
 
-    .precio {
-        font-size: 2em;
-        font-weight: bold;
-        color: var(--color-negro);
-        margin-right: 20px;
-    }
+.estrellas {
+    color: var(--color-advertencia);
+    font-size: 1.2em;
+    margin-right: 5px;
+}
 
-    .estrellas-reseñas {
-        display: flex;
-        align-items: center;
-    }
+.enlace {
+    color: var(--color-primario);
+    text-decoration: none;
+}
 
-    .estrellas {
-        color: var(--color-advertencia);
-        font-size: 1.2em;
-        margin-right: 5px;
-    }
+.enlace:hover {
+    text-decoration: underline;
+}
 
-    .enlace-reseñas {
-        color: var(--color-primario);
-        font-size: 0.9em;
-        text-decoration: none;
-    }
+/* Imágenes */
+.imagen {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
-    .enlace-reseñas:hover {
-        text-decoration: underline;
-    }
+.imagen-listado {
+    margin-bottom: 15px;
+}
 
-    /* Imágenes */
-    .imagen-producto {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-    .imagen-producto-listado {
-        max-width: 100%;
-        height: auto;
-        margin-bottom: 15px;
-    }
+/* Grids */
+.grid {
+    display: grid;
+    gap: 30px;
+}
 
+@media (min-width: 600px) {
+    .grid-col-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 
-    /* Sección Gama Braava */
-    .producto-estrella {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 40px;
-        margin-bottom: 60px;
-        background-color: var(--color-secundario);
-        padding: 40px;
-        border-radius: 12px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        text-align: center;
+@media (min-width: 900px) {
+    .grid-col-3 {
+        grid-template-columns: repeat(3, 1fr);
     }
-    @media (min-width: 768px) {
-        .producto-estrella {
-            flex-direction: row;
-            text-align: left;
-        }
-        .contenido-estrella, .imagen-estrella {
-            flex: 1;
-            padding: 0 20px;
-        }
-    }
+}
 
-    .titulo-estrella {
-        font-size: 1.8em;
-        font-weight: bold;
-        color: var(--color-negro);
-        margin-bottom: 15px;
-    }
-    .descripcion-estrella {
-        font-size: 1.1em;
-        color: var(--color-texto-claro);
-        margin-bottom: 20px;
-    }
+/* Tarjetas */
+.tarjeta {
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: var(--color-blanco);
+}
 
-    .otros-productos-braava {
-        margin-top: 60px;
-    }
-    .lista-productos {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    @media (min-width: 600px) {
-        .lista-productos {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-    @media (min-width: 900px) {
-        .lista-productos {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-    .tarjeta-producto {
-        background-color: var(--color-blanco);
-        padding: 25px;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        text-align: center;
-    }
-    .nombre-producto {
-        font-size: 1.3em;
-        font-weight: bold;
-        color: var(--color-negro);
-        margin-bottom: 10px;
-    }
-    .descripcion-producto {
-        color: var(--color-texto-claro);
-        font-size: 0.95em;
-        margin-bottom: 15px;
-    }
-    .enlace-producto {
-        display: inline-block;
-        color: var(--color-primario);
-        text-decoration: none;
-        font-weight: bold;
-        border: 1px solid var(--color-primario);
-        padding: 8px 15px;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-    }
-    .enlace-producto:hover {
-        background-color: var(--color-primario);
-        color: var(--color-blanco);
-    }
+.tarjeta-gris {
+    background-color: var(--color-secundario);
+}
 
+.tarjeta-producto .nombre {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--color-negro);
+    margin-bottom: 10px;
+}
 
-    /* Lista de Características */
-    .lista-caracteristicas {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
+.tarjeta-producto .descripcion {
+    color: var(--color-texto-claro);
+    font-size: 0.95em;
+    margin-bottom: 15px;
+}
 
-    @media (min-width: 768px) {
-        .lista-caracteristicas {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
+/* Video */
+.contenedor-video {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    padding-bottom: 56.25%; /* 16:9 */
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
 
-    @media (min-width: 1024px) {
-        .lista-caracteristicas {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
+.iframe-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
 
-    .tarjeta-caracteristica {
-        text-align: center;
-        padding: 30px;
-        background-color: var(--color-blanco);
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    }
+/* Tabla */
+.tabla-responsive {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .icono-caracteristica {
-        width: 60px;
-        height: 60px;
-        margin: 0 auto 20px;
-    }
+.tabla {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    background-color: var(--color-blanco);
+}
 
-    .titulo-tarjeta {
-        font-size: 1.3em;
-        font-weight: bold;
-        color: var(--color-texto);
-        margin-bottom: 10px;
-    }
+.tabla th, .tabla td {
+    padding: 15px;
+    border-bottom: 1px solid var(--color-secundario);
+    text-align: left;
+}
 
-    /* Video Demo */
-    .contenedor-video {
-        position: relative;
-        width: 340px;
-        height: 240px;
-        padding-bottom: 10px; /* Relación de aspecto 16:9 */
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-        max-width: 900px; /* Limitar ancho del video */
-        margin: 0 auto;
-    }
+.tabla th {
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    font-weight: bold;
+}
 
-    .iframe-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
+.tabla tr:last-child td {
+    border-bottom: none;
+}
 
-    .texto-video-demo {
-        font-size: 1.1em;
-        color: var(--color-texto-claro);
-        margin-top: 30px;
-    }
+/* Opiniones */
+.opinion {
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
 
-    /* Sección de Tecnología Inteligente */
-    .seccion-tecnologia-inteligente {
-        background-color: var(--color-blanco);
-    }
+.opinion .titulo {
+    font-size: 1.1em;
+}
 
-    .contenido-tecnologia {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 50px;
-    }
+.opinion .texto {
+    font-style: italic;
+    margin-top: 15px;
+}
 
-    @media (min-width: 768px) {
-        .contenido-tecnologia {
-            flex-direction: row;
-            text-align: left;
-        }
-        .imagen-tecnologia, .texto-tecnologia {
-            flex: 1;
-            padding: 0 20px;
-        }
-        .contenedor-video {
-          width: 640px;
-          height: 480px;
-      }
-    }
+.opinion .autor {
+    font-size: 0.9em;
+    color: var(--color-texto-claro);
+    margin-top: 15px;
+    text-align: right;
+}
 
-    .texto-tecnologia ul {
-        list-style: disc;
-        padding-left: 20px;
-        margin-top: 20px;
-    }
+/* Especificaciones */
+.especificacion {
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
 
-    .texto-tecnologia li {
-        margin-bottom: 10px;
-        color: var(--color-texto-claro);
-    }
+/* Packs */
 
-    /* Tabla Comparativa */
-    .tabla-responsive {
-        overflow-x: auto; /* Permite scroll horizontal en pantallas pequeñas */
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
+.pack .titulo {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
 
-    .tabla-comparativa {
-        width: 100%;
-        border-collapse: collapse;
-        min-width: 600px; /* Asegura que la tabla no sea demasiado estrecha */
-        background-color: var(--color-blanco);
-    }
+.pack .ahorro {
+    font-weight: bold;
+    color: var(--color-exito);
+    margin-bottom: 20px;
+}
 
-    .tabla-comparativa th, .tabla-comparativa td {
-        padding: 15px;
-        border-bottom: 1px solid var(--color-secundario);
-        text-align: left;
-    }
+/* Soporte */
+.soporte {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
 
-    .tabla-comparativa th {
-        background-color: var(--color-primario);
-        color: var(--color-blanco);
-        font-weight: bold;
-    }
+.enlaces-soporte {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
 
-    .tabla-comparativa tr:last-child td {
-        border-bottom: none;
-    }
-
-    .texto-comparativa {
-        font-size: 1em;
-        color: var(--color-texto-claro);
-        text-align: center;
-        margin-top: 30px;
-    }
-
-    /* Opiniones de Clientes */
-    .lista-opiniones {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    @media (min-width: 768px) {
-        .lista-opiniones {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .lista-opiniones {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    .tarjeta-opinion {
-        padding: 30px;
-        background-color: var(--color-secundario); /* Cambiado a secundario para contraste */
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-        text-align: left;
-    }
-
-    .calificacion-opinion {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-    }
-
-    .calificacion-opinion .estrellas {
-        font-size: 1.1em;
-        margin-right: 10px;
-    }
-
-    .titulo-opinion {
-        font-weight: bold;
-        color: var(--color-negro);
-        font-size: 1.1em;
-    }
-
-    .texto-opinion {
-        font-style: italic;
-        color: var(--color-texto);
-        margin-top: 15px;
-    }
-
-    .autor-opinion {
-        font-size: 0.9em;
-        color: var(--color-texto-claro);
-        margin-top: 15px;
-        text-align: right;
-    }
-
-    .acciones-opiniones {
-        text-align: center;
-        margin-top: 40px;
-    }
-
-    /* Especificaciones Técnicas */
-    .lista-especificaciones {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    @media (min-width: 768px) {
-        .lista-especificaciones {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .lista-especificaciones {
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
-
-    .item-especificacion {
-        padding: 20px;
-        background-color: var(--color-secundario); /* Cambiado a secundario para contraste */
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    }
-
-    .titulo-especificacion {
-        font-weight: bold;
-        color: var(--color-negro);
-        margin-bottom: 10px;
-    }
-
-    .nota-especificaciones {
-        font-size: 0.9em;
-        color: var(--color-texto-claro);
-        text-align: center;
-        margin-top: 40px;
-    }
-
-    /* Packs y Accesorios */
-    .lista-packs {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    @media (min-width: 768px) {
-        .lista-packs {
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
-
-    .tarjeta-pack {
-        padding: 30px;
-        background-color: var(--color-blanco);
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-
-    .imagen-pack {
-        max-height: 150px;
-        margin: 0 auto 20px;
-    }
-
-    .titulo-pack {
-        font-size: 1.4em;
-        font-weight: bold;
-        color: var(--color-negro);
-        margin-bottom: 15px;
-    }
-
-    .descripcion-pack {
-        color: var(--color-texto);
-        margin-bottom: 20px;
-    }
-
-    .ahorro-pack {
-        font-weight: bold;
-        color: var(--color-exito);
-        margin-bottom: 20px;
-    }
-
-    /* Soporte Final */
-    .soporte-final {
-        margin-top: 50px;
-        padding-top: 30px;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
+@media (min-width: 600px) {
     .enlaces-soporte {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 20px;
+        flex-direction: row;
+        justify-content: center;
     }
+}
 
-    @media (min-width: 600px) {
-        .enlaces-soporte {
-            flex-direction: row;
-            justify-content: center;
-        }
-    }
+.enlace-soporte {
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
 
-    .enlace-soporte {
-        color: var(--color-blanco);
-        text-decoration: none;
-        font-size: 1.1em;
-        padding: 5px 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
+.enlace-soporte:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    text-decoration: underline;
+}
 
-    .enlace-soporte:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-        text-decoration: underline;
-    }
+
 </style>

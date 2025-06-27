@@ -23,7 +23,7 @@ const schemas = [
 
 <Layout title={title} description={description} schemas={schemas}>
     <main>
-        <section class="seccion-hero">
+        <section class="seccion-hero container">
             <div class="contenido-hero">
                 <h1 class="titulo-hero">
                     Robots **Friegasuelos Braava**: Innovación para Suelos Impecables
@@ -45,7 +45,7 @@ const schemas = [
             </div>
         </section>
 
-        <section id="nuestra-gama" class="seccion-gama-braava">
+        <section id="nuestra-gama" class="container seccion-gama-braava">
             <h2 class="titulo-seccion">
                 Conoce la Familia de **Friegasuelos Braava** de iRobot
             </h2>
@@ -76,7 +76,7 @@ const schemas = [
                 <h3 class="subtitulo-gama">Otros Modelos de **Robots Friegasuelos Braava**</h3>
                 <div class="lista-productos">
                     <div class="tarjeta-producto">
-                        <img width="250" height="250" loading="lazy" src="https://gumtreeau-res.cloudinary.com/image/private/t_$_s-l1600/gumtree/f2637bde-f9f8-48f5-af13-a2e1b8b58b71.jpg" alt="iRobot Braava jet 240 Robot Friegasuelos" class="imagen-producto-listado">
+                        <img width="250" height="250" loading="lazy" src="https://u-mercari-images.mercdn.net/photos/m59352561010_1.jpg" alt="iRobot Braava jet 240 Robot Friegasuelos" class="imagen-producto-listado">
                         <h4 class="nombre-producto">Braava jet® 240</h4>
                         <p class="descripcion-producto">
                             El **friegasuelos Braava** compacto ideal para limpiar pequeñas áreas y espacios reducidos como baños y cocinas. Limpia en profundidad con facilidad.
@@ -87,7 +87,7 @@ const schemas = [
             </div>
         </section>
 
-        <section id="video-demo" class="seccion-video-demo">
+        <section id="video-demo" class="container seccion-video-demo">
             <h2 class="titulo-seccion">
                 El **Braava jet® m6** en Acción: Descubre su Poder como **Robot Friegasuelos**
             </h2>
@@ -106,7 +106,7 @@ const schemas = [
             </p>
         </section>
 
-        <section class="seccion-tecnologia-inteligente">
+        <section class="container seccion-tecnologia-inteligente">
             <div class="contenido-tecnologia">
                 <div class="imagen-tecnologia">
                     <img src="/images/braava-mapping-app.webp" alt="Mapeo inteligente con iRobot Home App" class="imagen-producto">
@@ -128,7 +128,7 @@ const schemas = [
             </div>
         </section>
 
-        <section class="seccion-comparativa">
+        <section class="container seccion-comparativa">
             <h2 class="titulo-seccion">
                 Compara Modelos de **Friegasuelos iRobot Braava**
             </h2>
@@ -193,7 +193,7 @@ const schemas = [
             </p>
         </section>
 
-        <section id="opiniones-clientes" class="seccion-opiniones">
+        <section id="opiniones-clientes" class="container seccion-opiniones">
             <h2 class="titulo-seccion">
                 Lo que Nuestros Clientes Dicen del **Robot Friegasuelos Braava jet® m6**
             </h2>
@@ -232,7 +232,7 @@ const schemas = [
             
         </section>
 
-        <section class="seccion-especificaciones">
+        <section class="container seccion-especificaciones">
             <h2 class="titulo-seccion">
                 Especificaciones Técnicas Detalladas del **Braava jet® m6 Friegasuelos**
             </h2>
@@ -630,7 +630,8 @@ const schemas = [
     /* Video Demo */
     .contenedor-video {
         position: relative;
-        width: 100%;
+        width: 300px;
+        height: 340px;
         padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
         border-radius: 8px;
         overflow: hidden;
@@ -644,7 +645,7 @@ const schemas = [
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: auto;
         border: 0;
     }
 

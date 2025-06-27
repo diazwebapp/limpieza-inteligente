@@ -6,6 +6,7 @@ import Layout from '../layouts/Layout.astro';
 import { schemaArticle, schemaWebSite } from '../datos/seoBase';
 import StyledOne from '../components/StyledOne.astro';
 import TableComparativa from '../components/TableComparativa.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
 
 const canonicalURL = "https://limpiezainteligente.store/";
 const title = "TOP 9 🥇 Mejores Robots Aspirador Friegasuelos 2025: Guía Definitiva"
@@ -28,22 +29,94 @@ const schemas = [
     }
   })
 ];
-
-const anclaXiaomi = withDomain("/xiaomi/")
+const faqs = [
+  {
+    "question": "¿Cómo funciona una limpiadora robot?",
+    "answer": "Los robots limpiadores tienen sensores y navegación inteligente (LIDAR, láser o cámaras) para mapear áreas y evitar obstáculos mientras aspiran o friegan. Se programan vía app y regresan solos a su base."
+  },
+  {
+    "question": "¿Qué puede hacer un robot doméstico?",
+    "answer": "Un robot doméstico puede aspirar pelo y polvo, fregar suelos, mapear tu casa, programar limpiezas, evitar escalones y obstáculos, y realizar autovaciado (en modelos premium)."
+  },
+  {
+    "question": "¿Cuánto cuesta un robot que limpia la casa?",
+    "answer": "Los precios van desde €150 (básico) hasta €1,200 (gama alta). Los más vendidos están entre €300 y €600."
+  },
+  {
+    "question": "¿Cuál es la vida útil de un robot aspirador?",
+    "answer": "Con un mantenimiento adecuado (limpieza de filtros y cepillos cada 2 semanas), la vida útil es de 3-5 años. Las baterías suelen durar 2-3 años."
+  },
+  {
+    "question": "¿Qué potencia es recomendada para robots aspiradores?",
+    "answer": "Se recomienda un mínimo de 2000 Pa para pisos lisos, de 2500 a 5000 Pa para alfombras y mascotas, y más de 6000 Pa para modelos premium."
+  },
+  {
+    "question": "¿Cuánto consume de luz?",
+    "answer": "Consume aproximadamente €0.05 por carga (30-90W). Limpiar a diario cuesta alrededor de €1.50 al mes."
+  },
+  {
+    "question": "¿Qué es mejor, aspiradora manual o robot?",
+    "answer": "Un robot ofrece mantenimiento diario automático, mientras que una aspiradora manual es para limpieza profunda ocasional. Lo ideal es combinar ambas."
+  },
+  {
+    "question": "¿Puede limpiar una casa entera?",
+    "answer": "Sí, puede limpiar una casa entera si tiene suficiente autonomía (mínimo 90 minutos) y navegación inteligente para recordar múltiples habitaciones."
+  },
+  {
+    "question": "¿Qué robot limpia pisos y friega mejor?",
+    "answer": "El **Roborock S8** es considerado el mejor combo aspirado+fregado en 2024 según nuestros tests."
+  },
+  {
+    "question": "¿Merece la pena un robot de limpieza?",
+    "answer": "Sí, un **robot para limpiar la casa** ahorra tiempo y reduce alérgenos."
+  },
+  {
+    "question": "¿Cuál es la diferencia entre la potencia de aspiración PA y AW?",
+    "answer": "PA (Pascales) mide la presión estática (ideal para robots). AW (Air Watts) mide el flujo de aire utilizado en aspiradoras estándar. 1000 PA es aproximadamente 20 AW. Se busca un mínimo de 2000 PA."
+  },
+  {
+    "question": "¿Cuántos pascales tiene Roomba?",
+    "answer": "Los Roomba actuales (serie j) tienen entre 1700-2500 PA. Modelos como el Combo j9+ alcanzan los 6000 PA en modo turbo. Sin embargo, suelen ser menos potentes que las marcas chinas; por ejemplo, el Dreame X50 Ultra ofrece 20,000 PA."
+  },
+  {
+    "question": "¿Cuál es mejor, el robot aspirador Roborock o Xiaomi?",
+    "answer": "Roborock (alta gama) ofrece mejor navegación láser y control con una aplicación avanzada. Xiaomi (gama media) con su aplicación Mi Home tiene una mejor relación calidad-precio. Un ejemplo es el Roborock S8 MaxV Ultra (€1,099) vs el Xiaomi S20 (€499)."
+  },
+  {
+    "question": "¿Cuál es la esperanza de vida de un robot aspirador Shark?",
+    "answer": "La esperanza de vida es de 3-5 años con un mantenimiento adecuado (limpieza semanal de cepillos y reemplazo anual de filtros). Los modelos Shark suelen tener una garantía de 2 años."
+  },
+  {
+    "question": "¿Cuánto gasta de luz una aspiradora robot?",
+    "answer": "Gasta entre 30-60 W/h. Limpiar a diario (1 hora) cuesta aproximadamente €2-4 al mes. La base consume 5-10 W en standby."
+  },
+  {
+    "question": "¿Cuántas veces debe pasar el robot aspirador?",
+    "answer": "En hogares con mascotas, debería pasar a diario. Sin mascotas, 3-4 veces por semana. Para el fregado, 2-3 veces por semana para evitar daños en suelos delicados."
+  },
+  {
+    "question": "¿Qué potencia debe tener un buen robot aspirador?",
+    "answer": "Un buen robot aspirador debe tener un mínimo de 2000 PA para pisos, 4000+ PA para alfombras, y 8000+ PA si hay mascotas. Los modelos de gama alta (como el Dreame X50) alcanzan los 20,000 PA."
+  }
+]
 const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
 ---
 <Layout title={title} description={description} schemas={schemas}>
     <main>
   
    <CategoryHeader 
-  h1="Robot aspirador y fregasuelos: Guia Definitiva 2025" 
-  p="La limpieza automática ha alcanzado un nuevo nivel. Te explicaré que son estos robots aspiradores y fregasuelos, sus beneficios, comparativa y puntos a considerar al elegir uno." 
+  h1="Robot aspirador y fregasuelos: Guia 2025" 
+  p="La limpieza automática ha alcanzado un nuevo nivel. Te hablaré de los robots que aspiran y limpian suelos. Veremos los beneficios. También haremos una comparación y veremos qué considerar al elegir uno." 
 />
 <section class="container">
-    <h2>Robots limpiadores de pisos: Puntos Clave</h2>
-    <p>De estos robots de limpieza existes diferentes tipos como aspiradores y fregasuelos.
-         estos pueden tener cepillo multifunción, mopas giratorias, tanques de polvo y agua, mapeo laser, alexa etc.
-    </p>Considera características como potencia de aspiración - autonomía (duración de batería), base de autovaciado, - sistema de navegación (navegación láser, cámaras, etc) - deposito de agua y presupuesto.</p>
+    <h2>Robots limpiadores de pisos: puntos clave.</h2>
+    <p>
+      Se pueden encontrar varios tipos de robots de limpieza. Por ejemplo, hay aspiradores y fregasuelos. Estos pueden incluir:<br/>
+      Cepillo multifunción, mopas giratorias, tanques de polvo y agua, mapeo láser, Alexa, entre otros.<br/>
+      Considera estas características:<br/>
+      Potencia de aspiración, autonomía (duración de batería) y base de autovaciado,<br/>
+      sistema de navegación (láser, cámaras, etc.), depósito de agua y presupuesto.
+    </p>
 
     <h2>Marcas destacadas</h2>
     <CategoryCluester cats={marcas} amazonProduts={amazonProduts}/>
@@ -52,28 +125,27 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
 <section class="container">
     <h2>¿Qué son los robots de limpieza?</h2>
     <p>
-        Son dispositivos avanzados que simplifican las tareas de limpieza diarias. Incluyen un sensores para eliminar polvo y suciedad de suelos. Además, ofrecen fregado automático que dejan superficies brillantes. tienen sistema de navegación laser que les permite moverse por tu hogar con facilidad. Pueden adaptarse a diferentes espacios y evitar obstáculos.<br/>
-        La programación es una funcionalidad destacada. Esto permite que los robots de limpieza trabajen según un horario establecido. Así, no necesitas estar presente para que hagan su trabajo. Con ellos, tu hogar se mantendrá limpio y ordenado, ofreciéndote un ambiente más agradable y saludable.
+        Son dispositivos que facilitan la limpieza diaria. Incluyen sensores que quitan el polvo y la suciedad del suelo. Tienen un fregado automático que hace que las superficies brillen. Tienen un sistema de navegación láser para moverse por tu hogar con facilidad. Se adaptan a varios espacios y evitan obstáculos. La programación es una función destacada. Esto permite a los robots trabajar según un horario establecido. Así, no necesitas estar presente para que realicen su trabajo. Con ellos, tu hogar estará limpio y ordenado. Así, disfrutarás de un ambiente más agradable y saludable.
     </p>
 </section>
 
 <section class="container">
-  <h2>Ventajas de utilizar un robot de limpieza</h2>
-  <p>El uso de un robot de limpieza para el hogar ofrece múltiples beneficios. La eficiencia en la limpieza diaria es una de las ventajas más destacadas. Estos aspiradores y friegasuelos operan de forma autónoma en superficies amplias, logrando resultados óptimos en menos tiempo. Así, puedes disfrutar de un hogar limpio sin dedicar horas a tareas de limpieza manual.</p>
-  <h3>Eficiencia en la limpieza diaria</h3>
-  <p>La eficiencia de un robot de limpieza es asombrosa. Su tecnología avanzada permite mapear y limpiar áreas específicas con precisión. Esto asegura superficies limpias y optimiza el consumo de energía y recursos, ideal para cualquier hogar.</p>
-  <h3>Ahorro de tiempo y esfuerzo</h3>
-  <p>Programar tu robot aspirador te permite dedicarte a otras actividades mientras él trabaja. Cada minuto es valioso. Sin duda, el robot de limpieza para el hogar es un aliado perfecto para simplificar tu rutina diaria.</p>
+  <h2>Ventajas de utilizar un robot de limpieza.</h2>
+  <p>El uso de un robot de limpieza para el hogar ofrece múltiples beneficios. La eficiencia en la limpieza diaria es una de las ventajas más destacadas. Estos aspiradores y friegasuelos operan por sí solos en áreas grandes. Así, logran mejores resultados en menos tiempo. Así, puedes tener un hogar limpio sin pasar horas limpiando.</p>
+  <h3>Eficiencia en la limpieza diaria.</h3>
+  <p>La eficiencia de un robot de limpieza es asombrosa. Su tecnología avanzada permite mapear y limpiar áreas específicas con precisión. Esto garantiza superficies limpias. También optimiza el uso de energía y recursos. Es perfecto para cualquier hogar.</p>
+  <h3>Ahorro de tiempo y esfuerzo.</h3>
+  <p>Programar tu robot aspirador te deja hacer otras cosas mientras él trabaja. Cada minuto es valioso. Sin duda, el robot de limpieza es un gran aliado. Te ayuda a simplificar tu rutina diaria.</p>
 </section>
 
 <section class="container">
-  <h2>Top 5 modelos robots aspiradores y fregasuelos mejor valorados</h2>
+  <h2>Los 5 robots aspiradores y fregasuelos más recomendados.</h2>
   <TableComparativa amazonProduts={amazonProduts}/>
 </section>
 
 
 <section class="container">
-  <h2>📊 Comparativa Técnica: TOP 9 Robots Aspirador Friegasuelos (2025)</h2>
+  <h2>📊 Comparativa Técnica: TOP 9 Robots Aspiradores Friegasuelos (2025)</h2>
   
   <div class="table-container">
     <table>
@@ -187,7 +259,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
 </section>
    <!-- EUFY C20 OMNI -->
 <section class="container">
-    <h2>1. Eufy C20 Omni Ultimate: El Todo-en-Uno con Lavado Automático</h2>
+    <h2>1. Eufy C20 Omni Ultimate: El todo en uno con Lavado Automático</h2>
     
     <div class="specs-box">
         <table>
@@ -212,7 +284,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
             <div class="cons">
                 <h4>❌ Limitaciones</h4>
                 <ul>
-                    <li><strong>Detección de obstáculos básica</strong>: A veces empuja cables.</li>
+                    <li><strong>Detección de obstáculos básica</strong>: A veces, empuja los cables.</li>
                     <li><strong>Depósito de agua</strong>: 200 ml (requiere rellenado cada 2 limpiezas).</li>
                 </ul>
             </div>
@@ -220,10 +292,10 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
     </StyledOne>
 
     <div class="real-test">
-        <h4>🧪 Test Real en Casa de 80m²</h4>
+        <h4>🧪 Test Real en Casa de 80 m²</h4>
         <ul>
             <li><strong>Tiempo de limpieza</strong>: 45 min (modo Turbo).</li>
-            <li><strong>Consumo agua</strong>: 150 ml por pasada.</li>
+            <li><strong>Consumo de agua</strong>: 150 ml por pasada.</li>
             <li><strong>Pelo de mascotas</strong>: Atrapa el 95% en 1 pasada.</li>
         </ul>
         <!-- IMAGEN REAL AQUÍ: Añade foto del robot limpiando tu suelo -->
@@ -231,7 +303,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
 
     <div class="maintenance">
         <h4>🛠️ Mantenimiento Requerido</h4>
-        <p>Cepillo principal: Limpiar cada <strong>2 semanas</strong> (herramienta incluida).</p>
+        <p>Cepillo principal: Limpia cada <strong>2 semanas,</strong> (herramienta incluida).</p>
         <!-- IMAGEN REAL AQUÍ: Muestra el cepillo antes/después de limpiar -->
     </div>
 
@@ -258,7 +330,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
             <div class="pros">
                 <h4>✅ Ventajas Clave</h4>
                 <ul>
-                    <li><strong>Succión industrial</strong>: Elimina ácaros de alfombras profundas.</li>
+                    <li><strong>Succión industrial</strong>: Elimina ácaros de alfombras gruesas.</li>
                     <li><strong>Detección 3D</strong>: Evita heces de mascotas y cables.</li>
                     <li><strong>Base de autovaciado</strong>: Base para 60 días de polvo.</li>
                 </ul>
@@ -266,8 +338,8 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
             <div class="cons">
                 <h4>❌ Limitaciones</h4>
                 <ul>
-                    <li><strong>Tamaño XXL</strong>: Base ocupa 40x50 cm.</li>
-                    <li><strong>Curva de aprendizaje</strong>: Requiere 3-4 limpiezas para mapeo óptimo.</li>
+                    <li><strong>Tamaño XXL</strong>: La base ocupa 40 x 50 cm.</li>
+                    <li><strong>Curva de aprendizaje</strong>: Se necesitan de 3 a 4 limpiezas para lograr un mapeo óptimo.</li>
                 </ul>
             </div>
         </div>
@@ -275,7 +347,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
     </StyledOne>
 
     <div class="real-test">
-        <h4>🧪 Test Extremo en Casa de 120m²</h4>
+        <h4>🧪 Test Extremo en Casa de 120 m²</h4>
         <ul>
             <li><strong>Alfombra de pelo largo</strong>: 99% de pelos recogidos.</li>
             <li><strong>Autonomía real</strong>: 110 min (modo Max).</li>
@@ -285,7 +357,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador para casas grandes (+100m²)</strong> con mascotas. Excesivo para pisos pequeños.</p>
+        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador para casas grandes (+100 m²)</strong> con mascotas. Excesivo para pisos pequeños.</p>
     </div>
 </section>
 
@@ -310,13 +382,13 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
                 <ul>
                     <li><strong>Cepillo FlexiArm</strong>: Limpia esquinas con precisión milimétrica.</li>
                     <li><strong>Vigilancia por cámara</strong>: Graba en 1080p mientras limpia.</li>
-                    <li><strong>App avanzada</strong>: Programación por voz y mapas 3D.</li>
+                    <li><strong>App avanzada</strong>: Programación por voz y mapas en 3D.</li>
                 </ul>
             </div>
             <div class="cons">
                 <h4>❌ Limitaciones</h4>
                 <ul>
-                    <li><strong>App compleja</strong>: Requiere 1-2 horas de aprendizaje.</li>
+                    <li><strong>Aplicacion móvil compleja</strong>: Requiere de 1 a 2 horas de aprendizaje.</li>
                     <li><strong>Precio premium</strong>: La opción más cara del mercado.</li>
                 </ul>
             </div>
@@ -326,7 +398,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
     <div class="real-test">
         <h4>🧪 Test de Precisión</h4>
         <ul>
-            <li><strong>Esquinas</strong>: 92% más limpias vs. modelos estándar.</li>
+            <li><strong>Esquinas</strong>: 92% más limpias que los modelos estándar.</li>
             <li><strong>Líquidos</strong>: Elimina manchas de vino en 2 pasadas.</li>
             <li><strong>Seguridad</strong>: Detecta objetos de hasta 1 cm.</li>
         </ul>
@@ -334,7 +406,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: El <strong>Ferrari de los robots</strong> para quienes buscan tecnología puntera. Overkill para necesidades básicas.</p>
+        <p>🎯 <strong>Conclusión</strong>: Conclusión: El Ferrari de los robots para quienes quieren la mejor tecnología. Overkill para necesidades básicas.</p>
     </div>
 </section>
 
@@ -356,7 +428,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
             <div class="pros">
                 <h4>✅ Ventajas Clave</h4>
                 <ul>
-                    <li><strong>Limpieza sanitaria</strong>: Agua caliente elimina el 99.9% de bacterias.</li>
+                    <li><strong>Limpieza sanitaria</strong>: El agua caliente elimina el 99.9% de las bacterias.</li>
                     <li><strong>IA 3D avanzada</strong>: Detecta objetos pequeños (hasta 5mm).</li>
                     <li><strong>Doble cepillo edge-cleaning</strong>: Limpia zócalos perfectamente.</li>
                 </ul>
@@ -364,8 +436,8 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
             <div class="cons">
                 <h4>❌ Limitaciones</h4>
                 <ul>
-                    <li><strong>Base enorme</strong>: 45x50 cm (necesita espacio).</li>
-                    <li><strong>Consumo energético</strong>: Alto por calentamiento agua.</li>
+                    <li><strong>Base enorme</strong>: 45 x 50 cm (necesita espacio).</li>
+                    <li><strong>Consumo energético</strong>: Alto por calentamiento de agua.</li>
                 </ul>
             </div>
         </div>
@@ -376,14 +448,14 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
         <h4>🧪 Test de Desinfección</h4>
         <ul>
             <li><strong>Manchas orgánicas</strong>: Elimina restos de comida en 1 pasada.</li>
-            <li><strong>Temperatura real</strong>: Mantiene 55-60°C durante toda la limpieza.</li>
-            <li><strong>Esquinas</strong>: 30% mejor que modelos sin cepillos laterales.</li>
+            <li><strong>Temperatura real</strong>: Mantiene entre 55 y 60°C durante toda la limpieza.</li>
+            <li><strong>Esquinas</strong>: 30% mejor que los modelos sin cepillos laterales.</li>
         </ul>
         <!-- IMAGEN REAL AQUÍ: Termómetro midiendo temperatura del agua -->
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot para familias con niños/bebés</strong> que necesitan desinfección profesional. Evitar si tienes espacio limitado.</p>
+        <p>🎯 <strong>Conclusión</strong>: El robot ideal para familias con niños y bebés que necesitan desinfección profesional. Evitar si tienes espacio limitado.</p>
     </div>
 </section>
 
@@ -463,7 +535,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
                 <h4>❌ Limitaciones</h4>
                 <ul>
                     <li><strong>Fregado manual</strong>: No lava/secar mopas.</li>
-                    <li><strong>Sin Inteligencia Artificial</strong>: Atrapa cables pequeños.</li>
+                    <li><strong>Sin inteligencia artificial</strong>: Atrapa cables pequeños.</li>
                 </ul>
             </div>
         </div>
@@ -481,7 +553,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador robot bajo €400</strong> para hogares con mascotas. Buscar otra opción si priorizas fregado.</p>
+        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador por debajo de €400</strong> para hogares con mascotas. Buscar otra opción si priorizas fregado.</p>
     </div>
 </section>
 
@@ -512,7 +584,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
             <div class="cons">
                 <h4>❌ Limitaciones</h4>
                 <ul>
-                    <li><strong>Sin navegación LiDAR</strong>: Mapeo menos preciso que competidores.</li>
+                    <li><strong>Sin navegación LiDAR</strong>: menos precisión en el mapeo que los competidores.</li>
                     <li><strong>Diseño anticuado</strong>: Estética de 2018.</li>
                 </ul>
             </div>
@@ -561,7 +633,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
                 <h4>❌ Limitaciones</h4>
                 <ul>
                     <li><strong>Materiales plásticos</strong>: Sensación económica.</li>
-                    <li><strong>Sin fregado automático</strong>: Mopa tradicional.</li>
+                    <li><strong>Sin fregado automático</strong>: mopa tradicional.</li>
                 </ul>
             </div>
         </div>
@@ -571,15 +643,15 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
     <div class="real-test">
         <h4>🧪 Test de Resistencia</h4>
         <ul>
-            <li><strong>Suelos duros</strong>: Recoge el 95% de polvo visible.</li>
+            <li><strong>Suelos duros</strong>: Recoge el 95% del polvo visible.</li>
             <li><strong>Alfombras bajas</strong>: 80% de eficiencia.</li>
-            <li><strong>Ruido</strong>: 62 dB (similar a conversación).</li>
+            <li><strong>Ruido</strong>: 62 dB (similar a una conversación).</li>
         </ul>
         <!-- IMAGEN REAL AQUÍ: Detalle de construcción/materials -->
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: <strong>La mejor opción económica</strong> para limpieza básica en pisos pequeños. No esperes lujos.</p>
+        <p>🎯 <strong>Conclusión</strong>: <strong>La mejor opción económica</strong> para la limpieza básica en pisos pequeños. No esperes lujos.</p>
     </div>
 </section>
 
@@ -611,7 +683,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
                 <h4>❌ Limitaciones</h4>
                 <ul>
                     <li><strong>Autonomía corta</strong>: Solo 90 min.</li>
-                    <li><strong>App Móvil básica</strong>: Sin mapas 3D.</li>
+                    <li><strong>App Móvil básica</strong>: Sin mapas en 3D.</li>
                 </ul>
             </div>
         </div>
@@ -622,13 +694,13 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
         <ul>
             <li><strong>Pelo recogido</strong>: 1 taza diaria (ver foto).</li>
             <li><strong>Alergias</strong>: Reducción de estornudos en un 70%.</li>
-            <li><strong>Bordes</strong>: 5mm más cerca que competidores.</li>
+            <li><strong>Bordes</strong>: 5 mm más cerca que los competidores.</li>
         </ul>
         <!-- IMAGEN REAL AQUÍ: Depósito lleno de pelo de mascota -->
     </div>
 
     <div class="verdict">
-        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador para hogares con 2 omás mascotas</strong> o personas alérgicas. Requiere recargas frecuentes.</p>
+        <p>🎯 <strong>Conclusión</strong>: El <strong>mejor robot aspirador para hogares con 2 o más mascotas</strong> o personas alérgicas. Requiere recargas frecuentes.</p>
     </div>
 </section>
 <script type="application/ld+json">
@@ -759,18 +831,18 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
     <img src="https://cdn.shopify.com/s/files/1/0504/7094/4954/files/1_e1649917-7309-43a7-b81c-25f92583aa32_3840x.png" loading="lazy" alt="Eufy X10 Pro Omni - Mejor relación calidad-precio" width="400" height="300">
     
     <div class="value-content">
-      <p>Tras analizar 9 modelos durante 3 meses, el <strong>Eufy X10 Pro Omni</strong> destaca como la mejor opción calidad-precio por:</p>
+      <p>Tras analizar 9 modelos en 3 meses, el <strong>Eufy X10 Pro Omni</strong> es la mejor opción calidad-precio por:</p>
       
       <ul class="value-list">
-        <li>✅ <strong>Potencia de aspiracion equilibrada</strong>: 8000 Pa (suficiente para alfombras medianas y suelos duros)</li>
-        <li>✅ <strong>Sistema de autovaciado</strong>: Auto-lavado de mopas + autovaciado automático (raro bajo €400)</li>
+        <li>✅ <strong>Potencia de aspiración equilibrada</strong>: 8000 Pa. Es ideal para alfombras medianas y suelos duros</li>
+        <li>✅ <strong>Sistema de autovaciado</strong>: Limpieza automática de mopas + autovaciado (poco común bajo €400)</li>
         <li>✅ <strong>Diseño compacto</strong>: 9 cm de altura (limpia bajo muebles bajos)</li>
         <li>✅ <strong>Control por app</strong>: Mapeo LiDAR fácil de usar para principiantes</li>
       </ul>
 
-      <p>Comparado con alternativas:<br>
-      <strong>• Roborock Q8 Max Plus (€349):</strong> Más barato pero sin lavado automático de mopas.<br>
-      <strong>• <a href={anclaConga8490}>Cecotec Conga 8490</a> (€499):</strong> Mejor potencia de aspiración (7000 Pa) pero base más voluminosa.</p>
+      <p><strong>Comparado con alternativas:</strong><br>
+      <strong>Roborock Q8 Max Plus (€349):</strong> Es más barato, pero no tiene lavado automático de mopas.<br>
+      <strong><a href={anclaConga8490}>Cecotec Conga 8490</a> (€499):</strong> Mejor potencia de aspiración (7000 Pa) pero base más voluminosa.</p>
 
       <div class="price-alert">
         <p>💡 <strong>Oferta típica:</strong> €379-€399 (frente a €499 del Eufy C20 Omni con prestaciones similares)</p>
@@ -780,104 +852,25 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
 </section>
 <section class="container">
     <h2>¿Por qué elegir un aspirador y fregasuelos?</h2>
-<p>Optar por robots aperadores te ofrece una solución integral para mantener tu hogar impecable. Este dispositivo combina la aspiración y el fregado, permitiendo una limpieza profunda de tus espacios. Imagina tener un suelo limpio y fresco sin esfuerzo físico en las tareas domésticas.</p>
-<p>Los hogares con niños y mascotas enfrentan el desafío de la suciedad acumulada. En estos casos, contar con un robot aspirador y fregasuelos es crucial. Este aparato facilita el mantenimiento diario, asegurando un ambiente saludable y agradable.</p>
-<p>La tecnología actual ha avanzado significativamente. Los robots son eficientes y manejables. Muchos modelos tienen programación y control a distancia. Esto te permite planificar sesiones de limpieza, incluso cuando no estás en casa.</p>
-<p>En definitiva, elegir un robot aspirador y fregasuelos ahorra tiempo y esfuerzo. Se convierte en una inversión para mejorar tu calidad de vida. Piensa en cómo transformará la rutina de limpieza en tu hogar.</p>
+<p>
+  Elegir robots limpiadores te ofrece una forma fácil de mantener tu hogar limpio. Este dispositivo aspira y friega. Así, logra una limpieza profunda en tus espacios. Imagina tener un suelo limpio y fresco sin esfuerzo físico en las tareas domésticas.
+
+</p>
+<p>
+  Los hogares con niños y mascotas enfrentan el desafío de la suciedad acumulada. En estos casos, contar con un robot aspirador y fregasuelos es crucial. Este equipo hace más fácil el mantenimiento diario. Así, se asegura un ambiente saludable y agradable.
+</p>
+<p>
+ La tecnología actual ha avanzado significativamente. Los robots son eficientes y manejables. Muchos modelos tienen programación y control a distancia. Esto te deja programar sesiones de limpieza, incluso si no estás en casa.
+</p>
+<p>
+  Elegir un robot aspirador y fregasuelos te ahorra tiempo y energía. Se convierte en una inversión para mejorar tu calidad de vida. Piensa en cómo transformará la rutina de limpieza en tu hogar.
+</p>
+
 </section>
-    <section class="container faq-container">
-        <h2>Preguntas Frecuentes</h2>
-
-         <!-- Sección 1: Funcionamiento Básico -->
-    <div class="faq-group">
-      <h3>Funcionamiento y Capacidades</h3>
-      <div class="faq-item">
-        <h3>¿Cómo funciona una limpiadora robot?</h3>
-        <p>Los robots limpiadores usan sensores y navegación inteligente (LIDAR, láser o cámara) para mapear espacios, evitando obstáculos mientras aspiran/friegan. Se programan vía app y regresan solos a su base.</p>
-      </div>
-
-      <div class="faq-item">
-        <h3>¿Qué puede hacer un robot doméstico?</h3>
-        <p>1️⃣ Aspirar pelo y polvo | 2️⃣ Fregar suelos | 3️⃣ Mapear tu casa | 4️⃣ Programar limpiezas | 5️⃣ Evitar escalones y obstáculos | 6️⃣ Autovaciado (modelos premium).</p>
-      </div>
-    </div>
-
-    <!-- Sección 2: Costos y Mantenimiento -->
-    <div class="faq-group">
-      <h3>Precios y Durabilidad</h3>
-      
-      <div class="faq-item">
-        <h4>¿Cuánto cuesta un robot que limpia la casa?</h4>
-        <p>Desde €150 (básico) hasta €1,200 (gama alta). Los más vendidos están entre €300-€600.</p>
-      </div>
-
-      <div class="faq-item">
-        <h4>¿Cuál es la vida útil de un robot aspirador?</h4>
-        <p>3-5 años con mantenimiento (limpieza de filtros y cepillos cada 2 semanas). Las baterías suelen durar 2-3 años.</p>
-      </div>
-    </div>
-
-    <!-- Sección 3: Rendimiento -->
-    <div class="faq-group">
-      <h3>Eficiencia y Consumo</h3>
-      
-      <div class="faq-item">
-        <h4>¿Qué potencia es recomendada para robots aspiradores?</h4>
-        <p>Mínimo 2000Pa (pisos lisos) | Ideal 2500-5000Pa (alfombras/mascotas) | Premium +6000Pa.</p>
-      </div>
-
-      <div class="faq-item">
-        <h4>¿Cuánto consume de luz?</h4>
-        <p>≈€0.05 por carga (30-90W). Limpiar diario cuesta ≈€1.50/mes.</p>
-      </div>
-    </div>
-
-    <!-- Sección 4: Comparativas -->
-    <div class="faq-group">
-      <h3>Decisiones de Compra</h3>
-      
-      <div class="faq-item">
-        <h4>¿Qué es mejor, aspiradora manual o robot?</h4>
-        <p><strong>Robot:</strong> Mantenimiento diario automático | <strong>Manual:</strong> Limpieza profunda ocasional. Ideal combinar ambas.</p>
-      </div>
-
-      <div class="faq-item">
-        <h4>¿Puede limpiar una casa entera?</h4>
-        <p>Sí, si tiene suficiente autonomía (mínimo 90min) y navegación inteligente para recordar múltiples habitaciones.</p>
-      </div>
-
-       <div class="faq-item">
-            <h4>¿Qué robot limpia pisos y friega mejor?</h4>
-            <p>El <strong>Roborock S8</strong> es el mejor combo aspirado+fregado en 2024 según nuestros tests...</p>
-       </div>
-        <div class="faq-item">
-            <h4>¿Merece la pena un robot de limpieza?</h4>
-            <p>Sí, un <strong>robot para limpiar la casa</strong> ahorra tiempo y reduce alergenos...</p>
-        </div>
-    </div>
-
-        <div class="question">¿Cuál es la diferencia entre la potencia de aspiración PA y AW?</div>
-        <div class="answer">PA (Pascales) mide presión estática (ideal para robots). AW (Air Watts) mide flujo de aire (usado en aspiradoras tradicionales). 1000 PA ≈ 20 AW. Busca mínimo 2000 PA.</div>
-
-        <div class="question">¿Cuántos pascales tiene Roomba?</div>
-        <div class="answer">Los Roomba actuales (serie j) tienen entre 1700-2500 PA. Modelos como el Combo j9+ llegan a 6000 PA en modo turbo, pero son menos potentes que marcas chinas (ej: Dreame X50 Ultra: 20,000 PA).</div>
-
-        <div class="question">¿Cuál es mejor, el robot aspirador Roborock o Xiaomi?</div>
-        <div class="answer">Roborock (gama alta) ofrece mejor navegación Laser y control mediante aplicación avanzada. <a href={anclaXiaomi} >Xiaomi (gama media)</a> con su aplicación mi home tiene mejor relación calidad-precio. Ejemplo: Roborock S8 MaxV Ultra (€1,099) vs Xiaomi S20 (€499).</div>
-
-        <div class="question">¿Cuál es la esperanza de vida de un robot aspirador Shark?</div>
-        <div class="answer">3-5 años con mantenimiento adecuado (limpieza semanal de cepillos y reemplazo anual de filtros). Los modelos Shark suelen tener garantía de 2 años.</div>
-
-        <div class="question">¿Cuánto gasta de luz una aspiradora robot?</div>
-        <div class="answer">Entre 30-60W/h. Limpiar diario (1h) cuesta ≈ €2-4 al mes. La base consumidor 5-10W en standby.</div>
-
-        <div class="question">¿Cuántas veces debe pasar el robot aspirador?</div>
-        <div class="answer">En hogares con mascotas: diario. Sin mascotas: 3-4 veces/semana. Para fregado: 2-3 veces/semana (evita daños en suelos delicados).</div>
-
-        <div class="question">¿Qué potencia debe tener un buen robot aspirador?</div>
-        <div class="answer">Mínimo 2000 PA para pisos. 4000+ PA para alfombras. 8000+ PA si hay mascotas. Los topes de gama (Dreame X50) alcanzan 20,000 PA.</div>
+    <section class="container">
+      <FaqAccordion faqs={faqs} />
     </section>
-    </main>
+  </main>
 </Layout>
 
 <style>
@@ -978,22 +971,7 @@ tr:hover {
     border-left: 4px solid #2196f3;
     margin-top: 15px;
   }
-.faq-container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 20px 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .question {
-            font-weight: bold;
-            color: #0056b3;
-            margin-top: 15px;
-        }
-        .answer {
-            margin-bottom: 15px;
-        }
+
 @media (max-width: 768px) {
   th, td {
     padding: 8px 10px;

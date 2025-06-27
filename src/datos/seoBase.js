@@ -38,7 +38,7 @@ export const schemaWebSite = ({
 // Plantilla reutilizable para Article/TechArticle
 export const schemaArticle = ({
   headline,
-  image,
+  image=[""],
   datePublished,
   dateModified,
   author = AUTHOR,

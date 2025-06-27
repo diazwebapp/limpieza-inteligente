@@ -23,7 +23,7 @@ const schemas = [
 
 <Layout title={title} description={description} schemas={schemas}>
     <main>
-        <section class="seccion-hero">
+        <section class="container seccion-hero">
             <div class="contenido-hero">
                 <h1 class="titulo-hero">
                     Robots **Friegasuelos Braava**: Innovación para Suelos Impecables
@@ -45,7 +45,7 @@ const schemas = [
             </div>
         </section>
 
-        <section id="nuestra-gama" class="seccion-gama-braava">
+        <section id="nuestra-gama" class="container seccion-gama-braava">
             <h2 class="titulo-seccion">
                 Conoce la Familia de **Friegasuelos Braava** de iRobot
             </h2>
@@ -87,7 +87,7 @@ const schemas = [
             </div>
         </section>
 
-        <section id="video-demo" class="seccion-video-demo">
+        <section id="video-demo" class="container seccion-video-demo">
             <h2 class="titulo-seccion">
                 El **Braava jet® m6** en Acción: Descubre su Poder como **Robot Friegasuelos**
             </h2>
@@ -106,7 +106,7 @@ const schemas = [
             </p>
         </section>
 
-        <section class="seccion-tecnologia-inteligente">
+        <section class="container seccion-tecnologia-inteligente">
             <div class="contenido-tecnologia">
                 <div class="imagen-tecnologia">
                     <img width="200" height="200" loading="lazy" src="https://m.media-amazon.com/images/S/aplus-media/vc/63a6fab0-7e3d-473f-bd76-0e6959043eaf.__CR0,0,2000,2000_PT0_SX220_V1___.jpg" alt="Mapeo inteligente con iRobot Home App" class="imagen-producto">
@@ -128,7 +128,7 @@ const schemas = [
             </div>
         </section>
 
-        <section class="seccion-comparativa">
+        <section class="container seccion-comparativa">
             <h2 class="titulo-seccion">
                 Compara Modelos de **Friegasuelos iRobot Braava**
             </h2>
@@ -193,7 +193,7 @@ const schemas = [
             </p>
         </section>
 
-        <section id="opiniones-clientes" class="seccion-opiniones">
+        <section id="opiniones-clientes" class="container seccion-opiniones">
             <h2 class="titulo-seccion">
                 Lo que Nuestros Clientes Dicen del **Robot Friegasuelos Braava jet® m6**
             </h2>
@@ -234,7 +234,7 @@ const schemas = [
             </div>
         </section>
 
-        <section class="seccion-especificaciones">
+        <section class="container seccion-especificaciones">
             <h2 class="titulo-seccion">
                 Especificaciones Técnicas Detalladas del **Braava jet® m6 Friegasuelos**
             </h2>
@@ -281,7 +281,7 @@ const schemas = [
             </p>
         </section>
 
-        <section class="seccion-packs-accesorios">
+        <section class="container seccion-packs-accesorios">
             <h2 class="titulo-seccion">
                 Completa tu Limpieza: Packs y Accesorios para tu **Friegasuelos Braava**
             </h2>
@@ -316,7 +316,7 @@ const schemas = [
             </div>
         </section>
 
-        <section class="seccion-cta-final">
+        <section class="container seccion-cta-final">
             <h2 class="titulo-cta-final">
                 Transforma tu Rutina de Limpieza con un **Robot Friegasuelos Braava**
             </h2>
@@ -367,44 +367,9 @@ body {
     background-color: var(--color-secundario);
 }
 
-/* Estructuras comunes */
-.seccion {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-.seccion-bg-blanco {
-    background-color: var(--color-blanco);
-}
 
-.seccion-bg-gris {
-    background-color: var(--color-secundario);
-}
 
-.seccion-bg-azul {
-    background-color: var(--color-primario);
-    color: var(--color-blanco);
-}
-
-/* Contenedores flexibles */
-.contenedor-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-}
-
-@media (min-width: 768px) {
-    .contenedor-flex {
-        flex-direction: row;
-        text-align: left;
-    }
-    .contenedor-flex > * {
-        flex: 1;
-        padding: 0 20px;
-    }
-}
 
 /* Tipografía */
 .titulo {

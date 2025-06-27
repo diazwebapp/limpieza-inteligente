@@ -13,13 +13,10 @@ const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
 
 const schemas = [
-  schemaWebSite({
-    name: 'iRobot',
-    url: canonicalURL,
-  }),
+  schemaWebSite(),
   schemaArticle({
-    headline: 'Descubre los mejores robots iRobot',
-    description: 'Explora nuestra selección de robots aspiradores iRobot.',
+    headline: title,
+    description,
     url: canonicalURL,
     datePublished:pubDatetime,
     dateModified: modDatetime,

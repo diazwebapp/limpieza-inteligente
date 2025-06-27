@@ -100,7 +100,7 @@ const getBadges = (product: any) => {
       <tr>
         <td>
           <div class="product-title">
-            <a href={product.slug}>{product.modelo}</a>
+            
             {badges.length > 0 && (
               <div class="badges">
                 {badges.map(badge => (
@@ -108,6 +108,7 @@ const getBadges = (product: any) => {
                 ))}
               </div>
             )}
+            <a href={product.slug}>{product.modelo} <b>↗</b></a>
           </div>
         </td>
         <td>

@@ -21,18 +21,13 @@ const schemas = [
     name: product?.title,
     image: images.map(img => img["250x250"]),
     description,
-    brand: { "@type": "Brand", name: "Cecotec" },
+    brand: { name: "Cecotec" },
     url: canonicalURL,
     offers: {
-      "@type": "AggregateOffer",
-      "offerCount": 5,
-      "lowPrice": product?.precio,
-      "highPrice": product?.precio,
-      "url":product?.urlAfiliado,
+      price: product?.precio,
       priceCurrency: "EUR",     
     },
     aggregateRating: {
-      "@type": "AggregateRating",
       ratingValue: product?.stars,
       reviewCount: product?.ratingCount
     }

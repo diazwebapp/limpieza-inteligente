@@ -90,7 +90,7 @@ const schemas = [
       img={images}
       price={product?.precio}
       description={description}
-      feactures={product?.features}
+      feactures={product?.feactures}
       marca="Cecotec"
       rating={product?.stars || 0}
       reviews={product?.ratingCount || 0}
@@ -208,7 +208,7 @@ function toggleAccordion(event) {
       <li><strong>Control total desde la app</strong> y conectividad WiFi 2,4/5 GHz y Bluetooth.</li>
     </ul>
     <p>
-      <a href={product?.urlAfiliado || product?.urlAffiliado} class="cta">¡Haz clic en comprar y experimenta la limpieza inteligente y sin esfuerzo!</a>
+      <a href={product?.urlAfiliado} class="cta">¡Haz clic en comprar y experimenta la limpieza inteligente y sin esfuerzo!</a>
     </p>
   </section>
 
@@ -218,7 +218,7 @@ function toggleAccordion(event) {
       Tras varias semanas de uso, puedo decir que la Conga 13090 cumple lo que promete: su potencia y la limpieza de las mopas son espectaculares. Sin embargo, hay un punto a mejorar que no se suele mencionar: la autonomía. En mi casa de 100m², el robot necesita una carga intermedia para aspirar y fregar todo de una vez. Si solo aspiras, lo hace de una pasada, pero para el ciclo completo tendrás que esperar una recarga de unas dos horas. Si trabajas fuera, esto no es problema, pero si quieres limpiar rápido antes de salir, puede ser un poco incómodo. Por lo demás, la recomendaría sin dudar.
     </p>
     <p>
-      <a href={product?.urlAfiliado || product?.urlAffiliado} class="cta">¿Quieres una limpieza profunda y sin esfuerzo? ¡Esta Conga es para ti!</a>
+      <a href={product?.urlAfiliado} class="cta">¿Quieres una limpieza profunda y sin esfuerzo? ¡Esta Conga es para ti!</a>
     </p>
   </section>
 
@@ -361,7 +361,7 @@ function toggleAccordion(event) {
       }
     </style>
     <p>
-      <a href={product?.urlAfiliado || product?.urlAffiliado} class="cta">¡Aprovecha la tecnología más avanzada y mantén tu casa impecable cada día!</a>
+      <a href={product?.urlAfiliado} class="cta">¡Aprovecha la tecnología más avanzada y mantén tu casa impecable cada día!</a>
     </p>
   </section>
 
@@ -372,7 +372,7 @@ function toggleAccordion(event) {
     </p>
     <TableComparativa idProductoDestacado={8} limit={4} amazonProduts={amazonProduts} />
     <p>
-      <a href={product?.urlAfiliado || product?.urlAffiliado} class="cta">No te quedes atrás: elige la mejor opción para tu hogar y disfruta de más tiempo libre.</a>
+      <a href={product?.urlAfiliado} class="cta">No te quedes atrás: elige la mejor opción para tu hogar y disfruta de más tiempo libre.</a>
     </p>
   </section>
 
@@ -385,7 +385,7 @@ function toggleAccordion(event) {
       <li>La app te permite definir, planificar y programar la limpieza, así como seleccionar habitaciones específicas.</li>
     </ul>
     <p>
-      <a href={product?.urlAfiliado || product?.urlAffiliado} class="cta">¿Listo para dar el salto a la limpieza inteligente? ¡Haz tu pedido ahora y vive la diferencia!</a>
+      <a href={product?.urlAfiliado} class="cta">¿Listo para dar el salto a la limpieza inteligente? ¡Haz tu pedido ahora y vive la diferencia!</a>
     </p>
   </section>
 </Layout>

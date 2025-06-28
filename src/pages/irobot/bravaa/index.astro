@@ -2,13 +2,13 @@
 import { withDomain } from "../../../datos/database"; // Ajusta la ruta según tu estructura
 import { schemaArticle } from "../../../datos/seoBase"; // Ajusta la ruta según tu estructura
 import Layout from "../../../layouts/Layout.astro"; // Ajusta la ruta según tu estructura
-
-const title = "Robots Friegasuelos Braava: La Gama Completa para Suelos Impecables | iRobot";
-const description = "Explora la línea de robots friegasuelos Braava de iRobot, desde el potente Braava jet m6 hasta modelos compactos. Encuentra el robot que friega perfecto para tu hogar y disfruta de suelos limpios sin esfuerzo.";
 const canonicalURL = withDomain("/irobot/braava/");
 const pubDatetime = new Date("2025-06-27T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-27T00:00:00+00:00").toISOString();
+const title = "¡No compres un Braava sin leer esto! | Descubre su mejor friegasuelos";
+const description = "2025-06-27 ¿Cansado de fregar? Explora la línea de friegasuelos Braava de iRobot.";
 
+console.log(modDatetime)
 const schemas = [
     schemaArticle({
         headline: title,
@@ -270,7 +270,7 @@ const schemas = [
                 </div>
                 <div class="item-especificacion">
                     <h3 class="titulo-especificacion">Conectividad</h3>
-                    <p>Wi-Fi 802.11 b/g/n a 2.4 GHz, compatible con la App iRobot Home</p>
+                    <p>conexión wi fi 802.11 b/g/n a 2.4 GHz, compatible con la App iRobot Home</p>
                 </div>
                 <div class="item-especificacion">
                     <h3 class="titulo-especificacion">Nivel de Ruido</h3>

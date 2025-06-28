@@ -1,21 +1,14 @@
 ---
 import { withDomain } from "../../../datos/database";
-import { schemaArticle, schemaProduct } from "../../../datos/seoBase";
+import { schemaArticle, schemaProduct, schemaProductList } from "../../../datos/seoBase";
 import Layout from "../../../layouts/Layout.astro";
 const title = "iRobot Roomba Combo: Tu Solución Aspirador y Fregasuelos 2 en 1";
 const description = "Los robots iRobot Roomba Combo son la innovadora respuesta para una limpieza integral de tu hogar. Estos dispositivos avanzados combinan la potente succión de una aspiradora Roomba con la capacidad de fregado de una Braava.";
 const canonicalURL = withDomain("/irobot/roomba-combo/");
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
-const schemas=[
-    schemaArticle({
-        headline: title,
-        image:"https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg",
-        description,
-        url: canonicalURL,
-        datePublished:pubDatetime,
-        dateModified:modDatetime,
-    }),
+
+const products=[
     schemaProduct({
         name: "iRobot Roomba j9+ Combo",
         image: "https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg",
@@ -31,7 +24,66 @@ const schemas=[
             ratingValue: 4.8,
             reviewCount: 150
         }
+    }),
+    schemaProduct({
+        name: "iRobot Roomba j7+ Combo",
+        image: "https://i.blogs.es/358ce0/irobot-roomba-combo-j7-/1366_2000.jpg",
+        description:"Limpieza Inteligente con Detección de Objetos",
+        brand: { name: "iRobot" },
+        url: canonicalURL,
+        offers: {
+            price: 899.99,
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock"
+        },
+        aggregateRating: {
+            ratingValue: 4.5,
+            reviewCount: 120
+        }
+    }),
+    schemaProduct({
+        name: "iRobot Roomba i5 Combo",
+        image: "https://cdn.media.amplience.net/i/irobot/i517840_1",
+        description:"La Opción Equilibrada para Doble Función",
+        brand: { name: "iRobot" },
+        url: canonicalURL,
+        offers: {
+            price: 499.99,
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock"
+        },
+        aggregateRating: {
+            ratingValue: 4.2,
+            reviewCount: 80
+        }
+    }),
+    schemaProduct({
+        name: "iRobot Roomba Combo (Modelo Básico)",
+        image: "https://m.media-amazon.com/images/I/71zm7C2TPBL._UF894,1000_QL80_.jpg",
+        description:"La Entrada a la Limpieza Combinada",
+        brand: { name: "iRobot" },
+        url: canonicalURL,
+        offers: {
+            price: 299.99,
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock"
+        },
+        aggregateRating: {
+            ratingValue: 3.8,
+            reviewCount: 50
+        }
     })
+]
+const schemas=[
+    schemaArticle({
+        headline: title,
+        image:"https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg",
+        description,
+        url: canonicalURL,
+        datePublished:pubDatetime,
+        dateModified:modDatetime,
+    }),
+    schemaProductList(products)
 ]
 ---
 

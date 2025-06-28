@@ -1,6 +1,6 @@
 ---
 import { withDomain } from "../../../datos/database"; // Ajusta la ruta según tu estructura
-import { schemaArticle, schemaProduct } from "../../../datos/seoBase"; // Ajusta la ruta según tu estructura
+import { schemaArticle, schemaProduct, schemaProductList } from "../../../datos/seoBase"; // Ajusta la ruta según tu estructura
 import Layout from "../../../layouts/Layout.astro"; // Ajusta la ruta según tu estructura
 const canonicalURL = withDomain("/irobot/braava/");
 const pubDatetime = new Date("2025-06-27T00:00:00+00:00").toISOString();
@@ -8,16 +8,8 @@ const modDatetime = new Date("2025-06-27T00:00:00+00:00").toISOString();
 const title = "⚠️ ¡NO compres un Braava sin leer esto!";
 const description = "2025-06-27 ¿Cansado de fregar? Explora la línea de friegasuelos Braava de iRobot y elige el ✔ mejor.";
 
-console.log(modDatetime)
-const schemas = [
-    schemaArticle({
-        headline: title,
-        image: "https://www.irobot.es/cdn/shop/files/Braava-family_1500x.png", // Una imagen de la familia Braava si está disponible, o del m6
-        datePublished: pubDatetime,
-        dateModified: modDatetime,
-        description,
-        url: canonicalURL
-    }),
+const braavaProducts = [
+  
     schemaProduct({
         name: "iRobot Braava jet® m6",
         image: "https://www.irobot.es/cdn/shop/files/Braava-jet-m6_1500x.png", // Imagen del Braava jet m6
@@ -36,7 +28,38 @@ const schemas = [
             ratingValue: 4.5,
             reviewCount: 120
         }
+    }),
+    schemaProduct({
+        name: "iRobot Braava jet® 240",
+        image: "https://www.irobot.es/cdn/shop/files/Braava-jet-240_1500x.png", // Imagen del Braava jet 240
+        description: "El robot fregasuelos compacto ideal para limpiar pequeñas áreas y espacios reducidos como baños y cocinas.",
+        brand: {
+            name: "iRobot"
+        },
+        url: canonicalURL,
+        offers: {
+            price: 249.00,
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock",
+            url: canonicalURL
+        },
+        aggregateRating: {
+            ratingValue: 4.2,
+            reviewCount: 80
+        }
     })
+  
+]
+const schemas = [
+    schemaArticle({
+        headline: title,
+        image: "https://www.irobot.es/cdn/shop/files/Braava-family_1500x.png", // Una imagen de la familia Braava si está disponible, o del m6
+        datePublished: pubDatetime,
+        dateModified: modDatetime,
+        description,
+        url: canonicalURL
+    }),
+    schemaProductList(braavaProducts)
 ];
 ---
 

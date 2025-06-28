@@ -101,7 +101,36 @@ export const schemaProduct = (overrides = {}) =>{
   // Combina los valores por defecto con los personalizados (overrides)
   return { ...defaults, ...overrides };
 }
-
+export const schemaProductList = (products = []) => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": products.map((product, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": product.name || "Nombre del producto",
+      "image": product.image || [],
+      "brand": product.brand || { "@type": "Brand", "name": "iRobot" },
+      "url": product.url || "https://tusitio.com/producto",
+      "aggregateRating": product.aggregateRating || {
+        "@type": "AggregateRating",
+        "ratingValue": 3.9,
+        "reviewCount": 81,
+        "bestRating": 5
+      },
+      "offers": product.offers || {
+        "@type": "Offer",
+        "url": product.url || "https://tusitio.com/comprar",
+        "priceCurrency": "EUR",
+        "price": 0,
+        "priceValidUntil": "2028-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  }))
+});
 // Plantilla reutilizable para Review (reseña de producto)
 export const schemaReview = ({
   author = AUTHOR,

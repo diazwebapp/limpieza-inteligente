@@ -25,7 +25,8 @@ const schemas = [
     url: canonicalURL,
     offers: {
       price: product?.precio,
-      priceCurrency: "EUR",     
+      priceCurrency: "EUR", 
+      availability: "https://schema.org/InStock",    
     },
     aggregateRating: {
       ratingValue: product?.stars,

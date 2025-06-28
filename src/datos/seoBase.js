@@ -90,7 +90,7 @@ export const schemaProduct = (overrides = {}) =>{
       "@type": "Offer",
       url: "https://tusitio.com/comprar",
       priceCurrency: "EUR",
-      price: "299",
+      price: "0",
       priceValidUntil: "2025-12-31",
       itemCondition: "https://schema.org/NewCondition",
       availability: "https://schema.org/InStock"

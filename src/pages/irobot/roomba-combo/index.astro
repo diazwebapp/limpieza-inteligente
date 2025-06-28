@@ -1,6 +1,6 @@
 ---
 import { withDomain } from "../../../datos/database";
-import { schemaArticle } from "../../../datos/seoBase";
+import { schemaArticle, schemaProduct } from "../../../datos/seoBase";
 import Layout from "../../../layouts/Layout.astro";
 const title = "iRobot Roomba Combo: Tu Solución Aspirador y Fregasuelos 2 en 1";
 const description = "Los robots iRobot Roomba Combo son la innovadora respuesta para una limpieza integral de tu hogar. Estos dispositivos avanzados combinan la potente succión de una aspiradora Roomba con la capacidad de fregado de una Braava.";
@@ -10,10 +10,27 @@ const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
 const schemas=[
     schemaArticle({
         headline: title,
+        image:"https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg",
         description,
         url: canonicalURL,
         datePublished:pubDatetime,
         dateModified:modDatetime,
+    }),
+    schemaProduct({
+        name: "iRobot Roomba j9+ Combo",
+        image: "https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg",
+        description:"La máxima potencia y autonomía para aspirar y fregar",
+        brand: { name: "iRobot" },
+        url: canonicalURL,
+        offers: {
+            price: 1399.99,
+            priceCurrency: "EUR",
+            availability: "https://schema.org/InStock"
+        },
+        aggregateRating: {
+            ratingValue: 4.8,
+            reviewCount: 150
+        }
     })
 ]
 ---

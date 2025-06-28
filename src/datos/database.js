@@ -212,7 +212,7 @@ export const amazonProduts = [
   id: 8,
   title: "Cecotec Conga 13090 Spin Revolution Home&Wash Essential",
   slug: withDomain("/cecotec/conga-13090-spin-revolution-home-wash-essential/"),
-  urlAffiliado: "https://amzn.to/45BmPm6",
+  urlAfiliado: "https://amzn.to/45BmPm6",
   imageIds: [107,108,109],
   stars: 3.9,
   ratingCount: 96,

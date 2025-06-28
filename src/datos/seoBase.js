@@ -36,31 +36,22 @@ export const schemaWebSite = ({
 });
 
 // Plantilla reutilizable para Article/TechArticle
-export const schemaArticle = ({
-  headline,
-  image=[""],
-  datePublished,
-  dateModified,
-  author = AUTHOR,
-  publisher = PUBLISHER,
-  description,
-  articleBody,
-  mainEntityOfPage,
-  url
-} = {}) => ({
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline,
-  image,
-  datePublished,
-  dateModified,
-  author,
-  publisher,
-  description,
-  articleBody,
-  mainEntityOfPage,
-  url
-});
+export const schemaArticle = (overrides = {}) =>{
+  const defaults ={
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline:"",
+    image:[],
+    datePublished:"",
+    dateModified:"",
+    author : AUTHOR,
+    publisher: PUBLISHER,
+    description:"",
+    url:WEBSITE_URL
+  };
+
+  return { ...defaults, ...overrides };
+}
 
 // Plantilla reutilizable para FAQPage
 export const schemaFAQ = ({
@@ -72,31 +63,44 @@ export const schemaFAQ = ({
 });
 
 // Plantilla reutilizable para Product (con rich snippet de reseñas)
-export const schemaProduct = ({
-  name,
-  image = [],
-  description = "",
-  brand = {},
-  sku = "",
-  mpn = "",
-  url = WEBSITE_URL,
-  offers = {},
-  aggregateRating = {},
-  review = [],
-} = {}) => ({
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name,
-  image,
-  description,
-  brand,
-  sku,
-  mpn,
-  url,
-  offers,
-  aggregateRating,
-  review
-});
+/**
+ * Genera un schema JSON-LD para Producto con valores por defecto.
+ * @param {Object} overrides - Propiedades personalizables (marcadas en rojo).
+ * @returns {Object} Schema de Producto válido.
+ */
+export const schemaProduct = (overrides = {}) =>{
+  // Valores por defecto (ajusta según necesites)
+  const defaults = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Nombre del producto",  // <- Modificable
+    image: [],                   // <- Modificable
+    brand: {                     // <- Modificable
+      "@type": "Brand",
+      name: "Marca del producto"
+    },
+    url: "https://tusitio.com/producto",  // <- Modificable
+    aggregateRating: {           // <- Modificable
+      "@type": "AggregateRating",
+      ratingValue: 4.7,
+      reviewCount: 200,
+      bestRating: 5
+    },
+    offers: {                    // <- Modificable
+      "@type": "Offer",
+      url: "https://tusitio.com/comprar",
+      priceCurrency: "EUR",
+      price: "299",
+      priceValidUntil: "2025-12-31",
+      itemCondition: "https://schema.org/NewCondition",
+      availability: "https://schema.org/InStock"
+    },
+    review: []                   // <- Modificable
+  };
+
+  // Combina los valores por defecto con los personalizados (overrides)
+  return { ...defaults, ...overrides };
+}
 
 // Plantilla reutilizable para Review (reseña de producto)
 export const schemaReview = ({

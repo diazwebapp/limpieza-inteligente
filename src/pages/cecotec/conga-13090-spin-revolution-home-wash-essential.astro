@@ -23,15 +23,10 @@ const schemas = [
     brand: { "@type": "Brand", name: "Cecotec" },
     url: canonicalURL,
     offers: {
-      "@type": "AggregateOffer",
-      "offerCount": 5,
-      "lowPrice": product?.precio,
-      "highPrice": product?.precio,
-      "url":product?.urlAfiliado || product?.urlAffiliado,
-      priceCurrency: product?.moneda || product?.momeda || "EUR",     
+      price: product?.precio,
+      url: product?.urlAfiliado || product?.slug, 
     },
     aggregateRating: {
-      "@type": "AggregateRating",
       ratingValue: product?.stars,
       reviewCount: product?.ratingCount
     }
@@ -42,7 +37,6 @@ const schemas = [
     image: images.map(img => img["250x250"]),
     datePublished: pubDatetime,
     dateModified: modDatetime,
-    mainEntityOfPage: canonicalURL
   }),
   {
     "@context": "https://schema.org",

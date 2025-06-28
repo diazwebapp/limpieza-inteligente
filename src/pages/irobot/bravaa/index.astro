@@ -1,6 +1,6 @@
 ---
 import { withDomain } from "../../../datos/database"; // Ajusta la ruta según tu estructura
-import { schemaArticle, schemaReview } from "../../../datos/seoBase"; // Ajusta la ruta según tu estructura
+import { schemaArticle, schemaProduct } from "../../../datos/seoBase"; // Ajusta la ruta según tu estructura
 import Layout from "../../../layouts/Layout.astro"; // Ajusta la ruta según tu estructura
 const canonicalURL = withDomain("/irobot/braava/");
 const pubDatetime = new Date("2025-06-27T00:00:00+00:00").toISOString();
@@ -18,8 +18,21 @@ const schemas = [
         description,
         url: canonicalURL
     }),
-    schemaReview({
-        url:canonicalURL
+    schemaProduct({
+        name: "iRobot Braava jet® m6",
+        image: "https://www.irobot.es/cdn/shop/files/Braava-jet-m6_1500x.png", // Imagen del Braava jet m6
+        description: "El robot fregasuelos más avanzado de iRobot, ideal para grandes espacios y limpieza profunda.",
+        brand: {
+            name: "iRobot"
+        },
+        url: canonicalURL,
+        offers: {
+            price: 699.00,
+        },
+        aggregateRating: {
+            ratingValue: 4.5,
+            reviewCount: 120
+        }
     })
 ];
 ---

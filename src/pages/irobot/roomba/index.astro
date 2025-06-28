@@ -5,7 +5,8 @@ import { schemaWebSite, schemaArticle } from '../../../datos/seoBase';
 
 const title = "Robots fregasuelos iRobot Roomba | Limpieza Definitiva";
 const description = "Descubre el aspirador fregasuelos ideal para tu hogar. La tecnología iRobot Roomba aspira y friega a la vez. ¡Máxima eficiencia y limpieza sin esfuerzo!";
-const canonicalURL = "https://limpiezainteligente.store/irobot/roomba/";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/irobot/roomba/";
 const author = "diaz web app";
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();

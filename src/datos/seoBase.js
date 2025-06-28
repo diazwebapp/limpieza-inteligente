@@ -1,4 +1,5 @@
 // Variables reutilizables globales
+const WEBSITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store/";
 export const AUTHOR = {
   "@type": "Person",
   name: "Diaz Web App",
@@ -10,11 +11,10 @@ export const PUBLISHER = {
   name: "Robots de limpieza",
   logo: {
     "@type": "ImageObject",
-    url: "http://limpiezainteligente.store/favicon.ico"
+    url: WEBSITE_URL.replace(/\/$/, "") + "/favicon.ico"
   }
 };
 
-export const WEBSITE_URL = "https://limpiezainteligente.store/";
 export const WEBSITE_NAME = "Robots de limpieza";
 export const WEBSITE_DESCRIPTION = "Descubre cómo un robot limpiador puede limpiar tu hogar. Guías de los mejores robots para pisos,  Tu solución para automatizar la limpieza.";
 export const WEBSITE_LANGUAGE = "es";
@@ -36,31 +36,22 @@ export const schemaWebSite = ({
 });
 
 // Plantilla reutilizable para Article/TechArticle
-export const schemaArticle = ({
-  headline,
-  image = [],
-  datePublished,
-  dateModified,
-  author = AUTHOR,
-  publisher = PUBLISHER,
-  description,
-  articleBody,
-  mainEntityOfPage,
-  url
-} = {}) => ({
-  "@context": "https://schema.org",
-  "@type": "Article",
-  headline,
-  image,
-  datePublished,
-  dateModified,
-  author,
-  publisher,
-  description,
-  articleBody,
-  mainEntityOfPage,
-  url
-});
+export const schemaArticle = (overrides = {}) =>{
+  const defaults ={
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline:"",
+    image:[],
+    datePublished:"",
+    dateModified:"",
+    author : AUTHOR,
+    publisher: PUBLISHER,
+    description:"",
+    url:WEBSITE_URL
+  };
+
+  return { ...defaults, ...overrides };
+}
 
 // Plantilla reutilizable para FAQPage
 export const schemaFAQ = ({
@@ -72,46 +63,84 @@ export const schemaFAQ = ({
 });
 
 // Plantilla reutilizable para Product (con rich snippet de reseñas)
-export const schemaProduct = ({
-  name,
-  image = [],
-  description = "",
-  brand = {},
-  sku = "",
-  mpn = "",
-  url = WEBSITE_URL,
-  offers = {},
-  aggregateRating = {},
-  review = [],
-} = {}) => ({
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name,
-  image,
-  description,
-  brand,
-  sku,
-  mpn,
-  url,
-  offers,
-  aggregateRating,
-  review
-});
+/**
+ * Genera un schema JSON-LD para Producto con valores por defecto.
+ * @param {Object} overrides - Propiedades personalizables (marcadas en rojo).
+ * @returns {Object} Schema de Producto válido.
+ */
+export const schemaProduct = (overrides = {}) =>{
+  // Valores por defecto (ajusta según necesites)
+  const defaults = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Nombre del producto",  // <- Modificable
+    image: [],                   // <- Modificable
+    brand: {                     // <- Modificable
+      "@type": "Brand",
+      name: "Marca del producto"
+    },
+    url: "https://tusitio.com/producto",  // <- Modificable
+    aggregateRating: {           // <- Modificable
+      "@type": "AggregateRating",
+      ratingValue: 4.7,
+      reviewCount: 200,
+      bestRating: 5
+    },
+    offers: {                    // <- Modificable
+      "@type": "Offer",
+      url: "https://tusitio.com/comprar",
+      priceCurrency: "EUR",
+      price: "0",
+      priceValidUntil: "2025-12-31",
+      itemCondition: "https://schema.org/NewCondition",
+      availability: "https://schema.org/InStock"
+    },
+    review: []                   // <- Modificable
+  };
 
+  // Combina los valores por defecto con los personalizados (overrides)
+  return { ...defaults, ...overrides };
+}
+export const schemaProductList = (products = []) => ({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": products.map((product, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": product.name || "Nombre del producto",
+      "image": product.image || [],
+      "brand": product.brand || { "@type": "Brand", "name": "iRobot" },
+      "url": product.url || "https://tusitio.com/producto",
+      "aggregateRating": product.aggregateRating || {
+        "@type": "AggregateRating",
+        "ratingValue": 3.9,
+        "reviewCount": 81,
+        "bestRating": 5
+      },
+      "offers": product.offers || {
+        "@type": "Offer",
+        "url": product.url || "https://tusitio.com/comprar",
+        "priceCurrency": "EUR",
+        "price": 0,
+        "priceValidUntil": "2028-12-31",
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  }))
+});
 // Plantilla reutilizable para Review (reseña de producto)
 export const schemaReview = ({
   author = AUTHOR,
   datePublished,
-  reviewBody,
   reviewRating = { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-  name = "Opinión de usuario",
   url = WEBSITE_URL
 } = {}) => ({
   "@type": "Review",
   author,
   datePublished,
-  reviewBody,
   reviewRating,
-  name,
   url
 });

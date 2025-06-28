@@ -7,7 +7,8 @@ import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
 
 const title = "Robot Aspirador para Suelo de Madera: Limpieza Eficiente y Sin Daños";
 const description = "Descubre los mejores robots aspirador y friegasuelos para suelos de madera. Mantén tu parquet impecable y protegido con la tecnología más avanzada.";
-const canonicalURL = "https://limpiezainteligente.store/suelo-madera";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/suelo-madera/";
 const datePublished = "2025-06-08T00:00:00+00:00";
 const dateModified = "2025-06-12T00:00:00+00:00";
 

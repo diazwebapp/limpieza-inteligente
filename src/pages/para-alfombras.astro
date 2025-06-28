@@ -7,7 +7,8 @@ import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
 
 const title = "Robot Aspirador para Alfombras: Limpieza Profunda y Sin Esfuerzo";
 const description = "Descubre los mejores robots aspirador y friegasuelos para alfombras. Mantén tus alfombras limpias y libres de polvo con la tecnología más avanzada.";
-const canonicalURL = "https://limpiezainteligente.store/para-alfombras";
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/para-alfombras/";
 const datePublished = "2025-06-8T00:00:00+00:00";
 const dateModified = "2025-06-12T00:00:00+00:00";
 
@@ -39,8 +40,101 @@ const schemas = [
       <h1>El Mejor Vacuum para Lavar Alfombras: Soluciones Definitivas para un Hogar Impecable</h1>
       <p>Las alfombras aportan calidez y confort, pero su limpieza profunda puede ser un desafío. Para mantenerlas impecables y libres de suciedad incrustada o pelo de mascotas, necesitas un vacuum para lavar alfombras diseñado específicamente para sus fibras. Estos robots son la clave para una limpieza automatizada y eficiente que preserva la vida útil de tus alfombras.</p>
       <p><strong>¡Explora nuestra selección de los mejores robots aspiradores para alfombras y transforma tu rutina de limpieza!</strong></p>
-      <!-- Aquí insertar el cluster de productos de Amazon de robots aspiradores para alfombras -->
-      <AmazonCluster products={amazonProduts} />
+      
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .rating {
+            color: #FFD700;
+            font-weight: bold;
+        }
+    </style>
+
+    <h2>Top 5 robots de limpieza para alfombras</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>Potencia (Pa)</th>
+                <th>Tipo de limpieza</th>
+                <th>Autonomía</th>
+                <th>Mapeo</th>
+                <th>Precio aproximado</th>
+                <th>Valoración</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Roomba j7+</td>
+                <td>iRobot</td>
+                <td>1700 Pa</td>
+                <td>Aspirado + fregado</td>
+                <td>120 min</td>
+                <td>Láser + IA</td>
+                <td>$799</td>
+                <td class="rating">4.8/5</td>
+            </tr>
+            <tr>
+                <td>Roborock S8 Pro Ultra</td>
+                <td>Roborock</td>
+                <td>6000 Pa (máx)</td>
+                <td>Aspirado + fregado</td>
+                <td>180 min</td>
+                <td>LIDAR 3D</td>
+                <td>$1,299</td>
+                <td class="rating">4.9/5</td>
+            </tr>
+            <tr>
+                <td>Shark AI Ultra</td>
+                <td>Shark</td>
+                <td>2200 Pa</td>
+                <td>Aspirado + auto-vaciado</td>
+                <td>120 min</td>
+                <td>LIDAR</td>
+                <td>$599</td>
+                <td class="rating">4.6/5</td>
+            </tr>
+            <tr>
+                <td>Ecovacs Deebot X2 Omni</td>
+                <td>Ecovacs</td>
+                <td>8000 Pa (máx)</td>
+                <td>Aspirado + fregado</td>
+                <td>140 min</td>
+                <td>LIDAR + IA</td>
+                <td>$1,499</td>
+                <td class="rating">4.7/5</td>
+            </tr>
+            <tr>
+                <td>Neato D10</td>
+                <td>Neato</td>
+                <td>2200 Pa</td>
+                <td>Aspirado</td>
+                <td>120 min</td>
+                <td>Láser D-shape</td>
+                <td>$549</td>
+                <td class="rating">4.5/5</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><strong>Notas:</strong> Todos los modelos listados incluyen cepillos especializados para alfombras y ajuste automático de potencia en superficies textiles. Los precios pueden variar según región y promociones.</p>
+
       <h2>¿Por Qué un Robot Aspirador para Alfombras es Indispensable?</h2>
       <p>Un robot aspirador para alfombras no es solo una aspiradora convencional. Estos dispositivos están diseñados para penetrar en las fibras, eliminar alérgenos y suciedad incrustada, y algunos incluso ofrecen funciones de fregado ligero adecuadas para ciertas alfombras. Son la respuesta a la pregunta: ¿la aspiradora robot sirve para alfombras? Sí, y de manera excepcional.</p>
       <ul>

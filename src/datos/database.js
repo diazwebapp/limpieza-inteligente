@@ -1,90 +1,98 @@
+// Importa la variable de entorno
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://limpiezainteligente.store';
+
+export function withDomain(slug) {
+  if (!slug) return '';
+  return SITE_URL.replace(/\/$/, '') + (slug.startsWith('/') ? slug : '/' + slug);
+}
+
 export const marcas = [
     {
         id: 1,
-        slug: "/cecotec/",
+        slug: withDomain("/cecotec/"),
         name:"Cecotec",
         title: "Robots Aspirador Friegasuelos Cecotec | Conga: Limpieza Inteligente",
-        image: "/robot-cecotec.webp",
-        thubnail: "/robot-cecotec.webp",
+        image: withDomain("/robot-cecotec.webp"),
+        thubnail: withDomain("/robot-cecotec.webp"),
         description: "Conga de Cecotec: aspira y friega con tecnología avanzada. Limpieza fácil y eficiente para tu hogar."
     },
     {
         id: 2,
-        slug: "/irobot/",
+        slug: withDomain("/irobot/"),
         name:"iRobot",
         title: "iRobot: Dominando la Limpieza del Hogar",
-        image: "/robot-roomba.webp",
-        thubnail: "/robot-roomba.webp",
+        image: withDomain("/robot-roomba.webp"),
+        thubnail: withDomain("/robot-roomba.webp"),
         description: "iRobot: la solución definitiva para aspirar y fregar. Limpieza autónoma, eficiente y profunda con la gama Roomba y más.",
         subitems: [
             {
                 id: 3,
-                slug: "/irobot/roomba/",
+                slug: withDomain("/irobot/roomba/"),
                 name: "Roomba",
                 title: "Roomba Aspirador Friegasuelos | iRobot Roomba Combo: Limpieza Definitiva",
-                image: "/robot-roomba.webp",
-                thubnail: "/robot-roomba.webp",
+                image: withDomain("/robot-roomba.webp"),
+                thubnail: withDomain("/robot-roomba.webp"),
                 description: "Roomba Combo: aspira y friega en una sola pasada. Ideal para quienes buscan comodidad y resultados."
             },
             {
                 id: 4,
-                slug: "/irobot/bravaa/",
+                slug: withDomain("/irobot/bravaa/"),
                 name: "Braava",
                 title: "Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente",
-                image: "/robot-roomba.webp",
-                thubnail: "/robot-roomba.webp",
+                image: withDomain("/robot-roomba.webp"),
+                thubnail: withDomain("/robot-roomba.webp"),
                 description: "Descubre la eficiencia y tecnología avanzada de iRobot Braava para un fregado inteligente y resultados profesionales en tu hogar."
             }
         ]
     },
     {
         id: 5,
-        slug: "/xiaomi/",
+        slug: withDomain("/xiaomi/"),
         name:"Xiaomi",
         title: "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente",
-        image: "/robot-xiaomi.webp",
-        thubnail: "/robot-xiaomi.webp",
+        image: withDomain("/robot-xiaomi.webp"),
+        thubnail: withDomain("/robot-xiaomi.webp"),
         description: "Xiaomi Mi Robot Vacuum: limpia y friega con precisión. Tecnología y buen precio para tu día a día."
     }
     // Puedes añadir más categorías aquí
-]
+];
 
-export const tiposSuelo =[
+export const tiposSuelo = [
     {
-        slug: "/suelo-laminado/",
+        slug: withDomain("/suelo-laminado/"),
         title: "Para suelos laminado",
-        image: "/para-laminado.webp",
-        thubnail: "/para-laminado.webp",
+        image: withDomain("/para-laminado.webp"),
+        thubnail: withDomain("/para-laminado.webp"),
         description: "El suelo laminado requiere limpieza delicada y control de humedad para evitar daños y mantener su brillo."
     },
     {
-        slug: "/suelo-madera/",
+        slug: withDomain("/suelo-madera/"),
         title: "Para pisos de madera",
-        image: "/para-madera.webp",
-        thubnail: "/para-madera.webp",
+        image: withDomain("/para-madera.webp"),
+        thubnail: withDomain("/para-madera.webp"),
         description: "La madera necesita cuidado especial: limpieza suave, mínima humedad y protección contra arañazos."
     },
     {
-        slug: "/suelo-marmol/",
+        slug: withDomain("/suelo-marmol/"),
         title: "Para marmol y piedra",
-        image: "/para-marmol.png",
-        thubnail: "/para-marmol.png",
+        image: withDomain("/para-marmol.png"),
+        thubnail: withDomain("/para-marmol.png"),
         description: "El mármol y la piedra requieren limpieza frecuente, productos neutros y evitar exceso de agua para conservar su elegancia."
     },
     {
-        slug: "/para-alfombras/",
+        slug: withDomain("/para-alfombras/"),
         title: "Para Alfombras",
-        image: "/para-alfombras.webp",
-        thubnail: "/para-alfombras.webp",
+        image: withDomain("/para-alfombras.webp"),
+        thubnail: withDomain("/para-alfombras.webp"),
         description: "Las alfombras necesitan aspirado profundo y regular para eliminar polvo, pelos y alérgenos incrustados."
     }
-]
+];
 
 export const amazonProduts = [
     {
     id: 4,
     title: "Xiaomi Robot Vacuum S20 Robot Aspirador y Fregasuelos",
-    slug: "/xiaomi/vacuum-s20/",
+    slug: withDomain("/xiaomi/vacuum-s20/"),
     urlAfiliado: "https://amzn.to/3ZzFU4q", // Cambia la URL si tienes la de afiliado
     imageIds: [101,102,103],
     stars: 4.3, // Puedes actualizar si tienes el dato
@@ -113,7 +121,7 @@ export const amazonProduts = [
 {
   id: 5,
   title: "Cecotec Conga 8490 Ultimate Ultra Power",
-  slug: "/cecotec/conga-8490-ultimate-ultra-power/",
+  slug: withDomain("/cecotec/conga-8490-ultimate-ultra-power/"),
   urlAfiliado: "https://amzn.to/3ZxvsKN",
   imageIds: [201,202,203],
   stars: 3.9,
@@ -139,7 +147,7 @@ export const amazonProduts = [
 {
   id: 6,
   title: "Conga 999 Map X-Treme",
-  slug: "/cecotec/conga-999-map-x-treme/",
+  slug: withDomain("/cecotec/conga-999-map-x-treme/"),
   urlAfiliado: "https://amzn.to/460vsXs", // Añadir URL de afiliado si la tienes
   imageIds: [301, 302, 303],
   stars: 3.9,
@@ -173,7 +181,7 @@ export const amazonProduts = [
 {
   id: 7,
   title: "iRobot Roomba Combo Essential",
-  slug: "/irobot/roomba-combo-essential/",
+  slug: withDomain("/irobot/roomba-combo-essential/"),
   urlAfiliado: "https://amzn.to/4ejQJ0E", // URL de afiliado no proporcionada
   imageIds: [104, 105, 106],
   stars: 3.9,
@@ -203,8 +211,8 @@ export const amazonProduts = [
 {
   id: 8,
   title: "Cecotec Conga 13090 Spin Revolution Home&Wash Essential",
-  slug: "/cecotec/conga-13090-spin-revolution-home-wash-essential",
-  urlAffiliado: "https://amzn.to/45BmPm6",
+  slug: withDomain("/cecotec/conga-13090-spin-revolution-home-wash-essential/"),
+  urlAfiliado: "https://amzn.to/45BmPm6",
   imageIds: [107,108,109],
   stars: 3.9,
   ratingCount: 96,
@@ -232,8 +240,7 @@ export const amazonProduts = [
     anchoRutaLimpieza: "34 Centímetros",
     duracionPiezasRecambio: "10 Años"
   }
-}
-]
+}];
 
 // Imágenes optimizadas por producto (id, 250x250, 60x60, 1280x720)
 export const productImages = [

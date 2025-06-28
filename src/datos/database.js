@@ -36,7 +36,7 @@ export const marcas = [
             },
             {
                 id: 4,
-                slug: withDomain("/irobot/bravaa/"),
+                slug: withDomain("/irobot/braava/"),
                 name: "Braava",
                 title: "Domina la Limpieza con iRobot Braava: La Revolución en Fregado Inteligente",
                 image: withDomain("/robot-roomba.webp"),

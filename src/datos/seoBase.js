@@ -102,16 +102,12 @@ export const schemaProduct = ({
 export const schemaReview = ({
   author = AUTHOR,
   datePublished,
-  reviewBody,
   reviewRating = { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-  name = "Opinión de usuario",
   url = WEBSITE_URL
 } = {}) => ({
   "@type": "Review",
   author,
   datePublished,
-  reviewBody,
   reviewRating,
-  name,
   url
 });

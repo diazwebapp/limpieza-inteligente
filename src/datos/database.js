@@ -29,10 +29,10 @@ export const marcas = [
                 id: 3,
                 slug: withDomain("/irobot/roomba/"),
                 name: "Roomba",
-                title: "Roomba Aspirador Friegasuelos | iRobot Roomba Combo: Limpieza Definitiva",
+                title: "Roomba Aspirador | iRobot Roomba: Limpieza Definitiva",
                 image: withDomain("/robot-roomba.webp"),
                 thubnail: withDomain("/robot-roomba.webp"),
-                description: "Roomba Combo: aspira y friega en una sola pasada. Ideal para quienes buscan comodidad y resultados."
+                description: "Roomba: aspirado profesional ideal para quienes buscan comodidad y resultados."
             },
             {
                 id: 4,
@@ -42,6 +42,15 @@ export const marcas = [
                 image: withDomain("/robot-roomba.webp"),
                 thubnail: withDomain("/robot-roomba.webp"),
                 description: "Descubre la eficiencia y tecnología avanzada de iRobot Braava para un fregado inteligente y resultados profesionales en tu hogar."
+            },
+            {
+                id: 4,
+                slug: withDomain("/irobot/roomba-combo/"),
+                name: "Roomba Combo",
+                title: "Domina la Limpieza con iRobot Roomba Combo: La Revolución en Apsirado y Fregado Inteligente",
+                image: withDomain("/robot-roomba.webp"),
+                thubnail: withDomain("/robot-roomba.webp"),
+                description: "Descubre la eficiencia y tecnología avanzada de iRobot Roomba Combo para un fregado inteligente y resultados profesionales en tu hogar."
             }
         ]
     },
@@ -181,7 +190,7 @@ export const amazonProduts = [
 {
   id: 7,
   title: "iRobot Roomba Combo Essential",
-  slug: withDomain("/irobot/roomba-combo-essential/"),
+  slug: withDomain("/irobot/roomba-combo/roomba-combo-essential/"),
   urlAfiliado: "https://amzn.to/4ejQJ0E", // URL de afiliado no proporcionada
   imageIds: [104, 105, 106],
   stars: 3.9,

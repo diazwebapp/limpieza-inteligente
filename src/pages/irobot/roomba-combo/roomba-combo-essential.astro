@@ -1,9 +1,9 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import SingleProductHeader from '../../components/SingleProductHeader.astro';
-import { schemaArticle , schemaProduct, schemaWebSite, schemaFAQ } from '../../datos/seoBase';
-import { amazonProduts, productImages } from '../../datos/database';
-import TableComparativa from '../../components/TableComparativa.astro';
+import Layout from '../../../layouts/Layout.astro';
+import SingleProductHeader from '../../../components/SingleProductHeader.astro';
+import { schemaArticle , schemaProduct, schemaWebSite, schemaFAQ } from '../../../datos/seoBase';
+import { amazonProduts, productImages } from '../../../datos/database';
+import TableComparativa from '../../../components/TableComparativa.astro';
 
 
 const product = amazonProduts.find(p => p.id === 7);
@@ -14,7 +14,7 @@ const images = productImages.filter(image => product?.imageIds.includes(image.id
 const title = "Roomba Combo Essential";
 const description = "Descubre el iRobot Roomba Combo Essential: navegación inteligente, potencia de succión de 2000 Pa, y limpieza eficiente para suelos duros y alfombras.";
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
-const canonicalURL = SITE_URL.replace(/\/$/, "") + "/irobot/roomba-combo-essential/";
+const canonicalURL = SITE_URL.replace(/\/$/, "") + "/irobot/roomba-combo/roomba-combo-essential/";
 const pubDatetime = new Date("2025-06-20T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-20T00:00:00+00:00").toISOString();
 
@@ -92,7 +92,7 @@ const schemas = [
 >
   <section>
     <SingleProductHeader
-    title={product.title}
+    title={product?.title}
     description="Como amante de la tecnología y la limpieza eficiente, he probado varios dispositivos de limpieza automática, pero el Roomba Combo Essential de iRobot ha superado mis expectativas. iRobot es sin duda la marca líder en el sector de los robots limpiadores, con una trayectoria que avala su calidad y eficiencia."
     img={images}
     price={product?.precio}

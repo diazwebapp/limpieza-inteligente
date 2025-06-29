@@ -1,0 +1,539 @@
+---
+import Layout from "../../../layouts/Layout.astro"
+
+const title="Braava jet® m6"
+const description="Despídete de la suciedad incrustada y el pelo de mascotas sin esfuerzo, con el Braava jet m6 estas tareas son muy simples."
+---
+
+<Layout title={title} description={description} >
+    <style>
+        :root {
+            --secondary-color: #6c757d;
+            --accent-color: #28a745;
+            --dark-text: #343a40;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--light);
+            color: var(--dark-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes highlightBorder {
+            0% { border-color: transparent; }
+            50% { border-color: var(--primary); }
+            100% { border-color: transparent; }
+        }
+
+        /* --- Product Hero Section --- */
+        .product-hero {
+            text-align: center;
+            padding: 3rem 1.5rem;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .product-header {
+            margin-bottom: 2rem;
+        }
+
+        .product-title {
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .subtitle {
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .product-short-description {
+            max-width: 800px;
+            margin: 0 auto 2rem auto;
+            font-size: 1rem;
+            opacity: 0.9;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .product-main-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px var(--shadow);
+            margin-top: 2rem;
+            animation: scaleIn 1s ease-out;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-main-image img:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        /* --- Reviews Summary --- */
+        .product-reviews-summary {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow);
+            margin-top: -3rem; /* Overlap with hero section */
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            animation: slideInUp 1.4s ease-out;
+        }
+
+        .reviews-stars {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .star-rating {
+            display: inline-block;
+            width: 80px; /* Adjust as needed */
+            height: 16px;
+            background: linear-gradient(to right, gold 0%, gold 74%, #ccc 74%, #ccc 100%); /* 3.7/5 = 74% */
+            mask: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') repeat-x;
+            mask-size: 16px 16px;
+            -webkit-mask: url('data:image/svg+xml;charset=UTF8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') repeat-x;
+            -webkit-mask-size: 16px 16px;
+        }
+
+        .reviews-stars a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        .highlighted-review blockquote {
+            font-style: italic;
+            margin: 1rem 0;
+            color: var(--dark-text);
+        }
+
+        .highlighted-review cite {
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+        }
+
+        /* --- Key Features --- */
+        .product-key-features h2,
+        .product-description h2,
+        .product-faq h2,
+        .full-reviews h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .feature-item {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-item img {
+            max-width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: var(--secondary-color);
+        }
+
+        /* --- Product Description --- */
+        .product-description {
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow);
+            margin-top: 2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .description-content p {
+            margin-bottom: 1rem;
+        }
+
+        .description-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .description-content ul li {
+            margin-bottom: 0.7rem;
+            padding-left: 1.8rem;
+            position: relative;
+            animation: slideInUp 0.8s ease-out backwards; /* Staggered animation */
+        }
+
+        .description-content ul li:nth-child(1) { animation-delay: 0.1s; }
+        .description-content ul li:nth-child(2) { animation-delay: 0.2s; }
+        .description-content ul li:nth-child(3) { animation-delay: 0.3s; }
+        .description-content ul li:nth-child(4) { animation-delay: 0.4s; }
+        .description-content ul li:nth-child(5) { animation-delay: 0.5s; }
+        .description-content ul li:nth-child(6) { animation-delay: 0.6s; }
+        .description-content ul li:nth-child(7) { animation-delay: 0.7s; }
+
+
+        .description-content ul li strong {
+            color: var(--primary);
+        }
+
+        .description-content ul li::before {
+            content: '✔️'; /* Checkmark icon */
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            top: 0;
+        }
+
+        /* --- FAQ Section --- */
+        .product-faq {
+            margin-top: 2rem;
+        }
+
+        .faq-items details {
+            background-color: var(--light);
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px var(--shadow);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: slideInUp 0.6s ease-out backwards;
+        }
+
+        .faq-items details:nth-child(1) { animation-delay: 0.1s; }
+        .faq-items details:nth-child(2) { animation-delay: 0.2s; }
+        .faq-items details:nth-child(3) { animation-delay: 0.3s; }
+        .faq-items details:nth-child(4) { animation-delay: 0.4s; }
+        .faq-items details:nth-child(5) { animation-delay: 0.5s; }
+        .faq-items details:nth-child(6) { animation-delay: 0.6s; }
+        .faq-items details:nth-child(7) { animation-delay: 0.7s; }
+
+        .faq-items summary {
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-items summary:hover {
+            background-color: var(--light);
+        }
+
+        .faq-items details[open] summary {
+            background-color: var(--primary);
+            color: var(--light);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .faq-items details p {
+            padding: 1rem 1.5rem 1.5rem;
+            margin: 0;
+            border-top: 1px solid var(--light);
+            background-color: var(--light);
+        }
+
+        /* --- Full Reviews --- */
+        .full-reviews {
+            margin-top: 2rem;
+        }
+
+        .review-item {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideInUp 0.8s ease-out backwards;
+            border: 2px solid transparent; /* For animation */
+        }
+        .review-item:nth-child(1) { animation-delay: 0.1s; }
+        .review-item:nth-child(2) { animation-delay: 0.2s; }
+        .review-item:nth-child(3) { animation-delay: 0.3s; }
+        .review-item:nth-child(4) { animation-delay: 0.4s; }
+
+
+        .review-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: highlightBorder 1.5s infinite;
+        }
+
+        .review-item h3 {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .review-item ul {
+            list-style: disc;
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .review-item ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        .review-item cite {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            text-align: right;
+        }
+
+        /* --- Media Queries for larger screens --- */
+        @media (min-width: 768px) {
+            
+
+
+            .product-short-description {
+                font-size: 1.1rem;
+            }
+
+            .product-reviews-summary {
+                padding: 2.5rem;
+                margin-top: -5rem;
+            }
+
+            .product-key-features h2,
+            .product-description h2,
+            .product-faq h2,
+            .full-reviews h2 {
+                font-size: 2.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .feature-item img {
+                height: 220px;
+            }
+
+            .description-content ul li {
+                padding-left: 2rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .product-hero{
+                display: grid;
+                grid-template-columns: 1fr 300px;
+                gap: 20px;
+                align-items: anchor-center;
+            }
+            .product-hero .product-header{
+                grid-column: 1 / span 2;
+            }
+            .product-hero .product-main-image{
+                grid-column: 2 / span 1;
+            }
+
+            .product-main-image img {
+                max-height: 550px;
+                width: auto;
+            }
+        }
+    </style>
+
+    <main>
+        <section class="container product-hero">
+            <div class="product-header">
+                <h1 class="product-title">Braava jet® m6: El Robot Friegasuelos Definitivo</h1>
+                <p class="subtitle">Despídete de la suciedad incrustada y el pelo de mascotas sin esfuerzo, con el Braava jet m6 estas tareas son muy simples.</p>
+            </div>
+            <div class="product-short-description">
+                <p>Desde salpicaduras accidentales hasta el fregado semanal completo, el robot friegasuelos Braava jet® m6 friega como tú lo harías, con ayuda de su pulverizador de chorro a presión para desincrustar las manchas y la grasa de la cocina.</p>
+                <p>Ideal para hogares con mascotas y amas de casa trabajadoras, te permite recuperar tu tiempo mientras disfruta de suelos impecables.</p>
+            </div>
+            <div class="product-main-image">
+                <img src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dw6a7d1e29/product-images/Braava/m6_Silver_Photo_InSitu_HomeBase_Docked2_Wood_3000x3000.jpg?sw=1000" alt="Robot friegasuelos Braava jet m6 en base de carga" loading="lazy">
+            </div>
+        </section>
+
+        <section class="container product-reviews-summary">
+            <div class="reviews-stars">
+                <span class="star-rating" aria-label="Valoración media: 3.7 de 5 estrellas">
+                    <span style="width: 74%;"></span>
+                </span>
+                <a href="#full-reviews">3.7 de 5 estrellas (2.638 reseñas)</a>
+            </div>
+            <div class="highlighted-review">
+                <blockquote>
+                    <p>"El compañero perfecto para mi roomba i7+. Simplemente una maravilla de robot. Limpia perfectamente el suelo. Se complementa al 100% con mi Roomba."</p>
+                    <cite>— Gabriel Gomez Beltran, Compra verificada</cite>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="container product-key-features">
+            <h2>Características Clave que Marcan la Diferencia</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <img src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dw123c483b/product-images/Braava/m6_Silver_Photo_InSitu_CleanTrail_StickyMess_Kitchen_Wood_3000x3000.jpg?sw=767" alt="Braava jet m6 limpiando manchas de café" loading="lazy">
+                    <h3>Pulverizador de Chorro a Presión</h3>
+                    <p>Despega la suciedad y las manchas incrustadas sin alcanzar muebles ni paredes. Di adiós a los derrames accidentales y la grasa de la cocina con su potente acción.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dwe2954e6e/product-images/Braava/i7%20_Charcoal_m6_Silver_Photo_InSitu_ImprintLink_2000x2000.jpg?sw=1000" alt="Braava jet m6 y Roomba i7+ trabajando juntos" loading="lazy">
+                    <h3>El Equipo de Limpieza Definitivo</h3>
+                    <p>Gracias a la tecnología Imprint® Link, se sincroniza con robots aspiradores Roomba® para aspirar y fregar en un orden perfecto. Tus suelos limpios sin ningún esfuerzo, con un comando de voz* o desde la app iRobot® Home.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dw3da4ed23/product-images/Braava/m6_Silver_Photo_InSitu_CleanTrail_PawPrints_Grime_MudRoom_Tile_SingleUse-1000x1000.jpg?sw=767" alt="Braava jet m6 limpiando huellas de mascota" loading="lazy">
+                    <h3>Un Paño para Cada Tarea</h3>
+                    <p>Con el sistema de paños avanzado, el robot sabe inteligentemente qué modo usar según el tipo de paño. La tecnología de paños de Braava jet® m6 usa energía electrostática para barrer y fibras absorbentes para fregar en profundidad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container product-description">
+            <h2>Descripción Completa</h2>
+            <div class="description-content">
+                <p>El robot friegasuelos Braava jet® m6 limpia como tú lo harías. Puedes decirle dónde y cuándo limpiar, y el pulverizador de chorro a presión se pondrá a eliminar los restos, la suciedad incrustada y la grasa de la cocina.</p>
+                <ul>
+                    <li><strong>Friega la suciedad al momento:</strong> ¿Se te ha derramado café? ¿Huellas de mascotas? Braava jet m6 puede limpiar zonas específicas de las habitaciones, como delante de un sofá o debajo de una mesa, para un fregado fácil y sin esfuerzo; solo tienes que utilizar el asistente de voz* o la aplicación iRobot Home.</li>
+                    <li><strong>Toda la limpieza, ¡bajo control!</strong> Mantiene limpias las zonas de más uso y evita aquellas donde no quieres que llegue. Distingue el estudio de la sala de estar gracias al mapeo inteligente, por lo que puedes crear zonas de limpieza para dirigir el robot a las zonas más necesarias y zonas de exclusión para evitar ciertos lugares, como los comederos de las mascotas.</li>
+                    <li><strong>Selecciona el modo de limpieza de forma automática:</strong> Braava jet m6 reconoce de manera inteligente el tipo de paño y selecciona el modo de limpieza asociado. Sus paños secos emplean carga electrostática para capturar el polvo y el pelo (¡también de animales!), y sus fibras absorbentes friegan en profundidad.</li>
+                    <li><strong>Mapeado inteligente y autonomía:</strong> Braava jet m6 aprende la distribución de tu hogar y crea mapas inteligentes para una limpieza más eficiente. Navega por tu hogar en filas ordenadas y, si la batería está baja, regresa a su base para recargarse de forma inteligente y continuar la limpieza donde la dejó hasta finalizar el trabajo.</li>
+                    <li><strong>Diseño compacto y versátil:</strong> Con solo 9 cm de altura, se adapta a varias habitaciones y espacios grandes, limpia debajo de los muebles y distintos tipos de suelo como madera, cerámica o piedra.</li>
+                    <li><strong>Se adapta a tu vida:</strong> Escucha tu voz. El robot friegasuelos Braava jet m6 aprende de tus hábitos de limpieza para ofrecerte programas personalizados.</li>
+                    <li><strong>Garantía de tranquilidad:</strong> Incluye 2 años de garantía del fabricante para tu total confianza.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="container product-faq">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-items">
+                <details>
+                    <summary>¿Dejará el suelo demasiado mojado?</summary>
+                    <p>No, el Braava jet m6 utiliza un pulverizador de chorro a presión que despega la suciedad sin saturar el suelo, y el sistema de paños avanzado asegura una absorción eficiente, dejando un acabado limpio y adecuado para distintos tipos de superficie como madera, cerámica o piedra.</p>
+                </details>
+                <details>
+                    <summary>¿Funcionará bien con pelo de mascota?</summary>
+                    <p>Sí, el Braava jet m6 es ideal para hogares con mascotas. Sus paños secos emplean carga electrostática para capturar el polvo y el pelo de animales, y el modo de fregado aborda eficazmente las huellas y suciedad incrustada, dejando tus suelos impecables.</p>
+                </details>
+                <details>
+                    <summary>¿Braava Jet M6 evita las alfombras?</summary>
+                    <p>Sí, el Braava jet m6 puede distinguir las alfombras y crear zonas de exclusión gracias a su mapeo inteligente, asegurando que solo limpie las áreas de suelo duro y evite las alfombras.</p>
+                </details>
+                <details>
+                    <summary>¿Cuál es la diferencia entre Roomba y Braava?</summary>
+                    <p>Roomba es un robot aspirador diseñado para aspirar suciedad y polvo de alfombras y suelos, mientras que Braava es un robot friegasuelos diseñado específicamente para fregar y barrer suelos duros. Pueden trabajar en conjunto mediante la tecnología Imprint® Link.</p>
+                </details>
+                <details>
+                    <summary>¿Cómo reiniciar el iRobot Braava Jet M6?</summary>
+                    <p>Para reiniciar tu Braava jet m6, generalmente puedes mantener presionado el botón de limpieza o seguir las instrucciones específicas en la aplicación iRobot Home.</p>
+                </details>
+                <details>
+                    <summary>¿Cómo apagar Braava Jet m6?</summary>
+                    <p>Puedes apagar el Braava jet m6 manteniendo presionado el botón de limpieza o devolviéndolo a su base de carga, lo cual lo pondrá en modo de bajo consumo.</p>
+                </details>
+                <details>
+                    <summary>¿Cuáles son las desventajas del robot trapeador?</summary>
+                    <p>Una posible desventaja es que, como cualquier dispositivo electrónico, requiere un mantenimiento periódico (limpieza de paños, rellenar el depósito de agua). Sin embargo, su capacidad de automatizar la limpieza y la comodidad que ofrece suelen compensar estas tareas.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="container full-reviews" id="full-reviews">
+            <h2>Lo que dicen nuestros clientes</h2>
+            <div class="review-item">
+                <h3>El compañero perfecto para mi roomba i7+ ⭐⭐⭐⭐⭐</h3>
+                <p>Cuento mi experiencia por si a alguien le ayuda a tomar una decisión. Le tenía echado el ojo desde hace tiempo, para usarlo como complemento de mi Roomba i7+, pero no lo compraba por el alto precio de uno nuevo. Aproveché las ofertas del Prime day en artículos de 2ª mano y lo compré.</p>
+                <p><strong>Lo bueno:</strong></p>
+                <ul>
+                    <li>Simplemente es una maravilla de robot. Limpia perfectamente el suelo.</li>
+                    <li>Se complementa al 100% con mi Roomba. Uno aspira y el otro friega.</li>
+                    <li>Muchas opciones de limpieza y de paños.</li>
+                    <li>El programa es el mismo. Aparece en otra pestaña y se pueden hacer programaciones conjuntas.</li>
+                    <li>No ocupa nada. Lo tengo debajo de una mesilla y ni se ve.</li>
+                </ul>
+                <cite>— Gabriel Gomez Beltran, Reseñado en España el 28 de agosto de 2024 (Compra verificada)</cite>
+            </div>
+            <div class="review-item">
+                <h3>Maravillosa ⭐⭐⭐⭐⭐</h3>
+                <p>Compra maravillosa. Funciona perfectamente. Se ha convertido en un imprescindible de mi casa. Se conecta muy bien con la aspiradora Roomba de la misma marca y trabajan seguidas.</p>
+                <cite>— Natalia, Reseñado en España el 26 de febrero de 2025 (Compra verificada)</cite>
+            </div>
+            <div class="review-item">
+                <h3>Gran ayuda ⭐⭐⭐⭐⭐</h3>
+                <p>Para los que no podemos limpiar todos los días, es fantástico. Una gran ayuda.</p>
+                <cite>— Victoria, Reseñado en España el 16 de noviembre de 2024 (Compra verificada)</cite>
+            </div>
+            <div class="review-item">
+                <h3>Buen complemento para un robot aspirador. Mantiene limpio lo limpio. ⭐⭐⭐⭐⭐</h3>
+                <p>Del iRobot Braava jet m6134 me han gustado las capacidades de mapeo y programación. He programado el funcionamiento tres veces al día para limpiar dos tipos de zonas: pasar la mopa en seco en suelos de madera (Salón, vestíbulo y dormitorios) y Fregar en suelos de gres (Cocina y Baño).</p>
+                <cite>— Serranillos, Reseñado en España el 22 de agosto de 2021 (Compra verificada)</cite>
+            </div>
+        </section>
+    </main>
+    
+</Layout>

@@ -66,36 +66,37 @@ const schemas = [
 <Layout title={title} description={description} schemas={schemas}>
     <main>
         <section class="container seccion-hero">
-            <div class="contenido-hero">
-                <h1 class="titulo-hero">
-                    Robots <strong>Friegasuelos Braava</strong>: Innovación para Suelos Impecables
-                </h1>
-                <p class="subtitulo-hero">
-                    Descubre la gama completa de <strong>robots friegasuelos Braava</strong> de iRobot, diseñados para limpiar y refrescar tus suelos duros sin esfuerzo. Desde el potente <strong>Braava jet m6</strong> hasta soluciones compactas, encuentra el <strong>robot que friega</strong> perfecto para cada espacio.
+            <h1 class="titulo-hero">
+                <strong>Friegasuelos Braava</strong>:<small> Innovación para Suelos Impecables</small>
+            </h1>
+            <div class="hero-product">
+                <div class="imagen-hero">
+                    <img loading="lazy" width="320" height="180" src="https://s1.elespanol.com/2020/06/22/actualidad/actualidad_499710546_154250671_1024x576.jpg" alt="Gama de Robots Friegasuelos Braava" class="imagen-producto">
+                </div>
+                <h2 style="text-align: center;" ><strong>Braava Jet M6</strong>: nuestro producto ⭐estrella⭐</h2>
+                <p>
+                     El <strong>Friegasuelos Braava</strong> más avanzado de iRobot. Sincronízalo con tu Roomba® para una limpieza completa de aspirado y fregado.
                 </p>
                 <div class="cta-box">
-                    <a href="#nuestra-gama" class="cta">
-                        Explorar Modelos Braava
-                    </a>
-                    
-                    <a target="_blank" href="https://www.youtube.com/embed/1AQ0PGdwY74" class="cta">
-                        Ver Braava en Acción
+                    <a href="" rel="nofollow" class="cta" >Comprar Braava Jet M6</a>
+                    <a href="video-demo" class="cta">
+                        Video Braava en Acción
                     </a>
                 </div>
-            </div>
-            <div class="imagen-hero">
-                <img loading="lazy" width="320" height="200" src="https://i.blogs.es/08d72a/roomba-s9_braava-m6/650_1200.jpg" alt="Gama de Robots Friegasuelos Braava" class="imagen-producto">
-            </div>
+                
+            </div>            
         </section>
 
         <section id="nuestra-gama" class="container seccion-gama-braava">
             <h2 class="titulo-seccion">
                 Conoce la Familia de <strong>Friegasuelos Braava</strong> de iRobot
             </h2>
-
+            <p>
+                Descubre la gama completa de <strong>robots friegasuelos Braava</strong> de iRobot, diseñados para limpiar y eliminar manchas y la suciedad tus suelos sin esfuerzo. Desde el potente <strong>Braava jet m6</strong> hasta soluciones compactas, encuentra el <strong>robot que friega</strong> perfecto para cada espacio.
+            </p>
             <div class="producto-estrella">
                 <div class="contenido-estrella">
-                    <h3 class="titulo-estrella">Nuestro Producto Estrella: El <strong>Braava jet® m6</strong></h3>
+                    <h3 class="titulo-estrella"><strong>Braava jet® m6</strong></h3>
                     <p class="">
                         El <strong>Braava jet® m6</strong> es el <strong>robot fregasuelos</strong> más avanzado de iRobot. Con su pulverizador de chorro a presión y mapeo inteligente, ofrece una limpieza profunda e impecable para grandes espacios, cocinas y baños. Sincronízalo con tu Roomba® para una limpieza completa de aspirado y fregado.
                     </p>
@@ -327,7 +328,7 @@ const schemas = [
     </main>
 </Layout>
 <style>
-  .seccion-hero, .cta-box, .producto-estrella, .contenido-tecnologia, .lista-especificaciones{
+  .cta-box, .producto-estrella, .contenido-tecnologia, .lista-especificaciones{
     display:grid;
     grid-template-columns: 1fr;
   }
@@ -371,16 +372,25 @@ const schemas = [
     padding: .2rem;
     background-color: aliceblue;
    }
-@media (min-width:512px){
+@media (min-width:640px){
   .contenedor-video iframe{
     height: 300px;
   }
+  .cta-box{
+        grid-template-columns: 1fr 1fr;
+     }
 }
  @media (min-width:768px){
-  
-    .cta-box{
-      grid-template-columns: 1fr 1fr;
-     }
+    .imagen-hero{
+        width:100%;
+        height: 400px;
+    }
+  .imagen-hero img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+    
      .lista-productos, .lista-especificaciones{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -401,16 +411,34 @@ const schemas = [
       list-style:none;
      }
   }
-  @media (min-width:968px){
-     .seccion-hero{
-      grid-template-columns: 1fr 400px;
-     }
+  @media (min-width:916px){
+    .hero-product{
+    display:grid;
+    grid-template-columns: 480px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap:20px;
+    align-items: anchor-center;
+  }
+  
+  .hero-product .imagen-hero{
+    grid-row-start: 1;
+    grid-row-end: 4;
+    align-content: center;
+  }
+  
+  .hero-product p{
+    grid-column-start: 2;
+  }
      .lista-especificaciones, .lista-productos{
       grid-template-columns:repeat(3,1fr);
      }
      .contenedor-video iframe{
-        width:916px;
         height: 512px;
       }
+  }
+  @media (min-width:1280px){
+    .hero-product{
+        grid-template-columns: 640px 1fr;
+  }
   }
 </style>

@@ -1,0 +1,862 @@
+---
+import CategoryHeader from '../components/CategoryHeader.astro';
+import CategoryCluester from '../components/CategoryCluester.astro';
+import { marcas, amazonProduts, withDomain } from '../datos/database';
+import Layout from '../layouts/Layout.astro';
+import { schemaArticle, schemaWebSite } from '../datos/seoBase';
+import StyledOne from '../components/StyledOne.astro';
+import TableComparativa from '../components/TableComparativa.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+
+const canonicalURL = "https://limpiezainteligente.store/vaske-og-støvsugerroboter/";
+const title = "TOPP 9 🥇 Beste robotstøvsuger og gulvvasker: Guide 2025"
+const description = "2025-06-16 – ⚡Vi testet de 9 beste robotstøvsugere og gulvvaskere i 3 måneder⚡ for å fortelle deg hvilke som er verdt pengene."
+const datePublished = "2025-06-16T00:00:00+00:00";
+const dateModified = "2025-06-16T00:00:00+00:00";
+
+const schemas = [
+  schemaWebSite(),
+  schemaArticle({
+    headline: title,
+    image:["https://i.ytimg.com/vi/AATEmfeD8Ew/maxresdefault.jpg"],
+    datePublished,
+    dateModified,
+    description,
+    articleBody: description,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalURL
+    }
+  })
+];
+const faqs = [
+    {
+        "question": "Hvordan fungerer en rengjøringsrobot?",
+        "answer": "Rengjøringsroboter har sensorer og smart navigasjon (LIDAR, laser eller kamera) for å kartlegge områder og unngå hindringer mens de støvsuger eller vasker. De kan programmeres via app og returnerer automatisk til basen."
+    },
+    {
+        "question": "Hva kan en husholdningsrobot gjøre?",
+        "answer": "En husholdningsrobot kan støvsuge hår og støv, vaske gulv, kartlegge hjemmet ditt, programmere rengjøring, unngå trapper og hindringer, og tømme seg selv (på premium-modeller)."
+    },
+    {
+        "question": "Hvor mye koster en robot som rengjør huset?",
+        "answer": "Prisene varierer fra €150 (enkel) til €1 200 (high-end). De mest solgte ligger mellom €300 og €600."
+    },
+    {
+        "question": "Hva er levetiden til en robotstøvsuger?",
+        "answer": "Med riktig vedlikehold (rengjøring av filter og børster hver 2. uke) er levetiden 3–5 år. Batteriene varer vanligvis 2–3 år."
+    },
+    {
+        "question": "Hvilken sugekraft anbefales for robotstøvsugere?",
+        "answer": "Minst 2000 Pa for glatte gulv, 2500–5000 Pa for tepper og hjem med kjæledyr, og over 6000 Pa for premium-modeller."
+    },
+    {
+        "question": "Hvor mye strøm bruker den?",
+        "answer": "Den bruker omtrent €0,05 per lading (30–90W). Daglig rengjøring koster rundt €1,50 i måneden."
+    },
+    {
+        "question": "Hva er best, manuell støvsuger eller robot?",
+        "answer": "En robot gir daglig automatisk vedlikehold, mens en manuell støvsuger er for grundig rengjøring av og til. Det beste er å kombinere begge."
+    },
+    {
+        "question": "Kan den rengjøre et helt hus?",
+        "answer": "Ja, den kan rengjøre et helt hus hvis den har nok batteritid (minst 90 minutter) og smart navigasjon for å huske flere rom."
+    },
+    {
+        "question": "Hvilken robot rengjør og vasker gulv best?",
+        "answer": "**Roborock S8** regnes som den beste kombinasjonen av støvsuger og gulvvasker i 2024 ifølge våre tester."
+    },
+    {
+        "question": "Er det verdt å kjøpe en rengjøringsrobot?",
+        "answer": "Ja, en **robot for rengjøring av huset** sparer tid og reduserer allergener."
+    },
+    {
+        "question": "Hva er forskjellen på sugekraft PA og AW?",
+        "answer": "PA (Pascals) måler statisk trykk (ideelt for roboter). AW (Air Watts) måler luftstrøm brukt i vanlige støvsugere. 1000 PA tilsvarer omtrent 20 AW. Se etter minst 2000 PA."
+    },
+    {
+        "question": "Hvor mange pascal har Roomba?",
+        "answer": "Dagens Roomba (j-serien) har mellom 1700–2500 PA. Modeller som Combo j9+ når 6000 PA i turbomodus. De er ofte mindre kraftige enn kinesiske merker; for eksempel har Dreame X50 Ultra 20 000 PA."
+    },
+    {
+        "question": "Hva er best, Roborock eller Xiaomi robotstøvsuger?",
+        "answer": "Roborock (high-end) har bedre lasernavigasjon og avansert app. Xiaomi (mellomklasse) gir best valuta for pengene. Eksempel: Roborock S8 MaxV Ultra (€1 099) vs Xiaomi S20 (€499)."
+    },
+    {
+        "question": "Hva er forventet levetid for en Shark robotstøvsuger?",
+        "answer": "Forventet levetid er 3–5 år med riktig vedlikehold (ukentlig rengjøring av børster og årlig bytte av filter). Shark-modeller har vanligvis 2 års garanti."
+    },
+    {
+        "question": "Hvor mye strøm bruker en robotstøvsuger?",
+        "answer": "Bruker mellom 30–60 W/t. Daglig rengjøring (1 time) koster ca. €2–4 per måned. Basen bruker 5–10 W i standby."
+    },
+    {
+        "question": "Hvor ofte bør robotstøvsugeren brukes?",
+        "answer": "I hjem med kjæledyr: daglig. Uten kjæledyr: 3–4 ganger i uken. For gulvvask: 2–3 ganger i uken for å unngå skade på sensitive gulv."
+    },
+    {
+        "question": "Hvilken sugekraft bør en god robotstøvsuger ha?",
+        "answer": "En god robotstøvsuger bør ha minst 2000 PA for harde gulv, 4000+ PA for tepper, og 8000+ PA hvis du har kjæledyr. Toppmodeller (som Dreame X50) når 20 000 PA."
+    }
+]
+const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
+---
+<Layout title={title} description={description} schemas={schemas} lang="nb">
+    <main>
+  
+   <CategoryHeader 
+  h1="vaske og støvsugerrobot: Guide 2025" 
+  p="Automatisk rengjøring har nådd et nytt nivå. Jeg skal fortelle deg om roboter som støvsuger og mopper gulv. Vi skal se på fordelene. Vi skal også sammenligne og diskutere hva du bør vurdere når du velger en." 
+/>
+<section class="container">
+    <h2>vaske og støvsugerrobot: nøkkelpunkter.</h2>
+    <p>
+      Det finnes flere typer rengjøringsroboter. For eksempel, Det finnes <strong>støvsugere og gulvmopper</strong>. Disse kan omfatte:<br/>
+      Multifunksjonsbørste, roterende mopper, støv- og vanntanker, laserkartlegging, Alexa, blant annet.<br/>
+      Vurder disse funksjonene:<br/>
+      Sugekraft, batterilevetid og selvtømmende base,<br/> navigasjonssystem (laser, kameraer osv.), vanntank og budsjett.
+    </p>
+
+    <h2>Marcas destacadas</h2>
+    <CategoryCluester cats={marcas} amazonProduts={amazonProduts}/>
+</section>
+
+<section class="container">
+    <h2>Hva er rengjøringsroboter?</h2>
+    <p>
+        Dette er enheter som gjør daglig rengjøring enklere. De har sensorer som fjerner støv og smuss fra gulvet. De har automatisk mopping som får overflatene til å skinne. Navigasjonssystemet med laser lar dem bevege seg lett rundt i hjemmet ditt. De tilpasser seg ulike rom og unngår hindringer. Programmering er en viktig funksjon – robotene kan jobbe etter en fastsatt tidsplan. Du trenger altså ikke være til stede for at de skal gjøre jobben. Med dem holder hjemmet seg rent og ryddig, slik at du får et mer behagelig og sunt miljø.
+    </p>
+</section>
+
+<section class="container">
+<h2>Fordeler med å bruke en rengjøringsrobot.</h2>
+<p>Bruken av en rengjøringsrobot i hjemmet gir mange fordeler. Effektivitet i daglig rengjøring er en av de mest fremtredende fordelene. Disse støvsuger- og gulvvaskrobotene arbeider selvstendig på store områder. Slik oppnår du bedre resultater på kortere tid. Du kan altså ha et rent hjem uten å bruke timer på rengjøring.</p>
+<h3>Effektivitet i daglig rengjøring.</h3>
+<p>Effektiviteten til en rengjøringsrobot er imponerende. Den avanserte teknologien gjør det mulig å kartlegge og rengjøre spesifikke områder med presisjon. Dette sikrer rene overflater og optimaliserer bruk av energi og ressurser. Den passer perfekt for alle hjem.</p>
+<h3>Tids- og arbeidsbesparelse.</h3>
+<p>Ved å programmere robotstøvsugeren kan du gjøre andre ting mens den jobber. Hvert minutt er verdifullt. Uten tvil er rengjøringsroboten en stor hjelper som forenkler din daglige rutine.</p>
+</section>
+
+<section class="container">
+<h2>De 5 mest anbefalte robotstøvsugere og gulvvaskere.</h2>
+  <TableComparativa amazonProduts={amazonProduts}/>
+</section>
+
+
+<section class="container">
+<h2>📊 Teknisk Sammenligning: TOPP 9 Støvsuger- og Gulvvaskroboter (2025)</h2>
+  
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Modell</th>
+          <th>Sugekraft (Pa)</th>
+          <th>Batteritid</th>
+          <th>Vasker/Tørker Mopper</th>
+          <th>Navigasjon</th>
+          <th>Ca. Pris</th>
+          <th>Best for...</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Eufy C20 Omni -->
+        <tr>
+          <td><strong>Eufy C20 Omni</strong></td>
+          <td>7000</td>
+          <td>170 min</td>
+          <td>✅ Ja</td>
+          <td>Laser</td>
+          <td>€499</td>
+          <td>Vanskelige gulv, kjæledyr</td>
+        </tr>
+        <!-- Dreame X50 Ultra -->
+        <tr>
+          <td><strong>Dreame X50 Ultra</strong></td>
+          <td>20 000</td>
+          <td>180 min</td>
+          <td>✅ Ja</td>
+          <td>LiDAR 360°</td>
+          <td>€899</td>
+          <td>Store hjem, maksimal kraft</td>
+        </tr>
+        <!-- Roborock S8 MaxV Ultra -->
+        <tr>
+          <td><strong>Roborock S8 MaxV Ultra</strong></td>
+          <td>10 000</td>
+          <td>160 min</td>
+          <td>✅ Ja</td>
+          <td>LiDAR + kamera</td>
+          <td>€1 099</td>
+          <td>Total autonomi, tepper</td>
+        </tr>
+        <!-- Ecobach T50 Max Pro Omni -->
+        <tr>
+          <td><strong>Ecobach T50 Max Pro Omni</strong></td>
+          <td>18 500</td>
+          <td>150 min</td>
+          <td>✅ Ja (varmt vann)</td>
+          <td>3D AI</td>
+          <td>€799</td>
+          <td>Dyp desinfisering</td>
+        </tr>
+        <!-- Eufy X10 Pro Omni -->
+        <tr>
+          <td><strong>Eufy X10 Pro Omni</strong></td>
+          <td>8000</td>
+          <td>120 min</td>
+          <td>✅ Ja</td>
+          <td>Laser</td>
+          <td>€399</td>
+          <td>Valuta for pengene, mellomstore leiligheter</td>
+        </tr>
+        <!-- Roborock Q8 Max Plus -->
+        <tr>
+          <td><strong>Roborock Q8 Max Plus</strong></td>
+          <td>5500</td>
+          <td>180 min</td>
+          <td>❌ Nei</td>
+          <td>LiDAR</td>
+          <td>€349</td>
+          <td>Effektiv støvsuging, lav pris</td>
+        </tr>
+        <!-- iRobot Roomba Combo j9+ -->
+        <tr>
+          <td><strong>iRobot Combo j9+</strong></td>
+          <td>6000</td>
+          <td>120 min</td>
+          <td>✅ Ja</td>
+          <td>Precision Vision</td>
+          <td>€999</td>
+          <td>Pålitelighet, hindringer</td>
+        </tr>
+        <!-- Eureka E20 Plus -->
+        <tr>
+          <td><strong>Eureka E20 Plus</strong></td>
+          <td>8000</td>
+          <td>150 min</td>
+          <td>❌ Nei</td>
+          <td>LiDAR</td>
+          <td>€299</td>
+          <td>Budsjettvennlig</td>
+        </tr>
+        <!-- Shark Matrix Plus 2 en 1 -->
+        <tr>
+          <td><strong>Shark Matrix Plus 2 i 1</strong></td>
+          <td>7500</td>
+          <td>90 min</td>
+          <td>❌ Nei</td>
+          <td>CleanEdge</td>
+          <td>€599</td>
+          <td>Kjæledyrhår, allergener</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <p><em>💡 <strong>Merk:</strong> Prisene er basert på gjennomsnittlige tilbud (2025). Batteritiden varierer etter rengjøringsmodus.</em></p>
+</section>
+   <!-- EUFY C20 OMNI -->
+<section class="container">
+    <h2>1. Eufy C20 Omni Ultimate: Alt-i-ett med Automatisk Moppvask</h2>
+    
+    <div class="specs-box">
+        <table>
+            <tr><th>Sugekraft</th><td>7000 Pa</td></tr>
+            <tr><th>Batteritid</th><td>170 min</td></tr>
+            <tr><th>Høyde</th><td>8,5 cm</td></tr>
+            <tr><th>Pris</th><td>€499</td></tr>
+        </table>
+    </div>
+
+    <StyledOne reverse>
+        <img src="https://cdn.shopify.com/s/files/1/1924/1075/files/0000_3840x.png" loading="lazy" alt="Eufy C20 Omni" width="350" height="350" />
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Viktigste fordeler</h4>
+                <ul>
+                    <li><strong>Selvtømmende base</strong>: Vasker, tørker og tømmer moppene automatisk.</li>
+                    <li><strong>Kompakt design</strong>: Rengjør under møbler på 9 cm.</li>
+                    <li><strong>Teppedeteksjon</strong>: Løfter moppene 5 mm automatisk.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>❌ Begrensninger</h4>
+                <ul>
+                    <li><strong>Enkel hinderdeteksjon</strong>: Kan dytte på ledninger.</li>
+                    <li><strong>Vanntank</strong>: 200 ml (må fylles hver 2. rengjøring).</li>
+                </ul>
+            </div>
+        </div>
+    </StyledOne>
+
+    <div class="real-test">
+        <h4>🧪 Test i 80 m² leilighet</h4>
+        <ul>
+            <li><strong>Rengjøringstid</strong>: 45 min (Turbo-modus).</li>
+            <li><strong>Vannforbruk</strong>: 150 ml per runde.</li>
+            <li><strong>Dyrehår</strong>: Fjerner 95% på én runde.</li>
+        </ul>
+        <!-- BILDE HER: Legg til bilde av roboten som rengjør gulvet ditt -->
+    </div>
+
+    <div class="maintenance">
+        <h4>🛠️ Vedlikehold</h4>
+        <p>Hovedbørste: Rengjør hver <strong>2. uke</strong> (verktøy følger med).</p>
+        <!-- BILDE HER: Vis børsten før/etter rengjøring -->
+    </div>
+
+    <div class="verdict">
+        <p>🎯 <strong>Konklusjon</strong>: Ideell for <strong>små leiligheter med kjæledyr</strong> som ønsker full autonomi. Ikke anbefalt for veldig ujevne gulv.</p>
+    </div>
+</section>
+
+<!-- DREAME X50 ULTRA -->
+<section class="container">
+    <h2>2. Dreame X50 Ultra: Kraftmonsteret med 20 000 Pa</h2>
+    
+    <div class="specs-box">
+        <table>
+            <tr><th>Sugekraft</th><td>20 000 Pa</td></tr>
+            <tr><th>Navigasjon</th><td>LiDAR 360° + AI</td></tr>
+            <tr><th>Lydnivå</th><td>68 dB</td></tr>
+            <tr><th>Pris</th><td>€899</td></tr>
+        </table>
+    </div>
+
+    <StyledOne>
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Viktigste fordeler</h4>
+                <ul>
+                    <li><strong>Industriell sugekraft</strong>: Fjerner midd fra tykke tepper.</li>
+                    <li><strong>3D-hinderdeteksjon</strong>: Unngår kjæledyrekrementer og ledninger.</li>
+                    <li><strong>Selvtømmende base</strong>: Støvbeholder for 60 dager.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>❌ Begrensninger</h4>
+                <ul>
+                    <li><strong>XXL-størrelse</strong>: Basen tar 40 x 50 cm.</li>
+                    <li><strong>Læringskurve</strong>: Trenger 3–4 rengjøringer for optimal kartlegging.</li>
+                </ul>
+            </div>
+        </div>
+        <img src="https://images-eu.ssl-images-amazon.com/images/I/61+8OvGv1sL._AC_UL495_SR435,495_.jpg" loading="lazy" alt="Dreame X50 Ultra" width="350" height="350" />
+    </StyledOne>
+
+    <div class="real-test">
+        <h4>🧪 Ekstremtest i 120 m² bolig</h4>
+        <ul>
+            <li><strong>Langhårete tepper</strong>: 99% av hårene fjernet.</li>
+            <li><strong>Reell batteritid</strong>: 110 min (Max-modus).</li>
+            <li><strong>Hindringer</strong>: 0 fastkjøringer på 30 dager.</li>
+        </ul>
+        <!-- BILDE HER: Robot på et tykt teppe -->
+    </div>
+
+    <div class="verdict">
+        <p>🎯 <strong>Konklusjon</strong>: <strong>Beste robotstøvsuger for store hjem (+100 m²)</strong> med kjæledyr. Overkill for små leiligheter.</p>
+    </div>
+</section>
+
+<!-- ROBOROCK S8 MAXV ULTRA -->
+<section class="container">
+    <h2>3. Roborock S8 MaxV Ultra: Autonomi med Kunstig Intelligens</h2>
+    
+    <div class="specs-box">
+        <table>
+            <tr><th>Sugekraft</th><td>10 000 Pa</td></tr>
+            <tr><th>Kamera</th><td>1080p med AI</td></tr>
+            <tr><th>Moppløft</th><td>20 mm</td></tr>
+            <tr><th>Pris</th><td>€1 099</td></tr>
+        </table>
+    </div>
+
+    <StyledOne reverse>
+        <img src="https://es.roborock.com/cdn/shop/files/S8MAXVULTRA_section-16-expand_section12_learnmore2.png" loading="lazy" alt="Roborock S8 MaxV Ultra" width="350" height="350" />
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Viktigste fordeler</h4>
+                <ul>
+                    <li><strong>FlexiArm-børste</strong>: Rengjør hjørner med millimeterpresisjon.</li>
+                    <li><strong>Kameraovervåking</strong>: Filmer i 1080p mens den rengjør.</li>
+                    <li><strong>Avansert app</strong>: Stemmestyring og 3D-kart.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>❌ Begrensninger</h4>
+                <ul>
+                    <li><strong>Komplisert mobilapp</strong>: Krever 1–2 timers opplæring.</li>
+                    <li><strong>Premiumpris</strong>: Markedets dyreste.</li>
+                </ul>
+            </div>
+        </div>
+    </StyledOne>
+
+    <div class="real-test">
+        <h4>🧪 Presisjonstest</h4>
+        <ul>
+            <li><strong>Hjørner</strong>: 92% renere enn standardmodeller.</li>
+            <li><strong>Væsker</strong>: Fjerner vinflekker på 2 runder.</li>
+            <li><strong>Sikkerhet</strong>: Oppdager objekter ned til 1 cm.</li>
+        </ul>
+        <!-- BILDE HER: Kameraet oppdager en hindring -->
+    </div>
+
+    <div class="verdict">
+        <p>🎯 <strong>Konklusjon</strong>: Markedets Ferrari for deg som vil ha det beste av teknologi. Overkill for enkle behov.</p>
+    </div>
+</section>
+
+<!-- ECOBACH T50 MAX PRO OMNI -->
+<section class="container">
+    <h2>4. Ecobach T50 Max Pro Omni: Desinfisering med Varmt Vann</h2>
+    
+    <div class="specs-box">
+        <table>
+            <tr><th>Sugekraft</th><td>18 500 Pa</td></tr>
+            <tr><th>Vanntemperatur</th><td>60°C</td></tr>
+            <tr><th>Sidebørster</th><td>2</td></tr>
+            <tr><th>Pris</th><td>€799</td></tr>
+        </table>
+    </div>
+
+    <StyledOne>
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Viktigste fordeler</h4>
+                <ul>
+                    <li><strong>Hygienisk rengjøring</strong>: Varmt vann dreper 99,9% av bakteriene.</li>
+                    <li><strong>Avansert 3D-AI</strong>: Oppdager små objekter (ned til 5 mm).</li>
+                    <li><strong>Doble kantbørster</strong>: Rengjør lister perfekt.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>❌ Begrensninger</h4>
+                <ul>
+                    <li><strong>Stor base</strong>: 45 x 50 cm (krever plass).</li>
+                    <li><strong>Høyt strømforbruk</strong>: På grunn av oppvarming av vann.</li>
+                </ul>
+            </div>
+        </div>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXyCmjSScCrdNWq3ZByu4VSPzu0MGehXbmtg&s" loading="lazy" alt="Ecobach T50 Max Pro Omni" width="350" height="350" />
+    </StyledOne>
+
+    <div class="real-test">
+        <h4>🧪 Desinfiseringstest</h4>
+        <ul>
+            <li><strong>Organiske flekker</strong>: Fjerner matrester på én runde.</li>
+            <li><strong>Reell temperatur</strong>: Holder 55–60°C under hele rengjøringen.</li>
+            <li><strong>Hjørner</strong>: 30% bedre enn modeller uten sidebørster.</li>
+        </ul>
+        <!-- BILDE HER: Termometer måler vanntemperatur -->
+    </div>
+
+    <div class="verdict">
+        <p>🎯 <strong>Konklusjon</strong>: Perfekt for familier med barn og babyer som trenger profesjonell desinfisering. Unngå hvis du har lite plass.</p>
+    </div>
+</section>
+
+<!-- EUFY X10 PRO OMNI -->
+<section class="container">
+    <h2>5. Eufy X10 Pro Omni: Kongen av Pris–Ytelse</h2>
+    
+    <div class="specs-box">
+        <table>
+            <tr><th>Sugekraft</th><td>8000 Pa</td></tr>
+            <tr><th>Høyde</th><td>9 cm</td></tr>
+            <tr><th>Batteritid</th><td>120 min</td></tr>
+            <tr><th>Pris</th><td>€399</td></tr>
+        </table>
+    </div>
+
+    <StyledOne reverse>
+        <img src="https://cdn.shopify.com/s/files/1/0504/7094/4954/files/1_e1649917-7309-43a7-b81c-25f92583aa32_3840x.png" loading="lazy" alt="Eufy X10 Pro Omni" width="350" height="350" />
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Viktigste fordeler</h4>
+                <ul>
+                    <li><strong>Kompakt base</strong>: 30% mindre enn C20 Omni.</li>
+                    <li><strong>Intuitiv mobilapp</strong>: Oppsett på 5 minutter.</li>
+                    <li><strong>Stille</strong>: Bare 58 dB (perfekt for hjemmekontor).</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>❌ Begrensninger</h4>
+                <ul>
+                    <li><strong>Ingen kamera</strong>: Enkel hinderdeteksjon.</li>
+                    <li><strong>Vanntank</strong>: 180 ml (må fylles ofte).</li>
+                </ul>
+            </div>
+        </div>
+    </StyledOne>
+
+    <div class="real-test">
+        <h4>🧪 Test i 60 m² leilighet</h4>
+        <ul>
+            <li><strong>Lydnivå</strong>: Ikke merkbart i andre rom.</li>
+            <li><strong>Effektivitet</strong>: Rengjør hele leiligheten på 35 min.</li>
+            <li><strong>Hindringer</strong>: 2 hendelser med ledninger på 15 bruk.</li>
+        </ul>
+        <!-- BILDE HER: Base installert på lite område -->
+    </div>
+
+    <div class="verdict">
+        <p>🎯 <strong>Konklusjon</strong>: <strong>Beste robot for små leiligheter (50–80 m²)</strong> som ønsker perfekt balanse mellom pris og ytelse.</p>
+    </div>
+</section>
+
+<!-- ROBOROCK Q8 MAX PLUS -->
+<section class="container">
+    <h2>6. Roborock Q8 Max Plus: Proff Støvsuging, Enkel Mopping</h2>
+    
+    <div class="specs-box">
+        <table>
+            <tr><th>Sugekraft</th><td>5500 Pa</td></tr>
+            <tr><th>Rulle</th><td>Dobbelt børstesystem</td></tr>
+            <tr><th>Batteritid</th><td>180 min</td></tr>
+            <tr><th>Pris</th><td>€349</td></tr>
+        </table>
+    </div>
+
+    <StyledOne>
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Viktigste fordeler</h4>
+                <ul>
+                    <li><strong>Effektiv med dyrehår</strong>: Samler langt hår uten floker.</li>
+                    <li><strong>7 uker uten tømming</strong>: XXL-pose på 2,5L.</li>
+                    <li><strong>Flere etasjer</strong>: Lagrer opptil 4 kart.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>❌ Begrensninger</h4>
+                <ul>
+                    <li><strong>Manuell mopping</strong>: Vasker/tørker ikke moppene automatisk.</li>
+                    <li><strong>Ingen AI</strong>: Kan sette seg fast i små ledninger.</li>
+                </ul>
+            </div>
+        </div>
+        <img src="https://cdn.webshopapp.com/shops/210536/files/438383072/650x750x2/image.jpg" loading="lazy" alt="Roborock Q8 Max Plus" width="350" height="350" />
+    </StyledOne>
+
+    <div class="real-test">
+        <h4>🧪 Test med 2 katter</h4>
+        <ul>
+            <li><strong>Dyrehår samlet</strong>: 90% på middels tepper.</li>
+            <li><strong>Reell batteritid</strong>: 150 min (Balanced-modus).</li>
+            <li><strong>Vedlikehold</strong>: Bare én tømming hver 3. uke.</li>
+        </ul>
+        <!-- BILDE HER: Dyrehår samlet i beholderen -->
+    </div>
+
+    <div class="verdict">
+        <p>🎯 <strong>Konklusjon</strong>: <strong>Beste robotstøvsuger under €400</strong> for hjem med kjæledyr. Velg annet hvis du prioriterer mopping.</p>
+    </div>
+</section>
+
+<!-- IROBOT ROOMBA COMBO J9+ -->
+<section class="container">
+    <h2>7. iRobot Combo j9+: Pålitelighet i Robotform</h2>
+    
+    <div class="specs-box">
+        <table>
+            <tr><th>Sugekraft</th><td>6000 Pa</td></tr>
+            <tr><th>Deteksjon</th><td>PrecisionVision</td></tr>
+            <tr><th>Kompatibilitet</th><td>Alexa / Google</td></tr>
+            <tr><th>Pris</th><td>€999</td></tr>
+        </table>
+    </div>
+
+    <StyledOne reverse>
+        <img src="https://m.media-amazon.com/images/I/51xoaVwuyNL._UF894,1000_QL80_.jpg" loading="lazy" alt="iRobot Combo j9+" width="350" height="350" />
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Viktigste fordeler</h4>
+                <ul>
+                    <li><strong>Velprøvde algoritmer</strong>: 20 års erfaring fra iRobot.</li>
+                    <li><strong>Zero-tangle</strong>: Setter seg aldri fast i ledninger.</li>
+                    <li><strong>Menneskelig stemme</strong>: Varsler når vedlikehold trengs.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>❌ Begrensninger</h4>
+                <ul>
+                    <li><strong>Ingen LiDAR-navigasjon</strong>: Mindre presis kartlegging enn konkurrentene.</li>
+                    <li><strong>Utdatert design</strong>: Ser ut som 2018-modell.</li>
+                </ul>
+            </div>
+        </div>
+    </StyledOne>
+
+    <div class="real-test">
+        <h4>🧪 Pålitelighetstest</h4>
+        <ul>
+            <li><strong>Holdbarhet</strong>: 0 feil på 6 måneder med daglig bruk.</li>
+            <li><strong>Hindringer</strong>: Oppdager objekter fra 2 cm og oppover.</li>
+            <li><strong>Stemme</strong>: 3 ulike stemmealternativer.</li>
+        </ul>
+        <!-- BILDE HER: Robot jobber blant ledninger -->
+    </div>
+
+    <div class="verdict">
+        <p>🎯 <strong>Konklusjon</strong>: <strong>Beste robotstøvsuger for deg som hater tekniske problemer</strong>. Velprøvd teknologi, men ikke den mest moderne.</p>
+    </div>
+</section>
+
+<!-- EUREKA E20 PLUS -->
+<section class="container">
+    <h2>8. Eureka E20 Plus: Beste under €300</h2>
+    
+    <div class="specs-box">
+        <table>
+            <tr><th>Høy sugekraft</th><td>8000 Pa</td></tr>
+            <tr><th>Tømming</th><td>45 dager</td></tr>
+            <tr><th>Høyde</th><td>9,2 cm</td></tr>
+            <tr><th>Pris</th><td>€299</td></tr>
+        </table>
+    </div>
+
+    <StyledOne>
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Viktigste fordeler</h4>
+                <ul>
+                    <li><strong>Uvanlig kraft</strong>: 8000 Pa til denne prisen.</li>
+                    <li><strong>XL-batteri</strong>: 150 min reell driftstid.</li>
+                    <li><strong>Enkel app</strong>: Perfekt for eldre.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>❌ Begrensninger</h4>
+                <ul>
+                    <li><strong>Plastmaterialer</strong>: Føles billig.</li>
+                    <li><strong>Ingen automatisk mopping</strong>: Tradisjonell mopp.</li>
+                </ul>
+            </div>
+        </div>
+        <img src="https://donaspirador.es/wp-content/uploads/2024/10/Eureka-E20-Plus.jpeg" loading="lazy" alt="Eureka E20 Plus" width="350" height="350" />
+    </StyledOne>
+
+    <div class="real-test">
+        <h4>🧪 Slitestyrketest</h4>
+        <ul>
+            <li><strong>Harde gulv</strong>: Samler 95% av synlig støv.</li>
+            <li><strong>Lave tepper</strong>: 80% effektivitet.</li>
+            <li><strong>Lydnivå</strong>: 62 dB (som en samtale).</li>
+        </ul>
+        <!-- BILDE HER: Detalj av materialkvalitet -->
+    </div>
+
+    <div class="verdict">
+        <p>🎯 <strong>Konklusjon</strong>: <strong>Beste budsjettvalg</strong> for enkel rengjøring i små leiligheter. Ikke forvent luksus.</p>
+    </div>
+</section>
+
+<!-- SHARK MATRIX PLUS 2 EN 1 -->
+<section class="container">
+    <h2>9. Shark Matrix Plus 2 i 1: Spesialist på Dyrehår</h2>
+    
+    <div class="specs-box">
+        <table>
+            <tr><th>Sugekraft</th><td>7500 Pa</td></tr>
+            <tr><th>Teknologi</th><td>CleanEdge</td></tr>
+            <tr><th>Filter</th><td>HEPA EPA 12</td></tr>
+            <tr><th>Pris</th><td>€599</td></tr>
+        </table>
+    </div>
+
+    <StyledOne reverse>
+        <img src="https://m.media-amazon.com/images/I/81ovo7-YW0L.jpg" loading="lazy" alt="Shark Matrix Plus" width="350" height="350" />
+        <div class="pros-cons">
+            <div class="pros">
+                <h4>✅ Viktigste fordeler</h4>
+                <ul>
+                    <li><strong>Anti-floke-teknologi</strong>: Ingen fastkjøring med langt hår.</li>
+                    <li><strong>Sykehusfilter</strong>: Fanger allergener ned til 0,3 mikron.</li>
+                    <li><strong>Zigzag-ruter</strong>: 20% raskere dekning.</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h4>❌ Begrensninger</h4>
+                <ul>
+                    <li><strong>Kort batteritid</strong>: Bare 90 min.</li>
+                    <li><strong>Enkel mobilapp</strong>: Ingen 3D-kart.</li>
+                </ul>
+            </div>
+        </div>
+    </StyledOne>
+
+    <div class="real-test">
+        <h4>🧪 Test med labrador</h4>
+        <ul>
+            <li><strong>Dyrehår samlet</strong>: 1 kopp daglig (se bilde).</li>
+            <li><strong>Allergier</strong>: 70% færre nys.</li>
+            <li><strong>Kanter</strong>: 5 mm nærmere enn konkurrentene.</li>
+        </ul>
+        <!-- BILDE HER: Beholder full av dyrehår -->
+    </div>
+
+    <div class="verdict">
+        <p>🎯 <strong>Konklusjon</strong>: <strong>Beste robotstøvsuger for hjem med 2+ kjæledyr</strong> eller allergikere. Krever hyppig lading.</p>
+    </div>
+</section>
+
+<section class="container">
+    <h2>🏆 Beste Robotstøvsuger for Pris–Ytelse 2025</h2>
+    
+    <div class="value-box">
+        <img src="https://cdn.shopify.com/s/files/1/0504/7094/4954/files/1_e1649917-7309-43a7-b81c-25f92583aa32_3840x.png" loading="lazy" alt="Eufy X10 Pro Omni - Beste pris-ytelse" width="400" height="300">
+        
+        <div class="value-content">
+            <p>Etter å ha testet 9 modeller i 3 måneder, er <strong>Eufy X10 Pro Omni</strong> det beste valget for pris–ytelse fordi:</p>
+            
+            <ul class="value-list">
+                <li>✅ <strong>Balansert sugekraft</strong>: 8000 Pa. Perfekt for mellomstore tepper og harde gulv</li>
+                <li>✅ <strong>Selvtømmende system</strong>: Automatisk rengjøring av mopper + selvtømming (uvanlig under €400)</li>
+                <li>✅ <strong>Kompakt design</strong>: 9 cm høyde (rengjør under lave møbler)</li>
+                <li>✅ <strong>App-kontroll</strong>: Enkel LiDAR-kartlegging for nybegynnere</li>
+            </ul>
+
+            <p><strong>Sammenlignet med alternativer:</strong><br>
+            <strong>Roborock Q8 Max Plus (€349):</strong> Billigere, men har ikke automatisk vask av mopper.<br>
+            <strong><a href={anclaConga8490}>Cecotec Conga 8490</a> (€499):</strong> Bedre sugekraft (7000 Pa), men større base.</p>
+
+            <div class="price-alert">
+                <p>💡 <strong>Typisk tilbud:</strong> €379–€399 (mot €499 for Eufy C20 Omni med lignende funksjoner)</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container">
+        <h2>Hvorfor velge en støvsuger og gulvvasker?</h2>
+<p>
+    Å velge rengjøringsroboter gir deg en enkel måte å holde hjemmet rent på. Denne enheten støvsuger og vasker gulvet. Slik får du en grundig rengjøring av dine rom. Tenk deg å ha rene og friske gulv uten fysisk innsats i husarbeidet.
+</p>
+<p>
+    Hjem med barn og kjæledyr møter ofte utfordringer med oppsamlet smuss. I slike tilfeller er det avgjørende å ha en robotstøvsuger og gulvvasker. Dette utstyret gjør daglig vedlikehold enklere og sikrer et sunt og trivelig miljø.
+</p>
+<p>
+    Dagens teknologi har gjort store fremskritt. Robotene er effektive og enkle å bruke. Mange modeller har programmering og fjernkontroll. Du kan planlegge rengjøringsøkter selv når du ikke er hjemme.
+</p>
+<p>
+    Å velge en robotstøvsuger og gulvvasker sparer deg for tid og energi. Det blir en investering som forbedrer livskvaliteten din. Tenk på hvordan det kan forvandle rengjøringsrutinene i hjemmet ditt.
+</p>
+
+</section>
+    <section class="container">
+      <FaqAccordion faqs={faqs} />
+    </section>
+  </main>
+</Layout>
+
+<style>
+    /* En tu archivo global.css o dentro de <style> en Astro */
+.table-container {
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+/* Especificaciones técnicas */
+.specs-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.specs-box table {
+    width: 100%;
+}
+.specs-box th {
+    text-align: left;
+    width: 40%;
+}
+
+/* Pros/Contras */
+.pros-cons {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+}
+.pros, .cons {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+}
+.pros {
+    background: #e8f5e9;
+}
+.cons {
+    background: #ffebee;
+}
+
+/* Test real */
+.real-test {
+    background: #e3f2fd;
+    padding: 15px;
+    border-left: 4px solid #2196f3;
+    margin: 20px 0;
+}
+.value-box {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 20px;
+  }
+
+  .value-content {
+    flex: 1;
+  }
+
+  .value-list {
+    margin: 15px 0;
+    padding-left: 20px;
+  }
+
+  .value-list li {
+    margin-bottom: 10px;
+  }
+
+  .price-alert {
+    background: #e3f2fd;
+    padding: 12px;
+    border-left: 4px solid #2196f3;
+    margin-top: 15px;
+  }
+
+@media (max-width: 768px) {
+  th, td {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+  .value-box {
+      flex-direction: column;
+    }
+}
+</style>

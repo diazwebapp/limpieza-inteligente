@@ -2,11 +2,11 @@
 import { ClientRouter } from "astro:transitions";
 import Nav from "../components/Nav.astro";
 
-const { title, description, schemas = [], googleSiteVerification } = Astro.props;
+const { title, description, schemas = [], googleSiteVerification, lang="es" } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="es" >
+<html lang={lang} >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

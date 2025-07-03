@@ -29,6 +29,10 @@ const schemas = [
     }
   })
 ];
+const anchorXiaomi = withDomain("/xiaomi/")
+const anchorCecotec = withDomain("/cecotec/")
+const anchorBraava = withDomain("/irobot/braava/")
+
 const faqs = [
   {
     "question": "¿Cómo funciona una limpiadora robot?",
@@ -64,11 +68,11 @@ const faqs = [
   },
   {
     "question": "¿Qué robot limpia pisos y friega mejor?",
-    "answer": "El **Roborock S8** es considerado el mejor combo aspirado+fregado en 2024 según nuestros tests."
+    "answer": "El Roborock S8 es considerado el mejor combo aspirado+fregado en 2024 según nuestros tests."
   },
   {
     "question": "¿Merece la pena un robot de limpieza?",
-    "answer": "Sí, un **robot para limpiar la casa** ahorra tiempo y reduce alérgenos."
+    "answer": "Sí, un robot para limpiar la casa ahorra tiempo y reduce alérgenos."
   },
   {
     "question": "¿Cuál es la diferencia entre la potencia de aspiración PA y AW?",
@@ -79,9 +83,6 @@ const faqs = [
     "answer": "Los Roomba actuales (serie j) tienen entre 1700-2500 PA. Modelos como el Combo j9+ alcanzan los 6000 PA en modo turbo. Sin embargo, suelen ser menos potentes que las marcas chinas; por ejemplo, el Dreame X50 Ultra ofrece 20,000 PA."
   },
   {
-    "question": "¿Cuál es mejor, el robot aspirador Roborock o Xiaomi?",
-    "answer": "Roborock (alta gama) ofrece mejor navegación láser y control con una aplicación avanzada. Xiaomi (gama media) con su aplicación Mi Home tiene una mejor relación calidad-precio. Un ejemplo es el Roborock S8 MaxV Ultra (€1,099) vs el Xiaomi S20 (€499)."
-  },
   {
     "question": "¿Cuál es la esperanza de vida de un robot aspirador Shark?",
     "answer": "La esperanza de vida es de 3-5 años con un mantenimiento adecuado (limpieza semanal de cepillos y reemplazo anual de filtros). Los modelos Shark suelen tener una garantía de 2 años."
@@ -99,7 +100,7 @@ const faqs = [
     "answer": "Un buen robot aspirador debe tener un mínimo de 2000 PA para pisos, 4000+ PA para alfombras, y 8000+ PA si hay mascotas. Los modelos de gama alta (como el Dreame X50) alcanzan los 20,000 PA."
   }
 ]
-const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
+
 ---
 <Layout title={title} description={description} schemas={schemas}>
     <main>
@@ -108,121 +109,61 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
   h1="Robot aspirador y fregasuelos: Guia 2025" 
   p="La limpieza automática ha alcanzado un nuevo nivel. Te hablaré de los Robot aspirador y fregasuelos. Veremos los beneficios. También haremos una comparación y veremos qué considerar al elegir uno." 
 />
-
 <section class="container">
-  <h2>📊 Comparativa Técnica: TOP 9 Robots Aspiradores Fregasuelos (2025)</h2>
-  
-  <div class="table-container">
-    <table>
-      <thead>
-        <tr>
-          <th>Modelo</th>
-          <th>Succión (Pa)</th>
-          <th>Autonomía</th>
-          <th>Lava/Seca Mopas</th>
-          <th>Navegación</th>
-          <th>Precio Aprox.</th>
-          <th>Mejor para...</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Eufy C20 Omni -->
-        <tr>
-          <td><strong>Eufy C20 Omni</strong></td>
-          <td>7000</td>
-          <td>170 min</td>
-          <td>✅ Sí</td>
-          <td>Láser</td>
-          <td>€499</td>
-          <td>Suelos difíciles, mascotas</td>
-        </tr>
-        <!-- Dreame X50 Ultra -->
-        <tr>
-          <td><strong>Dreame X50 Ultra</strong></td>
-          <td>20,000</td>
-          <td>180 min</td>
-          <td>✅ Sí</td>
-          <td>LiDAR 360°</td>
-          <td>€899</td>
-          <td>Casas grandes, máxima potencia</td>
-        </tr>
-        <!-- Roborock S8 MaxV Ultra -->
-        <tr>
-          <td><strong>Roborock S8 MaxV Ultra</strong></td>
-          <td>10,000</td>
-          <td>160 min</td>
-          <td>✅ Sí</td>
-          <td>LiDAR + cámara</td>
-          <td>€1,099</td>
-          <td>Autonomía total, alfombras</td>
-        </tr>
-        <!-- Ecobach T50 Max Pro Omni -->
-        <tr>
-          <td><strong>Ecobach T50 Max Pro Omni</strong></td>
-          <td>18,500</td>
-          <td>150 min</td>
-          <td>✅ Sí (agua caliente)</td>
-          <td>IA 3D</td>
-          <td>€799</td>
-          <td>Desinfección profunda</td>
-        </tr>
-        <!-- Eufy X10 Pro Omni -->
-        <tr>
-          <td><strong>Eufy X10 Pro Omni</strong></td>
-          <td>8000</td>
-          <td>120 min</td>
-          <td>✅ Sí</td>
-          <td>Láser</td>
-          <td>€399</td>
-          <td>Calidad-precio, pisos medianos</td>
-        </tr>
-        <!-- Roborock Q8 Max Plus -->
-        <tr>
-          <td><strong>Roborock Q8 Max Plus</strong></td>
-          <td>5500</td>
-          <td>180 min</td>
-          <td>❌ No</td>
-          <td>LiDAR</td>
-          <td>€349</td>
-          <td>Aspirado eficiente, bajo costo</td>
-        </tr>
-        <!-- iRobot Roomba Combo j9+ -->
-        <tr>
-          <td><strong>iRobot Combo j9+</strong></td>
-          <td>6000</td>
-          <td>120 min</td>
-          <td>✅ Sí</td>
-          <td>Precision Visión</td>
-          <td>€999</td>
-          <td>Fiabilidad, obstáculos</td>
-        </tr>
-        <!-- Eureka E20 Plus -->
-        <tr>
-          <td><strong>Eureka E20 Plus</strong></td>
-          <td>8000</td>
-          <td>150 min</td>
-          <td>❌ No</td>
-          <td>LiDAR</td>
-          <td>€299</td>
-          <td>Presupuesto ajustado</td>
-        </tr>
-        <!-- Shark Matrix Plus 2 en 1 -->
-        <tr>
-          <td><strong>Shark Matrix Plus 2 en 1</strong></td>
-          <td>7500</td>
-          <td>90 min</td>
-          <td>❌ No</td>
-          <td>CleanEdge</td>
-          <td>€599</td>
-          <td>Pelo de mascotas, alérgenos</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-  <p><em>💡 <strong>Nota:</strong> Precios basados en ofertas promedio (2025). La autonomía varía según modo de limpieza.</em></p>
+    <h2>¿Qué son los robots de limpieza?</h2>
+    <p>
+        Son dispositivos que facilitan la limpieza diaria. Incluyen sensores que quitan el polvo y la suciedad del suelo. Tienen un fregado automático. Así, las superficies brillan. Tienen un sistema de navegación láser para moverse por tu hogar con facilidad. Se adaptan a varios espacios y evitan obstáculos. La programación es una función destacada. Esto permite a los robots trabajar según un horario establecido. Así, no necesitas estar presente para que realicen su trabajo. Con ellos, tu hogar estará limpio y ordenado. Así, disfrutarás de un ambiente más agradable y saludable.
+    </p>
 </section>
+<section class="container">
+  <h2>📊 Comparativa real: ¿Qué hace al mejor robot aspirador y fregasuelos?</h2>
+  <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Característica clave</th>
+            <th>Básico</th>
+            <th>Recomendado</th>
+            <th>Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Succión mínima</strong></td>
+            <td>2500 Pa</td>
+            <td>5000+ Pa</td>
+            <td>8000+ Pa</td>
+          </tr>
+          <tr>
+            <td><strong>Autonomía</strong></td>
+            <td>60-90 min</td>
+            <td>120-150 min</td>
+            <td>180+ min</td>
+          </tr>
+          <tr>
+            <td><strong>Sistemas navegación</strong></td>
+            <td>Aleatoria</td>
+            <td>Láser</td>
+            <td>LiDAR + IA</td>
+          </tr>
+          <tr>
+            <td><strong>Calidad fregado</strong></td>
+            <td>Arrastre pasivo</td>
+            <td>Vibración</td>
+            <td>Rotación + presión</td>
+          </tr>
+          <tr>
+            <td><strong>Precio orientativo</strong></td>
+            <td>€150-€300</td>
+            <td>€300-€600</td>
+            <td>€600+</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
 
+<p><em>Basado en análisis de +40 modelos. Los mejores suelen estar en gama <strong>Recomendada</strong>.</em></p>
+</section>
 
 <section class="container">
     <h2>Estas son las marcas destacadas de robots apsiradores y friegasuelos</h2>
@@ -245,10 +186,42 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
 </section>
 
 <section class="container">
-    <h2>¿Qué son los robots de limpieza?</h2>
-    <p>
-        Son dispositivos que facilitan la limpieza diaria. Incluyen sensores que quitan el polvo y la suciedad del suelo. Tienen un fregado automático. Así, las superficies brillan. Tienen un sistema de navegación láser para moverse por tu hogar con facilidad. Se adaptan a varios espacios y evitan obstáculos. La programación es una función destacada. Esto permite a los robots trabajar según un horario establecido. Así, no necesitas estar presente para que realicen su trabajo. Con ellos, tu hogar estará limpio y ordenado. Así, disfrutarás de un ambiente más agradable y saludable.
-    </p>
+  <div class="winners-section">
+  <h2>🏆 Los verdaderos ganadores en cada necesidad</h2>
+  
+  <div class="winner-card">
+    <h3>Mejor relación calidad-precio</h3>
+    <p>Robots alrededor de €400 con:</p>
+    <ul>
+      <li>Navegación láser precisa</li>
+      <li>Autonomía para 100m²</li>
+      <li>Fregado por vibración</li>
+    </ul>
+    <a href={anchorXiaomi}>Xiaomi destaca en relacion calidad precio →</a>
+  </div>
+
+  <div class="winner-card">
+    <h3>Mejor para casas grandes (+150m²)</h3>
+    <p>Características imprescindibles:</p>
+    <ul>
+      <li>Autonomía extendida (180+ min)</li>
+      <li>Base de autolimpieza</li>
+      <li>Mapeo multinivel</li>
+    </ul>
+    <a href={anchorCecotec}>Cecotec destaca en autonomia →</a>
+  </div>
+
+  <div class="winner-card">
+    <h3>Mejor fregado profundo</h3>
+    <p>Tecnologías que sí eliminan manchas:</p>
+    <ul>
+      <li>Cepillos rotativos</li>
+      <li>Presión ajustable</li>
+      <li>Agua caliente</li>
+    </ul>
+    <a href={anchorBraava}>fregasuelos braava →</a>
+  </div>
+</div>
 </section>
 
 <section class="container">
@@ -325,7 +298,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
         <li>❌ <strong>"Con que tenga app me vale"</strong> → Si la app es mala, acabarás usándolo manual como una escoba normal</li>
       </ul>
       
-      <p class="cierre-poderoso"><strong>Mi consejo de oro:</strong> Invierte 100€ más ahora y te ahorrarás 300€ en dos años. Un buen robot no es un gasto, <span class="enfatizar">es un compañero que trabaja por ti 365 días al año</span> mientras tú te tomas un café o juegas con los niños.</p>
+      <p class="cierre-poderoso"><strong>Mi consejo de oro:</strong> Invierte 100€ más ahora y te ahorrarás 300€ en dos años. Un buen robot no es un gasto, <strong>es un compañero que trabaja por ti 365 días al año</strong> mientras tú te tomas un café o juegas con los niños.</p>
     </div>
   
 </section>

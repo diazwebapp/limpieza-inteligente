@@ -1,7 +1,9 @@
 ---
+import FaqAccordion from "../../../components/FaqAccordion.astro";
 import { withDomain } from "../../../datos/database";
 import { schemaArticle, schemaProduct, schemaProductList } from "../../../datos/seoBase";
 import Layout from "../../../layouts/Layout.astro";
+
 const title = "iRobot Roomba Combo: Tu Solución Aspirador y Fregasuelos 2 en 1";
 const description = "Los robots iRobot Roomba Combo son la innovadora respuesta para una limpieza integral de tu hogar. Estos dispositivos avanzados combinan la potente succión de una aspiradora Roomba con la capacidad de fregado de una Braava.";
 const canonicalURL = withDomain("/irobot/roomba-combo/");
@@ -85,6 +87,25 @@ const schemas=[
     }),
     schemaProductList(products)
 ]
+
+const faqs = [
+    {
+        question: "¿Cómo funciona la función de aspirar y fregar simultáneamente?",
+        answer: "Los modelos Roomba Combo están diseñados para aspirar y fregar al mismo tiempo. Algunos modelos lo hacen con un solo depósito de cubo que se intercambia, mientras que otros, como el j9+ Combo, gestionan ambos procesos con mayor autonomía gracias a su base de carga avanzada."
+    },
+    {
+        question: "¿Pueden los Roomba Combo fregar alfombras?",
+        answer: "No, los Roomba Combo están diseñados para fregar suelos duros. Cuando detectan alfombras, elevan la mopa o evitan pasar con la función de fregado activada para proteger tus alfombras."
+    },
+    {
+        question: "¿Son los Roomba Combo fáciles de mantener?",
+        answer: "Sí, son fáciles de mantener. La mayoría de los modelos tienen depósitos extraíbles para vaciar y rellenar, y las almohadillas de fregado son lavables o desechables. Los modelos con base de vaciado y llenado automático reducen aún más la frecuencia de mantenimiento manual."
+    },
+    {
+        question: "¿Cuál es la diferencia principal entre un Roomba Combo y tener un Roomba y una Braava separados?",
+        answer: "La principal diferencia es la conveniencia de tener un solo dispositivo que realiza ambas tareas. Mientras que tener dos robots separados puede ofrecer una limpieza más especializada en cada función, el Combo optimiza el espacio y el tiempo al integrar ambas acciones."
+    }
+];
 ---
 
 <Layout title={title} description={description} schemas={schemas} >
@@ -121,7 +142,7 @@ const schemas=[
         </section>
 
         <section class="container">
-            <h2>Listado Detallado de Modelos iRobot Roomba Combo</h2>
+            <h2>Listado detallado de modelos iRobot Roomba Combo</h2>
             <p>A continuación, explora cada uno de los modelos de robot aspirador y fregasuelos iRobot Roomba Combo con sus características específicas, ventajas y limitaciones para ayudarte a elegir el ideal para tu hogar.</p>
 
             <div class="product-listing">
@@ -140,7 +161,7 @@ const schemas=[
                             <img width="300" height="300" loading="lazy" src="https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg" alt="iRobot Roomba j9+ Combo">
                         </div>
                         <div class="product-advantages">
-                            <h4>✅ Ventajas Clave</h4>
+                            <strong>✅ Ventajas Clave</strong>
                             <ul>
                                 <li><strong>Base Clean Base® Auto-Fill Dock:</strong> Vacía el polvo y rellena el agua automáticamente por meses.</li>
                                 <li><strong>Tecnología Dirt Detective:</strong> Detecta las áreas más sucias y las limpia con mayor intensidad.</li>
@@ -150,7 +171,7 @@ const schemas=[
                             </ul>
                         </div>
                         <div class="product-limitations">
-                            <h4>❌ Limitaciones</h4>
+                            <strong>❌ Limitaciones</strong>
                             <ul>
                                 <li><strong>Precio:</strong> Inversión inicial más alta.</li>
                                 <li><strong>Requiere Consumibles:</strong> Bolsas para la base y almohadillas de fregado (aunque duraderas).</li>
@@ -158,7 +179,7 @@ const schemas=[
                         </div>
                     </div>
                     <div class="product-test-conclusion">
-                        <h4>Test Real en Hogar (ej. 80 m²)</h4>
+                        <strong>Test Real en Hogar (ej. 80 m²)</strong>
                         <ul>
                             <li><strong>Tiempo de Limpieza:</strong> ~60-90 min (dependiendo del modo y mapeo)</li>
                             <li><strong>Consumo de Agua:</strong> Variable (según suciedad y modo)</li>
@@ -183,7 +204,7 @@ const schemas=[
                             <img width="300" height="300" loading="lazy" src="https://i.blogs.es/358ce0/irobot-roomba-combo-j7-/1366_2000.jpg" alt="iRobot Roomba j7+ Combo">
                         </div>
                         <div class="product-advantages">
-                            <h4>✅ Ventajas Clave</h4>
+                            <strong>✅ Ventajas Clave</strong>
                             <ul>
                                 <li><strong>Detección de Objetos PrecisionVision™:</strong> Evita cables y excrementos de mascotas.</li>
                                 <li><strong>Base Clean Base® (solo vaciado):</strong> Vacía el depósito de polvo automáticamente.</li>
@@ -192,7 +213,7 @@ const schemas=[
                             </ul>
                         </div>
                         <div class="product-limitations">
-                            <h4>❌ Limitaciones</h4>
+                            <strong>❌ Limitaciones</strong>
                             <ul>
                                 <li><strong>No Rellena Agua Automáticamente:</strong> El depósito de agua debe rellenarse manualmente.</li>
                                 <li><strong>Fregado Básico:</strong> No tiene función SmartScrub.</li>
@@ -200,7 +221,7 @@ const schemas=[
                         </div>
                     </div>
                     <div class="product-test-conclusion">
-                        <h4>Test Real en Hogar (ej. 60 m²)</h4>
+                        <strong>Test Real en Hogar (ej. 60 m²)</strong>
                         <ul>
                             <li><strong>Tiempo de Limpieza:</strong> ~50-80 min</li>
                             <li><strong>Consumo de Agua:</strong> Variable (según superficie)</li>
@@ -225,7 +246,7 @@ const schemas=[
                             <img width="300" height="300" src="https://cdn.media.amplience.net/i/irobot/i517840_1" alt="iRobot Roomba i5 Combo">
                         </div>
                         <div class="product-advantages">
-                            <h4>✅ Ventajas Clave</h4>
+                            <strong>✅ Ventajas Clave</strong>
                             <ul>
                                 <li><strong>Funcionalidad 2 en 1:</strong> Aspira y friega.</li>
                                 <li><strong>Navegación Inteligente:</strong> Limpieza en filas ordenadas.</li>
@@ -234,7 +255,7 @@ const schemas=[
                             </ul>
                         </div>
                         <div class="product-limitations">
-                            <h4>❌ Limitaciones</h4>
+                            <strong>❌ Limitaciones</strong>
                             <ul>
                                 <li><strong>Requiere Cambio de Depósito:</strong> Debes cambiar el depósito de polvo por el de agua para fregar.</li>
                                 <li><strong>No Evita Objetos:</strong> Puede empujar cables u objetos pequeños.</li>
@@ -243,7 +264,7 @@ const schemas=[
                     </div>
                 </div>
                 <div class="product-test-conclusion">
-                    <h4>Test Real en Hogar (ej. 50 m²)</h4>
+                    <strong>Test Real en Hogar (ej. 50 m²)</strong>
                     <ul>
                         <li><strong>Tiempo de Limpieza:</strong> ~40-70 min</li>
                         <li><strong>Consumo de Agua:</strong> ~150-200 ml por pasada.</li>
@@ -268,7 +289,7 @@ const schemas=[
                             <img width="300" height="300" loading="lazy" src="https://m.media-amazon.com/images/I/71zm7C2TPBL._UF894,1000_QL80_.jpg" alt="iRobot Roomba Combo Básico">
                     </div>
                         <div class="product-advantages">
-                            <h4>✅ Ventajas Clave</h4>
+                            <strong>✅ Ventajas Clave</strong>
                             <ul>
                                 <li><strong>Costo muy Accesible:</strong> El más económico de la línea Combo.</li>
                                 <li><strong>Doble Función:</strong> Aspira y friega simultáneamente (cambio de depósito).</li>
@@ -276,7 +297,7 @@ const schemas=[
                             </ul>
                         </div>
                         <div class="product-limitations">
-                            <h4>❌ Limitaciones</h4>
+                            <strong>❌ Limitaciones</strong>
                             <ul>
                                 <li><strong>Navegación Aleatoria/Giroscopio:</strong> No crea mapas ni limpia en filas ordenadas.</li>
                                 <li><strong>No Detección de Objetos:</strong> Puede chocar con muebles o empujar cables.</li>
@@ -286,7 +307,7 @@ const schemas=[
                     </div>
                 </div>
                 <div class="product-test-conclusion">
-                    <h4>Test Real en Hogar (ej. 30 m²)</h4>
+                    <strong>Test Real en Hogar (ej. 30 m²)</strong>
                     <ul>
                         <li><strong>Tiempo de Limpieza:</strong> ~50-80 min (por patrón aleatorio)</li>
                         <li><strong>Consumo de Agua:</strong> ~100-150 ml por pasada.</li>
@@ -323,24 +344,8 @@ const schemas=[
 
         <section class="container">
             <h2>Preguntas Frecuentes sobre iRobot Roomba Combo</h2>
-            <div class="faq-accordion">
-                <div class="faq-item">
-                    <h3>¿Cómo funciona la función de aspirar y fregar simultáneamente?</h3>
-                    <p>Los modelos Roomba Combo están diseñados para aspirar y fregar al mismo tiempo. Algunos modelos lo hacen con un solo depósito de cubo que se intercambia, mientras que otros, como el j9+ Combo, gestionan ambos procesos con mayor autonomía gracias a su base de carga avanzada.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>¿Pueden los Roomba Combo fregar alfombras?</h3>
-                    <p>No, los Roomba Combo están diseñados para fregar suelos duros. Cuando detectan alfombras, elevan la mopa o evitan pasar con la función de fregado activada para proteger tus alfombras.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>¿Son los Roomba Combo fáciles de mantener?</h3>
-                    <p>Sí, son fáciles de mantener. La mayoría de los modelos tienen depósitos extraíbles para vaciar y rellenar, y las almohadillas de fregado son lavables o desechables. Los modelos con base de vaciado y llenado automático reducen aún más la frecuencia de mantenimiento manual.</p>
-                </div>
-                <div class="faq-item">
-                    <h3>¿Cuál es la diferencia principal entre un Roomba Combo y tener un Roomba y una Braava separados?</h3>
-                    <p>La principal diferencia es la conveniencia de tener un solo dispositivo que realiza ambas tareas. Mientras que tener dos robots separados puede ofrecer una limpieza más especializada en cada función, el Combo optimiza el espacio y el tiempo al integrar ambas acciones.</p>
-                </div>
-            </div>
+
+            <FaqAccordion faqs={faqs} />
         </section>
 
         <section class="container">
@@ -428,7 +433,7 @@ text-decoration: underline;
 }
 
     /* Estilos de Botones */
-.button, .buy-button, .details-button {
+.button, .buy-button {
 display: inline-block;
 background-color: #007bff;
 color: #fff;
@@ -442,7 +447,7 @@ border: none;
 cursor: pointer;
 }
 
-.button:hover, .buy-button:hover, .details-button:hover {
+.button:hover, .buy-button:hover, {
 background-color: #0056b3;
 transform: translateY(-2px);
 text-decoration: none;
@@ -457,17 +462,6 @@ font-size: 1.1em;
 .buy-button:hover {
 background-color: #218838;
 }
-
-.details-button {
-background-color: #6c757d; /* Color gris para detalles */
-padding: 8px 15px;
-font-size: 0.9em;
-}
-
-.details-button:hover {
-background-color: #5a6268;
-}
-
     /* Featured Product / Product Highlight Card */
 .product-highlight-card {
 display: flex;

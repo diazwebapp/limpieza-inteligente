@@ -1,6 +1,6 @@
 ---
 import { amazonProduts, productImages, marcas } from "../datos/database.js";
-const { idProducto = null, idMarca = null, slugMarca = null, orderBy = null, orderDir = 'desc', limit = 3 } = Astro.props;
+const { idProducto = null, idMarca = null, slugMarca = null, orderBy = null, orderDir = 'desc', limit = -1 } = Astro.props;
 
 let filteredProducts = amazonProduts;
 let marcaId = idMarca;

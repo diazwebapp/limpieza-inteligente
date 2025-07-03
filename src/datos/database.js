@@ -126,130 +126,131 @@ export const amazonProduts = [
         depositoPolvo: "400 ml",
         depositoAgua: "270 ml"
     }
-},
-{
-  id: 5,
-  title: "Cecotec Conga 8490 Ultimate Ultra Power",
-  slug: withDomain("/cecotec/conga-8490-ultimate-ultra-power/"),
-  urlAfiliado: "https://amzn.to/3ZxvsKN",
-  imageIds: [201,202,203],
-  stars: 3.9,
-  ratingCount: 950,
-  marca: 1, // id de Cecotec
-  modelo: "Conga 8490 Ultimate Ultra Power",
-  precio: 167.65,
-  momeda: "eur",
-  feactures: {
-    potenciaSuccion: "7000 Pa",
-    navegacion: "Láser",
-    funciones: "Barre, aspira, friega y pasa la mopa",
-    autonomia: "170 min",
-    superficies: "Todo tipo de suelos y alfombras",
-    cepillo: "Central de silicona",
-    app: true,
-    roomPlan: true,
-    totalSurface: true,
-    bateria: "3200 mAh",
-    deposito: "Autovaciado"
-  }
-},
-{
-  id: 6,
-  title: "Conga 999 Map X-Treme",
-  slug: withDomain("/cecotec/conga-999-map-x-treme/"),
-  urlAfiliado: "https://amzn.to/460vsXs", // Añadir URL de afiliado si la tienes
-  imageIds: [301, 302, 303],
-  stars: 3.9,
-  ratingCount: 2920,
-  marca: 1, // id de Cecotec
-  modelo: "Conga 999 Map X-Treme",
-  precio: 99.00, // Añadir precio si lo tienes
-  momeda: "eur",
-  feactures: {
-    potenciaSuccion: "2000 Pa",
-    navegacion:"iTech 3.0 giroscópica",
-    funciones: "Barre, aspira, pasa la mopa, friega y seca la superficie",
-    autonomia: "120 minutos",
-    superficies: "Todo tipo de suelos y alfombras",
-    color: "Conga 999 Map | 2 Mopas",
-    funcionEspecial: "inalámbrico",
-    dimensiones: "31,5L x 31,5an. x 7,5al. centímetros",
-    componentes: "1 x Robot Aspirador; 2 x Cepillos laterales; 1 x Cepillo de autolimpieza; 1 x Depósito mixto; 1 x Filtro de alta eficiencia; 1 x Mando a distancia; 2 x Mopa de fregado",
-    tipoFiltro: "Filtro de alta eficiencia",
-    fuenteAlimentacion: "Batería",
-    pilasIncluidas: true,
-    totalSurface: true,
-    autoCharge: true,
-    tecnologia: "iTech SmartGyro",
-    controlApp: true,
-    conectividad: "WiFi 2,4 GHz y Bluetooth",
-    mopasCepillos: "2 mopas de fregado y 2 cepillos laterales",
-    iWater: "Fregado inteligente con 3 niveles de caudal de agua (High, Medium y Low)"
-  }
-},
-{
-  id: 7,
-  title: "iRobot Roomba Combo Essential",
-  slug: withDomain("/irobot/roomba-combo/roomba-combo-essential/"),
-  urlAfiliado: "https://amzn.to/4ejQJ0E", // URL de afiliado no proporcionada
-  imageIds: [104, 105, 106],
-  stars: 3.9,
-  ratingCount: 11697,
-  marca: 2, // id de la marca iRobot
-  modelo: "iRobot Roomba Combo Essentia",
-  precio: 149.00, // Precio no proporcionado
-  momeda: "eur", // Moneda no proporcionada
-  feactures: {
-    potenciaSuccion: "4000 Pa", // Potencia de succión no proporcionada
-    navegacion: "Smart Navigation", // Navegación no proporcionada
-    funciones: "Control de succión variable, Húmedo/Seco, Navegación habitación por habitación, Programable, Aspiración y limpieza simultáneas",
-    autonomia: "2 Horas",
-    superficies: "Suelo duro, alfombra",
-    color: "Blanco",
-    dimensiones: "33l. x 33an. x 8al. centímetros",
-    componentes: "Filtro, Manual de instrucciones, Cepillos laterales, Almohadilla de mopa, Estación de acoplamiento",
-    tipoFiltro: "Cartucho",
-    fuenteAlimentacion: "Litio Ion",
-    pilasIncluidas: false,
-    metodoControl: "Voz, Aplicación, Toque",
-    dispositivosCompatibles: "Smartphones, Amazon Echo, Tablets, Google Home",
-    factorForma: "Portátil",
-    peso: "2,8 Kilogramos"
-  }
-},
-{
-  id: 8,
-  title: "Cecotec Conga 13090 Spin Revolution Home&Wash Essential",
-  slug: withDomain("/cecotec/conga-13090-spin-revolution-home-wash-essential/"),
-  urlAfiliado: "https://amzn.to/45BmPm6",
-  imageIds: [107,108,109],
-  stars: 3.9,
-  ratingCount: 96,
-  marca: 1, // id de la marca Cecotec (no proporcionado)
-  modelo: "Conga 13090 Spin Revolution Home&Wash Essential",
-  precio: 490, // Precio no proporcionado
-  moneda: "eur", // Moneda no proporcionada
-  feactures: {
-    potenciaSuccion: "7000pa", // Potencia no proporcionada
-    navegacion: "Mapeo y navegación láser de precisión",
-    funciones: "Control de aplicaciones",
-    autonomia: "140 minutos", // Autonomía no proporcionada
-    superficies: "alfombra, madera dura, azulejos",
-    color: "Conga 13090 | Autovaciado | Mopas",
-    dimensiones: "35L x 34an. x 11al. centímetros",
-    componentes: "Robot aspirador, Base de autovaciado con 2 tanques (agua limpia y agua sucia), Bolsa de polvo, Cepillo lateral, 2 Mopas giratorias, Cable de alimentación, Cepillo, Manual de instrucciones",
-    tipofiltro: "Cartucho",
-    fuenteAlimentacion: "Batería (Litio Ion)",
-    pilsIncluidas: true,
-    metodoControl: "Aplicación",
-    dispositivosCompatibles: "Smartphones",
-    factorForma: "Robótico",
-    peso: "11,2 Kilogramos",
-    altura: "47,5 centímetros",
-    anchoRutaLimpieza: "34 Centímetros",
-    duracionPiezasRecambio: "10 Años"
-  }
-}];
+    },
+    {
+      id: 5,
+      title: "Cecotec Conga 8490 Ultimate Ultra Power",
+      slug: withDomain("/cecotec/conga-8490-ultimate-ultra-power/"),
+      urlAfiliado: "https://amzn.to/3ZxvsKN",
+      imageIds: [201,202,203],
+      stars: 3.9,
+      ratingCount: 950,
+      marca: 1, // id de Cecotec
+      modelo: "Conga 8490 Ultimate Ultra Power",
+      precio: 167.65,
+      momeda: "eur",
+      feactures: {
+        potenciaSuccion: "7000 Pa",
+        navegacion: "Láser",
+        funciones: "Barre, aspira, friega y pasa la mopa",
+        autonomia: "170 min",
+        superficies: "Todo tipo de suelos y alfombras",
+        cepillo: "Central de silicona",
+        app: true,
+        roomPlan: true,
+        totalSurface: true,
+        bateria: "3200 mAh",
+        deposito: "Autovaciado"
+      }
+    },
+    {
+      id: 6,
+      title: "Conga 999 Map X-Treme",
+      slug: withDomain("/cecotec/conga-999-map-x-treme/"),
+      urlAfiliado: "https://amzn.to/460vsXs", // Añadir URL de afiliado si la tienes
+      imageIds: [301, 302, 303],
+      stars: 3.9,
+      ratingCount: 2920,
+      marca: 1, // id de Cecotec
+      modelo: "Conga 999 Map X-Treme",
+      precio: 99.00, // Añadir precio si lo tienes
+      momeda: "eur",
+      feactures: {
+        potenciaSuccion: "2000 Pa",
+        navegacion:"iTech 3.0 giroscópica",
+        funciones: "Barre, aspira, pasa la mopa, friega y seca la superficie",
+        autonomia: "120 minutos",
+        superficies: "Todo tipo de suelos y alfombras",
+        color: "Conga 999 Map | 2 Mopas",
+        funcionEspecial: "inalámbrico",
+        dimensiones: "31,5L x 31,5an. x 7,5al. centímetros",
+        componentes: "1 x Robot Aspirador; 2 x Cepillos laterales; 1 x Cepillo de autolimpieza; 1 x Depósito mixto; 1 x Filtro de alta eficiencia; 1 x Mando a distancia; 2 x Mopa de fregado",
+        tipoFiltro: "Filtro de alta eficiencia",
+        fuenteAlimentacion: "Batería",
+        pilasIncluidas: true,
+        totalSurface: true,
+        autoCharge: true,
+        tecnologia: "iTech SmartGyro",
+        controlApp: true,
+        conectividad: "WiFi 2,4 GHz y Bluetooth",
+        mopasCepillos: "2 mopas de fregado y 2 cepillos laterales",
+        iWater: "Fregado inteligente con 3 niveles de caudal de agua (High, Medium y Low)"
+      }
+    },
+    {
+      id: 7,
+      title: "iRobot Roomba Combo Essential",
+      slug: withDomain("/irobot/roomba-combo/roomba-combo-essential/"),
+      urlAfiliado: "https://amzn.to/4ejQJ0E", // URL de afiliado no proporcionada
+      imageIds: [104, 105, 106],
+      stars: 3.9,
+      ratingCount: 11697,
+      marca: 2, // id de la marca iRobot
+      modelo: "iRobot Roomba Combo Essentia",
+      precio: 149.00, // Precio no proporcionado
+      momeda: "eur", // Moneda no proporcionada
+      feactures: {
+        potenciaSuccion: "4000 Pa", // Potencia de succión no proporcionada
+        navegacion: "Smart Navigation", // Navegación no proporcionada
+        funciones: "Control de succión variable, Húmedo/Seco, Navegación habitación por habitación, Programable, Aspiración y limpieza simultáneas",
+        autonomia: "2 Horas",
+        superficies: "Suelo duro, alfombra",
+        color: "Blanco",
+        dimensiones: "33l. x 33an. x 8al. centímetros",
+        componentes: "Filtro, Manual de instrucciones, Cepillos laterales, Almohadilla de mopa, Estación de acoplamiento",
+        tipoFiltro: "Cartucho",
+        fuenteAlimentacion: "Litio Ion",
+        pilasIncluidas: false,
+        metodoControl: "Voz, Aplicación, Toque",
+        dispositivosCompatibles: "Smartphones, Amazon Echo, Tablets, Google Home",
+        factorForma: "Portátil",
+        peso: "2,8 Kilogramos"
+      }
+    },
+    {
+      id: 8,
+      title: "Cecotec Conga 13090 Spin Revolution Home&Wash Essential",
+      slug: withDomain("/cecotec/conga-13090-spin-revolution-home-wash-essential/"),
+      urlAfiliado: "https://amzn.to/45BmPm6",
+      imageIds: [107,108,109],
+      stars: 3.9,
+      ratingCount: 96,
+      marca: 1, // id de la marca Cecotec (no proporcionado)
+      modelo: "Conga 13090 Spin Revolution Home&Wash Essential",
+      precio: 490, // Precio no proporcionado
+      moneda: "eur", // Moneda no proporcionada
+      feactures: {
+        potenciaSuccion: "7000pa", // Potencia no proporcionada
+        navegacion: "Mapeo y navegación láser de precisión",
+        funciones: "Control de aplicaciones",
+        autonomia: "140 minutos", // Autonomía no proporcionada
+        superficies: "alfombra, madera dura, azulejos",
+        color: "Conga 13090 | Autovaciado | Mopas",
+        dimensiones: "35L x 34an. x 11al. centímetros",
+        componentes: "Robot aspirador, Base de autovaciado con 2 tanques (agua limpia y agua sucia), Bolsa de polvo, Cepillo lateral, 2 Mopas giratorias, Cable de alimentación, Cepillo, Manual de instrucciones",
+        tipofiltro: "Cartucho",
+        fuenteAlimentacion: "Batería (Litio Ion)",
+        pilsIncluidas: true,
+        metodoControl: "Aplicación",
+        dispositivosCompatibles: "Smartphones",
+        factorForma: "Robótico",
+        peso: "11,2 Kilogramos",
+        altura: "47,5 centímetros",
+        anchoRutaLimpieza: "34 Centímetros",
+        duracionPiezasRecambio: "10 Años"
+      }
+    }
+];
 
 // Imágenes optimizadas por producto (id, 250x250, 60x60, 1280x720)
 export const productImages = [

@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import vercelAdapter from '@astrojs/vercel';
+import image from '@astrojs/image';
 
 import sitemap from '@astrojs/sitemap';
 
@@ -18,5 +18,5 @@ export default defineConfig({
     },
   },
     site: process.env.PUBLIC_SITE_URL || 'https://limpiezainteligente.store',
-    integrations: [sitemap()]
+    integrations: [sitemap(),image()],
 });

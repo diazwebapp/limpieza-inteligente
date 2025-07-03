@@ -36,7 +36,7 @@ const brandsWithTopProducts = cats.map(cat => {
 <ul class="brands-analysis">
   {brandsWithTopProducts.map(brand => (
     <li class="brand-card">
-      <a href={brand.topProduct?.slug}>
+      <a href={brand.slug}>
         <article>
           <figure>
             <img 
@@ -50,9 +50,8 @@ const brandsWithTopProducts = cats.map(cat => {
           <div class="brand-content">
             <h3>{brand.name}</h3>
             {brand.topProduct && (
-              <div class="brand-meta">
+              <div class="brand-meta" >
                 {brand.topProduct.modelo && <p class="product-model">{brand.topProduct.modelo}</p>}
-                {brand.topProduct.precio && <p class="product-price">{brand.topProduct.precio}</p>}
                 {brand.topProduct.rating && <div class="product-rating">{brand.topProduct.rating}</div>}
                 {brand.topProduct.features.length > 0 && (
                   <ul class="product-features">

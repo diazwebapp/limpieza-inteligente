@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import image from '@astrojs/image';
 
 import sitemap from '@astrojs/sitemap';
 
@@ -18,5 +17,8 @@ export default defineConfig({
     },
   },
     site: process.env.PUBLIC_SITE_URL || 'https://limpiezainteligente.store',
-    integrations: [sitemap(),image()],
+    integrations: [sitemap()],
+    image: {
+        domains: ['gumtreeau-res.cloudinary.com', 's1.elespanol.com'],
+    }
 });

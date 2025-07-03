@@ -4,9 +4,8 @@ import CategoryCluester from '../components/CategoryCluester.astro';
 import { marcas, amazonProduts, withDomain } from '../datos/database';
 import Layout from '../layouts/Layout.astro';
 import { schemaArticle, schemaWebSite } from '../datos/seoBase';
-import StyledOne from '../components/StyledOne.astro';
-import TableComparativa from '../components/TableComparativa.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
+import StoreCluster from '../components/StoreCluster.astro';
 
 const canonicalURL = "https://limpiezainteligente.store/";
 const title = "TOP 9 🥇 Mejores robot aspirador y fregasuelos: Guía 2025"
@@ -118,7 +117,7 @@ const faqs = [
 </section>
 
 <section class="container">
-    <h2>Desmontando el robot: la tecnología que limpia por ti (explicado para mortales)</h2>
+    <h2>Desmontando el robot: la tecnología que limpia por ti</h2>
     <p>¿Alguna vez te has preguntado cómo demonios un cacharro con ruedas es capaz de dejarte el suelo como los chorros del oro sin que tú muevas un dedo? Pues mira, no es magia negra, ¡es pura ingeniería! Y hoy te vamos a explicar, sin líos ni tecnicismos, qué hay detrás de esos "cerebritos" de la limpieza que se han colado en nuestros hogares.</p>
 
     <h3>Sistemas de fregado: ¿mopa, vibración o rodillo giratorio?</h3>
@@ -130,6 +129,11 @@ const faqs = [
         <li><strong>Robots especializados en fregado:</strong> Si tu prioridad es un fregado impecable y superprofundo, existen robots diseñados únicamente para esta tarea, ofreciendo resultados asombrosos en suelos duros. ¿Quieres verlos? Echa un ojo a los <a href="/irobot/braava/">robots de fregado iRobot Braava</a>.</li>
     </ul>
     <p>Por cierto, si estás buscando la solución definitiva que aspire y friegue a la vez, no te pierdas nuestra selección de <a href="/irobot/roomba-combo/">robots Roomba Combo 2 en 1</a>, que hacen doblete para que tu suelo quede impecable.</p>
+</section>
+<section class="container">
+    <h2>Nuestros robots aspiradores y fregasuelos con ofertas que no te querrás perder</h2>
+    <p>¿A la caza de una ganga? ¡Estás en el sitio justo! En esta sección te traemos una selección especial de robots aspiradores y fregasuelos que, además de ser una auténtica joya para la limpieza de tu hogar, ¡ahora están de oferta! Es la oportunidad perfecta para hacerte con ese ayudante inteligente que tanto deseas sin que tu bolsillo se resienta.</p>
+    <StoreCluster amazonProduts={amazonProduts}  />
 </section>
 <section class="container">
     <h2>¿Tu casa, su mejor amigo? Cómo elegir el robot perfecto para cada tipo de hogar</h2>

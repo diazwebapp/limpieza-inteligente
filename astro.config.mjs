@@ -20,6 +20,5 @@ export default defineConfig({
     integrations: [sitemap()],
     image: {
         domains: ['gumtreeau-res.cloudinary.com', 's1.elespanol.com'],
-        service: squooshImageService()
     },
 });

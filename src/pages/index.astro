@@ -6,6 +6,7 @@ import Layout from '../layouts/Layout.astro';
 import { schemaArticle, schemaWebSite } from '../datos/seoBase';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import StoreCluster from '../components/StoreCluster.astro';
+import TableComparativa from '../components/TableComparativa.astro';
 
 const canonicalURL = "https://limpiezainteligente.store/";
 const title = "TOP 9 🥇 Mejores robot aspirador y fregasuelos: Guía 2025"
@@ -131,7 +132,7 @@ const faqs = [
     <p>Por cierto, si estás buscando la solución definitiva que aspire y friegue a la vez, no te pierdas nuestra selección de <a href="/irobot/roomba-combo/">robots Roomba Combo 2 en 1</a>, que hacen doblete para que tu suelo quede impecable.</p>
 </section>
 <section class="container">
-    <h2>Nuestros robots aspiradores y fregasuelos con ofertas que no te querrás perder</h2>
+    <h2>Robots aspiradores y fregasuelos con ofertas que no te querrás perder</h2>
     <p>¿A la caza de una ganga? ¡Estás en el sitio justo! En esta sección te traemos una selección especial de robots aspiradores y fregasuelos que, además de ser una auténtica joya para la limpieza de tu hogar, ¡ahora están de oferta! Es la oportunidad perfecta para hacerte con ese ayudante inteligente que tanto deseas sin que tu bolsillo se resienta.</p>
     <StoreCluster amazonProduts={amazonProduts}  />
 </section>
@@ -167,6 +168,11 @@ const faqs = [
         <li><strong>Lo que buscas:</strong> Filtros HEPA de alta eficiencia que retengan alérgenos, ácaros y polvo fino, sistemas de fregado que limpien a fondo sin dejar residuos y, si es posible, integración con purificadores de aire.</li>
         <li><strong>Beneficio:</strong> Un hogar con menos polvo, menos alérgenos y, en definitiva, un aire más puro para respirar tranquilo. ¡Tu salud te lo agradecerá!</li>
     </ul>
+</section>
+<section class="container">
+    <h2>Comparativa de robots aspiradores y fregasuelos: ¿cuál es el tuyo?</h2>
+    <p>Con tantos modelos en el mercado, elegir el robot aspirador y fregasuelos perfecto puede ser un auténtico quebradero de cabeza. ¡Pero tranquilo! Hemos preparado una tabla comparativa para que veas de un vistazo las características clave de los modelos más top, así te será mucho más fácil decidir cuál se ajusta mejor a lo que necesitas y a tu presupuesto. ¡A comparar se ha dicho!</p>
+    <TableComparativa amazonProduts={amazonProduts} limit={5} />
 </section>
     <section class="container">
       <FaqAccordion faqs={faqs} />

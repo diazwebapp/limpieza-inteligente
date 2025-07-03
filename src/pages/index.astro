@@ -207,7 +207,6 @@ const faqs = [
 .home-types-section h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
     font-size: 1.8em; /* Tamaño de fuente para móviles */
     line-height: 1.2;
 }
@@ -217,7 +216,6 @@ const faqs = [
     max-width: 100%; /* Ajuste para que ocupe todo el ancho en móvil */
     margin: 0 auto 30px auto;
     line-height: 1.5;
-    color: #555;
     font-size: 1em; /* Tamaño de fuente base */
 }
 
@@ -231,7 +229,6 @@ const faqs = [
 
 /* Estilos para cada tarjeta de tipo de hogar */
 .home-type-card {
-    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Sombra más suave para móvil */
     padding: 25px;
@@ -248,7 +245,6 @@ const faqs = [
 }
 
 .home-type-card h3 {
-    color: #007bff;
     font-size: 1.3em; /* Tamaño de fuente para móviles */
     margin-top: 0;
     margin-bottom: 15px;
@@ -258,51 +254,23 @@ const faqs = [
 
 .home-type-card p {
     line-height: 1.5;
-    color: #666;
     margin-bottom: 15px;
     flex-grow: 1;
     font-size: 0.95em; /* Tamaño de párrafo ligeramente más pequeño para móviles */
 }
 
 .home-type-card ul {
-    list-style: none;
     padding: 0;
     margin-bottom: 0;
 }
 
 .home-type-card ul li {
     margin-bottom: 8px;
-    color: #444;
     position: relative;
     padding-left: 20px; /* Espacio para el icono */
     font-size: 0.9em; /* Tamaño de lista ligeramente más pequeño */
 }
 
-.home-type-card ul li strong {
-    color: #333;
-}
-
-.home-type-card ul li::before {
-    content: '•'; /* Puedes cambiar por '✓' o un icono SVG */
-    color: #007bff;
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1.2em; /* Ajuste para el padding-left */
-    position: absolute;
-    left: 0;
-    top: 0; /* Asegura alineación vertical */
-}
-
-/* Estilos para el apunte importante sobre los suelos */
-.home-type-card .apunte-suelos {
-    margin-top: 20px;
-    padding-top: 15px;
-    border-top: 1px dashed #eee; /* Un borde punteado para diferenciar */
-    font-style: italic;
-    font-size: 0.85em; /* Tamaño de fuente más pequeño para el apunte */
-    color: #777;
-}
 
 /* ========================================================= */
 /* Media Queries para Tablets (ej. min-width: 768px)       */
@@ -370,14 +338,6 @@ const faqs = [
     .home-types-grid {
         grid-template-columns: repeat(2, 1fr); /* Dos columnas principales */
         gap: 40px; /* Más espacio entre tarjetas */
-    }
-
-    /* Opcional: si quieres 3 o 4 columnas en escritorios muy grandes */
-    @media (min-width: 1200px) {
-        .home-types-grid {
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Ejemplo: 3 o 4 columnas dependiendo del minmax */
-            gap: 30px;
-        }
     }
 
     .home-type-card {

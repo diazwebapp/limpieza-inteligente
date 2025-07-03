@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 
@@ -20,5 +20,6 @@ export default defineConfig({
     integrations: [sitemap()],
     image: {
         domains: ['gumtreeau-res.cloudinary.com', 's1.elespanol.com'],
-    }
+        service: passthroughImageService()
+    },
 });

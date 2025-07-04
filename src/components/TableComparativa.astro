@@ -172,10 +172,8 @@ const getBadges = (product: any) => {
   }
 
   .comparison-table th {
-    background-color: #b8057c;
-    color: white;
-    text-align: left;
-    padding: 12px;
+    background-color: var(--cta);
+    color: var(--light);
     font-weight: 600;
   }
 
@@ -183,6 +181,7 @@ const getBadges = (product: any) => {
     padding: 12px;
     border-bottom: 1px solid #eee;
     vertical-align: middle;
+    color: var(--light);
   }
 
   .comparison-table tr:last-child td {
@@ -190,17 +189,19 @@ const getBadges = (product: any) => {
   }
 
   .comparison-table tr:hover {
-    background-color: #f9f9f9;
+    background-color: #111;
   }
 .comparison-table th,
 .comparison-table td{
   width: 100px;
   overflow:hidden;
 }
+.comparison-table a, .comparison-table b{
+  color: var(--light);
+}
   /* Estilos específicos para la tabla de robots */
   .comparison-table--robots td:nth-child(1) { /* Columna Modelo */
     font-weight: 500;
-    color: #b8057c;
     width: 150px;
   }
 
@@ -268,7 +269,7 @@ const getBadges = (product: any) => {
 
   .rating-count {
     font-size: 0.8rem;
-    color: #666;
+    color: var(--light);
     margin-top: 2px;
   }
 
@@ -279,7 +280,7 @@ const getBadges = (product: any) => {
   }
 
   .current-price {
-    color: #b8057c;
+    color: var(--cta);
     font-weight: bold;
   }
 
@@ -293,7 +294,7 @@ const getBadges = (product: any) => {
   .offer-button {
     display: block;
     padding: 8px 12px;
-    background-color: #b8057c;
+    background-color: var(--cta);
     color: white;
     text-decoration: none;
     border-radius: 4px;
@@ -304,7 +305,7 @@ const getBadges = (product: any) => {
   }
 
   .offer-button:hover {
-    background-color: #9a0468;
+    background-color: var(--cta);
     transform: translateY(-2px);
   }
 

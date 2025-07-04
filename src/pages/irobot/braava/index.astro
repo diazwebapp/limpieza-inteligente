@@ -8,7 +8,7 @@ const pubDatetime = new Date("2025-06-27T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-27T00:00:00+00:00").toISOString();
 const title = "⚠️ ¡NO compres un Braava sin leer esto!";
 const description = "2025-06-27 ¿Cansado de fregar? Explora la línea de friegasuelos Braava de iRobot y elige el ✔ mejor.";
-
+const anchorBraavaM6 = withDomain("/irobot/braava/braava-jet-m6/")
 const braavaProducts = [
   
     schemaProduct({
@@ -84,7 +84,7 @@ const schemas = [
                      El <strong>Friegasuelos Braava</strong> más avanzado de iRobot. Conéctalo a tu Roomba® para una limpieza total de aspirado y fregado.
                 </p>
                 <div class="cta-box">
-                    <a href="" rel="nofollow" class="cta" >Comprar Braava Jet M6</a>
+                    <a href={anchorBraavaM6} rel="nofollow" class="cta" >Comprar Braava Jet M6</a>
                     <a href="video-demo" class="cta">
                         Video Braava en acción
                     </a>
@@ -112,8 +112,8 @@ const schemas = [
                             <a href="#opiniones-clientes" class="enlace-reseñas">(Ver 120 opiniones del m6)</a>
                         </div>
                     </div>
-                    <a href="#" class="cta">
-                        Comprar Braava jet® m6
+                    <a href={anchorBraavaM6} class="cta small">
+                        Conoce más Braava jet® m6
                     </a>
                 </div>
                 <div class="imagen-estrella">
@@ -135,12 +135,75 @@ const schemas = [
                         <p class="descripcion-producto">
                             El fregasuelos Braava compacto es ideal para áreas pequeñas. Funciona bien en espacios reducidos, como baños y cocinas. Limpia en profundidad con facilidad.
                         </p>
-                        <a href="#" class="enlace-producto">Ver Detalles</a>
+                        <a href={anchorBraavaM6} class="enlace-producto">Comprar Braava jet m6</a>
                     </div>
                     </div>
             </div>
         </section>
-
+ <section class="container seccion-comparativa">
+            <h2 class="titulo-seccion">
+                Compara modelos de <strong>friegasuelos iRobot Braava</strong>
+            </h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Característica</th>
+                            <th>Braava jet® m6</th>
+                            <th>Braava jet® 240</th>
+                            <th>Roomba Combo® j5+ <br>(aspirar y fregar)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>Tipo de limpieza</th>
+                            <td>Fregado avanzado (mopa húmeda/seca)</td>
+                            <td>Fregado (mopa desechable)</td>
+                            <td>Aspiración y fregado</td>
+                        </tr>
+                        <tr>
+                            <th>Navegación inteligente</th>
+                            <td>Imprint® Smart Mapping</td>
+                            <td>iAdapt® 2.0 (Básica)</td>
+                            <td>PrecisionVision™ Navegación</td>
+                        </tr>
+                        <tr>
+                            <th>Pulverizador</th>
+                            <td>Chorro a presión (para el friegasuelos Braava)</td>
+                            <td>Chorro de precisión</td>
+                            <td>No aplica (depósito de fregado)</td>
+                        </tr>
+                        <tr>
+                            <th>Área de cobertura</th>
+                            <td>Grandes espacios (varias habitaciones)</td>
+                            <td>Habitaciones individuales / baños</td>
+                            <td>Grandes espacios</td>
+                        </tr>
+                        <tr>
+                            <th>Conectividad</th>
+                            <td>Wi-Fi, App iRobot Home, voz</td>
+                            <td>Bluetooth (App iRobot Home limitada)</td>
+                            <td>Wi-Fi, App iRobot Home, Voz</td>
+                        </tr>
+                        <tr>
+                            <th>Compatibilidad Imprint® Link</th>
+                            <td>Sí (con Roomba selectos)</td>
+                            <td>No</td>
+                            <td>Sí (con Braava jet m6 si se quiere solo aspirar)</td>
+                        </tr>
+                        <tr>
+                            <th>Recarga Automática y Reanudación</th>
+                            <td>Sí</td>
+                            <td>No</td>
+                            <td>Sí</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="texto-comparativa">
+                Cada <strong>robot friegasuelos Braava</strong> está diseñado para ofrecer una limpieza excepcional. El Braava jet® m6, nuestro modelo más avanzado, es perfecto para complementar la aspiración de tu Roomba®.
+            </p>
+        </section>
         <section class="container seccion-tecnologia-inteligente">
             <div class="contenido-tecnologia">
                 <div class="imagen-tecnologia">
@@ -154,10 +217,10 @@ const schemas = [
                         La tecnología Imprint® ayuda a tu <strong>friegasuelos Braava</strong> a entender el diseño de tu hogar. Crea áreas de limpieza y zonas de exclusión. Luego, envía tu robot fregador a una habitación específica. Todo esto desde la fácil aplicación iRobot Home.
                     </p>
                     <ul>
-                        <li><strong>Limpieza por habitación : Envía tu robot friegasuelos a áreas específicas con un toque.</li>
-                        <li><strong>Zonas de exclusión: Estas son las áreas que tu friegasuelos Braava no debe limpiar.</li>
-                        <li><strong>Rutas de limpieza personalizadas : Ajusta los patrones y preferencias para una limpieza que se adapte a tu hogar.</li>
-                        <li><strong>Detección y prevención de peligros : Tu robot Braava esquiva obstáculos.  Así, garantiza una limpieza continua y segura.</li>
+                        <li><strong>Limpieza por habitación:</strong> Envía tu robot friegasuelos a áreas específicas con un toque.</li>
+                        <li><strong>Zonas de exclusión:</strong> Estas son las áreas que tu friegasuelos Braava no debe limpiar.</li>
+                        <li><strong>Rutas de limpieza personalizadas:</strong> Ajusta los patrones y preferencias para una limpieza que se adapte a tu hogar.</li>
+                        <li><strong>Detección y prevención de peligros:</strong> Tu robot Braava esquiva obstáculos.  Así, garantiza una limpieza continua y segura.</li>
                     </ul>
                 </div>
             </div>
@@ -181,71 +244,7 @@ const schemas = [
                 Mira cómo el Braava más avanzado limpia, friega y se mueve inteligentemente. Así, tu hogar queda impecable.
             </p>
         </section>
-        <section class="container seccion-comparativa">
-            <h2 class="titulo-seccion">
-                Compara modelos de <strong>friegasuelos iRobot Braava</strong>
-            </h2>
-            <div class="tabla-responsive">
-                <table class="tabla-comparativa">
-                    <thead>
-                        <tr>
-                            <th>Característica</th>
-                            <th>Braava jet® m6</th>
-                            <th>Braava jet® 240</th>
-                            <th>Roomba Combo® j5+ <br>(aspirar y fregar)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Tipo de limpieza</strong></td>
-                            <td>Fregado avanzado (mopa húmeda/seca)</td>
-                            <td>Fregado (mopa desechable)</td>
-                            <td>Aspiración y fregado</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Navegación inteligente</strong></td>
-                            <td>Imprint® Smart Mapping</td>
-                            <td>iAdapt® 2.0 (Básica)</td>
-                            <td>PrecisionVision™ Navegación</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Pulverizador</strong></td>
-                            <td>Chorro a presión (para el <strong>friegasuelos Braava</strong>)</td>
-                            <td>Chorro de precisión</td>
-                            <td>No aplica (depósito de fregado)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Área de cobertura recomendada</strong></td>
-                            <td>Grandes espacios (varias habitaciones)</td>
-                            <td>Habitaciones individuales / baños</td>
-                            <td>Grandes espacios</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Conectividad</strong></td>
-                            <td>Wi-Fi, App iRobot Home, voz</td>
-                            <td>Bluetooth (App iRobot Home limitada)</td>
-                            <td>Wi-Fi, App iRobot Home, Voz</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Compatibilidad Imprint® Link</strong></td>
-                            <td>Sí (con Roomba selectos)</td>
-                            <td>No</td>
-                            <td>Sí (con Braava jet m6 si se quiere solo aspirar)</td>
-                        </tr>
-                         <tr>
-                            <td><strong>Recarga Automática y Reanudación</strong></td>
-                            <td>Sí</td>
-                            <td>No</td>
-                            <td>Sí</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <p class="texto-comparativa">
-                Cada <strong>robot friegasuelos Braava</strong> está diseñado para ofrecer una limpieza excepcional. El Braava jet® m6, nuestro modelo más avanzado, es perfecto para complementar la aspiración de tu Roomba®.
-            </p>
-        </section>
-
+       
         <section id="opiniones-clientes" class="container seccion-opiniones">
             <h2 class="titulo-seccion">
                 Reseñas del <strong>robot friegasuelos Braava jet® m6</strong>
@@ -287,67 +286,12 @@ const schemas = [
             </div>
         </section>
 
-        <section class="container seccion-especificaciones">
-            <h2 class="titulo-seccion">
-                Especificaciones técnicas del <strong>Braava jet® m6 Friegasuelos</strong>
-            </h2>
-            <div class="lista-especificaciones">
-                <div class="item-especificacion">
-                    <h3 class="titulo-especificacion">Dimensiones del robot</h3>
-                    <p>33.8 cm (Largo) x 33.0 cm (Ancho) x 8.9 cm (Alto)</p>
-                </div>
-                <div class="item-especificacion">
-                    <h3 class="titulo-especificacion">Peso del robot</h3>
-                    <p>2.2 kg</p>
-                </div>
-                <div class="item-especificacion">
-                    <h3 class="titulo-especificacion">Capacidad del depósito</h3>
-                    <p>445 ml (para agua o solución de limpieza Braava jet™)</p>
-                </div>
-                <div class="item-especificacion">
-                    <h3 class="titulo-especificacion">Batería</h3>
-                    <p>Litio-ion (autonomía hasta 90-120 min de fregado en seco)</p>
-                </div>
-                <div class="item-especificacion">
-                    <h3 class="titulo-especificacion">Tiempo de carga</h3>
-                    <p>Aproximadamente 3 horas para una carga completa</p>
-                </div>
-                <div class="item-especificacion">
-                    <h3 class="titulo-especificacion">Área de Cobertura</h3>
-                    <p>Hasta 90 m² con una carga (con recarga y reanudación, cubre áreas mayores)</p>
-                </div>
-                <div class="item-especificacion">
-                    <h3 class="titulo-especificacion">Tipo de suelos</h3>
-                    <p>Los suelos duros y sellados son la mejor opción para tu fregasuelos automático. Incluye: <br/> 
-
-                        Madera <br/>
-
-                        Baldosa <br/>
-
-                        Piedra <br/>
-
-                        Laminado <br/>
-
-                        Vinilo.</p>
-                </div>
-                <div class="item-especificacion">
-                    <h3 class="titulo-especificacion">Conectividad</h3>
-                    <p>conexión wi fi 802.11 b/g/n a 2.4 GHz, compatible con la App iRobot Home</p>
-                </div>
-                <div class="item-especificacion">
-                    <h3 class="titulo-especificacion">Nivel de Ruido</h3>
-                    <p>Muy bajo, se diseñó para ser discreto mientras tu robot friegasuelos.</p>
-                </div>
-            </div>
-            <p class="nota-especificaciones">
-                La autonomía y el área de cobertura varían. Dependen del tipo de suelo, los paños usados y el entorno del friegasuelos Braava..
-            </p>
-        </section>
+        
 
     </main>
 </Layout>
 <style>
-  .cta-box, .producto-estrella, .contenido-tecnologia, .lista-especificaciones{
+  .cta-box, .producto-estrella, .contenido-tecnologia{
     display:grid;
     grid-template-columns: 1fr;
   }
@@ -371,23 +315,8 @@ const schemas = [
   .enlace-reseñas{
     font-size: 1.1rem;
   }
-  .tabla-responsive{
-    min-width: 320px;
-    overflow: auto;
-  }
-  .tabla-responsive > table{
-    min-width: 800px;
-    margin: 20px auto;
-    border-collapse: collapse;
-  }
-  .tabla-responsive > table thead{
-    background-color: rgb(224, 224, 224);
-  }
-  .tabla-responsive > table td, .tabla-responsive > table th{
-    min-width:250px;padding: .3rem .1rem;
-  }
   
-   .item-especificacion, .tarjeta-producto{
+   .tarjeta-producto{
     padding: .2rem;
     background-color: aliceblue;
    }
@@ -448,7 +377,7 @@ const schemas = [
   .hero-product p{
     grid-column-start: 2;
   }
-     .lista-especificaciones, .lista-productos{
+  .lista-productos{
       grid-template-columns:repeat(3,1fr);
      }
      .contenedor-video iframe{

@@ -44,7 +44,7 @@ export const marcas = [
                 description: "Descubre la eficiencia y tecnología avanzada de iRobot Braava para un fregado inteligente y resultados profesionales en tu hogar."
             },
             {
-                id: 4,
+                id: 5,
                 slug: withDomain("/irobot/roomba-combo/"),
                 name: "Roomba Combo",
                 title: "Domina la Limpieza con iRobot Roomba Combo: La Revolución en Apsirado y Fregado Inteligente",
@@ -55,7 +55,7 @@ export const marcas = [
         ]
     },
     {
-        id: 5,
+        id: 6,
         slug: withDomain("/xiaomi/"),
         name:"Xiaomi",
         title: "Robot Aspirador Friegasuelos Xiaomi | Mi Robot Vacuum: Limpieza Inteligente",
@@ -106,7 +106,7 @@ export const amazonProduts = [
     imageIds: [101,102,103],
     stars: 4.3, // Puedes actualizar si tienes el dato
     ratingCount: 3896, // Puedes actualizar si tienes el dato
-    marca: 5, // id de la marca Xiaomi
+    marca: 6, // id de la marca Xiaomi
     modelo: "Xiaomi Vacuum S20",
     precio: 139.99,
     momeda:"eur", // Precio en euros
@@ -195,7 +195,7 @@ export const amazonProduts = [
       imageIds: [104, 105, 106],
       stars: 3.9,
       ratingCount: 11697,
-      marca: 2, // id de la marca iRobot
+      marca: 5, // id de la marca iRobot
       modelo: "iRobot Roomba Combo Essentia",
       precio: 149.00, // Precio no proporcionado
       momeda: "eur", // Moneda no proporcionada
@@ -249,7 +249,123 @@ export const amazonProduts = [
         anchoRutaLimpieza: "34 Centímetros",
         duracionPiezasRecambio: "10 Años"
       }
+    },
+    {
+    "id": 9,
+    "title": "iRobot Roomba j7 Robot Aspirador",
+    "slug": null,
+    "urlAfiliado": "https://amzn.to/44gLvPU",
+    "imageIds": [1001, 1002, 1003],
+    "stars": 3.4,
+    "ratingCount": 70,
+    "marca": 4,
+    "modelo": "Roomba j7",
+    "precio": 200.77,
+    "moneda": "usd",
+    "feactures": {
+      "potenciaSuccion": "Superior (no Pa especificado por iRobot)",
+      "navegacion": "Imprint® Smart Mapping con PrecisionVision™",
+      "funciones": "Evitación de obstáculos (cables, excrementos), Mapeo inteligente, Limpieza por zonas, Zonas de exclusión, Sugerencias de limpieza, Compatible con voz",
+      "autonomia": "Hasta 75 minutos",
+      "superficies": "Todo tipo de suelos",
+      "color": "Negro",
+      "dimensiones": "33.8 cm diámetro x 8.7 cm altura",
+      "capacidad": "No especificado (depósito de polvo)",
+      "voltaje": "No especificado",
+      "apagadoAutomatico": true,
+      "dispositivosCompatibles": "Smartphones, Google Assistant, Alexa",
+      "peso": "3.4 kg",
+      "depositoPolvo": "Estándar (volumen no especificado)",
+      "depositoAgua": ""
     }
+  },
+  {
+    "id": 10,
+    "title": "iRobot Roomba j7+ Robot Aspirador con Vaciado Automático",
+    "slug": null,
+    "urlAfiliado": "https://amzn.to/44gLvPU",
+    "imageIds": [1004, 1005, 1006],
+    "stars": 3.2,
+    "ratingCount": 141,
+    "marca": 4,
+    "modelo": "Roomba j7+",
+    "precio": 258.77,
+    "moneda": "usd",
+    "feactures": {
+      "potenciaSuccion": "Superior (no Pa especificado por iRobot)",
+      "navegacion": "Imprint® Smart Mapping con PrecisionVision™",
+      "funciones": "Vaciado automático Clean Base®, Evitación de obstáculos (cables, excrementos), Mapeo inteligente, Limpieza por zonas, Zonas de exclusión, Sugerencias de limpieza, Compatible con voz",
+      "autonomia": "Hasta 75 minutos",
+      "superficies": "Todo tipo de suelos",
+      "color": "Negro",
+      "dimensiones": "Robot: 33.8 cm diámetro x 8.7 cm altura; Clean Base: 48.3 cm alto x 30.5 cm ancho x 38.6 cm profundo",
+      "capacidad": "60 días de suciedad en Clean Base",
+      "voltaje": "No especificado",
+      "apagadoAutomatico": true,
+      "dispositivosCompatibles": "Smartphones, Google Assistant, Alexa",
+      "peso": "Robot: 3.4 kg; Clean Base: No especificado",
+      "depositoPolvo": "Estándar (volumen no especificado)",
+      "depositoAgua": ""
+    }
+  },
+  {
+    "id": 11,
+    "title": "iRobot Roomba Vac 105 Robot Aspirador",
+    "slug": null,
+    "urlAfiliado": "https://amzn.to/4ky1Rsk",
+    "imageIds": [2001, 2002, 2003],
+    "stars": 4,
+    "ratingCount": 365,
+    "marca": 4,
+    "modelo": "Roomba Vac 105",
+    "precio": 160.55,
+    "moneda": "eur",
+    "feactures": {
+      "potenciaSuccion": "Básica (no Pa especificado)",
+      "navegacion": "Adaptable (no mapeo inteligente)",
+      "funciones": "Sistema de limpieza de 3 etapas, Dirt Detect™ (primera gen.), Spot Clean, Detección de desniveles",
+      "autonomia": "Hasta 60 minutos",
+      "superficies": "Todo tipo de suelos",
+      "color": "Gris/Negro",
+      "dimensiones": "Aproximadamente 34 cm diámetro x 9 cm altura",
+      "capacidad": "No especificado (depósito de polvo)",
+      "voltaje": "No especificado",
+      "apagadoAutomatico": true,
+      "dispositivosCompatibles": "No aplica (sin conectividad)",
+      "peso": "3 kg",
+      "depositoPolvo": "Pequeño",
+      "depositoAgua": ""
+    }
+  },
+  {
+    "id": 11,
+    "title": "iRobot Roomba Vac 505 Robot Aspirador",
+    "slug": null,
+    "urlAfiliado": "https://amzn.to/3Igq5JX",
+    "imageIds": [2004, 2005, 2006],
+    "stars": 3.8,
+    "ratingCount": 198,
+    "marca": 4,
+    "modelo": "roomba vac 505",
+    "precio": 549.00,
+    "moneda": "usd",
+    "feactures": {
+      "potenciaSuccion": "Básica (no Pa especificado)",
+      "navegacion": "Adaptable (no mapeo inteligente)",
+      "funciones": "Sistema de limpieza de 3 etapas, Dirt Detect™ (primera gen.), Spot Clean, Detección de desniveles",
+      "autonomia": "Hasta 60-75 minutos",
+      "superficies": "Todo tipo de suelos",
+      "color": "Gris/Negro",
+      "dimensiones": "Aproximadamente 34 cm diámetro x 9 cm altura",
+      "capacidad": "No especificado (depósito de polvo)",
+      "voltaje": "No especificado",
+      "apagadoAutomatico": true,
+      "dispositivosCompatibles": "No aplica (sin conectividad)",
+      "peso": "3 kg",
+      "depositoPolvo": "Pequeño",
+      "depositoAgua": ""
+    }
+  },
 ];
 
 // Imágenes optimizadas por producto (id, 250x250, 60x60, 1280x720)

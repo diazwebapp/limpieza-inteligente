@@ -1,8 +1,8 @@
 ---
 import { amazonProduts, productImages, marcas } from "../datos/database.js";
-const { idProducto = null, idMarca = null, slugMarca = null, orderBy = null, orderDir = 'desc', limit = 12 } = Astro.props;
+const { products, idProducto = null, idMarca = null, slugMarca = null, orderBy = null, orderDir = 'desc', limit = 12 } = Astro.props;
 
-let filteredProducts = amazonProduts;
+let filteredProducts = products? products : amazonProduts;
 let marcaId = idMarca;
 if (slugMarca && !idMarca) {
   const marcaObj = marcas.find(m => m.slug === slugMarca);
@@ -31,7 +31,7 @@ const showProducts = filteredProducts.slice(0, limit);
         const imgSrc = imgObj?.["250x250"] || "/public/placeholder-250x250.png";
         return (
         <article class="store-product-card">
-            <a href={product.slug} class="store-product-link">
+            <a href={product.slug? product.slug : product.urlAfiliado } class="store-product-link">
                 <figure class="store-product-image-container">
                     <img loading="lazy"  width="250" height="250" src={imgSrc} alt={product.title} class="store-product-image" />
                 </figure>

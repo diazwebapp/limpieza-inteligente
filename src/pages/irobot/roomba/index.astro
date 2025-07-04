@@ -2,9 +2,17 @@
 import Layout from "../../../layouts/Layout.astro";
 import CategoryHeader from "../../../components/CategoryHeader.astro";
 import { schemaWebSite, schemaArticle } from '../../../datos/seoBase';
+import StoreCluster from "../../../components/StoreCluster.astro";
+import { amazonProduts } from "../../../datos/database";
+const roombaModelsVac = amazonProduts.filter(
+  item => item.marca === 4 && /roomba vac/i.test(item.modelo)
+);
+const roombaModelsJ = amazonProduts.filter(
+  item => item.marca === 4 && /roomba j/i.test(item.modelo)
+);
 
-const title = "Robots fregasuelos iRobot Roomba | Limpieza Definitiva";
-const description = "Descubre el aspirador fregasuelos ideal para tu hogar. La tecnología iRobot Roomba aspira y friega a la vez. ¡Máxima eficiencia y limpieza sin esfuerzo!";
+const title = "Roomba robot aspirador | Limpieza Definitiva";
+const description = "Descubre el Roomba robot aspirador ideal para tu hogar. La tecnología y ¡Máxima eficiencia y limpieza sin esfuerzo!";
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
 const canonicalURL = SITE_URL.replace(/\/$/, "") + "/irobot/roomba/";
 const author = "diaz web app";
@@ -17,36 +25,147 @@ const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
 >
   <main>
     <CategoryHeader
-      h1="El Roomba Aspirador Friegasuelos Ideal para Tu Hogar"
+      h1="El Roomba robot aspirador ideal para tu hogar"
       p="Limpieza avanzada y resultados impecables con la tecnología Roomba. Disfruta de suelos limpios sin esfuerzo, cada día."
       
     />
+
     <section class="container">
-      <h2>Innovación en Limpieza: iRobot Roomba Fregasuelos</h2>
-      <p>Cuando hablamos de robots de limpieza, la marca iRobot y su línea Roomba son sinónimo de calidad e innovación. Los iRobot Roomba fregasuelos no solo aspiran la suciedad, el polvo y el pelo de mascotas, sino que también friegan, ofreciendo una limpieza 2 en 1 que transforma tu rutina. Modelos como el robot aspirador y friegasuelos Roomba Combo representan la vanguardia en esta tecnología.</p>
+      <h2>Aspirador Roomba j / j+</h2>
+      <p>Modelos disponibles robot aspiradora roomba de la serie j y j plus</p>
+      <StoreCluster products={roombaModelsJ} />
     </section>
 
     <section class="container">
-      <h2>¿Por Qué Elegir un Roomba Aspirador Friegasuelos?</h2>
-      <ul class="feactures-list">
-        <li><strong>Doble Acción:</strong> Un Roomba aspirador friegasuelos combina la potente succión característica de Roomba con la capacidad de fregar de los robots friegasuelos Braava (como el robot friegasuelos Braava Jet), eliminando manchas y dejando tus suelos impecables.</li>
-        <li><strong>Tecnología Inteligente:</strong> Los iRobot aspirador y fregasuelos están equipados con navegación avanzada y mapeo inteligente, asegurando una limpieza completa y eficiente de cada rincón de tu hogar.</li>
-        <li><strong>Comodidad Inigualable:</strong> Con un robot Roomba aspirador y fregasuelos, la limpieza se vuelve automática. Solo tienes que programarlo y dejar que haga el trabajo por ti, liberándote de las tareas domésticas.</li>
-        <li><strong>Especialización en Fregado:</strong> Para aquellos que priorizan el fregado, el iRobot fregasuelos y el robot friegasuelos Braava ofrecen resultados excepcionales, adaptándose a diferentes tipos de suelos.</li>
-      </ul>
+      <h2>Modelos de aspiradoras roomba Vac</h2>
+      <p>Los más destacados en aspiradora robot roomba disponibles en el mercado</p>
+      <StoreCluster products={roombaModelsVac} />
     </section>
 
     <section class="container">
-      <h2>Tu Robot Aspirador y Friegasuelos Roomba Te Espera</h2>
-      <p>Sabemos que cada hogar es diferente. Por eso, te ofrecemos una amplia gama de opciones para que encuentres el Roomba aspirador y fregasuelos perfecto para tus necesidades. Ya sea que busques un Roomba fregasuelos y aspiradora para una limpieza diaria o un robot aspirador y friegasuelos Roomba con funciones avanzadas, tenemos el modelo ideal para ti.</p>
-      <p>Desde el potente robot Roomba fregasuelos hasta las versiones más completas de iRobot aspirador y fregasuelos, la eficiencia y la innovación están garantizadas.</p>
+      <h2>Comparación de tecnologías de navegación de Roomba</h2>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          <tr>
+            <th>Tecnología</th>
+            <th>Mecanismo</th>
+            <th>Características Clave</th>
+            <th>Series / Modelos Roomba Asociados</th>
+            <th>Ventajas</th>
+            <th>Desventajas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>iAdapt 1.0</td>
+            <td>Algoritmo reactivo (rebote aleatorio)</td>
+            <td>Cobertura básica</td>
+            <td>Modelos antiguos (ej. primeras series 600)</td>
+            <td>Simplicidad</td>
+            <td>Menos eficiente, sin mapa persistente</td>
+          </tr>
+          <tr>
+            <td>iAdapt 2.0 (Localización Visual)</td>
+            <td>Identificación de puntos de referencia basada en cámara (mapa no persistente)</td>
+            <td>Informe de Mapa Limpio™</td>
+            <td>Algunas 2ª/3ª generación</td>
+            <td>Retroalimentación visual básica</td>
+            <td>No recuerda el mapa para futuras limpiezas</td>
+          </tr>
+          <tr>
+            <td>iAdapt 3.0 (vSLAM/Basado en cámara)</td>
+            <td>Identificación de puntos de referencia basada en cámara (mapa persistente)</td>
+            <td>Imprint Smart Maps, Recargar y Reanudar, Limpieza sistemática</td>
+            <td>Roomba 980, series i, j, s</td>
+            <td>Mapeo persistente, personalización de habitaciones, adaptabilidad a cambios de muebles, diseño compacto</td>
+            <td>Requiere buena iluminación, puede ser más lento/menos eficiente</td>
+          </tr>
+          <tr>
+            <td>LiDAR (ClearView™ Lidar/ClearView Pro LiDAR)</td>
+            <td>Medición de distancia basada en láser (mapa 3D)</td>
+            <td>Alta precisión, rendimiento en poca luz, perfil delgado (para modelos LiDAR internos)</td>
+            <td>Nueva línea 2025 (series 105, 205, 405, 505, 705)</td>
+            <td>Alta precisión, fiable en la oscuridad</td>
+            <td>Perfil más alto (LiDAR montado en la parte superior), trata los obstáculos como sólidos</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     </section>
 
+    
+
     <section class="container">
-      <h2>¡Transforma Tu Hogar Hoy con un Roomba Aspirador Friegasuelos!</h2>
-      <p>No esperes más para experimentar la comodidad de tener un hogar siempre limpio con el mínimo esfuerzo. Un robot aspirador y fregasuelos Roomba no es solo un electrodoméstico, es una inversión en tu tiempo libre y bienestar.</p>
-      <p>¡Haz clic para explorar nuestra selección y llevar a casa el Roomba aspirador friegasuelos que tu hogar merece!</p>
+      <h2>Ventajas de Roomba frente a la aspiración manual</h2>
+      <div class="ventajas-grid">
+        <div>
+          <h3>Limpieza diaria sin esfuerzo</h3>
+          <p>
+        Roomba mantiene el suelo limpio cada día de forma autónoma, reduciendo la necesidad de pasar la aspiradora manualmente y ahorrando tiempo y trabajo.
+          </p>
+        </div>
+        <div>
+          <h3>Acceso a rincones difíciles</h3>
+          <p>
+        Gracias a su diseño compacto, limpia debajo de muebles y en zonas donde una aspiradora tradicional no llega fácilmente.
+          </p>
+        </div>
+        <div>
+          <h3>Consistencia y programación</h3>
+          <p>
+        Puedes programar limpiezas diarias o activarlas desde el móvil, asegurando una limpieza constante y adaptada a tus rutinas.
+          </p>
+        </div>
+        <div>
+          <h3>Personalización y control</h3>
+          <p>
+        Los modelos avanzados permiten seleccionar habitaciones o zonas concretas para limpiar, adaptándose a las necesidades de cada hogar.
+          </p>
+        </div>
+        <div>
+          <h3>Mantenimiento automático</h3>
+          <p>
+        Algunos modelos vacían su depósito solos durante semanas, minimizando el mantenimiento manual.
+          </p>
+        </div>
+      </div>
+
     </section>
   </main>
 
 </Layout>
+
+<style>
+.ventajas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.ventajas-grid > div {
+  background: #f8f9fa;
+  border-radius: 0.75rem;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+}
+
+.ventajas-grid > div:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.ventajas-grid h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.15rem;
+  color: #2d3a4a;
+}
+
+.ventajas-grid p {
+  margin: 0;
+  color: #444;
+  font-size: 1rem;
+}
+</style>

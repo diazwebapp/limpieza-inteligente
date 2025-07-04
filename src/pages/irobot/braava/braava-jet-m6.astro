@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets"
 import Layout from "../../../layouts/Layout.astro"
+import FaqAccordion from "../../../components/FaqAccordion.astro"
 
 const title="Braava jet® m6"
 const description="Despídete de la suciedad incrustada y el pelo de mascotas sin esfuerzo, con el Braava jet m6 estas tareas son muy simples."
@@ -245,57 +246,7 @@ const description="Despídete de la suciedad incrustada y el pelo de mascotas si
         }
 
         /* --- FAQ Section --- */
-        .product-faq {
-            margin-top: 2rem;
-        }
-
-        .faq-items details {
-            background-color: var(--light);
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px var(--shadow);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            animation: slideInUp 0.6s ease-out backwards;
-        }
-
-        .faq-items details:nth-child(1) { animation-delay: 0.1s; }
-        .faq-items details:nth-child(2) { animation-delay: 0.2s; }
-        .faq-items details:nth-child(3) { animation-delay: 0.3s; }
-        .faq-items details:nth-child(4) { animation-delay: 0.4s; }
-        .faq-items details:nth-child(5) { animation-delay: 0.5s; }
-        .faq-items details:nth-child(6) { animation-delay: 0.6s; }
-        .faq-items details:nth-child(7) { animation-delay: 0.7s; }
-
-        .faq-items summary {
-            padding: 1rem 1.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-            color: var(--primary);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .faq-items summary:hover {
-            background-color: var(--light);
-        }
-
-        .faq-items details[open] summary {
-            background-color: var(--primary);
-            color: var(--light);
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-
-        .faq-items details p {
-            padding: 1rem 1.5rem 1.5rem;
-            margin: 0;
-            border-top: 1px solid var(--light);
-            background-color: var(--light);
-        }
+        
 
         /* --- Full Reviews --- */
         .full-reviews {
@@ -557,36 +508,32 @@ const description="Despídete de la suciedad incrustada y el pelo de mascotas si
         </section>
         <section class="container product-faq">
             <h2>Preguntas Frecuentes</h2>
-            <div class="faq-items">
-                <details>
-                    <summary>¿Dejará el suelo demasiado mojado?</summary>
-                    <p>No, el Braava jet m6 utiliza un pulverizador de chorro a presión que despega la suciedad sin saturar el suelo, y el sistema de paños avanzado asegura una absorción eficiente, dejando un acabado limpio y adecuado para distintos tipos de superficie como madera, cerámica o piedra.</p>
-                </details>
-                <details>
-                    <summary>¿Funcionará bien con pelo de mascota?</summary>
-                    <p>Sí, el Braava jet m6 es ideal para hogares con mascotas. Sus paños secos emplean carga electrostática para capturar el polvo y el pelo de animales, y el modo de fregado aborda eficazmente las huellas y suciedad incrustada, dejando tus suelos impecables.</p>
-                </details>
-                <details>
-                    <summary>¿Braava Jet M6 evita las alfombras?</summary>
-                    <p>Sí, el Braava jet m6 puede distinguir las alfombras y crear zonas de exclusión gracias a su mapeo inteligente, asegurando que solo limpie las áreas de suelo duro y evite las alfombras.</p>
-                </details>
-                <details>
-                    <summary>¿Cuál es la diferencia entre Roomba y Braava?</summary>
-                    <p>Roomba es un robot aspirador diseñado para aspirar suciedad y polvo de alfombras y suelos, mientras que Braava es un robot friegasuelos diseñado específicamente para fregar y barrer suelos duros. Pueden trabajar en conjunto mediante la tecnología Imprint® Link.</p>
-                </details>
-                <details>
-                    <summary>¿Cómo reiniciar el iRobot Braava Jet M6?</summary>
-                    <p>Para reiniciar tu Braava jet m6, generalmente puedes mantener presionado el botón de limpieza o seguir las instrucciones específicas en la aplicación iRobot Home.</p>
-                </details>
-                <details>
-                    <summary>¿Cómo apagar Braava Jet m6?</summary>
-                    <p>Puedes apagar el Braava jet m6 manteniendo presionado el botón de limpieza o devolviéndolo a su base de carga, lo cual lo pondrá en modo de bajo consumo.</p>
-                </details>
-                <details>
-                    <summary>¿Cuáles son las desventajas del robot trapeador?</summary>
-                    <p>Una posible desventaja es que, como cualquier dispositivo electrónico, requiere un mantenimiento periódico (limpieza de paños, rellenar el depósito de agua). Sin embargo, su capacidad de automatizar la limpieza y la comodidad que ofrece suelen compensar estas tareas.</p>
-                </details>
-            </div>
+            <FaqAccordion faqs={[
+                {
+                    question: "¿Dejará el suelo demasiado mojado?",
+                    answer: "No, el Braava jet m6 utiliza un pulverizador de chorro a presión que despega la suciedad sin saturar el suelo, y el sistema de paños avanzado asegura una absorción eficiente, dejando un acabado limpio y adecuado para distintos tipos de superficie como madera, cerámica o piedra."
+                },
+                {
+                    question: "¿Funcionará bien con pelo de mascota?",
+                    answer: "Sí, el Braava jet m6 es ideal para hogares con mascotas. Sus paños secos emplean carga electrostática para capturar el polvo y el pelo de animales, y el modo de fregado aborda eficazmente las huellas y suciedad incrustada, dejando tus suelos impecables."
+                },
+                {
+                    question: "¿Braava Jet M6 evita las alfombras?",
+                    answer: "Sí, el Braava jet m6 puede distinguir las alfombras y crear zonas de exclusión gracias a su mapeo inteligente, asegurando que solo limpie las áreas de suelo duro y evite las alfombras."
+                },
+                {
+                    question: "¿Cómo reiniciar el iRobot Braava Jet M6?",
+                    answer: "Para reiniciar tu Braava jet m6, generalmente puedes mantener presionado el botón de limpieza o seguir las instrucciones específicas en la aplicación iRobot Home."
+                },
+                {
+                    question: "¿Cómo apagar Braava Jet m6?",
+                    answer: "Puedes apagar el Braava jet m6 manteniendo presionado el botón de limpieza o devolviéndolo a su base de carga, lo cual lo pondrá en modo de bajo consumo."
+                },
+                {
+                    question: "¿Cuáles son las desventajas del robot trapeador?",
+                    answer: "Una posible desventaja es que, como cualquier dispositivo electrónico, requiere un mantenimiento periódico (limpieza de paños, rellenar el depósito de agua). Sin embargo, su capacidad de automatizar la limpieza y la comodidad que ofrece suelen compensar estas tareas."
+                }
+            ]} />
         </section>
 
         <section class="container full-reviews" id="full-reviews">

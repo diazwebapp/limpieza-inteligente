@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets"
 import Layout from "../../../layouts/Layout.astro"
 
 const title="Braava jet® m6"
@@ -347,7 +348,10 @@ const description="Despídete de la suciedad incrustada y el pelo de mascotas si
             
             text-align: right;
         }
-
+        .iframe-video{
+            height: calc(90vh / 1.7);
+            width: 90% ;
+        }
         /* --- Media Queries for larger screens --- */
         @media (min-width: 768px) {
             
@@ -421,7 +425,7 @@ const description="Despídete de la suciedad incrustada y el pelo de mascotas si
                 <p>Ideal para hogares con mascotas y amas de casa trabajadoras, te permite recuperar tu tiempo mientras disfruta de suelos impecables.</p>
             </div>
             <div class="product-main-image">
-                <img src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dw6a7d1e29/product-images/Braava/m6_Silver_Photo_InSitu_HomeBase_Docked2_Wood_3000x3000.jpg?sw=1000" alt="Robot friegasuelos Braava jet m6 en base de carga" loading="lazy">
+                <Image width={300} height={300} src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dw6a7d1e29/product-images/Braava/m6_Silver_Photo_InSitu_HomeBase_Docked2_Wood_3000x3000.jpg?sw=1000" alt="Robot friegasuelos Braava jet m6 en base de carga" loading="lazy" />
             </div>
         </section>
 
@@ -444,39 +448,23 @@ const description="Despídete de la suciedad incrustada y el pelo de mascotas si
             <h2>Características Clave que Marcan la Diferencia</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <img src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dw123c483b/product-images/Braava/m6_Silver_Photo_InSitu_CleanTrail_StickyMess_Kitchen_Wood_3000x3000.jpg?sw=767" alt="Braava jet m6 limpiando manchas de café" loading="lazy">
+                    <Image width={200} height={200} src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dw123c483b/product-images/Braava/m6_Silver_Photo_InSitu_CleanTrail_StickyMess_Kitchen_Wood_3000x3000.jpg?sw=767" alt="Braava jet m6 limpiando manchas de café" loading="lazy" />
                     <h3>Pulverizador de Chorro a Presión</h3>
                     <p>Despega la suciedad y las manchas incrustadas sin alcanzar muebles ni paredes. Di adiós a los derrames accidentales y la grasa de la cocina con su potente acción.</p>
                 </div>
                 <div class="feature-item">
-                    <img src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dwe2954e6e/product-images/Braava/i7%20_Charcoal_m6_Silver_Photo_InSitu_ImprintLink_2000x2000.jpg?sw=1000" alt="Braava jet m6 y Roomba i7+ trabajando juntos" loading="lazy">
+                    <Image width={200} height={200} src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dwe2954e6e/product-images/Braava/i7%20_Charcoal_m6_Silver_Photo_InSitu_ImprintLink_2000x2000.jpg?sw=1000" alt="Braava jet m6 y Roomba i7+ trabajando juntos" loading="lazy" />
                     <h3>El Equipo de Limpieza Definitivo</h3>
                     <p>Gracias a la tecnología Imprint® Link, se sincroniza con robots aspiradores Roomba® para aspirar y fregar en un orden perfecto. Tus suelos limpios sin ningún esfuerzo, con un comando de voz* o desde la app iRobot® Home.</p>
                 </div>
                 <div class="feature-item">
-                    <img src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dw3da4ed23/product-images/Braava/m6_Silver_Photo_InSitu_CleanTrail_PawPrints_Grime_MudRoom_Tile_SingleUse-1000x1000.jpg?sw=767" alt="Braava jet m6 limpiando huellas de mascota" loading="lazy">
+                    <Image width={200} height={200} src="https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dw3da4ed23/product-images/Braava/m6_Silver_Photo_InSitu_CleanTrail_PawPrints_Grime_MudRoom_Tile_SingleUse-1000x1000.jpg?sw=767" alt="Braava jet m6 limpiando huellas de mascota" loading="lazy" />
                     <h3>Un Paño para Cada Tarea</h3>
                     <p>Con el sistema de paños avanzado, el robot sabe inteligentemente qué modo usar según el tipo de paño. La tecnología de paños de Braava jet® m6 usa energía electrostática para barrer y fibras absorbentes para fregar en profundidad.</p>
                 </div>
             </div>
         </section>
-
-        <section class="container product-description">
-            <h2>Descripción Completa</h2>
-            <div class="description-content">
-                <p>El robot friegasuelos Braava jet® m6 limpia como tú lo harías. Puedes decirle dónde y cuándo limpiar, y el pulverizador de chorro a presión se pondrá a eliminar los restos, la suciedad incrustada y la grasa de la cocina.</p>
-                <ul>
-                    <li><strong>Friega la suciedad al momento:</strong> ¿Se te ha derramado café? ¿Huellas de mascotas? Braava jet m6 puede limpiar zonas específicas de las habitaciones, como delante de un sofá o debajo de una mesa, para un fregado fácil y sin esfuerzo; solo tienes que utilizar el asistente de voz* o la aplicación iRobot Home.</li>
-                    <li><strong>Toda la limpieza, ¡bajo control!</strong> Mantiene limpias las zonas de más uso y evita aquellas donde no quieres que llegue. Distingue el estudio de la sala de estar gracias al mapeo inteligente, por lo que puedes crear zonas de limpieza para dirigir el robot a las zonas más necesarias y zonas de exclusión para evitar ciertos lugares, como los comederos de las mascotas.</li>
-                    <li><strong>Selecciona el modo de limpieza de forma automática:</strong> Braava jet m6 reconoce de manera inteligente el tipo de paño y selecciona el modo de limpieza asociado. Sus paños secos emplean carga electrostática para capturar el polvo y el pelo (¡también de animales!), y sus fibras absorbentes friegan en profundidad.</li>
-                    <li><strong>Mapeado inteligente y autonomía:</strong> Braava jet m6 aprende la distribución de tu hogar y crea mapas inteligentes para una limpieza más eficiente. Navega por tu hogar en filas ordenadas y, si la batería está baja, regresa a su base para recargarse de forma inteligente y continuar la limpieza donde la dejó hasta finalizar el trabajo.</li>
-                    <li><strong>Diseño compacto y versátil:</strong> Con solo 9 cm de altura, se adapta a varias habitaciones y espacios grandes, limpia debajo de los muebles y distintos tipos de suelo como madera, cerámica o piedra.</li>
-                    <li><strong>Se adapta a tu vida:</strong> Escucha tu voz. El robot friegasuelos Braava jet m6 aprende de tus hábitos de limpieza para ofrecerte programas personalizados.</li>
-                    <li><strong>Garantía de tranquilidad:</strong> Incluye 2 años de garantía del fabricante para tu total confianza.</li>
-                </ul>
-            </div>
-        </section>
-<section class="container seccion-especificaciones">
+        <section class="container seccion-especificaciones">
             <h2 class="titulo-seccion">
                 Especificaciones técnicas del <strong>Braava jet® m6 Friegasuelos</strong>
             </h2>
@@ -530,6 +518,41 @@ const description="Despídete de la suciedad incrustada y el pelo de mascotas si
             </div>
             <p class="nota-especificaciones">
                 La autonomía y el área de cobertura varían. Dependen del tipo de suelo, los paños usados y el entorno del friegasuelos Braava..
+            </p>
+        </section>
+        <section class="container product-description">
+            <h2>Descripción Completa</h2>
+            <div class="description-content">
+                <p>El robot friegasuelos Braava jet® m6 limpia como tú lo harías. Puedes decirle dónde y cuándo limpiar, y el pulverizador de chorro a presión se pondrá a eliminar los restos, la suciedad incrustada y la grasa de la cocina.</p>
+                <ul>
+                    <li><strong>Friega la suciedad al momento:</strong> ¿Se te ha derramado café? ¿Huellas de mascotas? Braava jet m6 puede limpiar zonas específicas de las habitaciones, como delante de un sofá o debajo de una mesa, para un fregado fácil y sin esfuerzo; solo tienes que utilizar el asistente de voz* o la aplicación iRobot Home.</li>
+                    <li><strong>Toda la limpieza, ¡bajo control!</strong> Mantiene limpias las zonas de más uso y evita aquellas donde no quieres que llegue. Distingue el estudio de la sala de estar gracias al mapeo inteligente, por lo que puedes crear zonas de limpieza para dirigir el robot a las zonas más necesarias y zonas de exclusión para evitar ciertos lugares, como los comederos de las mascotas.</li>
+                    <li><strong>Selecciona el modo de limpieza de forma automática:</strong> Braava jet m6 reconoce de manera inteligente el tipo de paño y selecciona el modo de limpieza asociado. Sus paños secos emplean carga electrostática para capturar el polvo y el pelo (¡también de animales!), y sus fibras absorbentes friegan en profundidad.</li>
+                    <li><strong>Mapeado inteligente y autonomía:</strong> Braava jet m6 aprende la distribución de tu hogar y crea mapas inteligentes para una limpieza más eficiente. Navega por tu hogar en filas ordenadas y, si la batería está baja, regresa a su base para recargarse de forma inteligente y continuar la limpieza donde la dejó hasta finalizar el trabajo.</li>
+                    <li><strong>Diseño compacto y versátil:</strong> Con solo 9 cm de altura, se adapta a varias habitaciones y espacios grandes, limpia debajo de los muebles y distintos tipos de suelo como madera, cerámica o piedra.</li>
+                    <li><strong>Se adapta a tu vida:</strong> Escucha tu voz. El robot friegasuelos Braava jet m6 aprende de tus hábitos de limpieza para ofrecerte programas personalizados.</li>
+                    <li><strong>Garantía de tranquilidad:</strong> Incluye 2 años de garantía del fabricante para tu total confianza.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="video-demo" class="container seccion-video-demo">
+            <h2 class="titulo-seccion">
+                El <strong>Braava jet® m6</strong> en acción: Descubre su poder como <strong>robot Friegasuelos</strong>
+            </h2>
+            <div class="contenedor-video">
+                <iframe
+                    loading="lazy"
+                    src="https://www.youtube-nocookie.com/embed/1AQ0PGdwY74"
+                    title="Demostración de iRobot Braava jet m6"
+                    frameborder="0"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="iframe-video"
+                ></iframe>
+            </div>
+            <p class="texto-video-demo">
+                Mira cómo el Braava más avanzado limpia, friega y se mueve inteligentemente. Así, tu hogar queda impecable.
             </p>
         </section>
         <section class="container product-faq">

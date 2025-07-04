@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 // GaleryProduct.astro
 
 const { images } = Astro.props;
@@ -8,17 +10,17 @@ let selectedIdx = 0;
 ---
 <div class="gallery-product">
   <div class="gallery-main">
-    <img src={imageObjs[selectedIdx]?.["250x250"] || "/public/placeholder-250x250.png"} width="250" height="250" alt="Imagen principal del producto" class="gallery-main-img" id="gallery-main-img" style="cursor:pointer;" />
+    <Image width={200} height={200} src={imageObjs[selectedIdx]?.["1280x720"]} alt="Imagen principal del producto" class="gallery-main-img" id="gallery-main-img" style="cursor:pointer;" />
   </div>
   <div class="gallery-thumbs">
     {imageObjs.map((imgObj, idx) => imgObj && (
       <img 
-        src={imgObj["60x60"] || "/public/placeholder-60x60.png"}
+        src={imgObj["60x60"]}
         alt={`Miniatura ${idx+1}`}
         class={`gallery-thumb${selectedIdx === idx ? ' selected' : ''}`}
-        width="60" height="60" style="cursor:pointer;"
-        data-250={imgObj["250x250"] || "/public/placeholder-250x250.png"}
-        data-1280={imgObj["1280x720"] || ""}
+        width={60} height={60} style="cursor:pointer;"
+        data-250={imgObj["1280x720"]}
+        data-1280={imgObj["1280x720"]}
       />
     ))}
   </div>
@@ -127,14 +129,14 @@ document.addEventListener('astro:page-load', function() {
       thumbs.forEach(t => t.classList.remove('selected'));
       thumb.classList.add('selected');
       if(mainImg) {
-        mainImg.src = thumb.getAttribute('data-250') || "/public/placeholder-250x250.png";
+        mainImg.src = thumb.getAttribute('data-250') || "/public/placeholder-1280x720.png";
       }
     });
   });
 
   if(mainImg && modal && modalImg && modalClose && modalBackdrop) {
     mainImg.addEventListener('click', function() {
-      // Usa la imagen 1280x720 si existe, si no la 250x250
+      // Usa la imagen 1280x720 si existe, si no la 1280x720
       const selectedThumb = document.querySelector('.gallery-thumb.selected');
       const img1280 = selectedThumb?.getAttribute('data-1280');
       const img250 = selectedThumb?.getAttribute('data-250');

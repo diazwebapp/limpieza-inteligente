@@ -98,6 +98,63 @@ export const tiposSuelo = [
 ];
 
 export const amazonProduts = [
+  {
+  "id": 2,
+  "title": "Xiaomi Robot Vacuum e12, Robot Aspirador y Fregasuelos",
+  "slug": null,
+  "urlAfiliado": "https://amzn.to/3GueVAL",
+  "imageIds": [],
+  "stars": 3.6,
+  "ratingCount": 365,
+  "marca": 6,
+  "modelo": "Xiaomi Vacuum e12",
+  "precio": 85,
+  "moneda": "eur",
+  "feactures": {
+    "potenciaSuccion": "4000 Pa",
+    "navegacion": "Láser LDS",
+    "funciones": "Planificación Inteligente, Aspira y friega simultáneamente, Control por voz, Compatible con Mi Home App, Mapeo Láser LDS",
+    "autonomia": "110 minutos",
+    "superficies": "Todo tipo de suelos y alfombras",
+    "color": "Blanco",
+    "dimensiones": "35,0 x 35,0 x 9,45 cm",
+    "capacidad": "",
+    "voltaje": "14.8V",
+    "apagadoAutomatico": true,
+    "peso": "4,8 kg",
+    "depositoPolvo": "300 ml",
+    "depositoAgua": "170 ml"
+  }
+},
+  {
+    "id": 3,
+    "title": "Xiaomi Robot Vacuum S10, Robot Aspirador y Fregasuelos",
+    "slug": null,
+    "urlAfiliado": "https://amzn.to/4kmz4GM",
+    "imageIds": [101, 102, 103],
+    "stars": 4,
+    "ratingCount": 146,
+    "marca": 6,
+    "modelo": "Xiaomi Vacuum S10",
+    "precio": 159.99,
+    "moneda": "eur",
+    "feactures": {
+        "potenciaSuccion": "5500 Pa",
+        "navegacion": "Láser 3D",
+        "funciones": "Planificación Inteligente, Aspira y friega simultáneamente, Control por voz, Compatible con Mi Home App, Mapeo Láser 3D",
+        "autonomia": "150 minutos",
+        "superficies": "Todo tipo de suelos y alfombras",
+        "color": "Blanco",
+        "dimensiones": "34,7 x 34,7 x 9,6 cm; 3,4 kg",
+        "capacidad": "",
+        "voltaje": "",
+        "apagadoAutomatico": true,
+        "dispositivosCompatibles": "Smartphones, Alexa, Google Assistant",
+        "peso": "3,4 kg",
+        "depositoPolvo": "400 ml",
+        "depositoAgua": "270 ml"
+    }
+},
     {
     id: 4,
     title: "Xiaomi Robot Vacuum S20 Robot Aspirador y Fregasuelos",
@@ -459,5 +516,11 @@ export const productImages = [
   "250x250": "https://m.media-amazon.com/images/I/61-hJ1UU0VL._AC_SX679_.jpg",
   "60x60": "https://m.media-amazon.com/images/I/41Zo1O7wbWL._AC_US100_.jpg",
   "1280x720": "https://m.media-amazon.com/images/I/61-hJ1UU0VL._AC_SL1500_.jpg"
+},
+{
+  id:110,
+  "250x250":"https://m.media-amazon.com/images/I/41DWEjHQUYL._AC_SL1200_.jpg",
+  "60x60":"https://m.media-amazon.com/images/I/41DWEjHQUYL._AC_SL1200_.jpg",
+  "1280x720":"https://m.media-amazon.com/images/I/41DWEjHQUYL._AC_SL1200_.jpg"
 }
 ];

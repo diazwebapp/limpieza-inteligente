@@ -31,7 +31,7 @@ const showProducts = filteredProducts.slice(0, limit);
         const imgSrc = imgObj?.["250x250"] || "/public/placeholder-250x250.png";
         return (
         <article class="product-card">
-            <a href={product.urlAfiliado} target="_blank" rel="noopener noreferrer" class="product-link">
+            <a href={product.urlAfiliado} target="_blank" rel="noopener noreferrer nofollow" class="product-link">
                 <figure class="product-image-container">
                     <img loading="lazy" width="250" height="250" src={imgSrc} alt={product.title} class="product-image" />
                 </figure>

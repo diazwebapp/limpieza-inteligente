@@ -7,6 +7,7 @@ import { amazonProduts, withDomain } from "../../datos/database";
 import { schemaArticle, schemaWebSite } from "../../datos/seoBase";
 import CategoryHeader from "../../components/CategoryHeader.astro";
 import StoreCluster from "../../components/StoreCluster.astro";
+import { Image } from "astro:assets";
 const title = "Guía Completa de Fregasuelos Cecotec: Modelos y Características";
 const description = "Descubre todos los modelos, características, ventajas y comparativas de los fregasuelos Cecotec. Guía y opinioneses.";
 const datePublished = "2024-06-26";
@@ -66,21 +67,21 @@ const faqs = [
           <h3>Navegación inteligente</h3>
           <p>Los modelos avanzados utilizan tecnología láser para mapear tu hogar con precisión milimétrica. Esto permite una limpieza sistemática que no deja ningún rincón sin limpiar, incluso en condiciones de poca luz.</p>
             <div class="img-container">
-            <img width="270" height="270" loading="lazy" alt="Sistema de navegación láser de un fregasuelos Cecotec" src={imagen1} />
+            <Image width="270" height="270" loading="lazy" alt="Sistema de navegación láser de un fregasuelos Cecotec" src={imagen1} />
             </div>
           </div>
           <div class="column-card">
             <h3>Sistemas de aspirado y fregado avanzados</h3>
             <p>Desde mopas giratorias hasta sistemas de dosificación automática de jabón, los robots aspiradores y friegasuelos Cecotec ofrecen múltiples tecnologías para eliminar manchas difíciles. Las mopas elevables protegen tus alfombras de la humedad.</p>
             <div class="img-container">
-            <img width="270" height="270" loading="lazy" alt="Sistema de fregado con mopas giratorias de un robot Cecotec" src={imagen2} />
+            <Image width="270" height="270" loading="lazy" alt="Sistema de fregado con mopas giratorias de un robot Cecotec" src={imagen2} />
             </div>
           </div>
           <div class="column-card">
             <h3>Control por App y asistentes virtuales</h3>
             <p>Controla tu robot aspirador desde cualquier lugar mediante la aplicación móvil. Programa limpiezas, establece zonas restringidas o activa modos específicos. Compatible con Alexa y Google Assistant para control por voz.</p>
             <div class="img-container">
-            <img width="270" height="270" loading="lazy" alt="Control por app de un fregasuelos Cecotec mostrando el mapa de limpieza" src={imagen3} />
+            <Image width="270" height="270" loading="lazy" alt="Control por app de un fregasuelos Cecotec mostrando el mapa de limpieza" src={imagen3} />
             </div>
           </div>
           </div>
@@ -89,21 +90,21 @@ const faqs = [
             <h3>Potencia de succión</h3>
             <p>Con hasta 8000 Pa de presión de succión, estos robots eliminan desde el polvo más fino hasta residuos más grandes. La tecnología ciclónica garantiza una aspiración constante y potente.</p>
             <div class="img-container">
-            <img width="270" height="270" loading="lazy" alt="Demostración de la potencia de succión de un robot Cecotec" src={imagen4} />
+            <Image width="270" height="270" loading="lazy" alt="Demostración de la potencia de succión de un robot Cecotec" src={imagen4} />
             </div>
           </div>
           <div class="column-card">
             <h3>Bases de autovaciado</h3>
             <p>Los robots avanzados incluyen base de autovaciado, limpian sus mopas y rellenan el depósito de agua. Algunas incluso cortan y aspiran los pelos enredados en el cepillo.</p>
             <div class="img-container">
-            <img width="270" height="270" loading="lazy" alt="Base de autovaciado de un robot fregasuelos Cecotec" src={imagen5} />
+            <Image width="270" height="270" loading="lazy" alt="Base de autovaciado de un robot fregasuelos Cecotec" src={imagen5} />
             </div>
           </div>
           <div class="column-card">
             <h3>Inteligencia artificial</h3>
             <p>Los modelos más avanzados incorporan IA que reconoce objetos, analiza el tipo de suelo y adapta la limpieza según el nivel de suciedad detectado. Incluso identifica mascotas para no molestarlas.</p>
             <div class="img-container">
-            <img width="270" height="270" loading="lazy" alt="Robot Cecotec con IA detectando y esquivando objetos" src={imagen6} />
+            <Image width="270" height="270" loading="lazy" alt="Robot Cecotec con IA detectando y esquivando objetos" src={imagen6} />
           </div>
         </div>
       </div>

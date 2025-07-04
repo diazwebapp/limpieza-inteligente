@@ -103,7 +103,7 @@ export const amazonProduts = [
   "title": "Xiaomi Robot Vacuum e12, Robot Aspirador y Fregasuelos",
   "slug": null,
   "urlAfiliado": "https://amzn.to/3GueVAL",
-  "imageIds": [],
+  "imageIds": [110],
   "stars": 3.6,
   "ratingCount": 365,
   "marca": 6,
@@ -131,7 +131,7 @@ export const amazonProduts = [
     "title": "Xiaomi Robot Vacuum S10, Robot Aspirador y Fregasuelos",
     "slug": null,
     "urlAfiliado": "https://amzn.to/4kmz4GM",
-    "imageIds": [101, 102, 103],
+    "imageIds": [111],
     "stars": 4,
     "ratingCount": 146,
     "marca": 6,
@@ -312,7 +312,7 @@ export const amazonProduts = [
     "title": "iRobot Roomba j7 Robot Aspirador",
     "slug": null,
     "urlAfiliado": "https://amzn.to/44gLvPU",
-    "imageIds": [1001, 1002, 1003],
+    "imageIds": [112],
     "stars": 3.4,
     "ratingCount": 70,
     "marca": 4,
@@ -341,7 +341,7 @@ export const amazonProduts = [
     "title": "iRobot Roomba j7+ Robot Aspirador con Vaciado Automático",
     "slug": null,
     "urlAfiliado": "https://amzn.to/44gLvPU",
-    "imageIds": [1004, 1005, 1006],
+    "imageIds": [113],
     "stars": 3.2,
     "ratingCount": 141,
     "marca": 4,
@@ -370,7 +370,7 @@ export const amazonProduts = [
     "title": "iRobot Roomba Vac 105 Robot Aspirador",
     "slug": null,
     "urlAfiliado": "https://amzn.to/4ky1Rsk",
-    "imageIds": [2001, 2002, 2003],
+    "imageIds": [114],
     "stars": 4,
     "ratingCount": 365,
     "marca": 4,
@@ -399,7 +399,7 @@ export const amazonProduts = [
     "title": "iRobot Roomba Vac 505 Robot Aspirador",
     "slug": null,
     "urlAfiliado": "https://amzn.to/3Igq5JX",
-    "imageIds": [2004, 2005, 2006],
+    "imageIds": [115],
     "stars": 3.8,
     "ratingCount": 198,
     "marca": 4,
@@ -519,8 +519,26 @@ export const productImages = [
 },
 {
   id:110,
-  "250x250":"https://m.media-amazon.com/images/I/41DWEjHQUYL._AC_SL1200_.jpg",
-  "60x60":"https://m.media-amazon.com/images/I/41DWEjHQUYL._AC_SL1200_.jpg",
   "1280x720":"https://m.media-amazon.com/images/I/41DWEjHQUYL._AC_SL1200_.jpg"
+},
+{
+  id:111,
+  "1280x720": "https://m.media-amazon.com/images/I/41W1JSGIy3L._UF894,1000_QL80_.jpg"
+},
+{
+  id:112,
+  "1280x720":"https://m.media-amazon.com/images/I/71OiKl7u+UL._UF894,1000_QL80_.jpg"
+},
+{
+  id:113,
+  "1280x720":"https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwb78d8e16/images/large/combo/c755840_1_new.jpg"
+},
+{
+  id:114,
+  "1280x720":"https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwc0309979/images/large/combo/Y351040_1.jpg"
+},
+{
+  id:115,
+  "1280x720":"https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dwaacd777b/EMEA/Content%20Assets/Roomba_Plus_505_Combo_AutoWash_Black_Photo_InSitu_Dock_3000x3000.jpg?sw=1000"
 }
 ];

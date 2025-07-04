@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import GaleryProduct from "./GaleryProduct.astro";
 const { title, img, description, slogan="", rating=0, reviews=0 } = Astro.props;
 const amazonUrl = "#"; // Cambia esto por tu enlace real de Amazon
@@ -20,7 +21,7 @@ function renderStars(rating: number) {
     <div class="header-content">
     <div class="image-section">
       <picture>
-        <img src={(img[2] || img[0])?.['250x250'] || "/public/placeholder-250x250.png"} width="250" height="250" alt={`Imagen de ${title}`} loading="lazy" />
+        <Image transition:name={title} src={(img[0])?.['1280x720'] } width={250} height={250} alt={`Imagen de ${title}`} loading="lazy" />
       </picture>
     </div>
     <div class="info-section">

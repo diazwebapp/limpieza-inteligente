@@ -1,0 +1,146 @@
+---
+import { Image } from "astro:assets";
+import StoreCluster from "../components/StoreCluster.astro";
+import { amazonProduts, withDomain } from "../datos/database";
+import Layout from "../layouts/Layout.astro";
+import TableComparativa from "../components/TableComparativa.astro";
+
+const products = amazonProduts.filter(
+  item => /4000/i.test(item.feactures.potenciaSuccion)
+);
+const destacado = withDomain("/irobot/roomba-combo/roomba-combo-essential/")
+
+const title = "Robot Aspirador 4000Pa: Te guio paso a paso"
+const description = "Elige el <strong>robot aspirador de 4000Pa</strong> que se adapte a tus necesidades."
+const canonical = withDomain("/potencia-4000-pa/")
+---
+<Layout title={title} description={description} >
+    <section class="container">
+    <h1>Robot Aspirador 4000Pa:Guia paso a paso</h1>
+    <p>¡Has llegado al lugar ideal si buscas la potencia adecuada en limpieza!, escoge el <strong>robot aspirador de 4000Pa</strong> perfecto para tu hogar te guaré paso a paso. Aquí encontrarás las mejores ofertas y comparativas.</p>
+</section>
+
+<section class="container">
+    <h2>Nuestro Robot Aspirador 4000Pa Recomendado: Potencia y Eficiencia Garantizadas</h2>
+    <div class="featured-product">
+        <Image width={600} height={320} src="https://i.blogs.es/078302/roomba_combo_essential_white_photo_lifestyle_man_kid_yoga_3000x1500-2-/1366_2000.jpeg" style="width: 100%;height:auto; aspect-ratio:  16/9 ; object-fit: contain; " alt="Robot Aspirador 4000Pa Destacado" />
+        <h3>Roomba Combo Essential: Limpieza Fácil para tu Hogar.</h3>
+        <p>Roomba Combo Essential es <strong> uno de los robots aspiradores más populares</strong>. Es nuestra mejor elección.</p>
+        <hr>
+        <b>Por Qué Nos Gusta Tanto</b><br/>
+        <p>Este robot aspira el pelo de tus mascotas sin enredarse. Su sistema de navegación es muy inteligente. Mapea tu casa a la perfección. Además, su precio es muy bueno para lo que ofrece. Limpia muy bien y sin que tengas que hacer nada.</p>
+        <hr>
+        <b>Puntos Fuertes</b><br/>
+        <ul>
+            <li>Tiene una gran potencia de succión. Aspira bien en todo tipo de suelos y alfombras.</li>
+            <li>Su navegación inteligente hace un mapa exacto de tu casa. Así, lo limpia todo.</li>
+            <li>Es perfecto si tienes mascotas. También ayuda a personas con alergias.</li>
+            <li>Su batería dura mucho tiempo. Puedes programar cuándo quieres que limpie.</li>
+        </ul>
+        <a href={destacado} class="cta large">Ver Oferta Exclusiva</a>
+    </div>
+</section>
+
+<section class="container" id="ofertas" >
+    <h2>Oferta: Robots Aspiradores de 4000Pa</h2>
+    <p>Hemos elegido los mejores robots aspiradores con 4000Pa de potencia. Aquí puedes ver varios modelos. Todos tienen muy buenas opiniones y los mejores precios.</p>
+    
+    <StoreCluster products={products} />
+    
+</section>
+
+<section class="container">
+    <h2>¿Por qué elegir un robot aspirador de 4000Pa?</h2>
+    <p>La <strong>potencia de succión</strong> es muy importante en un robot aspirador. <strong>4000Pa</strong> (Pascales) es una fuerza de succión increíble. Este número no es solo un dato. Es la seguridad de que tu robot limpiará lo que otros no pueden. Esto incluye desde pelos pegados en alfombras hasta el polvo más pequeño y lo que causa alergias.</p>
+    <hr>
+    <p><strong>¿Para quién es ideal un robot de 4000Pa?</strong></p>
+    <p>Un robot aspirador con esta potencia es perfecto para:</p>
+    <ul>
+        <li><strong>Hogares con mascotas</strong> que sueltan mucho pelo.</li>
+        <li><strong>Casas con alfombras</strong> o moquetas, porque limpia muy adentro de las fibras.</li>
+        <li><strong>Personas con alergias</strong>, ya que quita bien el polvo y los alérgenos.</li>
+        <li><b>Lugares con mucho movimiento</b> o donde se ensucia rápido.</li>
+    </ul>
+    <h3>Tabla de Beneficios Clave: Por qué elegir 4000Pa</h3>
+    <div class="table-responsive">
+        <table class="benefits-table">
+        <thead>
+            <tr>
+                <th>Beneficio Clave</th>
+                <th>Descripción</th>
+                <th>Ideal para...</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Poder de Succión Extremo</strong></td>
+                <td>Elimina polvo, suciedad y alérgenos de cualquier superficie, incluyendo grietas y alfombras densas.</td>
+                <td>Suelos duros, alfombras de pelo medio a alto, hogares con niños y suciedad visible.</td>
+            </tr>
+            <tr>
+                <td><strong>Adiós al Pelo de Mascotas</strong></td>
+                <td>Atrapa eficazmente el pelo de perros y gatos sin enredos en el cepillo, manteniendo tu hogar impecable.</td>
+                <td>Dueños de mascotas que buscan una limpieza sin esfuerzo y constante.</td>
+            </tr>
+            <tr>
+                <td><strong>Limpieza Profunda</strong></td>
+                <td>Garantiza una higiene superior, llegando a rincones difíciles y dejando una sensación de frescura.</td>
+                <td>Personas con alergias, amantes de la limpieza impecable y espacios con alto tránsito.</td>
+            </tr>
+            <tr>
+                <td><strong>Menos Esfuerzo Manual</strong></td>
+                <td>Automatiza la tarea de aspirar por completo, liberando tu tiempo para otras actividades.</td>
+                <td>Aquellos que buscan comodidad, eficiencia y delegar la limpieza del día a día.</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<section class="container">
+    <h2>Comparativa de los Robots Aspirador 4000Pa Más Destacados</h2>
+    <p>Hemos revisado y comparado los robots de 4000Pa más famosos. También analizamos los que tienen mejores opiniones. Así te ayudamos a decidir.</p>
+    <p>Mira sus características. Descubre sus cosas buenas y malas. De esta forma, podrás elegir el robot perfecto para ti.</p>
+    <hr>
+
+        <TableComparativa amazonProduts={products} />
+    
+</section>
+
+<section class="container">
+    <h2>Preguntas Frecuentes sobre Robots Aspirador de 4000Pa</h2>
+    <div class="faq-list">
+        <div class="faq-item">
+            <h3>¿Qué significa 4000Pa en un robot aspirador?</h3>
+            <p>4000Pa significa 4000 Pascales de fuerza de succión. Es una forma de medir qué tan fuerte aspira el robot. es especialmente bueno para: Suciedad pegada, Alfombras, Pelo de mascotas.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Es suficiente 4000Pa para hogares con mascotas o alfombras?</h3>
+            <p>¡Absolutamente! De hecho, 4000Pa es una potencia ideal y muy recomendable para hogares con mascotas, ya que permite recoger eficazmente todo el pelo y la caspa que sueltan. Para alfombras, esta potencia asegura que el robot pueda extraer la suciedad y el polvo incrustado en las fibras, ofreciendo una limpieza superior a la de modelos con menor potencia.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Estos robots aspirador de 4000Pa también friegan?</h3>
+            <p>Muchos modelos de robots aspirador con 4000Pa de potencia de succión sí incorporan la función de fregado. Si esta característica es importante para ti, te recomendamos verificar las especificaciones de cada modelo o utilizar los filtros de búsqueda en nuestro listado para encontrar fácilmente los robots "2 en 1" que aspiran y friegan simultáneamente.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Cómo se compara un robot de 4000Pa con uno de menor potencia?</h3>
+            <p>La diferencia principal radica en la capacidad de limpieza. Un robot de 4000Pa ofrecerá una succión significativamente superior, lo que se traduce en una mayor eficacia para recoger suciedad pesada, limpiar alfombras más gruesas y manejar el pelo de mascotas. Los modelos de menor potencia pueden ser suficientes para suelos duros y limpieza ligera, pero no ofrecerán el mismo nivel de profundidad.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Qué marcas ofrecen robots aspirador de 4000Pa?</h3>
+            <p>Actualmente, varias marcas reconocidas en el mercado de la robótica de limpieza ofrecen modelos con 4000Pa o más de potencia. Entre ellas, destacan marcas como Roborock, Cecotec, Xiaomi, Dreame o Ecovacs, entre otras. Te invitamos a explorar nuestro catálogo para descubrir los modelos específicos que cada una ofrece en esta gama.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Cuál es el mantenimiento de un robot aspirador de 4000Pa?</h3>
+            <p>El mantenimiento es similar al de cualquier robot aspirador: vaciar el depósito de polvo regularmente, limpiar los cepillos principal y lateral, y revisar/limpiar los filtros (HEPA) periódicamente. Si tiene función de fregado, también es crucial limpiar el depósito de agua y las mopas después de cada uso para evitar malos olores y garantizar su eficacia.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <p>Esperamos que esta guía completa te haya ayudado a entender por qué un <strong>robot aspirador de 4000Pa</strong> es una inversión inteligente para mantener tu hogar impecable con el mínimo esfuerzo. No solo es una cuestión de potencia, sino de eficacia y comodidad en tu día a día. ¡Explora nuestra selección y encuentra el tuyo hoy mismo para disfrutar de una limpieza sin igual!</p>
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="#ofertas" class="cta large">Ver Todas las Ofertas de Robots Aspirador 4000Pa</a>
+    </div>
+</section>
+</Layout>

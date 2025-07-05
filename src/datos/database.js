@@ -139,7 +139,7 @@ export const amazonProduts = [
     "precio": 159.99,
     "moneda": "eur",
     "feactures": {
-        "potenciaSuccion": "5500 Pa",
+        "potenciaSuccion": "4000 Pa",
         "navegacion": "Láser 3D",
         "funciones": "Planificación Inteligente, Aspira y friega simultáneamente, Control por voz, Compatible con Mi Home App, Mapeo Láser 3D",
         "autonomia": "150 minutos",
@@ -287,7 +287,7 @@ export const amazonProduts = [
       precio: 490, // Precio no proporcionado
       moneda: "eur", // Moneda no proporcionada
       feactures: {
-        potenciaSuccion: "7000pa", // Potencia no proporcionada
+        potenciaSuccion: "7000 pa", // Potencia no proporcionada
         navegacion: "Mapeo y navegación láser de precisión",
         funciones: "Control de aplicaciones",
         autonomia: "140 minutos", // Autonomía no proporcionada
@@ -378,7 +378,7 @@ export const amazonProduts = [
     "precio": 160.55,
     "moneda": "eur",
     "feactures": {
-      "potenciaSuccion": "Básica (no Pa especificado)",
+      "potenciaSuccion": "7000 pa",
       "navegacion": "Adaptable (no mapeo inteligente)",
       "funciones": "Sistema de limpieza de 3 etapas, Dirt Detect™ (primera gen.), Spot Clean, Detección de desniveles",
       "autonomia": "Hasta 60 minutos",
@@ -407,7 +407,7 @@ export const amazonProduts = [
     "precio": 549.00,
     "moneda": "usd",
     "feactures": {
-      "potenciaSuccion": "Básica (no Pa especificado)",
+      "potenciaSuccion": "7000 pa",
       "navegacion": "Adaptable (no mapeo inteligente)",
       "funciones": "Sistema de limpieza de 3 etapas, Dirt Detect™ (primera gen.), Spot Clean, Detección de desniveles",
       "autonomia": "Hasta 60-75 minutos",

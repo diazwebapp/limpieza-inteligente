@@ -19,6 +19,8 @@ const superficies = [
   { name: "Para Mármol", link: withDomain("/suelo-marmol/") },
   { name: "Para Alfombras", link: withDomain("/para-alfombras/") }
 ];
+
+const pa4000 = withDomain("/potencia-4000-pa/")
 ---
 
 <nav class="nav-dropdown">
@@ -46,6 +48,12 @@ const superficies = [
         {superficies.map(sup => (
           <li><a href={sup.link}>{sup.name}</a></li>
         ))}
+      </ul>
+    </li>
+    <li class="dropdown">
+      <button type="button" class="dropdown-toggle" aria-expanded="false">Potencia ▼</button>
+      <ul class="dropdown-menu">
+        <li><a href={pa4000}>4000pa</a></li>
       </ul>
     </li>
   </ul>

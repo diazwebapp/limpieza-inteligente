@@ -5,6 +5,9 @@ import CategoryHeader from "../../components/CategoryHeader.astro";
 import AmazonCluster from "../../components/AmazonCluster.astro";
 import StoreCluster from "../../components/StoreCluster.astro";
 import { schemaWebSite, schemaArticle, schemaFAQ } from "../../datos/seoBase.js";
+import { products, type Product } from "../../datos/products";
+import type {ProductCollectionSchema, ProductInCollection} from '../../utils/typesSchemas'
+import AmazonClusterPro from "../../components/AmazonClusterPro.astro";
 
 
 const title = "Robot Aspirador Friegasuelos Xiaomi ";
@@ -16,23 +19,38 @@ const canonicalURL = SITE_URL.replace(/\/$/, "") + "/xiaomi/";
 const datePublished = "2025-06-6T00:00:00+00:00";
 const dateModified = "2025-06-16T00:00:00+00:00";
 
+const schemaProducts:ProductInCollection[]= products.map(p=>{
+  return {
+    "@type": "Product",
+    image:p.imagen,
+    name:p.name,
+    offers:{
+      "@type":"Offer",
+      availability:"https://schema.org/InStock",
+      price:p.price,
+      priceCurrency: "EUR",
+      url:p.urlAffiliado,
+      priceValidUntil:"2026-12-31"
+    },
+    aggregateRating:{
+      "@type":"AggregateRating",
+      ratingValue:p.rating,
+      reviewCount:p.num_reviews
+    },
+    brand:p.marca,
+    url:p.urlAffiliado
+  }
+})
+const schemaProductCollecion:ProductCollectionSchema={
+  "@context":"https://schema.org",
+  "@type":"ProductCollection",
+  description:description,
+  includesObject:schemaProducts,
+  name:title,
+  url:canonicalURL
+}
 const schemas = [
   schemaWebSite(),
-  schemaArticle({
-    headline: title,
-    image: [
-      "https://www.powerplanetonline.com/cdnassets/xiaomi_robot_vacuum_e5_negro_05_ad_l.jpg",
-      "https://www.powerplanetonline.com/cdnassets/xiaomi_robot_vacuum_e10c_01_l.jpg"
-    ],
-    datePublished,
-    dateModified,
-    description,
-    articleBody: "Son eficientes limpian y mantienen tu casa reluciente. Además, su automatización es una maravilla. Y no hay que olvidar lo compactos que son, apenas ocupan espacio. los mas avanzados, incluso puedes controlarlos desde tu teléfono, lo cual es súper práctico...",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": canonicalURL
-    }
-  }),
   schemaFAQ({
     mainEntity: [
       {
@@ -60,7 +78,8 @@ const schemas = [
         }
       }
     ]
-  })
+  }),
+  schemaProductCollecion
 ];
 ---
 <Layout 
@@ -78,43 +97,18 @@ const schemas = [
     <section class="container" id="mas-vendidos">
       <StoreCluster idMarca={6} />
     </section>
-    <section class="container">
-      <h2>Por Qué Elegir un Xiaomi robot aspirador y fregasuelos </h2>
-      <ul class="feactures-list" >
-        <li>
-          <strong>Doble Funcionalidad, Máxima Eficiencia:</strong> Los <strong>Robot Aspirador y Friegasuelos Xiaomi</strong> están diseñados para aspirar y fregar simultáneamente. Esto significa que en una sola pasada, tu suelo queda libre de polvo y con un brillo impecable. Olvídate de comprar dos aparatos, un solo <strong>robot aspirador fregasuelos Xiaomi</strong> lo hace todo.
-        </li>
-        <li>
-          <strong>Tecnología de Vanguardia:</strong> Equipados con sensores avanzados y sistemas de navegación láser o vSLAM, estos <strong>robots limpiasuelos Xiaomi</strong> mapean tu hogar con precisión. Esto les permite planificar rutas de limpieza eficientes, evitando obstáculos y asegurando que cada rincón sea cubierto.
-        </li>
-        <li>
-          <strong>Conectividad Inteligente:</strong> Controla tu <strong>Xiaomi robot friegasuelos</strong> directamente desde tu smartphone a través de la aplicación Xiaomi Home. Programa horarios de limpieza, selecciona áreas específicas, ajusta la potencia de succión o el nivel de agua del fregado, todo desde la palma de tu mano.
-        </li>
-        <li>
-          <strong>Gran Potencia y Autonomía:</strong> Los <strong>fregasuelos Xiaomi</strong> no solo son inteligentes, sino también potentes. Con una succión robusta y baterías de larga duración, pueden limpiar grandes superficies sin interrupciones, garantizando resultados impecables en todo tu hogar.
-        </li>
-      </ul>
-    </section>
+    
     <section class="container">
       <h2>Modelos Destacados de Xiaomi Friegasuelos</h2>
       <p>
         La gama de <strong>robots aspirador y fregasuelos Xiaomi</strong> es amplia y se adapta a diversas necesidades y presupuestos. Desde modelos de entrada que ofrecen una excelente relación calidad-precio hasta versiones premium con las últimas innovaciones, siempre encontrarás un <strong>Xiaomi fregasuelos</strong> que se ajuste a ti.
       </p>
+      <AmazonClusterPro products={products} />
       <p>
         Entre los más populares, la serie <strong>Mi Robot Vacuum</strong> se destaca por su fiabilidad y rendimiento, ofreciendo modelos que integran a la perfección las funciones de aspirado y fregado, convirtiéndolos en verdaderos aliados para la limpieza diaria.
       </p>
     </section>
 
-    <section class="container">
-      <h2>El Robot Limpiasuelos Xiaomi que Tu Hogar Necesita</h2>
-      <p>
-        Invertir en un <strong>Robot Aspirador Friegasuelos Xiaomi</strong> es invertir en comodidad, tiempo libre y un hogar más limpio. Despídete de la limpieza manual y dale la bienvenida a la era de la limpieza inteligente. Con la confianza que solo una marca como Xiaomi puede ofrecer, tendrás un dispositivo fiable y eficiente que cuidará de tus suelos.
-      </p>
-      <p>
-        ¿Listo para transformar la limpieza de tu hogar? Explora nuestra selección de <strong>robots aspirador y fregasuelos Xiaomi</strong> y encuentra el modelo perfecto para ti.
-      </p>
-      <StoreCluster idMarca={5} />
-    </section>
   </main>
 
 </Layout>

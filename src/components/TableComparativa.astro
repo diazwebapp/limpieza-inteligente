@@ -6,9 +6,9 @@ interface Product {
   modelo: string;
   slug: string;
   urlAfiliado?: string;
-  stars?: number;
+  stars: number;
   ratingCount?: number;
-  precio?: number;
+  precio: number;
   marca?: number;
   feactures?: {
     potenciaSuccion?: string;
@@ -22,7 +22,7 @@ interface Props {
   limit?: number;
   idMarca?: number;
   idProductoDestacado?: number;
-  amazonProduts: Product[];
+  amazonProduts:any[];
 }
 
 const { limit = 5, idMarca, idProductoDestacado, amazonProduts } = Astro.props;
@@ -136,7 +136,7 @@ const getBadges = (product: any) => {
           {product.feactures?.funciones
             ?.split(', ')
             ?.slice(0, 3)
-            ?.map(feat => `✔️ ${feat}`)
+            ?.map((feat:any): string => `✔️ ${feat}`)
             ?.join(' ')}
         </td>
         <td>

@@ -542,3 +542,4 @@ export const productImages = [
   "1280x720":"https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dwaacd777b/EMEA/Content%20Assets/Roomba_Plus_505_Combo_AutoWash_Black_Photo_InSitu_Dock_3000x3000.jpg?sw=1000"
 }
 ];
+

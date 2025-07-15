@@ -1,56 +1,39 @@
 ---
 import { Image } from "astro:assets";
-import { amazonProduts, productImages, marcas } from "../datos/database.js";
-const { idProducto = null, idMarca = null, slugMarca = null, orderBy = null, orderDir = 'desc', limit = 3 } = Astro.props;
+import type { Product } from '../datos/products' 
 
-let filteredProducts = amazonProduts;
-let marcaId = idMarca;
-if (slugMarca && !idMarca) {
-  const marcaObj = marcas.find(m => m.slug === slugMarca);
-  if (marcaObj) marcaId = marcaObj.id;
+type Props={
+    products: Product[]
 }
-if (idProducto !== null) {
-  filteredProducts = amazonProduts.filter(p => p.id === idProducto);
-} else {
-  if (marcaId !== null && marcaId !== undefined) {
-    filteredProducts = filteredProducts.filter(p => p.marca === marcaId);
-  }
-  if (orderBy === 'precio') {
-    filteredProducts = filteredProducts.slice().sort((a, b) => (orderDir === 'asc' ? a.precio - b.precio : b.precio - a.precio));
-  }
-  if (orderBy === 'rating') {
-    filteredProducts = filteredProducts.slice().sort((a, b) => (orderDir === 'asc' ? a.stars - b.stars : b.stars - a.stars));
-  }
-}
-const showProducts = filteredProducts.slice(0, limit);
+
+const { products } = Astro.props as Props
+
 ---
 
 <div class="products-grid">
-    {showProducts.map(product => {
-        const imgId = Array.isArray(product.imageIds) ? product.imageIds[0] : null;
-        const imgObj = imgId ? productImages.find(img => img.id === imgId) : null;
-        const imgSrc = imgObj?.["1280x720"] || "/public/placeholder-250x250.png";
+    {products.map(product => {
+        
         return (
         <article class="product-card">
-            <a href={product.urlAfiliado} target="_blank" rel="noopener noreferrer nofollow" class="product-link">
+            <a href={product.urlAffiliado} target="_blank" rel="noopener noreferrer nofollow" class="product-link">
                 <figure class="product-image-container">
-                    <Image loading="lazy" width="250" height="250" src={imgSrc} alt={product.title} class="product-image" />
+                    <Image loading="lazy" width="250" height="250" src={product.imagen} alt={product.name} class="product-image" />
                 </figure>
                 <div class="product-info">
-                    <h3 class="product-title">{product.title}</h3>
+                    <h3 class="product-title">{product.name}</h3>
                     <div class="product-rating">
-                        <span class="stars" aria-label={`${product.stars ?? 0} de 5 estrellas`}>
-                            {/* Renderiza estrellas según product.stars */}
+                        <span class="stars" aria-label={`${product.rating ?? 0} de 5 estrellas`}>
+                            {/* Renderiza estrellas según product.rating */}
                             {[1,2,3,4,5].map(i => (
-                                <span class={`star-icon ${product.stars >= i ? 'full-star' : product.stars >= i - 0.5 ? 'half-star' : 'empty-star'}`}></span>
+                                <span class={`star-icon ${product.rating >= i ? 'full-star' : product.rating >= i - 0.5 ? 'half-star' : 'empty-star'}`}></span>
                             ))}
                         </span>
-                        <span class="rating-count">({product.ratingCount ?? '0'})</span>
+                        <span class="rating-count">({product.num_reviews ?? '0'})</span>
                     </div>
                 </div>
             </a>
             <div class="product-actions">
-                <a href={product.urlAfiliado} target="_blank" rel="noopener noreferrer" class="btn btn-amazon">Ver en Amazon</a>
+                <a href={product.urlAffiliado} target="_blank" rel="noopener noreferrer nofollow" class="btn btn-amazon">Ver en Amazon</a>
             </div>
         </article>
     )})}
@@ -211,3 +194,4 @@ const showProducts = filteredProducts.slice(0, limit);
 }
 
 </style>
+

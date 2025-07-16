@@ -81,12 +81,14 @@ const faqs = [
   schemas={schemas}
 >
   <main>
-    <CategoryHeader
-      h1="Robot xiaomi vacuum: Tecnología y Eficiencia"
-      p="Simplifica tu vida y dile adiós al polvo con el robot xiaomi vacuum. Este potente y elegante dispositivo no es solo un electrodoméstico más, es tu nuevo aliado para un hogar impecable sin esfuerzo. Con tecnología de mapeo inteligente y una succión inigualable, dándote más tiempo para lo que realmente importa."
-      ctaText="Compra el tuyo ahora"
-      ctaLink="#mas-vendidos"
-    />
+      <section class="container">
+        <h1>Robot xiaomi vacuum: Tecnología y Eficiencia</h1>
+        <p>
+          Simplifica tu vida y dile adiós al polvo con el robot xiaomi vacuum. Este potente y elegante dispositivo no es solo un electrodoméstico más, es tu nuevo aliado para un hogar impecable sin esfuerzo. 
+        </p>
+        <hr>
+      </section>
+      
     <section class="container" id="mas-vendidos">
       <h2>Xiaomi robot aspirador: Reseñas y caracteristicas</h2>
       <StoreCluster idMarca={6} />
@@ -97,16 +99,22 @@ const faqs = [
         Xiaomi ofrece una amplia gama de robots aspiradores para adaptarse a diferentes necesidades y presupuestos. Las palabras "vacuum" y "vacuum mop" son más que simples términos de referencia; se usan para describir la funcionalidad principal del robot aspirador. Aquí te explico brevemente sus líneas principales:
       </p>
       <h2>MI robot vacuum xiaomi</h2>
-      <p>
-        <strong>MI vacuum xiaomi (Robot Aspirador)</strong>: Este término se refiere a un robot cuya función PRINCIPAL y a veces única es aspirar la suciedad, el polvo y los escombros del suelo. Su enfoque es la succión y el cepillado para recoger partículas secas.<br/>
+      <fieldset>
+        <legend><h3>MI vacuum xiaomi (Robot Aspirador):</h3></legend>
+        <p>
+          Este término se refiere a un robot cuya función PRINCIPAL y a veces única es aspirar la suciedad, el polvo y los escombros del suelo. Su enfoque es la succión y el cepillado para recoger partículas secas.<br/>
         <strong>¡Consigue tu aspirador xiaomi vacuum hoy!.</strong>
-      </p>
-      <AmazonClusterPro products={vacuums} />
+        </p>
+        <AmazonClusterPro products={vacuums} />
+      </fieldset>
       <h2>Xiaomi vacuum mop : Aspira y también friega</h2>
-      <p>
-        <strong>Robot Vacuum Mop (robot aspirador y fregasuelos)</strong> Estos robots aspiran y también friegan. Tienen un depósito de agua y una mopa. La mopa humedece el suelo y lo limpia. Algunos tienen mopas que giran o vibran para limpiar mejor.
-      </p>
-      <AmazonClusterPro products={vacuum_mops} />
+      <fieldset>
+        <legend><h3>Robot Vacuum Mop (robot aspirador y fregasuelos)</h3></legend>
+        <p>
+          Estos robots aspiran y también friegan. Tienen un depósito de agua y una mopa. La mopa humedece el suelo y lo limpia. Algunos tienen mopas que giran o vibran para limpiar mejor.
+        </p>
+        <AmazonClusterPro products={vacuum_mops} />
+      </fieldset>
 
       <h3>¿Por qué es importante esta distinción?</h3>
       <p>
@@ -122,11 +130,60 @@ const faqs = [
           Así que sí, son términos clave que te ayudan a entender rápidamente qué tipo de limpieza ofrece el robot.
         </p>
     </section>
+    <section class="container">
+      <h2>Otras maneras de elegir un robot aspirado xiaomi</h2>
+      <h3>Series E (E5, E10)</h3>
+      <p>
+        Son los modelos de entrada, ideales si buscas una opción económica y sencilla para las tareas básicas de aspirado diario. Algunos modelos pueden incluir función de mopa. No suelen tener navegación láser avanzada, lo que los hace adecuados para espacios más pequeños y menos complejos.
+      </p>
+      <hr>
+      <h3>Series S (S10, S12, S20, S20+)</h3>
+      <p>
+        Estos modelos ofrecen una mejor navegación gracias a la tecnología LDS (Laser Direct Structuring), que les permite mapear tu casa de forma precisa y planificar rutas de limpieza más eficientes. La mayoría también tienen función de mopa, con algunas versiones (como el S20+) que incluyen mopas giratorias para un fregado más efectivo. Son una excelente opción si quieres un buen equilibrio entre precio y rendimiento, y tienes una casa de tamaño mediano con muebles.
+      </p>
+      <hr>
+      <h3>Series X (X10, X20, X20 Pro, X20 Max)</h3>
+      <p>
+        Representan la gama alta de Xiaomi. Estos robots están equipados con las características más avanzadas, como:
+      </p>
+      <fieldset>
+        <legend><strong>Estaciones base inteligentes:</strong></legend>
+        <p>
+          Muchos de ellos vienen con bases que no solo cargan el robot, sino que también vacían automáticamente el depósito de polvo del robot, rellenan el tanque de agua limpia y lavan y secan las mopas. Esto reduce significativamente el mantenimiento manual
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend><strong>Mayor potencia de succión:</strong></legend>
+        <p>
+          Ofrecen una succión superior, ideal para alfombras o suciedad más incrustada.
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend><strong>Navegación y evitación de obstáculos mejoradas:</strong></legend>
+        <p>
+          Incorporan tecnologías como luz estructurada 3D y sensores de IA para detectar y evitar obstáculos con mayor precisión, incluso objetos pequeños
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend><strong>Funciones de fregado avanzadas:</strong></legend>
+      <p>
+        Utilizan mopas giratorias de alta velocidad o sistemas de elevación automática de la mopa para un fregado más profundo y para evitar mojar alfombras.
+      </p>
+      </fieldset>
+    </section>
   
-<section class="container">
-  <h3>Preguntas frecuentes</h3>
-  <FaqAccordion faqs={faqs} />
-</section>
+    <section class="container">
+      <h3>Preguntas frecuentes</h3>
+      <FaqAccordion faqs={faqs} />
+    </section>
   </main>
 
 </Layout>
+<style>
+  fieldset{
+    padding: 20px;
+    &&legend strong{
+      color:var(--cta);
+    }
+  }
+</style>

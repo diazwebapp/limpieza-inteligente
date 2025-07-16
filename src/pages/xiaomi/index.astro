@@ -10,9 +10,11 @@ import type {ProductCollectionSchema, ProductInCollection} from '../../utils/typ
 import AmazonClusterPro from "../../components/AmazonClusterPro.astro";
 import FaqAccordion from "../../components/FaqAccordion.astro";
 
+const vacuums = products.filter(p=> p.marca === "Xiaomi" && !p.name.toLowerCase().includes("mop"))
+const vacuum_mops = products.filter(p=> p.marca === "Xiaomi" && p.name.toLowerCase().includes("mop"))
 
-const title = "Robot Aspirador Friegasuelos Xiaomi ";
-const description = "La serie Mi Robot Vacuum aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!";
+const title = "robot xiaomi vacuum mop";
+const description = "La serie Mi robot xiaomi vacuum mop aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!";
 
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
 const canonicalURL = SITE_URL.replace(/\/$/, "") + "/xiaomi/";
@@ -80,25 +82,47 @@ const faqs = [
 >
   <main>
     <CategoryHeader
-      h1="robot aspirador y fregasuelos xiaomi: Tecnología y Eficiencia"
-      p="Son eficientes limpian y mantienen tu casa reluciente. Además, su automatización es una maravilla. Y no hay que olvidar lo compactos que son, apenas ocupan espacio. los mas avanzados, incluso puedes controlarlos desde tu teléfono, lo cual es súper práctico"
+      h1="Robot xiaomi vacuum: Tecnología y Eficiencia"
+      p="Simplifica tu vida y dile adiós al polvo con el robot xiaomi vacuum. Este potente y elegante dispositivo no es solo un electrodoméstico más, es tu nuevo aliado para un hogar impecable sin esfuerzo. Con tecnología de mapeo inteligente y una succión inigualable, dándote más tiempo para lo que realmente importa."
       ctaText="Compra el tuyo ahora"
       ctaLink="#mas-vendidos"
     />
     <section class="container" id="mas-vendidos">
+      <h2>Xiaomi robot aspirador: Reseñas y caracteristicas</h2>
       <StoreCluster idMarca={6} />
     </section>
-    
-    <section class="container">
-      <h2>Modelos Destacados de Xiaomi Friegasuelos</h2>
+    <section class="container" >
+      <h2>Guia breve y solida de compra</h2>
       <p>
-        La gama de <strong>robots aspirador y fregasuelos Xiaomi</strong> es amplia y se adapta a diversas necesidades y presupuestos. Desde modelos de entrada que ofrecen una excelente relación calidad-precio hasta versiones premium con las últimas innovaciones, siempre encontrarás un <strong>Xiaomi fregasuelos</strong> que se ajuste a ti.
+        Xiaomi ofrece una amplia gama de robots aspiradores para adaptarse a diferentes necesidades y presupuestos. Las palabras "vacuum" y "vacuum mop" son más que simples términos de referencia; se usan para describir la funcionalidad principal del robot aspirador. Aquí te explico brevemente sus líneas principales:
       </p>
-      <AmazonClusterPro products={products} />
+      <h2>MI robot vacuum xiaomi</h2>
       <p>
-        Entre los más populares, la serie <strong>Mi Robot Vacuum</strong> se destaca por su fiabilidad y rendimiento, ofreciendo modelos que integran a la perfección las funciones de aspirado y fregado, convirtiéndolos en verdaderos aliados para la limpieza diaria.
+        <strong>MI vacuum xiaomi (Robot Aspirador)</strong>: Este término se refiere a un robot cuya función PRINCIPAL y a veces única es aspirar la suciedad, el polvo y los escombros del suelo. Su enfoque es la succión y el cepillado para recoger partículas secas.<br/>
+        <strong>¡Consigue tu aspirador xiaomi vacuum hoy!.</strong>
       </p>
+      <AmazonClusterPro products={vacuums} />
+      <h2>Xiaomi vacuum mop : Aspira y también friega</h2>
+      <p>
+        <strong>Robot Vacuum Mop (robot aspirador y fregasuelos)</strong> Estos robots aspiran y también friegan. Tienen un depósito de agua y una mopa. La mopa humedece el suelo y lo limpia. Algunos tienen mopas que giran o vibran para limpiar mejor.
+      </p>
+      <AmazonClusterPro products={vacuum_mops} />
+
+      <h3>¿Por qué es importante esta distinción?</h3>
+      <p>
+        Es crucial porque afecta directamente lo que el robot puede hacer por ti y, por lo tanto, el precio y las características que puedes esperar.
+      </p>
+      <hr>
+      <p>Si solo necesitas aspirar, un "robot vacuum" es suficiente y probablemente más económico.
+
+        Si quieres que el robot también friegue, necesitas un "robot vacuum mop". Dentro de esta categoría, hay una amplia gama de opciones que varían en la sofisticación de su sistema de fregado (desde mopa básica hasta estaciones de autolavado y secado de mopas).
+        </p>
+        <hr>
+        <p>
+          Así que sí, son términos clave que te ayudan a entender rápidamente qué tipo de limpieza ofrece el robot.
+        </p>
     </section>
+  
 <section class="container">
   <h3>Preguntas frecuentes</h3>
   <FaqAccordion faqs={faqs} />

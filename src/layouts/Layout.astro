@@ -10,14 +10,13 @@ const { title, description, schemas = [], googleSiteVerification, lang="es" } = 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
+    <title>{title} | Limpieza inteligente</title>
     <meta name="description" content={description}>
      <ClientRouter />
      {Array.isArray(schemas) && schemas.length > 0 && schemas.map((schema, i) => (
       <script
         type="application/ld+json"
         set:html={JSON.stringify(schema)}
-        key={i}
       />
     ))}
    <meta name="google-site-verification" content="_AcFY2JvJbHHxMkuGvPt7YQmKqqjwDqTBH1ZIOdc9T8" />
@@ -37,7 +36,7 @@ const { title, description, schemas = [], googleSiteVerification, lang="es" } = 
 
     <header>
         <div class="container header-container">
-            <a href="/"><strong class="app-title">Robots de limpieza</strong></a>
+            <a href="/"><strong class="app-title">Limpieza inteligente</strong></a>
             <Nav />
         </div>
     </header>

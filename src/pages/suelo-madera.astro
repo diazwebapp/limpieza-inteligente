@@ -74,6 +74,25 @@ const pasos = [
   { title: "Uso de Mopa", description: "Usar solo agua limpia o solución para madera; evitar exceso de humedad" },
   { title: "Limpieza Profunda", description: "El robot es para mantenimiento diario; realizar limpiezas profundas ocasionales a mano" }
 ]
+
+const ventajas = [
+  {
+    "title": "Evitan Arañazos",
+    "description": "Las aspiradoras normales tienen ruedas duras. Sus accesorios pueden rayar. Los robots para madera tienen ruedas de goma suave. Sus cepillos son delicados con la superficie."
+  },
+  {
+    "title": "Limpian Siempre",
+    "description": "Puedes programarlos para limpiar diario. Esto evita que se junte polvo. El polvo, al pisarlo, puede rayar la madera."
+  },
+  {
+    "title": "Cuidan el Suelo",
+    "description": "Quitan el polvo y la suciedad. Así, tu suelo de madera dura más. Se ve mejor."
+  },
+  {
+    "title": "Ahorran Tiempo",
+    "description": "Te dan más tiempo libre. Mantienen tu casa limpia sin esfuerzo."
+  }
+]
 ---
 <Layout 
   title={title}
@@ -88,6 +107,11 @@ const pasos = [
       Los suelos de madera son bonitos. Dan un toque cálido a tu casa. Pero necesitan un cuidado especial. Así mantienes su brillo y evitas arañazos. Aquí, los robots aspiradores para parquet te ayudan mucho. ¿Sirven todos para la madera? ¿Qué debes buscar? Esta guía te lo explica.
     </p>
   </section>
+  <hr>
+  <section class="container">
+    <h2>Mejor robot aspirador para parquet: Modelos recomendados</h2>
+    <StoreCluster data={amazonProduts} idMarca={1} />
+  </section>
   <section class="container">
     <h2>¿Como elegir un aspirador para parquet? : Características importantes</h2>
     <p>No todos los robots son iguales. Si tienes suelos de madera, fíjate en esto:</p>
@@ -95,8 +119,12 @@ const pasos = [
     <GridCards data={caracteristicas}/>
   </section>
   <section class="container">
-    <h2>Mejor robot aspirador para parquet: Modelos recomendados</h2>
-    <StoreCluster data={amazonProduts} idMarca={1} />
+    <h2>Ventajas  de utilizar un robot aspirador para parquet</h2>
+    <p>
+      Un robot aspirador limpia tu suelo solo. Usa sensores para moverse. Evita obstáculos. Cubre la mayor parte del suelo.<br/>
+      Son perfectos para suelos de madera por estas razones:
+    </p>
+    <GridCards data={ventajas}/>
   </section>
   <section class="container">
     <h2>Consejos para Cuidar tu Suelo de Madera con un Robot Aspirador</h2>

@@ -4,6 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import AmazonCluster from "../components/AmazonCluster.astro";
 import { amazonProduts } from "../datos/database";
 import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
+import GridCards from "../components/GridCards.astro";
+import StoreCluster from "../components/StoreCluster.astro";
 
 const title = "Robot Aspirador para Suelo de Madera: Limpieza Eficiente y Sin Daños";
 const description = "Descubre los mejores robots aspirador y friegasuelos para suelos de madera. Mantén tu parquet impecable y protegido con la tecnología más avanzada.";
@@ -29,6 +31,49 @@ const schemas = [
     }
   })
 ];
+
+const caracteristicas = [
+  {
+    title:"Cepillos de silicona o goma",
+    description:"Son la mejor opción. Son suaves. No rayan. Recogen bien el polvo y el pelo. No se enredan fácil."
+  },
+  {
+    title:"Cepillos mixtos",
+    description:"Algunos modelos los tienen. Asegúrate de que las cerdas sean suaves. La mayoría debe ser de goma."
+  },
+  {
+    title:"Evita cepillos duros",
+    description:"Las cerdas muy duras pueden rayar la madera con el tiempo."
+  },
+  {
+    title:"Cepillos laterales",
+    description:"Deben ser de cerdas suaves. Así no dañan los zócalos ni la madera al limpiar los bordes."
+  },
+  {
+    title:"Ruedas de Goma Suave",
+    description:"Las ruedas deben tener goma suave. Esto hace que el robot se mueva en silencio. Y lo más importante: evita marcas o arañazos. Protege el suelo de madera al girar o subir."
+  },
+  {
+    title:"Potencia de Succión Ajustable",
+    description:"Necesitas buena succión. Así recoge bien el polvo de las ranuras de la madera. Lo ideal es que puedas ajustar la succión. Usa menos potencia para el día a día. Usa más para una limpieza profunda."
+  },
+  {
+    title:"Navegación Inteligente",
+    description:"Mapeo Lógico (LiDAR), Sensores de Seguridad, Mapas y Zonas Prohibidas,  Los robots con mapeo avanzado crean un mapa de tu casa. Limpian mejor así. No pasan por el mismo sitio muchas veces. Protegen el robot y tus muebles. Los sensores anti-caída evitan caídas por escaleras. Los anti-golpes hacen que las colisiones sean suaves. Puedes crear mapas. Define 'zonas prohibidas'. Por ejemplo, donde tienes cables. O alfombras que no quieres que aspire."
+  },
+  {
+    title:"Función de Fregado (Mopa)",
+    description:" La función de fregado debe ser controlable. El robot no debe echar mucha agua. Algunos modelos ajustan la humedad de la mopa. Busca robots con depósito de agua. Que tengan una mopa de microfibra buena."
+  }
+]
+const pasos = [
+  { title: "Preparar la Zona", description: "Quitar objetos pequeños y cables, despejar el suelo al máximo" },
+  { title: "Vaciar el Depósito", description: "Vaciarlo tras cada limpieza (o cada pocas, según la suciedad)" },
+  { title: "Limpiar los Cepillos", description: "Retirar el pelo enredado con frecuencia usando la herramienta incluida" },
+  { title: "Revisar las Ruedas", description: "Quitar pelo o suciedad de las ruedas" },
+  { title: "Uso de Mopa", description: "Usar solo agua limpia o solución para madera; evitar exceso de humedad" },
+  { title: "Limpieza Profunda", description: "El robot es para mantenimiento diario; realizar limpiezas profundas ocasionales a mano" }
+]
 ---
 <Layout 
   title={title}
@@ -38,47 +83,27 @@ const schemas = [
 
 <main>
   <section class="container">
-    <h1>robot aspirador para parquet: Brillo y Protección Garantizados</h1>
+    <h1>Guía sencilla para elegir un robot aspirador para parquet</h1>
     <p>
-      En Limpieza Inteligente, sabemos que proteger tu suelo de madera es una prioridad. Por ello, te guiamos en la elección del robot perfecto que no solo limpia, sino que también cuida cada centímetro de esta superficie tan apreciada.
+      Los suelos de madera son bonitos. Dan un toque cálido a tu casa. Pero necesitan un cuidado especial. Así mantienes su brillo y evitas arañazos. Aquí, los robots aspiradores para parquet te ayudan mucho. ¿Sirven todos para la madera? ¿Qué debes buscar? Esta guía te lo explica.
     </p>
   </section>
   <section class="container">
-    <h2>¿Por Qué Invertir en un Robot Aspirador para Tarima?</h2>
-    <ul class="features-list">
-      <li><strong>Limpieza Delicada y Profunda:</strong> Equipados con cepillos de cerdas suaves o silicona, estos robots recogen eficazmente el polvo y la suciedad sin riesgo de arañar o dañar la superficie.</li>
-      <li><strong>Control Preciso de Humedad:</strong> Los sistemas de fregado avanzados aplican la cantidad mínima de agua necesaria, crucial para evitar la deformación o hinchazón de la madera por exceso de humedad.</li>
-      <li><strong>Prevención de Arañazos:</strong> La limpieza regular con un robot evita la acumulación de partículas abrasivas (arena, tierra) que actúan como lija bajo tus pies.</li>
-      <li><strong>Mantenimiento Constante:</strong> Al programarlo para limpiar diariamente, aseguras que tu entarimado se mantenga siempre libre de polvo, conservando su brillo natural sin esfuerzo manual.</li>
-    </ul>
+    <h2>¿Como elegir un aspirador para parquet? : Características importantes</h2>
+    <p>No todos los robots son iguales. Si tienes suelos de madera, fíjate en esto:</p>
+    <hr>
+    <GridCards data={caracteristicas}/>
   </section>
   <section class="container">
-    <h2>Claves para Elegir el Mejor Robot Aspirador para Suelo de Madera</h2>
-    <ul class="feactures-list">
-      <li><strong>Cepillos Aptos para Madera:</strong> Prioriza los robots con cepillos de silicona o de goma, y rodillos suaves. Evita los cepillos de cerdas muy duras o que puedan engancharse y rayar la superficie.</li>
-      <li><strong>Control de Flujo de Agua en el Fregado:</strong> Esta es la característica más crítica. Elige modelos que permitan ajustar la cantidad de agua liberada para el fregado, o que utilicen almohadillas que se humedecen de forma muy controlada. Algunos incluso levantan la mopa automáticamente al detectar alfombras, evitando mojar lo que no deben.</li>
-      <li><strong>Navegación Inteligente y Mapeo Preciso:</strong> Un sistema de navegación avanzado (Lidar, vSLAM) asegura que el robot limpie de manera metódica, evite golpes fuertes a tus muebles y no deje zonas sin cubrir, minimizando el desgaste innecesario en la madera.</li>
-      <li><strong>Sensores Anti-Caída y Anti-Golpes:</strong> Imprescindibles para proteger tanto al robot como a tus valiosos suelos y mobiliario de madera.</li>
-      <li><strong>Facilidad de Mantenimiento:</strong> Un robot con depósitos de fácil acceso y cepillos sencillos de limpiar te ahorrará tiempo y te asegurará que el aparato siempre esté en óptimas condiciones para cuidar tu madera.</li>
-    </ul>
+    <h2>Mejor robot aspirador para parquet: Modelos recomendados</h2>
+    <StoreCluster data={amazonProduts} idMarca={1} />
   </section>
   <section class="container">
-    <h2>Descubre los Robots que Harán Brillar Tu Suelo de Madera</h2>
+    <h2>Consejos para Cuidar tu Suelo de Madera con un Robot Aspirador</h2>
+    <GridCards data={pasos}/>
+    <hr/>
     <p>
-      Sabemos lo importante que es proteger y embellecer tu suelo de madera. Por eso, hemos seleccionado cuidadosamente los mejores robots aspiradores y fregasuelos diseñados específicamente para ofrecer una limpieza eficaz y segura en estas superficies.
-    </p>
-    <p><strong>¡Explora nuestra gama premium y encuentra el robot que le dará a tu suelo de madera el cuidado que se merece!</strong></p>
-    <!-- Aquí insertar el cluster de productos de robots para suelo de madera -->
-    <AmazonCluster products={amazonProduts} />
-  </section>
-
-  <section class="container">
-    <h2>Un Suelo de Madera Impoluto, Siempre</h2>
-    <p>
-      Tu suelo de madera es una joya en tu hogar. Con la elección correcta de un robot aspirador y friegador de suelos para madera, no solo simplificarás la limpieza, sino que también asegurarás que esta superficie se mantenga impecable y protegida por muchos años. La inteligencia de estos robots te permite disfrutar más de tu tiempo y de la belleza de tu hogar.
-    </p>
-    <p>
-      No esperes más para darle a tu suelo de madera el cuidado experto que se merece. ¡Elige tu robot inteligente hoy mismo y transforma la limpieza de tu hogar!
+      Elegir el robot aspirador adecuado es una buena inversión. Tu casa estará más limpia con menos esfuerzo. Protegerás la belleza y duración de tus suelos de madera. ¡Piensa en estas cosas y disfruta de la limpieza inteligente!
     </p>
   </section>
 </main>

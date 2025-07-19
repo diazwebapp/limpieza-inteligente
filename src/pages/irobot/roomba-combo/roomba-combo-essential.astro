@@ -76,12 +76,12 @@ const schemas = [
 >
   <section>
     <SingleProductHeader
-    title={product?.name}
-    description="Como amante de la tecnología y la limpieza eficiente, he probado varios dispositivos de limpieza automática, pero el Roomba Combo Essential de iRobot ha superado mis expectativas. iRobot es sin duda la marca líder en el sector de los robots limpiadores, con una trayectoria que avala su calidad y eficiencia."
-    img={product?.imagen}
-    price={product?.price}
+    title={product?.name || "Roomba Combo Essential"}
+    img={product?.imagen || ""}
+    caracteristicas={product?.caracteristicas}
     rating={product?.rating || 0}
     reviews={product?.num_reviews || 0}
+    buyLink={product?.urlAfiliado || ""}
   />
   </section>
 <section class="container">

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SingleProductHeader from '../../components/SingleProductHeader.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
 import { schemaProduct, schemaArticle} from '../../datos/seoBase';
 import { products, type Product } from '../../datos/products';
 
@@ -13,6 +14,25 @@ const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente
 const canonicalURL = product?.slug || (SITE_URL.replace(/\/$/, "") + "/cecotec/conga-13090-spin-revolution-home-wash-essential/");
 const pubDatetime = new Date("2025-06-22T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-22T00:00:00+00:00").toISOString();
+
+const faqs = [
+      {
+        question: "¿Cuánto duran las mopas de la Conga 13090 Spin Revolution Home&Wash Essential?",
+        answer: "Las mopas suelen durar entre 3 y 6 meses dependiendo de la frecuencia de uso y el tipo de limpieza. Se recomienda revisarlas periódicamente y reemplazarlas cuando muestren desgaste para mantener un rendimiento óptimo."
+      },
+      {
+        question: "¿Puedo usar detergente en el depósito de agua de la Conga 13090?",
+        answer: "No se recomienda usar detergentes, especialmente los espumosos o corrosivos, ya que pueden dañar el sistema interno del robot. Utiliza solo agua o productos recomendados por el fabricante."
+      },
+      {
+        question: "¿Cómo vincular una Conga 13090 a WiFi?",
+        answer: "1. Descarga la app oficial 'Cecotec' desde Google Play o App Store. 2. Regístrate o inicia sesión. 3. Enciende la Conga 13090 y colócala cerca del router. 4. Pulsa simultáneamente los botones 'Home' y 'Power' hasta que la luz WiFi parpadee. 5. En la app, selecciona 'Añadir dispositivo' y sigue las instrucciones para conectar a una red WiFi de 2,4 GHz. 6. Introduce la contraseña de tu WiFi y espera la confirmación. Si hay problemas, reinicia el robot y el router y repite el proceso. Más info: https://www.youtube.com/watch?v=Bg9wLQB7trY"
+      },
+      {
+        question: "¿Cómo puedo resetear mi Conga 13090 a los valores de fábrica?",
+        answer: "Para resetear la Conga 13090 a valores de fábrica: 1. Asegúrate de que el robot está apagado. 2. Mantén pulsados simultáneamente los botones 'Home' y 'Power' durante unos 10 segundos hasta oír un pitido. 3. El robot se reiniciará y restaurará la configuración original. Nota: Este proceso borra mapas y configuraciones guardadas."
+      }
+];
 
 const schemas = [
   schemaProduct({
@@ -36,46 +56,9 @@ const schemas = [
     image: product?.imagen,
     datePublished: pubDatetime,
     dateModified: modDatetime,
-  }),
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Cuánto duran las mopas de la Conga 13090 Spin Revolution Home&Wash Essential?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Las mopas suelen durar entre 3 y 6 meses dependiendo de la frecuencia de uso y el tipo de limpieza. Se recomienda revisarlas periódicamente y reemplazarlas cuando muestren desgaste para mantener un rendimiento óptimo."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Puedo usar detergente en el depósito de agua de la Conga 13090?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No se recomienda usar detergentes, especialmente los espumosos o corrosivos, ya que pueden dañar el sistema interno del robot. Utiliza solo agua o productos recomendados por el fabricante."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cómo vincular una Conga 13090 a WiFi?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "1. Descarga la app oficial 'Cecotec' desde Google Play o App Store. 2. Regístrate o inicia sesión. 3. Enciende la Conga 13090 y colócala cerca del router. 4. Pulsa simultáneamente los botones 'Home' y 'Power' hasta que la luz WiFi parpadee. 5. En la app, selecciona 'Añadir dispositivo' y sigue las instrucciones para conectar a una red WiFi de 2,4 GHz. 6. Introduce la contraseña de tu WiFi y espera la confirmación. Si hay problemas, reinicia el robot y el router y repite el proceso. Más info: https://www.youtube.com/watch?v=Bg9wLQB7trY"
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cómo puedo resetear mi Conga 13090 a los valores de fábrica?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Para resetear la Conga 13090 a valores de fábrica: 1. Asegúrate de que el robot está apagado. 2. Mantén pulsados simultáneamente los botones 'Home' y 'Power' durante unos 10 segundos hasta oír un pitido. 3. El robot se reiniciará y restaurará la configuración original. Nota: Este proceso borra mapas y configuraciones guardadas."
-        }
-      }
-    ]
-  }
+  })
 ];
+
 ---
 
 <Layout 
@@ -85,114 +68,15 @@ const schemas = [
 >
   <section>
     <SingleProductHeader
-      title={product?.name}
-      img={product?.imagen}
-      price={product?.price}
-      description={description}
-      feactures={product?.caracteristicas}
-      marca="Cecotec"
+      title={product?.name || "Cecotec Conga 13090 Spin Revolution Home&Wash Essential"}
+      img={product?.imagen || ""}
+      caracteristicas={product?.caracteristicas}
       rating={product?.rating || 0}
       reviews={product?.num_reviews || 0}
+      buyLink={product?.urlAfiliado || ""}
     />
   </section>
 
-  <!-- FAQ Accordion en la página de producto -->
-  <div class="faq-section">
-    <h2>Preguntas frecuentes</h2>
-    <div class="accordion">
-      <div class="accordion-item">
-        <button class="accordion-title" onclick="toggleAccordion(event)">¿Cuánto duran las mopas de la Conga 13090 Spin Revolution Home&Wash Essential?</button>
-        <div class="accordion-content">
-          <p>Las mopas suelen durar entre 3 y 6 meses dependiendo de la frecuencia de uso y el tipo de limpieza. Se recomienda revisarlas periódicamente y reemplazarlas cuando muestren desgaste para mantener un rendimiento óptimo.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-title" onclick="toggleAccordion(event)">¿Puedo usar detergente en el depósito de agua de la Conga 13090?</button>
-        <div class="accordion-content">
-          <p>No se recomienda usar detergentes, especialmente los espumosos o corrosivos, ya que pueden dañar el sistema interno del robot. Utiliza solo agua o productos recomendados por el fabricante.</p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-title" onclick="toggleAccordion(event)">¿Cómo vincular una Conga 13090 a WiFi?</button>
-        <div class="accordion-content">
-          <p>1. Descarga la app oficial 'Cecotec' desde Google Play o App Store.<br>2. Regístrate o inicia sesión.<br>3. Enciende la Conga 13090 y colócala cerca del router.<br>4. Pulsa simultáneamente los botones 'Home' y 'Power' hasta que la luz WiFi parpadee.<br>5. En la app, selecciona 'Añadir dispositivo' y sigue las instrucciones para conectar a una red WiFi de 2,4 GHz.<br>6. Introduce la contraseña de tu WiFi y espera la confirmación.<br>Si hay problemas, reinicia el robot y el router y repite el proceso.<br><a href="https://www.youtube.com/watch?v=Bg9wLQB7trY" target="_blank">Ver vídeo oficial</a></p>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <button class="accordion-title" onclick="toggleAccordion(event)">¿Cómo puedo resetear mi Conga 13090 a los valores de fábrica?</button>
-        <div class="accordion-content">
-          <p>Para resetear la Conga 13090 a valores de fábrica:<br>1. Asegúrate de que el robot está apagado.<br>2. Mantén pulsados simultáneamente los botones 'Home' y 'Power' durante unos 10 segundos hasta oír un pitido.<br>3. El robot se reiniciará y restaurará la configuración original.<br><strong>Nota:</strong> Este proceso borra mapas y configuraciones guardadas.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<script is:inline>
-function toggleAccordion(event) {
-  const btn = event.currentTarget;
-  const content = btn.nextElementSibling;
-  btn.classList.toggle('active');
-  if (content.style.maxHeight) {
-    content.style.maxHeight = null;
-  } else {
-    content.style.maxHeight = content.scrollHeight + 'px';
-  }
-}
-</script>
-
-<style>
-.faq-section {
-  margin: 2.5rem auto 1.5rem auto;
-  max-width: 700px;
-  background: #fff;
-  border-radius: 1.2rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  padding: 2rem 1.5rem;
-}
-.faq-section h2 {
-  color: #1e293b;
-  margin-bottom: 1.2rem;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-.accordion {
-  width: 100%;
-}
-.accordion-item {
-  border-bottom: 1px solid #e5e7eb;
-}
-.accordion-title {
-  width: 100%;
-  background: none;
-  border: none;
-  outline: none;
-  text-align: left;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #b8057c;
-  padding: 1rem 0;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-.accordion-title.active,
-.accordion-title:hover {
-  color: #f59e42;
-}
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  background: #fffbe7;
-  padding: 0 0.5rem;
-}
-.accordion-title.active + .accordion-content {
-  padding: 1rem 0.5rem;
-}
-.accordion-content p {
-  margin: 0.5rem 0 1rem 0;
-  color: #475569;
-}
-</style>
 
   <section class="container">
     <h2>¿Por qué elegir la Conga 13090 Spin Revolution Home&Wash Essential?</h2>
@@ -300,49 +184,8 @@ function toggleAccordion(event) {
   </section>
 
   <section class="container">
-    <h2>Características técnicas destacadas</h2>
-    <table class="tabla-features">
-      <tr>
-        <th>Potencia de succión</th>
-        <td>7000 Pa</td>
-      </tr>
-      <tr>
-        <th>Navegación</th>
-        <td>Mapeo y navegación láser de precisión</td>
-      </tr>
-      <tr>
-        <th>Funciones</th>
-        <td>Control de aplicaciones, aspirado, fregado, autovaciado, autolimpieza de mopas</td>
-      </tr>
-      <tr>
-        <th>Autonomía</th>
-        <td>140 minutos (Eco), 110 (Medio), 75 (Turbo)</td>
-      </tr>
-      <tr>
-        <th>Superficies</th>
-        <td>Alfombra, madera dura, azulejos</td>
-      </tr>
-      <tr>
-        <th>Depósitos</th>
-        <td>Polvo: 2L, Agua limpia: 2,8L, Agua sucia: 2,4L</td>
-      </tr>
-      <tr>
-        <th>Conectividad</th>
-        <td>WiFi 2,4/5 GHz, Bluetooth, App móvil</td>
-      </tr>
-      <tr>
-        <th>Peso</th>
-        <td>11,2 kg</td>
-      </tr>
-      <tr>
-        <th>Dimensiones</th>
-        <td>35 x 34 x 11 cm</td>
-      </tr>
-    </table>
-   
-    <p>
-      <a href={product?.urlAfiliado} class="cta">¡Aprovecha la tecnología más avanzada y mantén tu casa impecable cada día!</a>
-    </p>
+    <h2>Preguntas Frecuentes</h2>
+    <FaqAccordion faqs={faqs} />
   </section>
 
   <section class="container">

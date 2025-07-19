@@ -1,9 +1,19 @@
 ---
 import { Image } from "astro:assets";
+import type { productSpecs } from "../datos/products";
+import { undefined } from "astro:schema";
 
-const { title, img, description, slogan="", rating=0, reviews=0 } = Astro.props;
-const amazonUrl = "#"; // Cambia esto por tu enlace real de Amazon
-
+type Props={
+  title: string;
+  img: string;
+  caracteristicas: productSpecs | undefined;
+  slogan?: string;
+  rating?: number;
+  reviews?: number;
+  buyLink: string;
+}
+const { title, img, caracteristicas, rating=0, reviews=0, buyLink } = Astro.props as Props
+const specs = Object.entries(caracteristicas || {});
 // Función para renderizar estrellas
 function renderStars(rating: number) {
   const fullStars = Math.floor(rating);
@@ -19,22 +29,30 @@ function renderStars(rating: number) {
 <div class="product-header">
   <div class="container">
     <div class="header-content">
-    <div class="image-section">
-      <picture>
-        <img transition:name={title} src={img} width={250} height={250} alt={`Imagen de ${title}`} loading="lazy" />
-      </picture>
-    </div>
+      <div class="image-section">
+        <Image transition:name={title} src={img} width={330} height={330} alt={`Imagen de ${title}`} loading="lazy" />
+      </div>
     <div class="info-section">
       <h1>{title}</h1>
-      <p>{description}</p>
       <div class="rating-block">
-        <div class="stars">
+        <span class="rating-number">{rating}</span>
+        <span class="stars">
           {renderStars(rating)}
-          <span class="rating-number">{rating}</span>
-        </div>
-        <span class="reviews">({reviews.toLocaleString()} opiniones)</span>
+        </span>
+          
+        <div class="reviews">({reviews.toLocaleString()} opiniones)</div>
       </div>
-      <a href={amazonUrl} target="_blank" rel="noopener" class="amazon-btn">
+      <ul class="caracteristicas">
+        {
+          specs.map(([key, value]) =>(
+            <li class="capitalize">
+                <strong>{key.replaceAll('_', ' ')}:</strong>{' '}
+                {Array.isArray(value) ? value.join(', ') : value === true ? 'Sí' : value === false ? 'No' : value}
+            </li>
+          ) )
+        }
+      </ul>
+      <a href={buyLink} target="_blank" rel="noopener nofollow noreferrer" class="amazon-btn">
         ver en Amazon
       </a>
     </div>
@@ -63,19 +81,14 @@ function renderStars(rating: number) {
   justify-content: center;
   align-items: center;
 }
-.image-section picture {
-  width: 300px;
-  height: 300px;
-  display: block;
-}
-.image-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.image-section :global(img) {
+  width: 330px;
+  height: 330px;
+  padding: 10px;
   border-radius: 1.5rem;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   background: #fff;
-  display: block;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  object-fit: contain;
 }
 
 .info-section {
@@ -88,6 +101,11 @@ function renderStars(rating: number) {
   padding: 1rem 0.5rem;
   box-shadow: 0 4px 24px rgba(0,0,0,0.07);
 }
+.caracteristicas{
+  list-style: none;
+  padding-left: 0;
+}
+
 .info-section h1 {
   font-weight: 700;
   color: #1e293b;
@@ -98,22 +116,27 @@ function renderStars(rating: number) {
   margin-bottom: 0.5rem;
 }
 .rating-block {
+  width: 300px;
+  overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: .5rem;
   margin-bottom: 0.5rem;
 }
 .stars {
-  display: flex;
-  align-items: center;
+  color: #ff9900;
+  font-size: 1.7rem;
 }
 .rating-number {
   color: #f59e42;
-  margin-left: 0.3rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  padding-top: 4px;
 }
 .reviews {
   color: #64748b;
+}
+.capitalize {
+  text-transform: capitalize;
 }
 .amazon-btn {
   display: inline-flex;
@@ -157,6 +180,7 @@ function renderStars(rating: number) {
 @media (min-width: 916px) {
   .header-content {
     grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
     gap: 2rem;
     padding: 2rem 1rem;
   }
@@ -177,4 +201,3 @@ function renderStars(rating: number) {
   }
 }
 </style>
-

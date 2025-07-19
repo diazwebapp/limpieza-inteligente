@@ -465,5 +465,40 @@ export const products: Product[] = [
     },
     "urlAfiliado": "https://amzn.to/3IuQm7F",
     "slug": withDomain("/cecotec/conga-1090/")
+  },
+  {
+    "name": "Cecotec Conga 1090 Connected",
+    "shortDesc": "Robot aspirador 4 en 1 con app y compatibilidad Alexa/Google Assistant. Barre, aspira, friega y pasa la mopa.",
+    "price": 249,
+    "currency": "EUR",
+    "rating": 4.3,
+    "num_reviews": 2500,
+    "delivery_cost": 0,
+    "imagen": "https://m.media-amazon.com/images/I/617g7fmcigL._AC_SL1000_.jpg",
+    "marca": ["Cecotec Conga"],
+    "caracteristicas": {
+      "modelo": "Conga 1090 Connected",
+      "conectividad_app": true,
+      "control_voz": ["Alexa", "Google Assistant"],
+      "potencia_succion_Pa": 1400,
+      "navegacion": "iTech Smart 2.0 con sensores proximidad, anti-caída y anti-choque",
+      "modos_limpieza": ["barre", "aspira", "friega", "pasa mopa"],
+      "programacion_semanal": "24 h / 7 días vía App Cecotec Home",
+      "cepillos_principales": [
+        "Brush Pro (cerdas + silicona)",
+        "BestFriend Care – cepillo especial mascotas"
+      ],
+      "depositos": [
+        "Depósito polvo 0,5 L",
+        "Depósito mixto Wet&Dry 0,3 L"
+      ],
+      "autonomia_min": 160,
+      "nivel_ruido_dB": 64,
+      "cinta_magnetica": true,
+      "dimensiones_cm": "Ø 32,5 x 7,5",
+      "peso_kg": 2.6
+    },
+    "urlAfiliado": "https://amzn.to/412OUPY",
+    "slug": withDomain("/cecotec/conga-1090-connected/")
   }
 ];

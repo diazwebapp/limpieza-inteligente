@@ -49,7 +49,7 @@ const schemas = [
 <Layout title={title} description={description} schemas={schemas}>
   <main>
     
-    <SingleProductHeader title={product?.name} img={product?.imagen} price={product?.price} description={description} feactures={product?.caracteristicas} marca="Cecotec" rating={product?.rating || 0} reviews={product?.num_reviews || 0} />
+    <SingleProductHeader title={product?.name || "Cecotec Conga 999 Map X Treme"} img={product?.imagen || ""} caracteristicas={product?.caracteristicas} rating={product?.rating || 0} reviews={product?.num_reviews || 0} buyLink={product?.urlAfiliado || ""} />
    
     <section class="container">
       <h2>Introducción: Un Robot Económico pero Sorprendente</h2>

@@ -20,7 +20,7 @@ type Author={
   "image"?:string
   "sameAs"?: string[]
 }
-export type AggregateRating={
+type AggregateRating={
     "@type":"AggregateRating",
     "itemReviewed": { 
       "@type": itemReviewedType,
@@ -33,7 +33,7 @@ export type AggregateRating={
 }
 
 // Definición del tipo para una oferta de producto
-export type ProductOffer = {
+type ProductOffer = {
   '@type': 'Offer';
   priceCurrency: string; // Ej: 'USD', 'VES'
   price: string; // El precio como string para manejar decimales

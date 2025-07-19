@@ -3,8 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 import SingleProductHeader from "../../components/SingleProductHeader.astro";
 import { products, type Product } from "../../datos/products";
 import { schemaWebSite, schemaArticle, schemaProduct } from "../../datos/seoBase.js";
-import AmazonCluster from "../../components/AmazonCluster.astro";
-import StyledOne from "../../components/StyledOne.astro";
 
 const name = "Conga 8490";
 const product: Product | undefined = products.find((p:Product) => p.name.toLowerCase().includes(name.toLowerCase()));
@@ -47,7 +45,7 @@ const schemas = [
 <Layout title={title} description={description} schemas={schemas}>
   <main>
     
-      <SingleProductHeader title={product?.name} img={product?.imagen} price={product?.price} description={description} feactures={product?.caracteristicas} marca="Cecotec" rating={product?.rating || 0} reviews={product?.num_reviews || 0} />
+      <SingleProductHeader title={product?.name || "Cecotec Conga 8490 Ultimate Ultra Power"} img={product?.imagen || ""} caracteristicas={product?.caracteristicas} rating={product?.rating || 0} reviews={product?.num_reviews || 0} buyLink={product?.urlAfiliado || ""} />
       
     <section class="container">
         <h2>Características destacadas</h2>
@@ -90,16 +88,6 @@ const schemas = [
     <section class="container">
       <h2>Opinión y experiencia personal tras varios días de uso</h2>
       <p>Después de dos o tres días de uso, no tengo ninguna queja. El robot deja la casa limpia para el día a día, es fácil de instalar y programar, y espero que dure mucho tiempo. Sin duda, lo recomiendo para quienes buscan un robot aspirador eficiente y asequible.</p>
-    </section>
-
-    <section class="container">
-      <h2>Preguntas frecuentes</h2>
-      <ul>
-        <li><strong>¿Hace mucho ruido?</strong> No, es bastante silencioso.</li>
-        <li><strong>¿Es fácil de instalar?</strong> Sí, la instalación y configuración son muy sencillas.</li>
-        <li><strong>¿Funciona bien en parquet y alfombras?</strong> Sí, deja ambas superficies muy limpias y brillantes.</li>
-        <li><strong>¿Permite programar zonas y horarios?</strong> Sí, desde la app puedes personalizar zonas, horarios y modos de limpieza.</li>
-      </ul>
     </section>
 
   </main>

@@ -52,7 +52,7 @@ const schemas = [
   <main>
    
       
-    <SingleProductHeader title={product?.name} img={product?.imagen} price={product?.price} description={description} rating={product?.rating || 0} reviews={product?.num_reviews || 0} />
+    <SingleProductHeader title={product?.name || "Xiaomi Vacuum S20"} img={product?.imagen || ""} rating={product?.rating || 0} reviews={product?.num_reviews || 0} buyLink={product?.urlAfiliado || ""} caracteristicas={product?.caracteristicas} />
       <section class="container">
        
         <h2>Acerca de este producto</h2>

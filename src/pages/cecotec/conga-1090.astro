@@ -1,0 +1,138 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import SingleProductHeader from "../../components/SingleProductHeader.astro";
+import { products, type Product } from "../../datos/products";
+import type { ProductInCollection } from "../../utils/typesSchemas";
+import { withDomain } from "../../datos/database";
+const conga_1090 = products.find((p:Product) => p.slug && p.slug.includes("conga-1090"));
+
+const title = conga_1090?.name || "Cecotec Conga 1090";
+const description = "Descubre el Cecotec Conga 1090: robot aspirador y friegasuelos con navegación láser"
+const canonical = conga_1090?.slug || "" ;
+
+const schemaProduct: ProductInCollection = {
+  "@type": "Product",
+  name: title,
+  description,
+  image: conga_1090?.imagen || "",
+  url: canonical,
+  brand: {
+    "@type": "Brand",
+    name: "Cecotec",
+  },
+  offers: {
+    "@type": "Offer",
+    price: conga_1090?.price.toString() || "0",
+    priceCurrency: "EUR",
+    availability: "https://schema.org/InStock",
+  },
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: conga_1090?.rating.toString() || "0",
+    reviewCount: conga_1090?.num_reviews.toString() || "0",
+  },
+}
+
+const schemas = [schemaProduct]
+
+---
+
+<Layout title={title} description={description} schemas={schemas} >
+   <main>
+    <article class="container prose">
+      <header>
+        <SingleProductHeader title={title} img={conga_1090?.imagen || ""} caracteristicas={conga_1090?.caracteristicas} rating={conga_1090?.rating || 0} reviews={conga_1090?.num_reviews || 0} buyLink={conga_1090?.urlAfiliado || ""} />
+      </header>
+      <section class="container">
+        <h2>Comparativa con su version Connected</h2>
+        <div class="table-responsive">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Característica</th>
+                      <th>Conga 1090</th>
+                      <th>Conga 1090 Connected</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><strong>Control</strong></td>
+                      <td>Mando a distancia</td>
+                      <td>App y Asistentes de Voz</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Conectividad App</strong></td>
+                      <td>No</td>
+                      <td>Sí (WiFi)</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Control por Voz</strong></td>
+                      <td>No</td>
+                      <td>Alexa y Google Assistant</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Delimitación</strong></td>
+                      <td>No incluye</td>
+                      <td>Cinta Magnética (Magnetic Stripe)</td>
+                  </tr>
+                  <tr>
+                      <td><strong>Navegación</strong></td>
+                      <td>iTech Space 2.0 (aleatoria)</td>
+                      <td>iTech Smart 2.0 (ordenada)</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+      </section>
+      <section class="container">
+        <h2>Análisis del Conga 1090: El Todoterreno Asequible</h2>
+        <p>El <strong>Cecotec Conga 1090</strong> es uno de los modelos que cimentó la popularidad de la marca en el sector de la limpieza del hogar. Se presenta como una solución <strong>4 en 1</strong> robusta y fiable, diseñada para quienes buscan eficacia y versatilidad sin la necesidad de conectividad avanzada. Es el robot ideal para aquellos que prefieren un control directo y sencillo a través de su mando a distancia.</p>
+      </section>
+
+      <section class="container">
+        <h3>Rendimiento de Limpieza 4 en 1</h3>
+        <p>La gran baza del Conga 1090 es su capacidad para realizar cuatro tareas de forma simultánea o independiente: <strong>barre, aspira, pasa la mopa y friega</strong>. Con una potencia de succión de <strong>1400 Pa</strong>, es más que capaz de lidiar con la suciedad diaria como polvo, pelos y migas en suelos duros y alfombras de pelo corto.</p>
+        <p>Un punto clave es la inclusión del cepillo de silicona <strong>BestFriend Care</strong>, especialmente diseñado para los dueños de mascotas, ya que evita los enredos de pelos. Su sistema de fregado <strong>iWater</strong> permite regular el caudal de agua en tres niveles, asegurando un fregado adaptado a cada tipo de suelo sin dejar encharcamientos.</p>
+      </section>
+
+      <section class="container">
+        <h3>Navegación y Control: Sencillez y Eficacia</h3>
+        <p>Este modelo utiliza la tecnología de navegación <strong>iTech Space 2.0</strong>. A diferencia de los modelos con mapeo láser, su navegación es aleatoria pero inteligente, ya que se apoya en un conjunto de <strong>sensores de proximidad, antichoque y anticaída</strong> para moverse por el hogar, evitando obstáculos y desniveles. Aunque puede repasar algunas zonas, está diseñado para cubrir la mayor parte de la superficie de manera metódica.</p>
+        <p>El control se realiza íntegramente a través de su <strong>mando a distancia</strong>, desde el cual se puede:
+          <ul>
+            <li>Iniciar, pausar o detener la limpieza.</li>
+            <li>Seleccionar entre sus 6 modos de limpieza.</li>
+            <li>Programar la limpieza para una hora específica, los 7 días de la semana.</li>
+            <li>Mandar el robot de vuelta a su base de carga.</li>
+          </ul>
+        </p>
+      </section>
+
+      <section class="container">
+        <h3>Pros y Contras del Conga 1090</h3>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pros</th>
+                        <th>Contras</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Excelente relación calidad-precio.<br />Funcionalidad 4 en 1 muy completa.<br />Incluye cepillo especial para mascotas.<br />Buena autonomía (hasta 160 min).<br />Control y programación sencillos con el mando.</td>
+                        <td>No tiene conectividad WiFi ni App.<br />Navegación aleatoria, menos eficiente que el mapeo láser.<br />No permite crear barreras virtuales (requiere barreras físicas).<br />Sin control por voz.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      </section>
+
+      <section class="container">
+        <h3>Veredicto: ¿Es el Conga 1090 para ti?</h3>
+        <p>El <strong>Cecotec Conga 1090</strong> es la elección perfecta para usuarios que buscan un robot de limpieza potente y versátil sin complicaciones tecnológicas. Si no te importa no tener control desde el móvil y prefieres un dispositivo "enchufar y listo" que cumpla con su trabajo de forma eficaz, este modelo ofrece uno de los mejores rendimientos en su gama de precio.</p>
+        <p>Es especialmente recomendable para pisos de tamaño pequeño o mediano y para quienes se inician en el mundo de los robots aspiradores y quieren una solución probada y fiable.</p>
+      </section>
+    </article>
+   </main>
+</Layout>

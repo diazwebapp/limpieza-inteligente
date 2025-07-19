@@ -2,7 +2,15 @@
 import { ClientRouter } from "astro:transitions";
 import Nav from "../components/Nav.astro";
 
-const { title, description, schemas = [], googleSiteVerification, lang="es" } = Astro.props;
+type Props ={
+  title: string;
+  description: string;
+  schemas?: any[];
+  googleSiteVerification?: string;
+  lang?: string;
+}
+
+const { title, description, schemas = [], googleSiteVerification, lang="es" } = Astro.props as Props;
 ---
 
 <!DOCTYPE html>
@@ -137,10 +145,10 @@ table th, table td{
 table strong{
   color:var(--light)
 }
-table thead{
+table thead, table thead tr{
   background-color: #111;
 }
-table tr{
+table tbody tr{
   background-color: var(--primary);
 }
 table thead th{

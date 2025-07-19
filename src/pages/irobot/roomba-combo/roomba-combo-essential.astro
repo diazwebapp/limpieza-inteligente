@@ -2,86 +2,70 @@
 import Layout from '../../../layouts/Layout.astro';
 import SingleProductHeader from '../../../components/SingleProductHeader.astro';
 import { schemaArticle , schemaProduct, schemaWebSite, schemaFAQ } from '../../../datos/seoBase';
-import { amazonProduts, productImages } from '../../../datos/database';
+import { products, type Product } from '../../../datos/products';
 import TableComparativa from '../../../components/TableComparativa.astro';
+import FaqAccordion from '../../../components/FaqAccordion.astro';
 
-
-const product = amazonProduts.find(p => p.id === 7);
-const images = productImages.filter(image => product?.imageIds.includes(image.id));
-
-
+const name = "Roomba Combo Essential";
+const product: Product | undefined = products.find((p:Product) => p.name.toLowerCase().includes(name.toLowerCase()));
 
 const title = "Roomba Combo Essential";
 const description = "Descubre el iRobot Roomba Combo Essential: navegación inteligente, potencia de succión de 2000 Pa, y limpieza eficiente para suelos duros y alfombras.";
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
-const canonicalURL = SITE_URL.replace(/\/$/, "") + "/irobot/roomba-combo/roomba-combo-essential/";
+const canonicalURL = product?.slug || (SITE_URL.replace(/\/$/, "") + "/irobot/roomba-combo/roomba-combo-essential/");
 const pubDatetime = new Date("2025-06-20T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-20T00:00:00+00:00").toISOString();
+
+const faqs = [
+  {
+    question: "¿Necesito estar en casa para que funcione?",
+    answer: "No, el Roomba Combo Essential puede trabajar de forma autónoma. Puedes programarlo o activarlo remotamente mediante la app."
+  },
+  {
+    question: "¿Funciona en alfombras?",
+    answer: "Sí, tiene sensores que detectan el tipo de superficie y ajusta la potencia automáticamente. En alfombras aumenta la succión."
+  },
+  {
+    question: "¿Cómo se limpia el depósito?",
+    answer: "El depósito de polvo es extraíble y fácil de vaciar. El filtro se puede limpiar con agua (dejándolo secar completamente antes de volver a colocar)."
+  },
+  {
+    question: "¿Puedo elegir qué habitaciones limpiar?",
+    answer: "Este modelo no tiene mapeo avanzado, pero puedes cerrar puertas o usar barreras virtuales (vendidas por separado) para delimitar zonas."
+  }
+];
 
 const schemas = [
   schemaWebSite(),
   schemaProduct({
-    name: product?.title,
+    name: product?.name,
+    image: product?.imagen,
     description: "Navegación inteligente, potencia de succión de 2000 Pa, y limpieza eficiente para suelos duros y alfombras.",
-    brand: "iRobot",
-    model: product?.modelo,
+    brand: { "@type": "Brand", name: "iRobot" },
+    model: product?.caracteristicas?.modelo,
     releaseDate: "2024",
     offers: {
        "@type": "AggregateOffer",
       "offerCount": 5,
-      "lowPrice": product?.precio,
-      "highPrice": product?.precio,
+      "lowPrice": product?.price,
+      "highPrice": product?.price,
       "url":product?.urlAfiliado,
       priceCurrency: "EUR",  
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: product?.stars,
-      reviewCount: product?.ratingCount
+      ratingValue: product?.rating,
+      reviewCount: product?.num_reviews
     }
   }),
   schemaArticle({
     headline: title,
     description: description,
-    image: images.map(img => img["250x250"]),
+    image: product?.imagen,
     url: canonicalURL,
     datePublished: pubDatetime,
     dateModified: modDatetime,
-  }),
-  schemaFAQ({mainEntity:[
-    {
-      "@type": "Question",
-      name: "¿Necesito estar en casa para que funcione?",
-      "acceptedAnswer": {
-          "@type": "Answer",
-            text: "No, el Roomba Combo Essential puede trabajar de forma autónoma. Puedes programarlo o activarlo remotamente mediante la app."
-      }
-    },
-    {
-      "@type": "Question",
-      name: "¿Funciona en alfombras?",
-      "acceptedAnswer": {
-          "@type": "Answer",
-          text: "Sí, tiene sensores que detectan el tipo de superficie y ajusta la potencia automáticamente. En alfombras aumenta la succión."
-      }
-    },
-    {
-       "@type": "Question",
-      name: "¿Cómo se limpia el depósito?",
-      "acceptedAnswer": {
-          "@type": "Answer",
-          text: "El depósito de polvo es extraíble y fácil de vaciar. El filtro se puede limpiar con agua (dejándolo secar completamente antes de volver a colocar)."
-      }
-    },
-    {
-       "@type": "Question",
-      name: "¿Puedo elegir qué habitaciones limpiar?",
-      "acceptedAnswer": {
-          "@type": "Answer",
-          text: "Este modelo no tiene mapeo avanzado, pero puedes cerrar puertas o usar barreras virtuales (vendidas por separado) para delimitar zonas."
-      }
-    }
-  ]})
+  })
 ];
 ---
 
@@ -92,12 +76,12 @@ const schemas = [
 >
   <section>
     <SingleProductHeader
-    title={product?.title}
+    title={product?.name}
     description="Como amante de la tecnología y la limpieza eficiente, he probado varios dispositivos de limpieza automática, pero el Roomba Combo Essential de iRobot ha superado mis expectativas. iRobot es sin duda la marca líder en el sector de los robots limpiadores, con una trayectoria que avala su calidad y eficiencia."
-    img={images}
-    price={product?.precio}
-    rating={product?.stars || 0}
-    reviews={product?.ratingCount || 0}
+    img={product?.imagen}
+    price={product?.price}
+    rating={product?.rating || 0}
+    reviews={product?.num_reviews || 0}
   />
   </section>
 <section class="container">
@@ -146,43 +130,41 @@ const schemas = [
 </section>
 
 <section class="container">
-  <h2>Compara el Robot Roomba Combo Essential con artículos similares</h2>
-  <TableComparativa
-    limit={5}
-    amazonProduts={amazonProduts} idProductoDestacado={7}/>
-</section>
-
-
-<section class="container">
   <h2>Pros y Contras Robot Roomba Combo Essential</h2>
-  <div style="min-width:300px; overflow:auto;">
-    <table style="min-width:550px;width:100%; border-collapse: collapse; margin: 20px 0;">
-      <tr>
-        <th style="background-color: #90EE90; padding: 12px; text-align: left; border: 1px solid #ddd;">Pros</th>
-        <th style="background-color: #FFB6C1; padding: 12px; text-align: left; border: 1px solid #ddd;">Contras</th>
-      </tr>
-      <tr>
-        <td style="padding: 8px; border: 1px solid #ddd; vertical-align: top;">
-          <dl style="margin: 0;">
-            <dt style="margin-bottom: 8px;">Excelente relación calidad-precio</dt>
-            <dt style="margin-bottom: 8px;">Funciona bien en alfombras y suelos duros</dt>
-            <dt style="margin-bottom: 8px;">Tres niveles de succión ajustables</dt>
-            <dt style="margin-bottom: 8px;">Batería de larga duración</dt>
-            <dt style="margin-bottom: 8px;">Fácil de limpiar y mantener</dt>
-            <dt style="margin-bottom: 8px;">Funciona en la oscuridad</dt>
-          </dl>
-        </td>
-        <td style="padding: 8px; border: 1px solid #ddd; vertical-align: top;">
-          <dl style="margin: 0;">
-            <dt style="margin-bottom: 8px;">Patrón de limpieza puede ser irregular al principio</dt>
-            <dt style="margin-bottom: 8px;">La app a veces tiene problemas de conexión</dt>
-            <dt style="margin-bottom: 8px;">No crea mapas detallados como modelos más avanzados</dt>
-            <dt style="margin-bottom: 8px;">La bayeta necesita ser humedecida manualmente</dt>
-          </dl>
-        </td>
-          </dl>
-        </td>
-      </tr>
+  <div class="table-responsive">
+    <table>
+      <thead>
+        <tr>
+          <th style="background-color: #288928; padding: 12px; text-align: left;">Pros</th>
+          <th style="background-color: #ab2b3e; padding: 12px; text-align: left;">Contras</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Excelente relación calidad-precio</td>
+          <td>Patrón de limpieza puede ser irregular al principio</td>
+        </tr>
+        <tr>
+          <td>Funciona bien en alfombras y suelos duros</td>
+          <td>La app a veces tiene problemas de conexión</td>
+        </tr>
+        <tr>
+          <td>Tres niveles de succión ajustables</td>
+          <td>No crea mapas detallados como modelos más avanzados</td>
+        </tr>
+        <tr>
+          <td>Batería de larga duración</td>
+          <td>La bayeta necesita ser humedecida manualmente</td>
+        </tr>
+        <tr>
+          <td>Fácil de limpiar y mantener</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Funciona en la oscuridad</td>
+          <td></td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </section>
@@ -250,71 +232,7 @@ const schemas = [
 
 <section class="container">
   <h2>Preguntas frecuentes</h2>
-
-  <style>
-.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
-  margin-top: 10px;
-}
-
-.active, .accordion:hover {
-  background-color: #ccc;
-}
-
-.panel {
-  padding: 0 18px;
-  background-color: white;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.2s ease-out;
-}
-</style>
-
-<button class="accordion">¿Necesito estar en casa para que funcione?</button>
-<div class="panel">
-  <p>No, el Roomba Combo Essential puede trabajar de forma autónoma. Puedes programarlo o activarlo remotamente mediante la app.</p>
-</div>
-
-<button class="accordion">¿Funciona en alfombras?</button>
-<div class="panel">
-  <p>Sí, tiene sensores que detectan el tipo de superficie y ajusta la potencia automáticamente. En alfombras aumenta la succión.</p>
-</div>
-
-<button class="accordion">¿Cómo se limpia el depósito?</button>
-<div class="panel">
-  <p>El depósito de polvo es extraíble y fácil de vaciar. El filtro se puede limpiar con agua (dejándolo secar completamente antes de volver a colocar).</p>
-</div>
-
-<button class="accordion">¿Puedo elegir qué habitaciones limpiar?</button>
-<div class="panel">
-  <p>Este modelo no tiene mapeo avanzado, pero puedes cerrar puertas o usar barreras virtuales (vendidas por separado) para delimitar zonas.</p>
-</div>
-
-<script>
-var acc = document.getElementsByClassName("accordion");
-var i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    } 
-  });
-}
-</script>
+  <FaqAccordion faqs={faqs} />
 </section>
 
 <section class="container">

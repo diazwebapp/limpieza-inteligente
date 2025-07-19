@@ -1,9 +1,9 @@
 ---
-// @ts-nocheck
+
 import Layout from "../layouts/Layout.astro";
-import AmazonCluster from "../components/AmazonCluster.astro";
-import { amazonProduts } from "../datos/database";
 import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
+import { products } from "../datos/products";
+import AmazonClusterPro from "../components/AmazonClusterPro.astro";
 
 const title = "¿Cuál es el Mejor Robot Aspirador para Suelo Laminado?";
 const description = "Descubre cómo elegir el mejor robot aspirador para tarima laminada: evita rayaduras, conoce las mejores marcas y compra seguro.";
@@ -60,7 +60,7 @@ const schemas = [
         <li><strong>Batería de larga duración:</strong> Para cubrir grandes áreas sin recargas.</li>
         <li><strong>App con zonas prohibidas:</strong> Delimita áreas sensibles (ej. alfombras).</li>
       </ol>
-      <AmazonCluster products={amazonProduts} />
+      <AmazonClusterPro products={products} />
     </section>
 
     <section class="container">

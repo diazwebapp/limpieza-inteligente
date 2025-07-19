@@ -1,9 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import CategoryHeader from '../../components/CategoryHeader.astro';
 import { schemaWebSite, schemaArticle } from '../../datos/seoBase';
 import { withDomain } from '../../datos/database';
 import FaqAccordion from '../../components/FaqAccordion.astro';
+import { products } from "../../datos/products";
+import StoreCluster from "../../components/StoreCluster.astro";
+
+const roomba = products.filter((product) => product.marca.some((marca:string) => marca.toLowerCase() === "roomba combo" || marca.toLowerCase() === "roomba"));
 
 const title = "iRobot - Limpieza Inteligente";
 const description = "Descubre la gama iRobot: aspiradores y fregasuelos robotizados para una limpieza autónoma, eficiente y profunda.";

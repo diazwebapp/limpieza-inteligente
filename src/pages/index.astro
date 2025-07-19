@@ -1,12 +1,13 @@
 ---
 import CategoryHeader from '../components/CategoryHeader.astro';
 import CategoryCluester from '../components/CategoryCluester.astro';
-import { marcas, amazonProduts, withDomain } from '../datos/database';
+import { marcas, withDomain } from '../datos/database';
 import Layout from '../layouts/Layout.astro';
 import { schemaArticle, schemaWebSite } from '../datos/seoBase';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import StoreCluster from '../components/StoreCluster.astro';
 import TableComparativa from '../components/TableComparativa.astro';
+import { products } from '../datos/products';
 
 const canonicalURL = "https://limpiezainteligente.store/";
 const title = "🥇 robot aspirador y fregasuelos: Guía 2025"
@@ -113,7 +114,7 @@ const faqs = [
 <section class="container">
     <h2>Estas son las marcas destacadas de robots apsiradores y friegasuelos</h2>
     
-    <CategoryCluester cats={marcas} amazonProduts={amazonProduts}/>
+    <CategoryCluester cats={marcas} amazonProduts={products}/>
     
 </section>
 
@@ -137,7 +138,7 @@ const faqs = [
 <section class="container">
     <h2>Robots aspiradores y fregasuelos con ofertas que no te querrás perder</h2>
     <p>¿A la caza de una ganga? ¡Estás en el sitio justo! En esta sección te traemos una selección especial de robots aspiradores y fregasuelos que, además de ser una auténtica joya para la limpieza de tu hogar, ¡ahora están de oferta! Es la oportunidad perfecta para hacerte con ese ayudante inteligente que tanto deseas sin que tu bolsillo se resienta.</p>
-    <StoreCluster amazonProduts={amazonProduts}  />
+    <StoreCluster products={products}  />
 </section>
 <section class="container home-types-section">
     <h2>¿Tu casa, su mejor amigo? Cómo elegir el robot perfecto para cada tipo de hogar</h2>
@@ -185,7 +186,7 @@ const faqs = [
 <section class="container">
     <h2>Comparativa de robots aspiradores y fregasuelos: ¿cuál es el tuyo?</h2>
     <p>Con tantos modelos en el mercado, elegir el robot aspirador y fregasuelos perfecto puede ser un auténtico quebradero de cabeza. ¡Pero tranquilo! Hemos preparado una tabla comparativa para que veas de un vistazo las características clave de los modelos más top, así te será mucho más fácil decidir cuál se ajusta mejor a lo que necesitas y a tu presupuesto. ¡A comparar se ha dicho!</p>
-    <TableComparativa amazonProduts={amazonProduts} limit={5} />
+    <TableComparativa amazonProduts={products} limit={5} />
 </section>
     <section class="container">
       <FaqAccordion faqs={faqs} />

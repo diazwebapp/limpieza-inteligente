@@ -1,12 +1,13 @@
 ---
 import CategoryHeader from '../components/CategoryHeader.astro';
 import CategoryCluester from '../components/CategoryCluester.astro';
-import { marcas, amazonProduts, withDomain } from '../datos/database';
+import { marcas, withDomain } from '../datos/database';
 import Layout from '../layouts/Layout.astro';
 import { schemaArticle, schemaWebSite } from '../datos/seoBase';
 import StyledOne from '../components/StyledOne.astro';
 import TableComparativa from '../components/TableComparativa.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
+import { products } from '../datos/products';
 
 const canonicalURL = "https://limpiezainteligente.store/vaske-og-stovsugerroboter/";
 const title = "TOPP 9 🥇 Beste robotstøvsuger og gulvvasker: Guide 2025"
@@ -118,7 +119,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
     </p>
 
     <h2>Marcas destacadas</h2>
-    <CategoryCluester cats={marcas} amazonProduts={amazonProduts}/>
+    <CategoryCluester cats={marcas} amazonProduts={products}/>
 </section>
 
 <section class="container">
@@ -139,7 +140,7 @@ const anclaConga8490 = withDomain("/cecotec/conga-8490-ultimate-ultra-power/")
 
 <section class="container">
 <h2>De 5 mest anbefalte robotstøvsugere og gulvvaskere.</h2>
-  <TableComparativa amazonProduts={amazonProduts}/>
+  <TableComparativa amazonProduts={products}/>
 </section>
 
 

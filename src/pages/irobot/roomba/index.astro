@@ -1,15 +1,11 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import CategoryHeader from "../../../components/CategoryHeader.astro";
-import { schemaWebSite, schemaArticle } from '../../../datos/seoBase';
 import StoreCluster from "../../../components/StoreCluster.astro";
-import { amazonProduts } from "../../../datos/database";
-const roombaModelsVac = amazonProduts.filter(
-  item => item.marca === 4 && /roomba vac/i.test(item.modelo)
-);
-const roombaModelsJ = amazonProduts.filter(
-  item => item.marca === 4 && /roomba j/i.test(item.modelo)
-);
+import { products } from "../../../datos/products";
+const roomba = products.filter((product) => product.marca.some((marca:string) => marca.toLowerCase() === "roomba"));
+const roombaJ = roomba.filter((p) => p.name.toLowerCase().includes("roomba j"));
+const roombaV = roomba.filter((p) => p.name.toLowerCase().includes("roomba vac"))
 
 const title = "Roomba robot aspirador | Limpieza Definitiva";
 const description = "Descubre el Roomba robot aspirador ideal para tu hogar. La tecnología y ¡Máxima eficiencia y limpieza sin esfuerzo!";
@@ -33,13 +29,13 @@ const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
     <section class="container">
       <h2>Aspirador Roomba j / j+</h2>
       <p>Modelos disponibles robot aspiradora roomba de la serie j y j plus</p>
-      <StoreCluster products={roombaModelsJ} />
+      <StoreCluster products={roombaJ} />
     </section>
 
     <section class="container">
       <h2>Modelos de aspiradoras roomba Vac</h2>
       <p>Los más destacados en aspiradora robot roomba disponibles en el mercado</p>
-      <StoreCluster products={roombaModelsVac} />
+      <StoreCluster products={roombaV} />
     </section>
 
     <section class="container">

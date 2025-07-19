@@ -1,40 +1,40 @@
 import { withDomain } from "./database";
 
 export type Product = {
-    name: string;
-    shortDesc:string
-    price: number;
-    currency: "EUR" | "USD";
-    rating: number;
-    num_reviews: number;
-    delivery_cost?: number;
-    imagen: string;
-    marca: ("Xiaomi" | "cecotec conga" | "Irobot Roomba" | "Irobot Braava" | "Irobot Roomba Combo")[];
-    caracteristicas?:productSpecs
-    urlAfiliado: string;
-    slug?: string;
+  name: string;
+  shortDesc: string
+  price: number;
+  currency: "EUR" | "USD";
+  rating: number;
+  num_reviews: number;
+  delivery_cost?: number;
+  imagen: string;
+  marca: ("Xiaomi" | "Cecotec Conga" | "Irobot" | "Roomba" | "Braava" | "Roomba Combo")[];
+  caracteristicas?: productSpecs
+  urlAfiliado: string;
+  slug?: string;
 };
 export type productSpecs = {
-    modelo: string;
-    conectividad_app: boolean;
-    control_voz: false | string[];
-    potencia_succion_Pa: number;
-    navegacion: string;
-    modos_limpieza: (
-      | "barre"
-      | "aspira"
-      | "friega"
-      | "pasa mopa"
-    )[];
-    programacion_semanal: string;
-    cepillos_principales: string[];
-    depositos: string[];
-    autonomia_min: number;
-    nivel_ruido_dB?: number;
-    cinta_magnetica: boolean;
-    dimensiones_cm: string;
-    peso_kg: number;
-  };
+  modelo: string;
+  conectividad_app: boolean;
+  control_voz: false | string[];
+  potencia_succion_Pa: number;
+  navegacion: string;
+  modos_limpieza: (
+    | "barre"
+    | "aspira"
+    | "friega"
+    | "pasa mopa"
+  )[];
+  programacion_semanal: string;
+  cepillos_principales: string[];
+  depositos: string[];
+  autonomia_min: number;
+  nivel_ruido_dB?: number;
+  cinta_magnetica?: boolean;
+  dimensiones_cm?: string;
+  peso_kg?: number;
+};
 export const products: Product[] = [
   {
     name: "Xiaomi Robot Vacuum S20",
@@ -65,7 +65,7 @@ export const products: Product[] = [
   },
   {
     name: "Xiaomi Robot Vacuum S20 EU Black",
-    shortDesc:"",
+    shortDesc: "",
     price: 153.0,
     currency: "EUR",
     rating: 4.3,
@@ -234,7 +234,7 @@ export const products: Product[] = [
     rating: 3.9,
     num_reviews: 950,
     imagen: "https://m.media-amazon.com/images/I/81A+D-OxDiL._AC_SL1500_.jpg",
-    marca: ["cecotec conga"],
+    marca: ["Cecotec Conga"],
     urlAfiliado: "https://amzn.to/3ZxvsKN",
     slug: withDomain("/cecotec/conga-8490-ultimate-ultra-power/"),
     caracteristicas: {
@@ -261,7 +261,7 @@ export const products: Product[] = [
     rating: 3.9,
     num_reviews: 2920,
     imagen: "https://m.media-amazon.com/images/I/91aX9IcU1aL._AC_SL1500_.jpg",
-    marca: ["cecotec conga"],
+    marca: ["Cecotec Conga"],
     urlAfiliado: "https://amzn.to/460vsXs",
     slug: withDomain("/cecotec/conga-999-map-x-treme/"),
     caracteristicas: {
@@ -288,7 +288,7 @@ export const products: Product[] = [
     rating: 3.9,
     num_reviews: 11697,
     imagen: "https://m.media-amazon.com/images/I/713AuD2N13L._AC_SL1500_.jpg",
-    marca: ["Irobot Roomba Combo"],
+    marca: ["Irobot","Roomba Combo"],
     urlAfiliado: "https://amzn.to/4ejQJ0E",
     slug: withDomain("/irobot/roomba-combo/roomba-combo-essential/"),
     caracteristicas: {
@@ -315,7 +315,7 @@ export const products: Product[] = [
     rating: 3.9,
     num_reviews: 96,
     imagen: "https://m.media-amazon.com/images/I/813EzCgPieL._AC_SL1500_.jpg",
-    marca: ["cecotec conga"],
+    marca: ["Cecotec Conga"],
     urlAfiliado: "https://amzn.to/45BmPm6",
     slug: withDomain("/cecotec/conga-13090-spin-revolution-home-wash-essential/"),
     caracteristicas: {
@@ -342,7 +342,7 @@ export const products: Product[] = [
     rating: 3.4,
     num_reviews: 70,
     imagen: "https://m.media-amazon.com/images/I/71OiKl7u+UL._UF894,1000_QL80_.jpg",
-    marca: ["Irobot Roomba"],
+    marca: ["Irobot" ,"Roomba"],
     urlAfiliado: "https://amzn.to/44gLvPU",
     caracteristicas: {
       modelo: "Roomba j7",
@@ -368,7 +368,7 @@ export const products: Product[] = [
     rating: 3.2,
     num_reviews: 141,
     imagen: "https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwb78d8e16/images/large/combo/c755840_1_new.jpg",
-    marca: ["Irobot Roomba"],
+    marca: ["Irobot","Roomba"],
     urlAfiliado: "https://amzn.to/44gLvPU",
     caracteristicas: {
       modelo: "Roomba j7+",
@@ -394,7 +394,7 @@ export const products: Product[] = [
     rating: 4,
     num_reviews: 365,
     imagen: "https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwc0309979/images/large/combo/Y351040_1.jpg",
-    marca: ["Irobot Roomba"],
+    marca: ["Irobot","Roomba"],
     urlAfiliado: "https://amzn.to/4ky1Rsk",
     caracteristicas: {
       modelo: "Roomba Vac 105",
@@ -420,7 +420,7 @@ export const products: Product[] = [
     rating: 3.8,
     num_reviews: 198,
     imagen: "https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dwaacd777b/EMEA/Content%20Assets/Roomba_Plus_505_Combo_AutoWash_Black_Photo_InSitu_Dock_3000x3000.jpg?sw=1000",
-    marca: ["Irobot Roomba"],
+    marca: ["Irobot","Roomba"],
     urlAfiliado: "https://amzn.to/3Igq5JX",
     caracteristicas: {
       modelo: "roomba vac 505",
@@ -438,4 +438,32 @@ export const products: Product[] = [
       peso_kg: 3,
     },
   },
+  {
+    name: "Cecotec Conga 1090",
+    "shortDesc": "Robot aspirador 4 en 1 sin conectividad app: barre, aspira, friega y pasa la mopa.",
+    "price": 199,
+    "currency": "EUR",
+    "rating": 4.3,
+    "num_reviews": 1800,
+    "delivery_cost": 75.2,
+    "imagen": "https://m.media-amazon.com/images/I/61zT0NpeeOL._AC_SL1000_.jpg",
+    "marca": ["Cecotec Conga"],
+    caracteristicas: {
+      modelo: "Conga 1090 (versión estándar)",
+      conectividad_app: false,
+      control_voz: false,
+      potencia_succion_Pa: 1400,
+      navegacion: "iTech Space 2.0 (aleatoria con sensores)",
+      modos_limpieza: ["barre", "aspira", "friega", "pasa mopa"],
+      programacion_semanal: "24 h / 7 días vía mando a distancia (no app)",
+      cepillos_principales: [
+        "Cepillo Pro (cerdas + silicona)",
+        "Cepillo BestFriend Care (para mascotas)"
+      ],
+      "depositos": ["Depósito mixto 0,5 L sólidos", "Depósito agua 0,3 L"],
+      "autonomia_min": 160,
+    },
+    "urlAfiliado": "https://amzn.to/3IuQm7F",
+    "slug": withDomain("/cecotec/conga-1090/")
+  }
 ];

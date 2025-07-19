@@ -1,15 +1,15 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import SingleProductHeader from "../../components/SingleProductHeader.astro";
-import { amazonProduts, productImages } from "../../datos/database.js";
+import { products, type Product } from "../../datos/products";
 import { schemaWebSite, schemaProduct, schemaArticle } from "../../datos/seoBase.js";
 
-const product = amazonProduts.find(p => p.id === 6);
-const images = productImages.filter(image => product?.imageIds.includes(image.id));
+const name = "Conga 999";
+const product: Product | undefined = products.find((p:Product) => p.name.toLowerCase().includes(name.toLowerCase()));
 const title = "Conga 999 Map X Treme: Reseña Real de un Usuario (¿Vale la Pena?)";
 const description = "Opinión y experiencia real con el robot aspirador Conga 999 Map X-Treme. Pros, contras y para quién es ideal.";
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
-const canonicalURL = SITE_URL.replace(/\/$/, "") + "/cecotec/conga-999-map-x-treme/";
+const canonicalURL = product?.slug || (SITE_URL.replace(/\/$/, "") + "/cecotec/conga-999-map-x-treme/");
 const datePublished = "2025-06-16T00:00:00+00:00";
 const dateModified = "2025-06-20T00:00:00+00:00";
 
@@ -17,29 +17,29 @@ const dateModified = "2025-06-20T00:00:00+00:00";
 const schemas = [
   schemaWebSite(),
   schemaProduct({
-    name: product?.title,
-    image: images.map(img => img["250x250"]),
+    name: product?.name,
+    image: product?.imagen,
     description,
     brand: { "@type": "Brand", name: "Cecotec" },
     url: canonicalURL,
     offers: {
       "@type": "AggregateOffer",
       "offerCount": 5,
-      "lowPrice": product?.precio,
-      "highPrice": product?.precio,
+      "lowPrice": product?.price,
+      "highPrice": product?.price,
       "url":product?.urlAfiliado,
       priceCurrency: "EUR",     
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: product?.stars,
-      reviewCount: product?.ratingCount
+      ratingValue: product?.rating,
+      reviewCount: product?.num_reviews
     }
   }),
   schemaArticle({
     headline: title,
     description: description,
-    image: images.map(img => img["250x250"]),
+    image: product?.imagen,
     url: canonicalURL,
     datePublished,
     dateModified
@@ -49,7 +49,7 @@ const schemas = [
 <Layout title={title} description={description} schemas={schemas}>
   <main>
     
-    <SingleProductHeader title={product?.title} img={images} price={product?.precio} description={description} feactures={product?.feactures} marca="Cecotec" rating={product?.stars || 0} reviews={product?.ratingCount || 0} />
+    <SingleProductHeader title={product?.name} img={product?.imagen} price={product?.price} description={description} feactures={product?.caracteristicas} marca="Cecotec" rating={product?.rating || 0} reviews={product?.num_reviews || 0} />
    
     <section class="container">
       <h2>Introducción: Un Robot Económico pero Sorprendente</h2>

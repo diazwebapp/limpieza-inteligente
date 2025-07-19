@@ -1,51 +1,30 @@
 ---
 import { Image } from "astro:assets";
-import { amazonProduts, productImages, marcas } from "../datos/database.js";
+import type { Product } from "../datos/products";
 const { products, idProducto = null, idMarca = null, slugMarca = null, orderBy = null, orderDir = 'desc', limit = 12 } = Astro.props;
 
-let filteredProducts = products? products : amazonProduts;
-let marcaId = idMarca;
-if (slugMarca && !idMarca) {
-  const marcaObj = marcas.find(m => m.slug === slugMarca);
-  if (marcaObj) marcaId = marcaObj.id;
-}
-if (idProducto !== null) {
-  filteredProducts = amazonProduts.filter(p => p.id === idProducto);
-} else {
-  if (marcaId !== null && marcaId !== undefined) {
-    filteredProducts = filteredProducts.filter(p => p.marca === marcaId);
-  }
-  if (orderBy === 'precio') {
-    filteredProducts = filteredProducts.slice().sort((a, b) => (orderDir === 'asc' ? a.precio - b.precio : b.precio - a.precio));
-  }
-  if (orderBy === 'rating') {
-    filteredProducts = filteredProducts.slice().sort((a, b) => (orderDir === 'asc' ? a.stars - b.stars : b.stars - a.stars));
-  }
-}
-const showProducts = filteredProducts.slice(0, limit);
+
 ---
 
 <div class="store-products-grid">
-    {showProducts.map(product => {
-        const imgId = Array.isArray(product.imageIds) ? product.imageIds[0] : null;
-        const imgObj = imgId ? productImages.find(img => img.id === imgId) : null;
-        const imgSrc = imgObj?.["1280x720"] || "";
+    {products.map((product:Product) => {
+        const imgObj = product.imagen;
         const rel = product.slug? "" : "noopener noreferrer nofollow"
         return (
         <article class="store-product-card">
             <a href={product.slug? product.slug : product.urlAfiliado } rel={rel} class="store-product-link">
                 <figure class="store-product-image-container">
-                    <Image transition:name={product.title} loading="lazy"  width="250" height="250" src={imgSrc} alt={product.title} class="store-product-image" />
+                    <Image transition:name={product.name} loading="lazy"  width="250" height="250" src={imgObj} alt={product.name} class="store-product-image" />
                 </figure>
                 <div class="store-product-info">
-                    <h3 class="store-product-title">{product.title}</h3>
+                    <h3 class="store-product-title">{product.name}</h3>
                     <div class="store-product-rating">
-                        <span class="store-stars" aria-label={`${product.stars ?? 0} de 5 estrellas`}>
+                        <span class="store-stars" aria-label={`${product.rating ?? 0} de 5 estrellas`}>
                             {[1,2,3,4,5].map(i => (
-                                <span class={`store-star-icon ${product.stars >= i ? 'store-full-star' : product.stars >= i - 0.5 ? 'store-half-star' : 'store-empty-star'}`}></span>
+                                <span class={`store-star-icon ${product.rating >= i ? 'store-full-star' : product.rating >= i - 0.5 ? 'store-half-star' : 'store-empty-star'}`}></span>
                             ))}
                         </span>
-                        <span class="store-rating-count">({product.ratingCount ?? '0'})</span>
+                        <span class="store-rating-count">({product.num_reviews ?? '0'})</span>
                     </div>
                 </div>
             </a>

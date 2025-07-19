@@ -1,11 +1,10 @@
 ---
-// @ts-nocheck
+
 import Layout from "../layouts/Layout.astro";
-import AmazonCluster from "../components/AmazonCluster.astro";
-import { amazonProduts } from "../datos/database";
 import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
 import GridCards from "../components/GridCards.astro";
 import StoreCluster from "../components/StoreCluster.astro";
+import { products } from "../datos/products";
 
 const title = "Robot Aspirador para Suelo de Madera: Limpieza Eficiente y Sin Daños";
 const description = "Descubre los mejores robots aspirador y friegasuelos para suelos de madera. Mantén tu parquet impecable y protegido con la tecnología más avanzada.";
@@ -110,7 +109,7 @@ const ventajas = [
   <hr>
   <section class="container">
     <h2>Mejor robot aspirador para parquet: Modelos recomendados</h2>
-    <StoreCluster data={amazonProduts} idMarca={1} />
+    <StoreCluster products={products} />
   </section>
   <section class="container">
     <h2>¿Como elegir un aspirador para parquet? : Características importantes</h2>

@@ -1,9 +1,9 @@
 ---
-// @ts-nocheck
+
 import Layout from "../layouts/Layout.astro";
-import AmazonCluster from "../components/AmazonCluster.astro";
-import { amazonProduts } from "../datos/database";
 import { schemaWebSite, schemaArticle } from "../datos/seoBase.js";
+import { products } from "../datos/products";
+import AmazonClusterPro from "../components/AmazonClusterPro.astro";
 
 const title = "Robot Aspirador para Suelo de Mármol: Limpieza y Brillo sin Esfuerzo";
 const description = "Elige el mejor robot aspirador y friegasuelos para mármol. Mantén tus suelos brillantes y sin manchas con la tecnología más avanzada.";
@@ -66,7 +66,7 @@ const schemas = [
       </p>
       <p><strong>¡Explora nuestra exclusiva gama de robots y elige el compañero perfecto para preservar la belleza de tu suelo de mármol!</strong></p>
       <!-- Aquí insertar el cluster de productos de robots para suelo de mármol -->
-      <AmazonCluster products={amazonProduts} />
+      <AmazonClusterPro products={products} />
       <h2>Consejos Esenciales para el Cuidado de Tu Suelo de Mármol con tu Robot</h2>
       <ul>
         <li><strong>Limpieza Diaria Es Clave:</strong> La limpieza frecuente con tu robot previene la acumulación de suciedad y polvo que, al pisarse, pueden micro-rayar la superficie.</li>

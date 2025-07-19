@@ -1,20 +1,20 @@
 ---
 import { Image } from "astro:assets";
 import StoreCluster from "../components/StoreCluster.astro";
-import { amazonProduts, withDomain } from "../datos/database";
+import {  withDomain } from "../datos/database";
 import Layout from "../layouts/Layout.astro";
 import TableComparativa from "../components/TableComparativa.astro";
+import { products } from "../datos/products";
 
-const products = amazonProduts.filter(
-  item => /4000/i.test(item.feactures.potenciaSuccion)
-);
+const filtered = products.filter(p=>p.caracteristicas?.potencia_succion_Pa===4000)
+
 const destacado = withDomain("/irobot/roomba-combo/roomba-combo-essential/")
 
 const title = "Robot Aspirador 4000Pa: Te guio paso a paso"
 const description = "Elige el <strong>robot aspirador de 4000Pa</strong> que se adapte a tus necesidades."
 const canonical = withDomain("/potencia-4000-pa/")
 ---
-<Layout title={title} description={description} >
+<Layout title={title} description={description} canonical={canonical} >
     <section class="container">
     <h1>Robot Aspirador 4000Pa:Guia paso a paso</h1>
     <p>¡Llegaste al lugar ideal para encontrar el robot aspirador más potente! Te guiaré paso a paso para elegir el <strong>robot aspirador de 4000Pa</strong> perfecto para tu casa. Aquí verás las mejores ofertas y comparaciones.</p>
@@ -45,7 +45,7 @@ const canonical = withDomain("/potencia-4000-pa/")
     <h2>Oferta: Robots Aspiradores de 4000Pa</h2>
     <p>Hemos elegido los mejores robots aspiradores con 4000Pa de potencia. Aquí puedes ver varios modelos. Todos tienen muy buenas opiniones y los mejores precios.</p>
     
-    <StoreCluster products={products} />
+    <StoreCluster products={filtered} />
     
 </section>
 

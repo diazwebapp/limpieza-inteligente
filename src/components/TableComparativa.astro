@@ -1,57 +1,34 @@
 ---
+import type { Product } from '../datos/products';
+
 // src/components/TableComparativa.astro
 
-interface Product {
-  id: number;
-  modelo: string;
-  slug: string;
-  urlAfiliado?: string;
-  stars: number;
-  ratingCount?: number;
-  precio: number;
-  marca?: number;
-  feactures?: {
-    potenciaSuccion?: string;
-    navegacion?: string;
-    autonomia?: string;
-    funciones?: string;
-  };
-}
 
 interface Props {
   limit?: number;
   idMarca?: number;
   idProductoDestacado?: number;
-  amazonProduts:any[];
+  amazonProduts:Product[];
+  order?: "rating" | "price"
 }
 
-const { limit = 5, idMarca, idProductoDestacado, amazonProduts } = Astro.props;
+const { limit = 5, order = "rating", idMarca, idProductoDestacado, amazonProduts } = Astro.props;
 
-// Filtrar productos por marca si se especifica
-let filteredProducts = idMarca 
-  ? amazonProduts.filter(p => p.marca === idMarca)
-  : [...amazonProduts];
-
-// Si hay idProductoDestacado, ponerlo primero
-let productsSorted = filteredProducts;
-if (idProductoDestacado) {
-  const idx = filteredProducts.findIndex(p => p.id === idProductoDestacado);
-  if (idx !== -1) {
-    const destacado = filteredProducts.splice(idx, 1)[0];
-    productsSorted = [destacado, ...filteredProducts];
-  }
+const limitProducts = (amazonProduts: Product[], limit: number) => {
+  const p = orderProducts(amazonProduts);
+  if(p)
+    return p.slice(0, limit);
 }
 
-// Ordenar por rating y limitar (excepto el destacado ya está primero)
-const products = productsSorted
-  .sort((a, b) => (a.id === idProductoDestacado ? -1 : b.id === idProductoDestacado ? 1 : (b.stars || 0) - (a.stars || 0)))
-  .slice(0, limit);
+const orderProducts = (amazonProduts: Product[]) => {
+  if(order == "price")
+    return amazonProduts.sort((a, b) => a.price - b.price);
+  if(order == "rating")
+    return amazonProduts.sort((a, b) => b.rating - a.rating);
+}
 
-// Función para generar precio "original" con aumento aleatorio
-const getPrecioOriginal = (precioActual: number) => {
-  const aumento = Math.floor(Math.random() * (22 - 12 + 1)) + 12;
-  return precioActual + aumento;
-};
+let products = limitProducts(amazonProduts, limit);
+
 
 
 // Función renderStars optimizada para Astro estático
@@ -92,8 +69,8 @@ const getBadges = (product: any) => {
     <th>Acción</th>
   </tr>
   
-  {products.map(product => {
-    const precioOriginal = getPrecioOriginal(product.precio);
+  {products?.map((product:Product) => {
+    const precioOriginal = product.price;
     const badges = getBadges(product);
     
     return (
@@ -108,34 +85,32 @@ const getBadges = (product: any) => {
                 ))}
               </div>
             )}
-            <a href={product.slug} style="display: block;" aria-label={"ver ficha de producto "+product.modelo}><b aria-hidden="true">ⓘ </b>{product.modelo}</a>
+            <a href={product.slug} style="display: block;" aria-label={"ver ficha de producto "+product.name}><b aria-hidden="true">ⓘ </b>{product.name}</a>
           </div>
         </td>
         <td>
-          <div class="star-rating">{renderStars(product.stars)}</div>
-          <div class="rating-count">({product.ratingCount} opiniones)</div>
+          <div class="star-rating">{renderStars(product.rating)}</div>
+          <div class="rating-count">({product.num_reviews} opiniones)</div>
         </td>
         <td>
           <div class="price-container">
-            <span class="current-price">€{product.precio}</span> 
+            <span class="current-price">€{product.price}</span> 
             <span class="original-price">
               €{precioOriginal}
             </span>
           </div>
         </td>
         <td>
-          {product.feactures?.potenciaSuccion || 'N/A'}
+          {product.caracteristicas?.potencia_succion_Pa || 'N/A'}
         </td>
         <td>
-          {product.feactures?.autonomia || 'N/A'}
+          {product.caracteristicas?.autonomia_min || 'N/A'}
         </td>
         <td>
-          {product.feactures?.navegacion || 'N/A'}
+          {product.caracteristicas?.navegacion || 'N/A'}
         </td>
         <td>
-          {product.feactures?.funciones
-            ?.split(', ')
-            ?.slice(0, 3)
+          {product.caracteristicas?.modos_limpieza
             ?.map((feat:any): string => `✔️ ${feat}`)
             ?.join(' ')}
         </td>

@@ -8,8 +8,9 @@ import type {ProductCollectionSchema, ProductInCollection} from '../../utils/typ
 import AmazonClusterPro from "../../components/AmazonClusterPro.astro";
 import FaqAccordion from "../../components/FaqAccordion.astro";
 
-const vacuums = products.filter(p=> p.marca.includes("Xiaomi") && !p.name.toLowerCase().includes("mop"))
-const vacuum_mops = products.filter(p=> p.marca.includes("Xiaomi") && p.name.toLowerCase().includes("mop"))
+const xiaomi = products.filter(p=> p.marca.includes("Xiaomi"))
+const vacuums = xiaomi.filter(p=> !p.name.toLowerCase().includes("mop"))
+const vacuum_mops = xiaomi.filter(p=> p.name.toLowerCase().includes("mop"))
 
 const title = "robot xiaomi vacuum mop";
 const description = "La serie Mi robot xiaomi vacuum mop aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!";
@@ -92,7 +93,7 @@ const faqs = [
       
     <section class="container" id="mas-vendidos">
       <h2>Xiaomi robot aspirador: Reseñas y caracteristicas</h2>
-      <StoreCluster idMarca={6} />
+      <StoreCluster products={xiaomi} />
     </section>
     <section class="container" >
       <h2>Guia breve y solida de compra</h2>

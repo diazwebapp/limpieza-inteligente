@@ -1,40 +1,39 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import SingleProductHeader from '../../components/SingleProductHeader.astro';
-import TableComparativa from '../../components/TableComparativa.astro';
-import { schemaProduct, schemaArticle } from '../../datos/seoBase';
-import { amazonProduts, productImages } from '../../datos/database.js';
+import { schemaProduct, schemaArticle} from '../../datos/seoBase';
+import { products, type Product } from '../../datos/products';
 
-const product = amazonProduts.find(p => p.id == 8 || p.id === 8);
-const images = productImages.filter(image => product?.imageIds.includes(image.id));
+const name = "Conga 13090";
+const product: Product | undefined = products.find((p:Product) => p.name.toLowerCase().includes(name.toLowerCase()));
 
-const title = product?.title || "Cecotec Conga 13090 Spin Revolution Home&Wash Essential";
+const title = product?.name || "Cecotec Conga 13090 Spin Revolution Home&Wash Essential";
 const description = "Descubre el Cecotec Conga 13090 Spin Revolution Home&Wash Essential: robot aspirador y friegasuelos con mapeo láser, autovaciado y mopas giratorias.";
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || "https://limpiezainteligente.store";
-const canonicalURL = SITE_URL.replace(/\/$/, "") + "/cecotec/conga-13090-spin-revolution-home-wash-essential/";
+const canonicalURL = product?.slug || (SITE_URL.replace(/\/$/, "") + "/cecotec/conga-13090-spin-revolution-home-wash-essential/");
 const pubDatetime = new Date("2025-06-22T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-22T00:00:00+00:00").toISOString();
 
 const schemas = [
   schemaProduct({
-    name: product?.title,
-    image: images.map(img => img["250x250"]),
+    name: product?.name,
+    image: product?.imagen,
     description,
     brand: { "@type": "Brand", name: "Cecotec" },
     url: canonicalURL,
     offers: {
-      price: product?.precio,
+      price: product?.price,
       url: product?.urlAfiliado || product?.slug, 
     },
     aggregateRating: {
-      ratingValue: product?.stars,
-      reviewCount: product?.ratingCount
+      ratingValue: product?.rating,
+      reviewCount: product?.num_reviews
     }
   }),
   schemaArticle({
     headline: title,
     description,
-    image: images.map(img => img["250x250"]),
+    image: product?.imagen,
     datePublished: pubDatetime,
     dateModified: modDatetime,
   }),
@@ -86,14 +85,14 @@ const schemas = [
 >
   <section>
     <SingleProductHeader
-      title={product?.title}
-      img={images}
-      price={product?.precio}
+      title={product?.name}
+      img={product?.imagen}
+      price={product?.price}
       description={description}
-      feactures={product?.feactures}
+      feactures={product?.caracteristicas}
       marca="Cecotec"
-      rating={product?.stars || 0}
-      reviews={product?.ratingCount || 0}
+      rating={product?.rating || 0}
+      reviews={product?.num_reviews || 0}
     />
   </section>
 
@@ -224,73 +223,79 @@ function toggleAccordion(event) {
 
   <section class="container">
     <h2>Conga 13090 vs 11090</h2>
-    <table class="tabla-features">
-      <tr>
-        <th></th>
-        <th>Conga 13090 Spin Revolution Home&Wash Essential</th>
-        <th>Conga 11090 Spin Revolution Home&Wash</th>
-      </tr>
-      <tr>
-        <th>Potencia de succión</th>
-        <td>7000 Pa</td>
-        <td>4000 Pa</td>
-      </tr>
-      <tr>
-        <th>Dimensiones</th>
-        <td>35 x 34 x 11 cm</td>
-        <td>34,3 x 35 x 10,8 cm</td>
-      </tr>
-      <tr>
-        <th>Depósito polvo</th>
-        <td>2 L</td>
-        <td>515 ml</td>
-      </tr>
-      <tr>
-        <th>Depósito agua limpia/sucia</th>
-        <td>2,8 L / 2,4 L</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <th>Autonomía</th>
-        <td>140 min (Eco)</td>
-        <td>140 min</td>
-      </tr>
-      <tr>
-        <th>Nivel de ruido</th>
-        <td>-</td>
-        <td>&lt;65 dB</td>
-      </tr>
-      <tr>
-        <th>Niveles de potencia</th>
-        <td>3</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <th>Navegación</th>
-        <td>Láser</td>
-        <td>Láser</td>
-      </tr>
-      <tr>
-        <th>Función de fregado</th>
-        <td>Sí (mopas giratorias, autolimpieza y secado)</td>
-        <td>Sí (mopas giratorias)</td>
-      </tr>
-      <tr>
-        <th>Base de autovaciado</th>
-        <td>Sí</td>
-        <td>Sí</td>
-      </tr>
-      <tr>
-        <th>App y control por voz</th>
-        <td>Sí (WiFi 2,4/5 GHz, Bluetooth)</td>
-        <td>Sí</td>
-      </tr>
-      <tr>
-        <th>Mapas interactivos</th>
-        <td>Sí</td>
-        <td>Sí</td>
-      </tr>
-    </table>
+    <div class="table-responsive">
+      <table>
+        <thead>
+          
+            <th></th>
+            <th>Conga 13090 Spin Revolution Home&Wash Essential</th>
+            <th>Conga 11090 Spin Revolution Home&Wash</th>
+          
+        </thead>
+        <tbody>
+          <tr>
+            <th>Potencia de succión</th>
+            <td>7000 Pa</td>
+            <td>4000 Pa</td>
+          </tr>
+          <tr>
+            <th>Dimensiones</th>
+            <td>35 x 34 x 11 cm</td>
+            <td>34,3 x 35 x 10,8 cm</td>
+          </tr>
+          <tr>
+            <th>Depósito polvo</th>
+            <td>2 L</td>
+            <td>515 ml</td>
+          </tr>
+          <tr>
+            <th>Depósito agua limpia/sucia</th>
+            <td>2,8 L / 2,4 L</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <th>Autonomía</th>
+            <td>140 min (Eco)</td>
+            <td>140 min</td>
+          </tr>
+          <tr>
+            <th>Nivel de ruido</th>
+            <td>-</td>
+            <td>&lt;65 dB</td>
+          </tr>
+          <tr>
+            <th>Niveles de potencia</th>
+            <td>3</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <th>Navegación</th>
+            <td>Láser</td>
+            <td>Láser</td>
+          </tr>
+          <tr>
+            <th>Función de fregado</th>
+            <td>Sí (mopas giratorias, autolimpieza y secado)</td>
+            <td>Sí (mopas giratorias)</td>
+          </tr>
+          <tr>
+            <th>Base de autovaciado</th>
+            <td>Sí</td>
+            <td>Sí</td>
+          </tr>
+          <tr>
+            <th>App y control por voz</th>
+            <td>Sí (WiFi 2,4/5 GHz, Bluetooth)</td>
+            <td>Sí</td>
+          </tr>
+          <tr>
+            <th>Mapas interactivos</th>
+            <td>Sí</td>
+            <td>Sí</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <p><strong>Recomendación:</strong> Si buscas la máxima potencia, autonomía y comodidad, la Conga 13090 es la opción más avanzada y completa. Su sistema de autolimpieza y depósitos de gran capacidad marcan la diferencia para hogares grandes o quienes quieren olvidarse del mantenimiento diario. Si tu presupuesto es más ajustado y no necesitas tanta capacidad, la 11090 sigue siendo una excelente opción, pero la 13090 te ofrece un salto real en automatización y limpieza.</p>
   </section>
 
@@ -334,45 +339,9 @@ function toggleAccordion(event) {
         <td>35 x 34 x 11 cm</td>
       </tr>
     </table>
-    <style>
-      .tabla-features {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 2rem 0;
-        font-size: 1.1rem;
-        background: #fffbe7;
-        box-shadow: 0 2px 12px #f7c87344;
-        border-radius: 12px;
-        overflow: hidden;
-      }
-      .tabla-features th, .tabla-features td {
-        border: 1px solid #f7c873;
-        padding: 12px;
-        text-align: left;
-      }
-      .tabla-features th {
-        background: #ffe082;
-        color: #b8057c;
-        font-weight: bold;
-        width: 220px;
-      }
-      .tabla-features td {
-        background: #fffde7;
-      }
-    </style>
+   
     <p>
       <a href={product?.urlAfiliado} class="cta">¡Aprovecha la tecnología más avanzada y mantén tu casa impecable cada día!</a>
-    </p>
-  </section>
-
-  <section class="container">
-    <h2>¿Cómo se compara la Conga 13090 con otros robots?</h2>
-    <p>
-      Si aún tienes dudas, aquí tienes una comparativa con otros modelos destacados. Observa cómo la Conga 13090 sobresale en potencia, autonomía y facilidad de mantenimiento.
-    </p>
-    <TableComparativa idProductoDestacado={8} limit={4} amazonProduts={amazonProduts} />
-    <p>
-      <a href={product?.urlAfiliado} class="cta">No te quedes atrás: elige la mejor opción para tu hogar y disfruta de más tiempo libre.</a>
     </p>
   </section>
 

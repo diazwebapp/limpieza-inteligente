@@ -3,6 +3,11 @@ import FaqAccordion from "../../../components/FaqAccordion.astro";
 import { withDomain } from "../../../datos/database";
 import { schemaArticle, schemaProduct, schemaProductList } from "../../../datos/seoBase";
 import Layout from "../../../layouts/Layout.astro";
+import { products } from "../../../datos/products";
+import StoreCluster from "../../../components/StoreCluster.astro";
+
+const roomba = products.filter((product) => product.marca.some((marca:string) => marca === "iRobot"));
+
 
 const title = "iRobot Roomba Combo: Tu Solución Aspirador y Fregasuelos 2 en 1";
 const description = "Los robots iRobot Roomba Combo son la innovadora respuesta para una limpieza integral de tu hogar. Estos dispositivos avanzados combinan la potente succión de una aspiradora Roomba con la capacidad de fregado de una Braava.";
@@ -10,7 +15,7 @@ const canonicalURL = withDomain("/irobot/roomba-combo/");
 const pubDatetime = new Date("2025-06-06T00:00:00+00:00").toISOString();
 const modDatetime = new Date("2025-06-09T00:00:00+00:00").toISOString();
 
-const products=[
+const productsSchema=[
     schemaProduct({
         name: "iRobot Roomba j9+ Combo",
         image: "https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg",
@@ -85,7 +90,7 @@ const schemas=[
         datePublished:pubDatetime,
         dateModified:modDatetime,
     }),
-    schemaProductList(products)
+    schemaProductList(productsSchema)
 ]
 
 const faqs = [
@@ -114,30 +119,30 @@ const faqs = [
         <h1>iRobot Roomba Combo: Tu Solución Aspirador y Fregasuelos 2 en 1</h1>
             <p>¿Cansado de aspirar y luego fregar? Los robots iRobot Roomba Combo son la innovadora respuesta para una limpieza integral de tu hogar. Estos dispositivos avanzados combinan la potente succión de una aspiradora Roomba con la capacidad de fregado de una Braava, ofreciéndote lo mejor de ambos mundos en un solo robot. Olvídate de la limpieza manual y disfruta de suelos impecables con menos esfuerzo.</p>
         </section>
-
+    
         <section class="container">
             <h2>Producto Destacado: iRobot Roomba j9+ Combo</h2>
             <div class="product-highlight-card">
-                <div class="product-image">
-                    <img width="300" height="300" loading="lazy" src="https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg" alt="iRobot Roomba j9+ Combo - Aspirador y Fregasuelos">
-                </div>
-                <div class="product-details">
-                    <h3>iRobot Roomba j9+ Combo</h3>
-                    <p class="tagline">La máxima potencia y autonomía para aspirar y fregar</p>
-                    <ul>
-                        <li><strong>Aspiración Ultra-Potente y Fregado Preciso:</strong> Equipado con la tecnología Dirt Detective, el j9+ Combo identifica y se enfoca en las áreas más sucias, garantizando una limpieza profunda tanto en aspiración como en fregado.</li>
-                        <li><strong>Base de Vaciado y Llenado Automático (Clean Base® Auto-Fill Dock):</strong> La base no solo vacía el depósito de polvo del robot por meses, sino que también rellena automáticamente el depósito de agua para el fregado, ofreciendo una autonomía sin precedentes.</li>
-                        <li><strong>Detección de Objetos PrecisionVision™:</strong> Navega inteligentemente alrededor de obstáculos comunes como cables, zapatos o excrementos de mascotas, evitando interrupciones en la limpieza.</li>
-                        <li><strong>Tecnología SmartScrub para Manchas Rebeldes:</strong> Cuando el fregado estándar no es suficiente, la función SmartScrub friega hacia adelante y hacia atrás con una presión constante, eliminando manchas secas y pegadas.</li>
-                        <li><strong>Mapeo Inteligente Imprint®:</strong> Aprende el diseño de tu hogar para limpiar por habitaciones, zonas específicas o incluso programar limpiezas personalizadas.</li>
-                        <li><strong>Diseño Elegante y Duradero:</strong> Construido con materiales de alta calidad, se integra perfectamente en cualquier hogar.</li>
-                    </ul>
-                    <div class="product-price">
-                        <span class="availability">Disponibilidad: En Stock</span>
-                    </div>
-                    <a href="#" class="buy-button">Comprar iRobot Roomba j9+ Combo</a>
-                    <p class="note">Ideal para hogares con mascotas, niños y superficies variadas que requieren limpieza frecuente y profunda.</p>
-                </div>
+  <div class="product-image">
+<img width="300" height="300" loading="lazy" src="https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg" alt="iRobot Roomba j9+ Combo - Aspirador y Fregasuelos">
+  </div>
+  <div class="product-details">
+<h3>iRobot Roomba j9+ Combo</h3>
+<p class="tagline">La máxima potencia y autonomía para aspirar y fregar</p>
+<ul>
+<li><strong>Aspiración Ultra-Potente y Fregado Preciso:</strong> Equipado con la tecnología Dirt Detective, el j9+ Combo identifica y se enfoca en las áreas más sucias, garantizando una limpieza profunda tanto en aspiración como en fregado.</li>
+<li><strong>Base de Vaciado y Llenado Automático (Clean Base® Auto-Fill Dock):</strong> La base no solo vacía el depósito de polvo del robot por meses, sino que también rellena automáticamente el depósito de agua para el fregado, ofreciendo una autonomía sin precedentes.</li>
+<li><strong>Detección de Objetos PrecisionVision™:</strong> Navega inteligentemente alrededor de obstáculos comunes como cables, zapatos o excrementos de mascotas, evitando interrupciones en la limpieza.</li>
+<li><strong>Tecnología SmartScrub para Manchas Rebeldes:</strong> Cuando el fregado estándar no es suficiente, la función SmartScrub friega hacia adelante y hacia atrás con una presión constante, eliminando manchas secas y pegadas.</li>
+<li><strong>Mapeo Inteligente Imprint®:</strong> Aprende el diseño de tu hogar para limpiar por habitaciones, zonas específicas o incluso programar limpiezas personalizadas.</li>
+<li><strong>Diseño Elegante y Duradero:</strong> Construido con materiales de alta calidad, se integra perfectamente en cualquier hogar.</li>
+</ul>
+<div class="product-price">
+<span class="availability">Disponibilidad: En Stock</span>
+</div>
+<a href="#" class="buy-button">Comprar iRobot Roomba j9+ Combo</a>
+<p class="note">Ideal para hogares con mascotas, niños y superficies variadas que requieren limpieza frecuente y profunda.</p>
+  </div>
             </div>
         </section>
 
@@ -146,197 +151,197 @@ const faqs = [
             <p>A continuación, explora cada uno de los modelos de robot aspirador y fregasuelos iRobot Roomba Combo con sus características específicas, ventajas y limitaciones para ayudarte a elegir el ideal para tu hogar.</p>
 
             <div class="product-listing">
-                                <div class="product-item-card">
-                    <h3>1. iRobot Roomba j9+ Combo: El todo en uno con Autonomía Extrema</h3>
-                    <div class="product-specs-summary">
-                        <ul>
-                            <li><strong>Potencia de Succión:</strong> Elevada (Max. suciedad)</li>
-                            <li><strong>Autonomía:</strong> 170 min (aprox.)</li>
-                            <li><strong>Altura:</strong> 8.7 cm (aprox.)</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="product-info-grid">
-                        <div class="product-image-container">
-                            <img width="300" height="300" loading="lazy" src="https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg" alt="iRobot Roomba j9+ Combo">
-                        </div>
-                        <div class="product-advantages">
-                            <strong>✅ Ventajas Clave</strong>
-                            <ul>
-                                <li><strong>Base Clean Base® Auto-Fill Dock:</strong> Vacía el polvo y rellena el agua automáticamente por meses.</li>
-                                <li><strong>Tecnología Dirt Detective:</strong> Detecta las áreas más sucias y las limpia con mayor intensidad.</li>
-                                <li><strong>Detección de Obstáculos PrecisionVision™:</strong> Evita cables, excrementos de mascotas y otros objetos.</li>
-                                <li><strong>Función SmartScrub:</strong> Fregado hacia adelante y hacia atrás para manchas difíciles.</li>
-                                <li><strong>Elevación Automática de Mopa:</strong> Protege alfombras durante el fregado.</li>
-                            </ul>
-                        </div>
-                        <div class="product-limitations">
-                            <strong>❌ Limitaciones</strong>
-                            <ul>
-                                <li><strong>Precio:</strong> Inversión inicial más alta.</li>
-                                <li><strong>Requiere Consumibles:</strong> Bolsas para la base y almohadillas de fregado (aunque duraderas).</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-test-conclusion">
-                        <strong>Test Real en Hogar (ej. 80 m²)</strong>
-                        <ul>
-                            <li><strong>Tiempo de Limpieza:</strong> ~60-90 min (dependiendo del modo y mapeo)</li>
-                            <li><strong>Consumo de Agua:</strong> Variable (según suciedad y modo)</li>
-                            <li><strong>Pelo de mascotas:</strong> Atrapa el 99% en 1 pasada.</li>
-                        </ul>
-                        <p><strong>Conclusión:</strong> Ideal para hogares grandes, con mascotas y para usuarios que buscan la máxima autonomía y una limpieza profunda y sin preocupaciones.</p>
-                    </div>
-                </div>
+    <div class="product-item-card">
+<h3>1. iRobot Roomba j9+ Combo: El todo en uno con Autonomía Extrema</h3>
+<div class="product-specs-summary">
+<ul>
+<li><strong>Potencia de Succión:</strong> Elevada (Max. suciedad)</li>
+<li><strong>Autonomía:</strong> 170 min (aprox.)</li>
+<li><strong>Altura:</strong> 8.7 cm (aprox.)</li>
 
-                                <div class="product-item-card">
-                    <h3>2. iRobot Roomba j7+ Combo: Limpieza Inteligente con Detección de Objetos</h3>
-                    <div class="product-specs-summary">
-                        <ul>
-                            <li><strong>Potencia de Succión:</strong> Alta</li>
-                            <li><strong>Autonomía:</strong> 90 min (aprox.)</li>
-                            <li><strong>Altura:</strong> 8.7 cm (aprox.)</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="product-info-grid">
-                        <div class="product-image-container">
-                            <img width="300" height="300" loading="lazy" src="https://i.blogs.es/358ce0/irobot-roomba-combo-j7-/1366_2000.jpg" alt="iRobot Roomba j7+ Combo">
-                        </div>
-                        <div class="product-advantages">
-                            <strong>✅ Ventajas Clave</strong>
-                            <ul>
-                                <li><strong>Detección de Objetos PrecisionVision™:</strong> Evita cables y excrementos de mascotas.</li>
-                                <li><strong>Base Clean Base® (solo vaciado):</strong> Vacía el depósito de polvo automáticamente.</li>
-                                <li><strong>Elevación Automática de Mopa:</strong> Protege las alfombras del fregado.</li>
-                                <li><strong>Mapeo Inteligente Imprint®:</strong> Aprende y se adapta al diseño de tu hogar.</li>
-                            </ul>
-                        </div>
-                        <div class="product-limitations">
-                            <strong>❌ Limitaciones</strong>
-                            <ul>
-                                <li><strong>No Rellena Agua Automáticamente:</strong> El depósito de agua debe rellenarse manualmente.</li>
-                                <li><strong>Fregado Básico:</strong> No tiene función SmartScrub.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-test-conclusion">
-                        <strong>Test Real en Hogar (ej. 60 m²)</strong>
-                        <ul>
-                            <li><strong>Tiempo de Limpieza:</strong> ~50-80 min</li>
-                            <li><strong>Consumo de Agua:</strong> Variable (según superficie)</li>
-                            <li><strong>Pelo de mascotas:</strong> Muy efectivo, atrapa la mayoría en 1-2 pasadas.</li>
-                    </ul>
-                        <p><strong>Conclusión:</strong> Excelente para hogares con mascotas y obstáculos, que buscan un aspirado potente y un fregado de mantenimiento, con la comodidad del vaciado automático.</p>
-                    </div>
-                </div>
+</ul>
+</div>
+<div class="product-info-grid">
+<div class="product-image-container">
+<img width="300" height="300" loading="lazy" src="https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwfcca9312/images/large/combo/C975840_1.jpg" alt="iRobot Roomba j9+ Combo">
+</div>
+<div class="product-advantages">
+<strong>✅ Ventajas Clave</strong>
+<ul>
+    <li><strong>Base Clean Base® Auto-Fill Dock:</strong> Vacía el polvo y rellena el agua automáticamente por meses.</li>
+    <li><strong>Tecnología Dirt Detective:</strong> Detecta las áreas más sucias y las limpia con mayor intensidad.</li>
+    <li><strong>Detección de Obstáculos PrecisionVision™:</strong> Evita cables, excrementos de mascotas y otros objetos.</li>
+    <li><strong>Función SmartScrub:</strong> Fregado hacia adelante y hacia atrás para manchas difíciles.</li>
+    <li><strong>Elevación Automática de Mopa:</strong> Protege alfombras durante el fregado.</li>
+</ul>
+</div>
+<div class="product-limitations">
+<strong>❌ Limitaciones</strong>
+<ul>
+    <li><strong>Precio:</strong> Inversión inicial más alta.</li>
+    <li><strong>Requiere Consumibles:</strong> Bolsas para la base y almohadillas de fregado (aunque duraderas).</li>
+</ul>
+</div>
+</div>
+<div class="product-test-conclusion">
+<strong>Test Real en Hogar (ej. 80 m²)</strong>
+<ul>
+<li><strong>Tiempo de Limpieza:</strong> ~60-90 min (dependiendo del modo y mapeo)</li>
+<li><strong>Consumo de Agua:</strong> Variable (según suciedad y modo)</li>
+<li><strong>Pelo de mascotas:</strong> Atrapa el 99% en 1 pasada.</li>
+</ul>
+<p><strong>Conclusión:</strong> Ideal para hogares grandes, con mascotas y para usuarios que buscan la máxima autonomía y una limpieza profunda y sin preocupaciones.</p>
+</div>
+  </div>
 
-                                <div class="product-item-card">
-                    <h3>3. iRobot Roomba i5 Combo: La Opción Equilibrada para Doble Función</h3>
-                    <div class="product-specs-summary">
-                        <ul>
-                            <li><strong>Potencia de Succión:</strong> Buena</li>
-                            <li><strong>Autonomía:</strong> 75 min (aprox.)</li>
-                            <li><strong>Altura:</strong> 9.2 cm (aprox.)</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="product-info-grid">
-                        <div class="product-image-container">
-                            <img width="300" height="300" src="https://cdn.media.amplience.net/i/irobot/i517840_1" alt="iRobot Roomba i5 Combo">
-                        </div>
-                        <div class="product-advantages">
-                            <strong>✅ Ventajas Clave</strong>
-                            <ul>
-                                <li><strong>Funcionalidad 2 en 1:</strong> Aspira y friega.</li>
-                                <li><strong>Navegación Inteligente:</strong> Limpieza en filas ordenadas.</li>
-                                <li><strong>Compatible con Clean Base®:</strong> Permite vaciado automático (requiere compra separada de la base).</li>
-                                <li><strong>Precio más Accesible:</strong> Buena relación calidad-precio para una doble función.</li>
-                            </ul>
-                        </div>
-                        <div class="product-limitations">
-                            <strong>❌ Limitaciones</strong>
-                            <ul>
-                                <li><strong>Requiere Cambio de Depósito:</strong> Debes cambiar el depósito de polvo por el de agua para fregar.</li>
-                                <li><strong>No Evita Objetos:</strong> Puede empujar cables u objetos pequeños.</li>
-                                <li><strong>No Eleva Mopa:</strong> No apto para alfombras mientras friega.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product-test-conclusion">
-                    <strong>Test Real en Hogar (ej. 50 m²)</strong>
-                    <ul>
-                        <li><strong>Tiempo de Limpieza:</strong> ~40-70 min</li>
-                        <li><strong>Consumo de Agua:</strong> ~150-200 ml por pasada.</li>
-                        <li><strong>Pelo de mascotas:</strong> Efectivo en superficies duras y alfombras bajas.</li>
-                    </ul>
-                    <p><strong>Conclusión:</strong> Una excelente opción de entrada para quienes desean la funcionalidad de aspirar y fregar en un solo robot sin una gran inversión, ideal para apartamentos o espacios no muy complejos.</p>
-                </div>
-                </div>
+    <div class="product-item-card">
+<h3>2. iRobot Roomba j7+ Combo: Limpieza Inteligente con Detección de Objetos</h3>
+<div class="product-specs-summary">
+<ul>
+<li><strong>Potencia de Succión:</strong> Alta</li>
+<li><strong>Autonomía:</strong> 90 min (aprox.)</li>
+<li><strong>Altura:</strong> 8.7 cm (aprox.)</li>
 
-                                <div class="product-item-card">
-                    <h3>4. iRobot Roomba Combo (Modelo Básico): La Entrada a la Limpieza Combinada</h3>
-                    <div class="product-specs-summary">
-                        <ul>
-                            <li><strong>Potencia de Succión:</strong> Estándar</li>
-                            <li><strong>Autonomía:</strong> 100 min (aprox.)</li>
-                            <li><strong>Altura:</strong> 9.2 cm (aprox.)</li>
-                            
-                        </ul>
-                    </div>
-                    <div class="product-info-grid">
-                        <div class="product-image-container">
-                            <img width="300" height="300" loading="lazy" src="https://m.media-amazon.com/images/I/71zm7C2TPBL._UF894,1000_QL80_.jpg" alt="iRobot Roomba Combo Básico">
-                    </div>
-                        <div class="product-advantages">
-                            <strong>✅ Ventajas Clave</strong>
-                            <ul>
-                                <li><strong>Costo muy Accesible:</strong> El más económico de la línea Combo.</li>
-                                <li><strong>Doble Función:</strong> Aspira y friega simultáneamente (cambio de depósito).</li>
-                                <li><strong>Fácil de Usar:</strong> Interfaz sencilla.</li>
-                            </ul>
-                        </div>
-                        <div class="product-limitations">
-                            <strong>❌ Limitaciones</strong>
-                            <ul>
-                                <li><strong>Navegación Aleatoria/Giroscopio:</strong> No crea mapas ni limpia en filas ordenadas.</li>
-                                <li><strong>No Detección de Objetos:</strong> Puede chocar con muebles o empujar cables.</li>
-                                <li><strong>No Vaciado/Llenado Automático:</strong> Requiere intervención manual frecuente.</li>
-                                <li><strong>Fregado Básico:</strong> Menos potente que modelos superiores.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product-test-conclusion">
-                    <strong>Test Real en Hogar (ej. 30 m²)</strong>
-                    <ul>
-                        <li><strong>Tiempo de Limpieza:</strong> ~50-80 min (por patrón aleatorio)</li>
-                        <li><strong>Consumo de Agua:</strong> ~100-150 ml por pasada.</li>
-                        <li><strong>Pelo de mascotas:</strong> Funciona en superficies duras, menos efectivo en alfombras.</li>
-                    </ul>
-                    <p><strong>Conclusión:</strong> Ideal para apartamentos pequeños o espacios simples que buscan una solución económica para mantener la limpieza diaria, asumiendo una navegación menos avanzada.</p>
-                </div>
-                </div>
+</ul>
+</div>
+<div class="product-info-grid">
+<div class="product-image-container">
+<img width="300" height="300" loading="lazy" src="https://i.blogs.es/358ce0/irobot-roomba-combo-j7-/1366_2000.jpg" alt="iRobot Roomba j7+ Combo">
+</div>
+<div class="product-advantages">
+<strong>✅ Ventajas Clave</strong>
+<ul>
+    <li><strong>Detección de Objetos PrecisionVision™:</strong> Evita cables y excrementos de mascotas.</li>
+    <li><strong>Base Clean Base® (solo vaciado):</strong> Vacía el depósito de polvo automáticamente.</li>
+    <li><strong>Elevación Automática de Mopa:</strong> Protege las alfombras del fregado.</li>
+    <li><strong>Mapeo Inteligente Imprint®:</strong> Aprende y se adapta al diseño de tu hogar.</li>
+</ul>
+</div>
+<div class="product-limitations">
+<strong>❌ Limitaciones</strong>
+<ul>
+    <li><strong>No Rellena Agua Automáticamente:</strong> El depósito de agua debe rellenarse manualmente.</li>
+    <li><strong>Fregado Básico:</strong> No tiene función SmartScrub.</li>
+</ul>
+</div>
+</div>
+<div class="product-test-conclusion">
+<strong>Test Real en Hogar (ej. 60 m²)</strong>
+<ul>
+<li><strong>Tiempo de Limpieza:</strong> ~50-80 min</li>
+<li><strong>Consumo de Agua:</strong> Variable (según superficie)</li>
+<li><strong>Pelo de mascotas:</strong> Muy efectivo, atrapa la mayoría en 1-2 pasadas.</li>
+</ul>
+<p><strong>Conclusión:</strong> Excelente para hogares con mascotas y obstáculos, que buscan un aspirado potente y un fregado de mantenimiento, con la comodidad del vaciado automático.</p>
+</div>
+  </div>
+
+    <div class="product-item-card">
+<h3>3. iRobot Roomba i5 Combo: La Opción Equilibrada para Doble Función</h3>
+<div class="product-specs-summary">
+<ul>
+<li><strong>Potencia de Succión:</strong> Buena</li>
+<li><strong>Autonomía:</strong> 75 min (aprox.)</li>
+<li><strong>Altura:</strong> 9.2 cm (aprox.)</li>
+
+</ul>
+</div>
+<div class="product-info-grid">
+<div class="product-image-container">
+<img width="300" height="300" src="https://cdn.media.amplience.net/i/irobot/i517840_1" alt="iRobot Roomba i5 Combo">
+</div>
+<div class="product-advantages">
+<strong>✅ Ventajas Clave</strong>
+<ul>
+    <li><strong>Funcionalidad 2 en 1:</strong> Aspira y friega.</li>
+    <li><strong>Navegación Inteligente:</strong> Limpieza en filas ordenadas.</li>
+    <li><strong>Compatible con Clean Base®:</strong> Permite vaciado automático (requiere compra separada de la base).</li>
+    <li><strong>Precio más Accesible:</strong> Buena relación calidad-precio para una doble función.</li>
+</ul>
+</div>
+<div class="product-limitations">
+<strong>❌ Limitaciones</strong>
+<ul>
+    <li><strong>Requiere Cambio de Depósito:</strong> Debes cambiar el depósito de polvo por el de agua para fregar.</li>
+    <li><strong>No Evita Objetos:</strong> Puede empujar cables u objetos pequeños.</li>
+    <li><strong>No Eleva Mopa:</strong> No apto para alfombras mientras friega.</li>
+</ul>
+</div>
+  </div>
+  <div class="product-test-conclusion">
+<strong>Test Real en Hogar (ej. 50 m²)</strong>
+<ul>
+<li><strong>Tiempo de Limpieza:</strong> ~40-70 min</li>
+<li><strong>Consumo de Agua:</strong> ~150-200 ml por pasada.</li>
+<li><strong>Pelo de mascotas:</strong> Efectivo en superficies duras y alfombras bajas.</li>
+</ul>
+<p><strong>Conclusión:</strong> Una excelente opción de entrada para quienes desean la funcionalidad de aspirar y fregar en un solo robot sin una gran inversión, ideal para apartamentos o espacios no muy complejos.</p>
+  </div>
+  </div>
+
+    <div class="product-item-card">
+<h3>4. iRobot Roomba Combo (Modelo Básico): La Entrada a la Limpieza Combinada</h3>
+<div class="product-specs-summary">
+<ul>
+<li><strong>Potencia de Succión:</strong> Estándar</li>
+<li><strong>Autonomía:</strong> 100 min (aprox.)</li>
+<li><strong>Altura:</strong> 9.2 cm (aprox.)</li>
+
+</ul>
+</div>
+<div class="product-info-grid">
+<div class="product-image-container">
+<img width="300" height="300" loading="lazy" src="https://m.media-amazon.com/images/I/71zm7C2TPBL._UF894,1000_QL80_.jpg" alt="iRobot Roomba Combo Básico">
+</div>
+<div class="product-advantages">
+<strong>✅ Ventajas Clave</strong>
+<ul>
+    <li><strong>Costo muy Accesible:</strong> El más económico de la línea Combo.</li>
+    <li><strong>Doble Función:</strong> Aspira y friega simultáneamente (cambio de depósito).</li>
+    <li><strong>Fácil de Usar:</strong> Interfaz sencilla.</li>
+</ul>
+</div>
+<div class="product-limitations">
+<strong>❌ Limitaciones</strong>
+<ul>
+    <li><strong>Navegación Aleatoria/Giroscopio:</strong> No crea mapas ni limpia en filas ordenadas.</li>
+    <li><strong>No Detección de Objetos:</strong> Puede chocar con muebles o empujar cables.</li>
+    <li><strong>No Vaciado/Llenado Automático:</strong> Requiere intervención manual frecuente.</li>
+    <li><strong>Fregado Básico:</strong> Menos potente que modelos superiores.</li>
+</ul>
+</div>
+  </div>
+  <div class="product-test-conclusion">
+<strong>Test Real en Hogar (ej. 30 m²)</strong>
+<ul>
+<li><strong>Tiempo de Limpieza:</strong> ~50-80 min (por patrón aleatorio)</li>
+<li><strong>Consumo de Agua:</strong> ~100-150 ml por pasada.</li>
+<li><strong>Pelo de mascotas:</strong> Funciona en superficies duras, menos efectivo en alfombras.</li>
+</ul>
+<p><strong>Conclusión:</strong> Ideal para apartamentos pequeños o espacios simples que buscan una solución económica para mantener la limpieza diaria, asumiendo una navegación menos avanzada.</p>
+  </div>
+  </div>
         </section>
 
         <section class="container">
             <h2>¿Por Qué Elegir un iRobot Roomba Combo?</h2>
             <div class="benefits-grid">
-                <div class="benefit-item">
-                    <h3>Doble Funcionalidad, Máxima Eficiencia</h3>
-                    <p>Un solo robot que aspira y friega. Los modelos Roomba Combo eliminan el polvo y la suciedad con su potente succión y, al mismo tiempo, friegan tus suelos duros, ahorrándote tiempo y esfuerzo.</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>Ideal para Diversidad de Suelos</h3>
-                    <p>Perfectos para hogares con una combinación de alfombras y suelos duros. Los Roomba Combo pueden aspirar alfombras y luego pasar al fregado automático en baldosas, madera o vinilo.</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>Tecnología Avanzada de iRobot</h3>
-                    <p>Benefíciate de la reconocida navegación inteligente, el mapeo preciso y las funciones personalizables a través de la aplicación iRobot Home, que hacen de la limpieza una tarea sencilla y adaptable a tu vida.</p>
-                </div>
-                <div class="benefit-item">
-                    <h3>Menos Aparatos, Más Espacio</h3>
-                    <p>Reduce el número de dispositivos de limpieza en tu hogar. Un Roomba Combo es todo lo que necesitas para mantener tus suelos limpios y relucientes.</p>
-                </div>
+  <div class="benefit-item">
+<h3>Doble Funcionalidad, Máxima Eficiencia</h3>
+<p>Un solo robot que aspira y friega. Los modelos Roomba Combo eliminan el polvo y la suciedad con su potente succión y, al mismo tiempo, friegan tus suelos duros, ahorrándote tiempo y esfuerzo.</p>
+  </div>
+  <div class="benefit-item">
+<h3>Ideal para Diversidad de Suelos</h3>
+<p>Perfectos para hogares con una combinación de alfombras y suelos duros. Los Roomba Combo pueden aspirar alfombras y luego pasar al fregado automático en baldosas, madera o vinilo.</p>
+  </div>
+  <div class="benefit-item">
+<h3>Tecnología Avanzada de iRobot</h3>
+<p>Benefíciate de la reconocida navegación inteligente, el mapeo preciso y las funciones personalizables a través de la aplicación iRobot Home, que hacen de la limpieza una tarea sencilla y adaptable a tu vida.</p>
+  </div>
+  <div class="benefit-item">
+<h3>Menos Aparatos, Más Espacio</h3>
+<p>Reduce el número de dispositivos de limpieza en tu hogar. Un Roomba Combo es todo lo que necesitas para mantener tus suelos limpios y relucientes.</p>
+  </div>
             </div>
         </section>
 
@@ -353,43 +358,43 @@ const faqs = [
             <p>Seleccionar el mejor robot aspirador y fregasuelos depende de tus necesidades y presupuesto. Aquí te presentamos una tabla comparativa de los modelos de iRobot Roomba Combo que ofrecen la mejor relación calidad-precio en el mercado actual, considerando su rendimiento, características y coste.</p>
 
             <div class="comparison-table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Modelo</th>
-                            <th>Sistema de Navegación</th>
-                            <th>Detección de Obstáculos</th>
-                            <th>Estación de Vaciado/Llenado Automático</th>
-                            <th>Ideal Para</th>
-                            <th>Precio (Estimado)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>iRobot Roomba j9+ Combo</strong></td>
-                            <td>PrecisionVision™ (vSLAM con IA)</td>
-                            <td>Sí (Compleja, excrementos, cables)</td>
-                            <td>Sí (Vaciado de polvo y rellenado de agua)</td>
-                            <td>Hogares grandes con mascotas, máxima autonomía y limpieza profunda.</td>
-                            <td>Premium / Alto</td>
-                    </tr>
-                    <tr>
-                        <td><strong>iRobot Roomba j7+ Combo</strong></td>
-                        <td>PrecisionVision™ (vSLAM con IA)</td>
-                        <td>Sí (Común, excrementos)</td>
-                        <td>Sí (Solo vaciado de polvo)</td>
-                        <td>Hogares con mascotas y obstáculos, buen equilibrio entre rendimiento y funciones.</td>
-                        <td>Alto / Medio-Alto</td>
-                    </tr>
-                    <tr>
-                        <td><strong>iRobot Roomba i5 Combo</strong></td>
-                        <td>Navegación vSLAM</td>
-                        <td>No (Estándar)</td>
-                        <td>Opcional (Solo vaciado de polvo)</td>
-                        <td>Hogares que buscan 2 en 1 más accesible, para limpieza diaria.</td>
-                        <td>Medio</td>
-                    </tr>
-                </tbody>
+  <table>
+<thead>
+<tr>
+<th>Modelo</th>
+<th>Sistema de Navegación</th>
+<th>Detección de Obstáculos</th>
+<th>Estación de Vaciado/Llenado Automático</th>
+<th>Ideal Para</th>
+<th>Precio (Estimado)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>iRobot Roomba j9+ Combo</strong></td>
+<td>PrecisionVision™ (vSLAM con IA)</td>
+<td>Sí (Compleja, excrementos, cables)</td>
+<td>Sí (Vaciado de polvo y rellenado de agua)</td>
+<td>Hogares grandes con mascotas, máxima autonomía y limpieza profunda.</td>
+<td>Premium / Alto</td>
+</tr>
+<tr>
+<td><strong>iRobot Roomba j7+ Combo</strong></td>
+<td>PrecisionVision™ (vSLAM con IA)</td>
+<td>Sí (Común, excrementos)</td>
+<td>Sí (Solo vaciado de polvo)</td>
+<td>Hogares con mascotas y obstáculos, buen equilibrio entre rendimiento y funciones.</td>
+<td>Alto / Medio-Alto</td>
+</tr>
+<tr>
+<td><strong>iRobot Roomba i5 Combo</strong></td>
+<td>Navegación vSLAM</td>
+<td>No (Estándar)</td>
+<td>Opcional (Solo vaciado de polvo)</td>
+<td>Hogares que buscan 2 en 1 más accesible, para limpieza diaria.</td>
+<td>Medio</td>
+</tr>
+  </tbody>
             </table>
         </div>
         <p class="note-table"><strong>Nota sobre Precios:</strong> La categoría "Calidad-Precio" es subjetiva y varía con las ofertas del mercado. Los precios son una estimación y deben consultarse en distribuidores locales en Venezuela.</p>

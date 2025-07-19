@@ -82,28 +82,9 @@ Esto permite que cada página solo defina lo que la hace única, manteniendo el 
 
 ## Componentes Destacados
 
-### AmazonCluster
-
-Componente para mostrar un grid de productos de Amazon filtrados y ordenados.
-
-**Props:**
-- `idProducto` (number, opcional): Si se pasa, muestra solo ese producto e ignora los demás filtros.
-- `idMarca` (number, opcional): Filtra los productos por el id de la marca.
-- `slugMarca` (string, opcional): Filtra los productos por el slug único de la marca (por ejemplo, "xiaomi", "cecotec"). Si se pasa, tiene prioridad sobre idMarca.
-- `orderBy` (string, opcional): Ordena los productos por "precio" o "rating".
-- `orderDir` (string, opcional): Dirección de orden, "asc" o "desc". Por defecto "desc".
-- `limit` (number, opcional): Límite de productos a mostrar. Por defecto 3.
-- `products` (array, opcional): Puedes pasar un array personalizado de productos si lo deseas.
-
-**Ejemplo de uso:**
-```astro
-<AmazonCluster slugMarca="xiaomi" orderBy="precio" orderDir="asc" limit={4} />
-<AmazonCluster idMarca={5} orderBy="precio" />
-```
-
 ### StoreCluster
 
-Componente duplicado de AmazonCluster, pero con estilos propios del sitio y botón destacado (clase `cta`).
+Componente para mostrar un clúster de productos con estilos propios del sitio y botón destacado (clase `cta`).
 
 **Props:**
 - `idProducto` (number, opcional): Si se pasa, muestra solo ese producto e ignora los demás filtros.

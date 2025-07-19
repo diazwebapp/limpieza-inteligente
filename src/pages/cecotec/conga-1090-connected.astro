@@ -6,8 +6,8 @@ import type { ProductInCollection } from "../../utils/typesSchemas";
 
 const product = products.find((p:Product) => p.slug && p.slug.includes("conga-1090-connected"));
 
-const title = product?.name || "Cecotec Conga 1090";
-const description = "Descubre el Cecotec Conga 1090: robot aspirador y friegasuelos con navegación láser"
+const title = product?.name || "Cecotec Conga 1090 Connected";
+const description = "Descubre el Cecotec Conga 1090 Connected: robot aspirador y friegasuelos con navegación láser"
 const canonical = product?.slug || "" ;
 
 const schemaProduct: ProductInCollection = {
@@ -40,39 +40,49 @@ const schemas = [schemaProduct]
 <Layout title={title} description={description} schemas={schemas} >
    <main>
     <article>
-        <header>
-            <SingleProductHeader title={title} img={product?.imagen || ""} caracteristicas={product?.caracteristicas} rating={product?.rating || 0} reviews={product?.num_reviews || 0} buyLink={product?.urlAfiliado || ""} />
-        </header>
+        <SingleProductHeader title={title} img={product?.imagen || ""} caracteristicas={product?.caracteristicas} rating={product?.rating || 0} reviews={product?.num_reviews || 0} buyLink={product?.urlAfiliado || ""} />
         
-        <section class="container ">
-            <h2>Análisis del Conga 1090 Connected</h2>
-            <p>El <strong>Cecotec Conga 1090 Connected</strong> representa la evolución lógica de uno de los modelos más populares de la marca. Mantiene la esencia que hizo exitoso a su predecesor —un precio asequible y una funcionalidad 4 en 1— pero añade la capa de inteligencia y comodidad que define a los robots aspiradores modernos: el control total desde el smartphone y la compatibilidad con asistentes de voz.</p>
-        </section>
-
-        <section class="container ">
-            <h3>La Conectividad como Factor Diferencial</h3>
-            <p>La principal ventaja y el motivo de su apellido 'Connected' es su capacidad para integrarse en tu hogar digital. A través de la <strong>aplicación de Cecotec</strong>, puedes:</p>
+        <section class="container">
+            <h2>Análisis del Conga 1090 Connected: Unboxing y Primeras Impresiones</h2>
+            <p>El <strong>Cecotec Conga 1090 Connected</strong> llega con la promesa de una limpieza 4 en 1: barre, aspira, friega y pasa la mopa. Este modelo destaca por su conectividad WiFi (2.4 GHz) y su compatibilidad con los asistentes de voz Google Home y Alexa, ofreciendo un control inteligente a un precio competitivo.</p>
+            <p>Al abrir la caja, nos encontramos con un equipamiento muy completo, perfectamente organizado:</p>
             <ul>
-                <li><strong>Programar la limpieza</strong> para cualquier día y hora, incluso si no estás en casa.</li>
-                <li>Seleccionar entre sus <strong>6 modos de limpieza</strong> (Auto, Bordes, Manual, Habitación, Espiral y Vuelta a casa).</li>
-                <li>Ajustar la <strong>potencia de succión</strong> y el <strong>caudal de agua</strong> del fregado.</li>
-                <li>Consultar el historial de limpieza.</li>
+                <li>Manual de instrucciones y enlace para descargar la app.</li>
+                <li>Cuatro cepillos laterales (dos de uso y dos de repuesto).</li>
+                <li>Herramienta de limpieza para cepillos.</li>
+                <li>Una mopa de repuesto.</li>
+                <li>Fuente de alimentación y base de carga.</li>
+                <li>Depósito mixto para fregado.</li>
+                <li>Cepillo especial para mascotas.</li>
             </ul>
-            <p>Además, su compatibilidad con <strong>Google Assistant y Alexa</strong> permite iniciar o detener la limpieza con simples comandos de voz, una comodidad que se agradece en el día a día.</p>
         </section>
 
-        <section class="container ">
-            <h3>Rendimiento de Limpieza 4 en 1</h3>
-            <p>Al igual que el modelo estándar, este robot es un auténtico todoterreno. Sus <strong>1400 Pa de potencia</strong> son suficientes para la suciedad cotidiana, como polvo, migas y, muy importante, pelos de mascota. Para esto último, incluye el cepillo de silicona <strong>BestFriend Care</strong>, diseñado para evitar enredos.</p>
-            <p>Su sistema de fregado <strong>iWater</strong> dosifica el agua en tres niveles (High, Medium, Low), adaptándose al tipo de suelo y al nivel de suciedad. El robot barre, aspira, pasa la mopa y friega de forma simultánea gracias a su depósito mixto.</p>
+        <section class="container">
+            <h3>Diseño y Componentes: Versatilidad y Mantenimiento Sencillo</h3>
+            <p>El robot está repleto de sensores de proximidad, anticaída y antichoque. Viene equipado con dos depósitos intercambiables: uno estándar para sólidos y un <strong>depósito mixto</strong> que permite aspirar y fregar simultáneamente, con una capacidad de 300 ml para agua o producto de limpieza. Su sistema de filtros es fácilmente extraíble para una limpieza a fondo.</p>
+            <p>Un gran detalle de Cecotec es la inclusión de dos cepillos centrales: uno mixto (cerdas y silicona) para todo tipo de suciedad, y un <strong>cepillo de silicona especial para mascotas</strong>, diseñado para evitar enredos de pelos. Intercambiarlos es un proceso rápido y sencillo.</p>
         </section>
 
-        <section class="container ">
-            <h3>Navegación Inteligente iTech Smart 2.0</h3>
-            <p>El Conga 1090 Connected utiliza la tecnología <strong>iTech Smart 2.0</strong>. Aunque no realiza un mapeo láser como los modelos de gama alta, su navegación es más ordenada que la de un robot puramente aleatorio. Gracias a sus sensores de proximidad, anticaída y antichoque, optimiza las rutas para cubrir la mayor superficie posible de manera eficiente. Además, incluye una <strong>cinta magnética</strong> para delimitar físicamente las zonas a las que no quieres que acceda, como áreas con cables o comederos de mascotas.</p>
+        <section class="container">
+            <h3>Control Total desde la App y Asistentes de Voz</h3>
+            <p>La configuración inicial es muy sencilla: se conecta el robot a la base, se pulsan los botones indicados y se sigue el proceso en la app para vincularlo a la red WiFi de 2.4 GHz. Una vez conectado, la aplicación ofrece un control total:</p>
+            <ul>
+                <li><strong>Control Manual:</strong> Un joystick permite dirigir el robot a zonas específicas.</li>
+                <li><strong>Modos de Limpieza:</strong> Auto, esquinas, habitación o espiral.</li>
+                <li><strong>Programación:</strong> Se pueden establecer horarios de limpieza para cualquier día de la semana.</li>
+                <li><strong>Ajuste de Potencia:</strong> Niveles de succión (bajo, medio, alto) y de caudal de agua para el fregado.</li>
+                <li><strong>Mantenimiento:</strong> La app informa sobre la vida útil restante de los cepillos, el filtro y la mopa, una característica muy útil para mantener el robot en óptimas condiciones.</li>
+            </ul>
+            <p>La integración con <strong>Google Assistant y Alexa</strong> permite iniciar o detener la limpieza con simples comandos de voz, añadiendo un extra de comodidad.</p>
         </section>
 
-        <section class="container ">
+        <section class="container">
+            <h3>Rendimiento de Limpieza: Pruebas Reales</h3>
+            <p>Con una potencia de succión de <strong>1400 Pa</strong>, el Conga 1090 Connected demuestra ser muy eficaz. En pruebas con suciedad simulada como café molido y arroz, los cepillos laterales dirigen eficazmente los residuos hacia el centro para que el cepillo principal los succione, dejando el suelo impecable tras varias pasadas.</p>
+            <p>La función de fregado, utilizando el depósito mixto, aplica una fina capa de agua que limpia y abrillanta el suelo, secándose rápidamente. Se puede elegir la cantidad de agua, adaptándose a las necesidades de cada momento. Además, el robot es capaz de detectar alfombras y moquetas, <strong>aumentando automáticamente la potencia de succión</strong> para una limpieza más profunda.</p>
+        </section>
+
+        <section class="container">
             <h3>Tabla Comparativa: Conga 1090 vs. Conga 1090 Connected</h3>
             <p>Para entender mejor las mejoras, aquí tienes una comparación directa entre ambos modelos:</p>
             <div class="table-responsive">
@@ -91,34 +101,22 @@ const schemas = [schemaProduct]
                             <td>App y Asistentes de Voz</td>
                         </tr>
                         <tr>
-                            <td><strong>Conectividad App</strong></td>
+                            <td><strong>Conectividad</strong></td>
                             <td>No</td>
-                            <td>Sí (WiFi)</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Control por Voz</strong></td>
-                            <td>No</td>
-                            <td>Alexa y Google Assistant</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Delimitación</strong></td>
-                            <td>No incluye</td>
-                            <td>Cinta Magnética (Magnetic Stripe)</td>
+                            <td>Sí (WiFi 2.4GHz)</td>
                         </tr>
                         <tr>
                             <td><strong>Navegación</strong></td>
-                            <td>iTech Space 2.0 (aleatoria)</td>
+                            <td>iTech Space 2.0 (aleatoria optimizada)</td>
                             <td>iTech Smart 2.0 (ordenada)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <p>La diferencia clave radica en la <strong>comodidad y el control</strong>. El modelo Connected no solo permite gestionar el robot desde cualquier lugar, sino que su navegación mejorada y la posibilidad de crear barreras virtuales lo convierten en una herramienta de limpieza mucho más autónoma y precisa.</p>
         </section>
 
-        <section class="container ">
-            <h3>Veredicto: ¿Vale la pena el Conga 1090 Connected?</h3>
-            <p>El Cecotec Conga 1090 Connected es una opción excelente para quienes buscan su primer robot aspirador o desean un modelo funcional sin realizar una gran inversión. Su principal atractivo es la <strong>conectividad</strong>, que aporta una comodidad y un control que marcan la diferencia respecto al modelo básico.</p>
+        <section class="container">
+            <h3>Pros y Contras del Conga 1090 Connected</h3>
             <div class="table-responsive">
                 <table>
                     <thead>
@@ -130,21 +128,26 @@ const schemas = [schemaProduct]
                     <tbody>
                         <tr>
                             <td>
-                                Excelente relación calidad-precio.<br />
-                                Control por app y asistentes de voz.<br />
-                                Funcionalidad 4 en 1 real y efectiva.<br />
-                                Incluye cepillo especial para mascotas.<br />
-                                Cinta magnética para delimitar zonas.
+                                Conectividad completa (App y Asistentes de Voz).<br />
+                                Gran cantidad de accesorios y repuestos incluidos.<br />
+                                Dos cepillos centrales para distintas necesidades (mascotas).<br />
+                                Control detallado de potencia y fregado desde la app.<br />
+                                Monitorización de la vida útil de los consumibles.<br />
+                                Excelente autonomía (160 min) y bajo nivel de ruido (64 dB).
                             </td>
                             <td>
-                                La navegación, aunque mejorada, no es tan precisa como la láser.<br />
-                                La potencia de succión puede ser justa para alfombras muy gruesas.
+                                Requiere una red WiFi de 2.4 GHz.<br />
+                                La navegación por sensores es menos precisa que el mapeo láser.
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <p>En definitiva, si valoras la comodidad de manejarlo todo desde el móvil y quieres un robot versátil para la limpieza diaria en pisos de tamaño pequeño o mediano, el <strong>Conga 1090 Connected es una de las mejores opciones en su rango de precio</strong>.</p>
+        </section>
+
+        <section class="container">
+            <h3>Veredicto Final: Un Robot Inteligente y Necesario</h3>
+            <p>El <strong>Conga 1090 Connected</strong> se consolida como un artículo prácticamente indispensable para el hogar. Su capacidad para programarse y funcionar de forma autónoma, su diseño de perfil bajo que le permite limpiar bajo muebles, y su potente rendimiento lo convierten en una solución de limpieza muy completa. La combinación de una gran autonomía de <strong>160 minutos</strong>, un nivel de ruido por debajo de los <strong>64 decibelios</strong> y la inteligencia para adaptarse a diferentes superficies, todo controlable desde el móvil, lo posicionan como una compra muy recomendable.</p>
         </section>
     </article>
    </main>

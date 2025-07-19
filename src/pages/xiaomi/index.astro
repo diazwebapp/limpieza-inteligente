@@ -1,17 +1,15 @@
 ---
-// @ts-nocheck
+
 import Layout from "../../layouts/Layout.astro";
-import CategoryHeader from "../../components/CategoryHeader.astro";
-import AmazonCluster from "../../components/AmazonCluster.astro";
 import StoreCluster from "../../components/StoreCluster.astro";
-import { schemaWebSite, schemaArticle, schemaFAQ } from "../../datos/seoBase.js";
-import { products, type Product } from "../../datos/products";
+import { schemaWebSite } from "../../datos/seoBase.js";
+import { products } from "../../datos/products";
 import type {ProductCollectionSchema, ProductInCollection} from '../../utils/typesSchemas'
 import AmazonClusterPro from "../../components/AmazonClusterPro.astro";
 import FaqAccordion from "../../components/FaqAccordion.astro";
 
-const vacuums = products.filter(p=> p.marca === "Xiaomi" && !p.name.toLowerCase().includes("mop"))
-const vacuum_mops = products.filter(p=> p.marca === "Xiaomi" && p.name.toLowerCase().includes("mop"))
+const vacuums = products.filter(p=> p.marca.includes("Xiaomi") && !p.name.toLowerCase().includes("mop"))
+const vacuum_mops = products.filter(p=> p.marca.includes("Xiaomi") && p.name.toLowerCase().includes("mop"))
 
 const title = "robot xiaomi vacuum mop";
 const description = "La serie Mi robot xiaomi vacuum mop aspira y friega a la vez. ¡Tecnología y eficiencia al mejor precio!";
@@ -30,18 +28,21 @@ const schemaProducts:ProductInCollection[]= products.map(p=>{
     offers:{
       "@type":"Offer",
       availability:"https://schema.org/InStock",
-      price:p.price,
-      priceCurrency: "EUR",
-      url:p.urlAffiliado,
+      price: p.price.toString(),
+      priceCurrency: p.currency,
+      url:p.urlAfiliado,
       priceValidUntil:"2026-12-31"
     },
     aggregateRating:{
       "@type":"AggregateRating",
-      ratingValue:p.rating,
-      reviewCount:p.num_reviews
+      ratingValue: p.rating.toString(),
+      reviewCount: p.num_reviews.toString()
     },
-    brand:p.marca,
-    url:p.urlAffiliado
+    brand: {
+      "@type": "Brand",
+      name: p.marca[0]
+    },
+    url:p.urlAfiliado
   }
 })
 const schemaProductCollecion:ProductCollectionSchema={

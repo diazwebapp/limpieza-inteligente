@@ -1,125 +1,441 @@
+import { withDomain } from "./database";
+
 export type Product = {
     name: string;
+    shortDesc:string
     price: number;
     currency: "EUR" | "USD";
-    recommended_price?: number; // Optional, as not all products have it
     rating: number;
     num_reviews: number;
     delivery_cost?: number;
-    imagen : string
-    marca:"Xiaomi" | "cecotec" | "Irobot"
-    caracteristicas:{
-        potenciaSuccion:string
-        modos: "aspirado" | "fregado" | "aspira y friega" | "aspira, firega y lava"
-    }
-    urlAffiliado : string
+    imagen: string;
+    marca: ("Xiaomi" | "cecotec conga" | "Irobot Roomba" | "Irobot Braava" | "Irobot Roomba Combo")[];
+    caracteristicas?:productSpecs
+    urlAfiliado: string;
+    slug?: string;
+};
+export type productSpecs = {
+    modelo: string;
+    conectividad_app: boolean;
+    control_voz: false | string[];
+    potencia_succion_Pa: number;
+    navegacion: string;
+    modos_limpieza: (
+      | "barre"
+      | "aspira"
+      | "friega"
+      | "pasa mopa"
+    )[];
+    programacion_semanal: string;
+    cepillos_principales: string[];
+    depositos: string[];
+    autonomia_min: number;
+    nivel_ruido_dB?: number;
+    cinta_magnetica: boolean;
+    dimensiones_cm: string;
+    peso_kg: number;
   };
-  export const products:Product[] = [
-    {
-        "name": "Xiaomi Robot Vacuum S20 - Sistema Inteligente de navegación láser (LDS), succión de 5000",
-        "price": 116.00,
-        "currency": "EUR",
-        "recommended_price": 139.99,
-        "rating": 4.47,
-        "num_reviews": 7000,
-        "delivery_cost": 69.44,
-        "imagen": "https://m.media-amazon.com/images/I/51ipYfoZovL._AC_UL320_.jpg",
-        "caracteristicas": {
-            "modos": "aspira y friega",
-            "potenciaSuccion": "5000 pa"
-        },
-        marca: "Xiaomi",
-        urlAffiliado: "https://amzn.to/4kDuPXs"
+export const products: Product[] = [
+  {
+    name: "Xiaomi Robot Vacuum S20",
+    shortDesc: "Robot aspirador y fregasuelos con 5000 Pa de succión y navegación láser.",
+    price: 126.00,
+    currency: "EUR",
+    rating: 4.3,
+    num_reviews: 3896,
+    imagen: "https://m.media-amazon.com/images/I/51xaJeszmPL._AC_.jpg",
+    marca: ["Xiaomi"],
+    urlAfiliado: "https://amzn.to/3ZzFU4q",
+    slug: withDomain("/xiaomi/vacuum-s20/"),
+    caracteristicas: {
+      modelo: "Xiaomi Vacuum S20",
+      conectividad_app: true,
+      control_voz: false,
+      potencia_succion_Pa: 5000,
+      navegacion: "laser",
+      modos_limpieza: ["aspira", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: [],
+      depositos: ["Polvo", "Agua"],
+      autonomia_min: 150,
+      cinta_magnetica: false,
+      dimensiones_cm: "47 x 38,7 x 15,3",
+      peso_kg: 3.3,
     },
-    {
-        "name": "Xiaomi Robot Vacuum E5 - succión de 2000 Pa",
-        "price": 74.99,
-        "currency": "EUR",
-        "recommended_price": 99.99,
-        "rating": 4.2,
-        "num_reviews": 500,
-        "delivery_cost": 56.67,
-        "imagen": "https://m.media-amazon.com/images/I/61xgzFVpiUL._AC_UL320_.jpg",
-        "caracteristicas": {
-            "modos": "aspira y friega",
-            "potenciaSuccion": "2000 pa"
-        },
-        marca: "Xiaomi",
-        urlAffiliado: "https://amzn.to/3IuSFr3"
+  },
+  {
+    name: "Xiaomi Robot Vacuum S20 EU Black",
+    shortDesc:"",
+    price: 153.0,
+    currency: "EUR",
+    rating: 4.3,
+    num_reviews: 291,
+    delivery_cost: 69.35,
+    imagen: "https://m.media-amazon.com/images/I/61sivVKAXEL._AC_UL320_.jpg",
+    marca: ["Xiaomi"],
+    caracteristicas: {
+      modelo: "S20 EU Black",
+      conectividad_app: true,
+      control_voz: false,
+      potencia_succion_Pa: 5000,
+      navegacion: "Láser",
+      modos_limpieza: ["aspira", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: ["1 cepillo central"],
+      depositos: ["Polvo", "Agua"],
+      autonomia_min: 180,
+      nivel_ruido_dB: 60,
+      cinta_magnetica: false,
+      dimensiones_cm: "35 x 35 x 9.5",
+      peso_kg: 3.6,
     },
-    {
-        "name": "Xiaomi Robot Vacuum S20 EU Black",
-        "price": 153.00,
-        "currency": "EUR",
-        "recommended_price": 169.99,
-        "rating": 4.3,
-        "num_reviews": 291,
-        "delivery_cost": 69.35,
-        "imagen": "https://m.media-amazon.com/images/I/61sivVKAXEL._AC_UL320_.jpg",
-        "caracteristicas": {
-            "modos": "aspira y friega",
-            "potenciaSuccion": "5000 pa"
-        },
-        marca: "Xiaomi",
-        urlAffiliado: "https://amzn.to/3IuSKLn"
+    urlAfiliado: "https://amzn.to/3IuSKLn"
+  },
+  {
+    name: "Xiaomi Mi Robot Vacuum-Mop 2 Ultra Auto-Empty",
+    shortDesc: "Robot aspirador con base de vaciado automático y succión de 4000 Pa.",
+    price: 70.26,
+    currency: "EUR",
+    rating: 3.8,
+    num_reviews: 12,
+    delivery_cost: 142.63,
+    imagen: "https://m.media-amazon.com/images/I/51XqPAV3h2L._AC_UL320_.jpg",
+    marca: ["Xiaomi"],
+    caracteristicas: {
+      modelo: "Vacuum-Mop 2 Ultra Auto-Empty",
+      conectividad_app: true,
+      control_voz: ["Alexa", "Google Assistant"],
+      potencia_succion_Pa: 4000,
+      navegacion: "Láser LDS",
+      modos_limpieza: ["aspira", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: ["1 cepillo central"],
+      depositos: ["Polvo", "Agua"],
+      autonomia_min: 240,
+      nivel_ruido_dB: 65,
+      cinta_magnetica: false,
+      dimensiones_cm: "35.3 x 35 x 9.68",
+      peso_kg: 4.1,
     },
-    {
-        "name": "Xiaomi Mi Robot Vacuum-Mop 2 Ultra Auto-Empty - Estación de aspiración con función de Carga",
-        "price": 70.26,
-        "currency": "EUR",
-        "rating": 3.8,
-        "num_reviews": 12,
-        "delivery_cost": 142.63,
-        "imagen": "https://m.media-amazon.com/images/I/51XqPAV3h2L._AC_UL320_.jpg",
-        "caracteristicas": {
-            "modos": "aspira y friega",
-            "potenciaSuccion": "7000 pa"
-        },
-        marca: "Xiaomi",
-        urlAffiliado: "https://amzn.to/3IuSUCt"
+    urlAfiliado: "https://amzn.to/3IuSUCt"
+  },
+  {
+    name: "Xiaomi Mi Robot Aspiradora Mop Pro, 2100 Pa",
+    shortDesc: "Robot aspirador y fregasuelos con navegación láser y succión de 2100 Pa.",
+    price: 332.0,
+    currency: "EUR",
+    rating: 4.6,
+    num_reviews: 6321,
+    delivery_cost: 79.89,
+    imagen: "https://m.media-amazon.com/images/I/514QqQrO+sL._AC_UL320_.jpg",
+    marca: ["Xiaomi"],
+    caracteristicas: {
+      modelo: "Mi Robot Vacuum Mop Pro",
+      conectividad_app: true,
+      control_voz: ["Alexa", "Google Assistant"],
+      potencia_succion_Pa: 2100,
+      navegacion: "Láser LDS",
+      modos_limpieza: ["aspira", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: ["1 cepillo central"],
+      depositos: ["Polvo", "Agua"],
+      autonomia_min: 110,
+      nivel_ruido_dB: 60,
+      cinta_magnetica: false,
+      dimensiones_cm: "35 x 35 x 9.45",
+      peso_kg: 3.6,
     },
-    {
-        "name": "Xiaomi Mi Robot Aspiradora Mop Pro, potencia de succión 2100Pa autonomía 110min 180m²",
-        "price": 332.00,
-        "currency": "EUR",
-        "recommended_price": 349.00,
-        "rating": 4.6,
-        "num_reviews": 6321,
-        "delivery_cost": 79.89,
-        "imagen": "https://m.media-amazon.com/images/I/514QqQrO+sL._AC_UL320_.jpg",
-        "caracteristicas": {
-            "modos": "aspira y friega",
-            "potenciaSuccion": "2100 pa"
-        },
-        marca: "Xiaomi",
-        urlAffiliado: "https://amzn.to/4lSojxd"
+    urlAfiliado: "https://amzn.to/4lSojxd"
+  },
+  {
+    name: "Xiaomi Robot Vacuum Cleaner XCLEA H30 Plus Blanco",
+    shortDesc: "Robot aspirador con base de vaciado automático y alta potencia de succión.",
+    price: 483.54,
+    currency: "EUR",
+    rating: 2,
+    num_reviews: 1,
+    imagen: "https://m.media-amazon.com/images/I/51ZTv98L0NS._AC_SX679_.jpg",
+    marca: ["Xiaomi"],
+    caracteristicas: {
+      modelo: "XCLEA H30 Plus",
+      conectividad_app: true,
+      control_voz: ["Alexa", "Google Assistant"],
+      potencia_succion_Pa: 2700, // Assuming a more realistic value for a high-end model
+      navegacion: "Láser LDS",
+      modos_limpieza: ["aspira", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: ["1 cepillo central"],
+      depositos: ["Polvo", "Agua", "Base de vaciado automático"],
+      autonomia_min: 250,
+      nivel_ruido_dB: 68,
+      cinta_magnetica: false,
+      dimensiones_cm: "35 x 35 x 9.8",
+      peso_kg: 4.5,
     },
-    {
-        name: "Xiaomi Robot Vacuum Cleaner XCLEA H30 Plus White 2C601EUW Blanco",
-        price: 483.54,
-        currency: "EUR",
-        rating: 2,
-        num_reviews: 1,
-        imagen: "https://m.media-amazon.com/images/I/51ZTv98L0NS._AC_SX679_.jpg",
-        "caracteristicas": {
-            "modos": "aspira y friega",
-            "potenciaSuccion": "5000 pa"
-        },
-        marca: "Xiaomi",
-        urlAffiliado: "https://amzn.to/3IqmsBj"
+    urlAfiliado: "https://amzn.to/3IqmsBj"
+  },
+  {
+    name: "Xiaomi Robot Vacuum E12, Robot Aspirador y Fregasuelos",
+    shortDesc: "Robot aspirador y fregasuelos con 4000 Pa de succión y navegación Láser LDS.",
+    price: 85,
+    currency: "EUR",
+    rating: 3.6,
+    num_reviews: 365,
+    imagen: "https://m.media-amazon.com/images/I/41DWEjHQUYL._AC_SL1200_.jpg",
+    marca: ["Xiaomi"],
+    urlAfiliado: "https://amzn.to/3GueVAL",
+    caracteristicas: {
+      modelo: "Xiaomi Vacuum e12",
+      conectividad_app: true,
+      control_voz: ["Alexa", "Google Assistant"],
+      potencia_succion_Pa: 4000,
+      navegacion: "Láser LDS",
+      modos_limpieza: ["aspira", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: [],
+      depositos: ["Polvo", "Agua"],
+      autonomia_min: 110,
+      cinta_magnetica: false,
+      dimensiones_cm: "35,0 x 35,0 x 9,45",
+      peso_kg: 4.8,
     },
-      {
-          name: "Xiaomi Robot Vacuum E12, Succión Potente hasta 4000 Pa, Control a través de la aplicación, Ruta de Limpieza eficiente",
-          price: 87.96,
-          currency: "EUR",
-          rating: 4,
-          num_reviews: 34,
-          imagen: "https://m.media-amazon.com/images/I/41DWEjHQUYL.__AC_SX300_SY300_QL70_ML2_.jpg",
-          "caracteristicas": {
-              "modos": "aspira y friega",
-              "potenciaSuccion": "4000 pa"
-          },
-          marca: "Xiaomi",
-          urlAffiliado: "https://amzn.to/4nOeGkN"
-      }
-  ]
+  },
+  {
+    name: "Xiaomi Robot Vacuum S10, Robot Aspirador y Fregasuelos",
+    shortDesc: "Robot aspirador y fregasuelos con 4000 Pa de succión y navegación Láser 3D.",
+    price: 159.99,
+    currency: "EUR",
+    rating: 4,
+    num_reviews: 146,
+    imagen: "https://m.media-amazon.com/images/I/41W1JSGIy3L._UF894,1000_QL80_.jpg",
+    marca: ["Xiaomi"],
+    urlAfiliado: "https://amzn.to/4kmz4GM",
+    caracteristicas: {
+      modelo: "Xiaomi Vacuum S10",
+      conectividad_app: true,
+      control_voz: ["Alexa", "Google Assistant"],
+      potencia_succion_Pa: 4000,
+      navegacion: "Láser 3D",
+      modos_limpieza: ["aspira", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: [],
+      depositos: ["Polvo", "Agua"],
+      autonomia_min: 150,
+      cinta_magnetica: false,
+      dimensiones_cm: "34,7 x 34,7 x 9,6",
+      peso_kg: 3.4,
+    },
+  },
+  {
+    name: "Cecotec Conga 8490 Ultimate Ultra Power",
+    shortDesc: "Robot aspirador y fregasuelos con 7000 Pa de succión, navegación láser y base de autovaciado.",
+    price: 167.65,
+    currency: "EUR",
+    rating: 3.9,
+    num_reviews: 950,
+    imagen: "https://m.media-amazon.com/images/I/81A+D-OxDiL._AC_SL1500_.jpg",
+    marca: ["cecotec conga"],
+    urlAfiliado: "https://amzn.to/3ZxvsKN",
+    slug: withDomain("/cecotec/conga-8490-ultimate-ultra-power/"),
+    caracteristicas: {
+      modelo: "Conga 8490 Ultimate Ultra Power",
+      conectividad_app: true,
+      control_voz: false,
+      potencia_succion_Pa: 7000,
+      navegacion: "Láser",
+      modos_limpieza: ["barre", "aspira", "friega", "pasa mopa"],
+      programacion_semanal: "Sí",
+      cepillos_principales: ["Central de silicona"],
+      depositos: ["Base de vaciado automático"],
+      autonomia_min: 170,
+      cinta_magnetica: false,
+      dimensiones_cm: "",
+      peso_kg: 0,
+    },
+  },
+  {
+    name: "Conga 999 Map X-Treme",
+    shortDesc: "Robot aspirador 5 en 1 con 2000 Pa, navegación giroscópica y control por app.",
+    price: 99.00,
+    currency: "EUR",
+    rating: 3.9,
+    num_reviews: 2920,
+    imagen: "https://m.media-amazon.com/images/I/91aX9IcU1aL._AC_SL1500_.jpg",
+    marca: ["cecotec conga"],
+    urlAfiliado: "https://amzn.to/460vsXs",
+    slug: withDomain("/cecotec/conga-999-map-x-treme/"),
+    caracteristicas: {
+      modelo: "Conga 999 Map X-Treme",
+      conectividad_app: true,
+      control_voz: false,
+      potencia_succion_Pa: 2000,
+      navegacion: "iTech 3.0 giroscópica",
+      modos_limpieza: ["barre", "aspira", "pasa mopa", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: ["2 cepillos laterales"],
+      depositos: ["Polvo", "Agua"],
+      autonomia_min: 120,
+      cinta_magnetica: false,
+      dimensiones_cm: "31,5 x 31,5 x 7,5",
+      peso_kg: 0,
+    },
+  },
+  {
+    name: "iRobot Roomba Combo Essential",
+    shortDesc: "Robot aspirador y fregasuelos con navegación inteligente y control por voz.",
+    price: 149.00,
+    currency: "EUR",
+    rating: 3.9,
+    num_reviews: 11697,
+    imagen: "https://m.media-amazon.com/images/I/713AuD2N13L._AC_SL1500_.jpg",
+    marca: ["Irobot Roomba Combo"],
+    urlAfiliado: "https://amzn.to/4ejQJ0E",
+    slug: withDomain("/irobot/roomba-combo/roomba-combo-essential/"),
+    caracteristicas: {
+      modelo: "iRobot Roomba Combo Essentia",
+      conectividad_app: true,
+      control_voz: ["Alexa", "Google Assistant"],
+      potencia_succion_Pa: 4000,
+      navegacion: "Smart Navigation",
+      modos_limpieza: ["aspira", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: ["Cepillos laterales"],
+      depositos: ["Polvo", "Agua"],
+      autonomia_min: 120,
+      cinta_magnetica: false,
+      dimensiones_cm: "33 x 33 x 8",
+      peso_kg: 2.8,
+    },
+  },
+  {
+    name: "Cecotec Conga 13090 Spin Revolution Home&Wash Essential",
+    shortDesc: "Robot aspirador con 7000 Pa, navegación láser y base de autovaciado y autolimpieza.",
+    price: 490,
+    currency: "EUR",
+    rating: 3.9,
+    num_reviews: 96,
+    imagen: "https://m.media-amazon.com/images/I/813EzCgPieL._AC_SL1500_.jpg",
+    marca: ["cecotec conga"],
+    urlAfiliado: "https://amzn.to/45BmPm6",
+    slug: withDomain("/cecotec/conga-13090-spin-revolution-home-wash-essential/"),
+    caracteristicas: {
+      modelo: "Conga 13090 Spin Revolution Home&Wash Essential",
+      conectividad_app: true,
+      control_voz: false,
+      potencia_succion_Pa: 7000,
+      navegacion: "Mapeo y navegación láser de precisión",
+      modos_limpieza: ["aspira", "friega"],
+      programacion_semanal: "Sí",
+      cepillos_principales: ["Cepillo lateral", "2 Mopas giratorias"],
+      depositos: ["Polvo", "Agua", "Base de vaciado automático"],
+      autonomia_min: 140,
+      cinta_magnetica: false,
+      dimensiones_cm: "35 x 34 x 11",
+      peso_kg: 11.2,
+    },
+  },
+  {
+    name: "iRobot Roomba j7 Robot Aspirador",
+    shortDesc: "Robot aspirador con navegación inteligente PrecisionVision™ para evitar obstáculos.",
+    price: 200.77,
+    currency: "USD",
+    rating: 3.4,
+    num_reviews: 70,
+    imagen: "https://m.media-amazon.com/images/I/71OiKl7u+UL._UF894,1000_QL80_.jpg",
+    marca: ["Irobot Roomba"],
+    urlAfiliado: "https://amzn.to/44gLvPU",
+    caracteristicas: {
+      modelo: "Roomba j7",
+      conectividad_app: true,
+      control_voz: ["Alexa", "Google Assistant"],
+      potencia_succion_Pa: 0,
+      navegacion: "Imprint® Smart Mapping con PrecisionVision™",
+      modos_limpieza: ["aspira"],
+      programacion_semanal: "Sí",
+      cepillos_principales: [],
+      depositos: ["Polvo"],
+      autonomia_min: 75,
+      cinta_magnetica: false,
+      dimensiones_cm: "33.8 x 8.7",
+      peso_kg: 3.4,
+    },
+  },
+  {
+    name: "iRobot Roomba j7+ Robot Aspirador con Vaciado Automático",
+    shortDesc: "Robot aspirador con base de vaciado automático y navegación inteligente PrecisionVision™.",
+    price: 258.77,
+    currency: "USD",
+    rating: 3.2,
+    num_reviews: 141,
+    imagen: "https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwb78d8e16/images/large/combo/c755840_1_new.jpg",
+    marca: ["Irobot Roomba"],
+    urlAfiliado: "https://amzn.to/44gLvPU",
+    caracteristicas: {
+      modelo: "Roomba j7+",
+      conectividad_app: true,
+      control_voz: ["Alexa", "Google Assistant"],
+      potencia_succion_Pa: 0,
+      navegacion: "Imprint® Smart Mapping con PrecisionVision™",
+      modos_limpieza: ["aspira"],
+      programacion_semanal: "Sí",
+      cepillos_principales: [],
+      depositos: ["Polvo", "Base de vaciado automático"],
+      autonomia_min: 75,
+      cinta_magnetica: false,
+      dimensiones_cm: "33.8 x 8.7",
+      peso_kg: 3.4,
+    },
+  },
+  {
+    name: "iRobot Roomba Vac 105 Robot Aspirador",
+    shortDesc: "Robot aspirador con 7000 Pa de succión y sistema de limpieza de 3 etapas.",
+    price: 160.55,
+    currency: "EUR",
+    rating: 4,
+    num_reviews: 365,
+    imagen: "https://www.irobot.es/on/demandware.static/-/Sites-master-catalog-irobot/default/dwc0309979/images/large/combo/Y351040_1.jpg",
+    marca: ["Irobot Roomba"],
+    urlAfiliado: "https://amzn.to/4ky1Rsk",
+    caracteristicas: {
+      modelo: "Roomba Vac 105",
+      conectividad_app: false,
+      control_voz: false,
+      potencia_succion_Pa: 7000,
+      navegacion: "Adaptable (no mapeo inteligente)",
+      modos_limpieza: ["aspira"],
+      programacion_semanal: "No",
+      cepillos_principales: [],
+      depositos: ["Polvo"],
+      autonomia_min: 60,
+      cinta_magnetica: false,
+      dimensiones_cm: "34 x 9",
+      peso_kg: 3,
+    },
+  },
+  {
+    name: "iRobot Roomba Vac 505 Robot Aspirador",
+    shortDesc: "Robot aspirador con 7000 Pa de succión y sistema de limpieza de 3 etapas.",
+    price: 549.00,
+    currency: "USD",
+    rating: 3.8,
+    num_reviews: 198,
+    imagen: "https://www.irobot.es/dw/image/v2/BFXP_PRD/on/demandware.static/-/Library-Sites-iRobotSharedLibrary/default/dwaacd777b/EMEA/Content%20Assets/Roomba_Plus_505_Combo_AutoWash_Black_Photo_InSitu_Dock_3000x3000.jpg?sw=1000",
+    marca: ["Irobot Roomba"],
+    urlAfiliado: "https://amzn.to/3Igq5JX",
+    caracteristicas: {
+      modelo: "roomba vac 505",
+      conectividad_app: false,
+      control_voz: false,
+      potencia_succion_Pa: 7000,
+      navegacion: "Adaptable (no mapeo inteligente)",
+      modos_limpieza: ["aspira"],
+      programacion_semanal: "No",
+      cepillos_principales: [],
+      depositos: ["Polvo"],
+      autonomia_min: 75,
+      cinta_magnetica: false,
+      dimensiones_cm: "34 x 9",
+      peso_kg: 3,
+    },
+  },
+];

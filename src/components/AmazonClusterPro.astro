@@ -15,7 +15,7 @@ const { products } = Astro.props as Props
         
         return (
         <article class="product-card">
-            <a href={product.urlAffiliado} target="_blank" rel="noopener noreferrer nofollow" class="product-link">
+            <a href={product.urlAfiliado} target="_blank" rel="noopener noreferrer nofollow" class="product-link">
                 <figure class="product-image-container">
                     <Image loading="lazy" width="250" height="250" src={product.imagen} alt={product.name} class="product-image" />
                 </figure>
@@ -33,7 +33,7 @@ const { products } = Astro.props as Props
                 </div>
             </a>
             <div class="product-actions">
-                <a href={product.urlAffiliado} target="_blank" rel="noopener noreferrer nofollow" class="btn btn-amazon">Ver en Amazon</a>
+                <a href={product.urlAfiliado} target="_blank" rel="noopener noreferrer nofollow" class="btn btn-amazon">Ver en Amazon</a>
             </div>
         </article>
     )})}
